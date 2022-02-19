@@ -13,7 +13,7 @@ public class moving : MonoBehaviour
     private bool isMoving = false; // 키 입력 받을때 움직임 체크 용도
     private float x, y;
     #endregion
-
+    //Github test
     #region Public
     public float movespeed = 2f;
     #endregion

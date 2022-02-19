@@ -12,14 +12,6 @@ public class AstarAI : MonoBehaviour
         // Update Test
         // Update Test
         // Update Test
-        // Update Test
-        // Update Test
-        // Update Test
-        // Update Test
-        // Update Test
-        // Update Test
-        // Update Test
-        // Update Test
     }
 
     // Update is called once per frame
