@@ -62,7 +62,7 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         playerHp = playerMaxHp;
-        playerHpSlider.value = 1f; // Ǯ HP
+        playerHpSlider.value = 1f;
     }
 
     private void Update()
@@ -87,5 +87,13 @@ public class PlayerStatus : MonoBehaviour
         yield return new WaitForSeconds(1f);
         stopDamage = false;
         rigidbody2D.mass = rigidbody2D.mass * 0.1f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Portal")
+        {
+            StageManager.Instance.MoveNextStage();
+        }
     }
 }

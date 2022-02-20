@@ -940,7 +940,7 @@ MonoBehaviour:
   UnitHpshow: {fileID: 604910213208478534}
   enemyMaxHp: 50
   enemyHp: 0
-  enemyMoveSpeed: 10
+  enemyMoveSpeed: 100
   enemyDamage: 10
 --- !u!1 &3269883360871387010
 GameObject:

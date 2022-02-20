@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public GameObject enemyManager;
+    private GameObject enemyManager;
     [SerializeField] GameObject dustukPrefab;   // ø©±‚ «¡∏Æ∆’ ≥÷æÓ¡‹.
     private Transform[] enemyTransforms;
 
@@ -18,8 +18,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             for (int i = 1; i < transform.childCount; i++)
             {
-                GameObject.Instantiate(dustukPrefab, enemyTransforms[i]).transform.parent = enemyManager.transform;
-                Debug.Log(enemyManager.transform.name);
+                GameObject.Instantiate(dustukPrefab, enemyTransforms[i].position,Quaternion.identity).transform.parent = enemyManager.transform;
             }
         }
     }
