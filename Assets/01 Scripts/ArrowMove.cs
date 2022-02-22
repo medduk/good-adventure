@@ -13,42 +13,33 @@ public class ArrowMove : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
-    void Start()
-    {
-        StartCoroutine(remove());
-        Damage = PlayerStatus.Instance.GetPlayerDamage();
-        float angle = (Mathf.Atan2(targetDir2D.y, targetDir2D.x) * Mathf.Rad2Deg);
-        Quaternion angleAxis = Quaternion.AngleAxis(angle - 180, Vector3.forward);
-        transform.rotation = angleAxis;
-        
 
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(Damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
+    public void StartArrow(Vector2 enemyPosition)
+    {
+        targetDir2D = enemyPosition;
+
+        Damage = PlayerStatus.Instance.GetPlayerDamage();
+        float angle = (Mathf.Atan2(targetDir2D.y, targetDir2D.x) * Mathf.Rad2Deg);
+        Quaternion angleAxis = Quaternion.AngleAxis(angle - 180, Vector3.forward);
+        transform.rotation = angleAxis;
+    }
+
     void FixedUpdate()
     {
         rigidbody2D.velocity = targetDir2D.normalized * arrowSpeed * 30f * Time.fixedDeltaTime;
     }
-    IEnumerator remove()
-    {
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
-    }
 
-    public void SetTargetDirection(Vector2 enemyPosition)
-    {
-        targetDir2D = enemyPosition;
-        
-    }
 }
 

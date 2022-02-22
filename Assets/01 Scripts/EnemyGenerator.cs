@@ -14,11 +14,16 @@ public class EnemyGenerator : MonoBehaviour
         enemyManager = GameObject.Find("EnemyManager");
 
         enemyTransforms = GetComponentsInChildren<Transform>(); // 이거 자기자신까지 가져옴 그래서 0이아니라 1부터 시작해야할듯.
+    }
+
+    private void Start()
+    {
         if (transform.childCount > 1)
         {
-            for (int i = 1; i < transform.childCount; i++)
+            Debug.Log(transform.childCount);
+            for (int i = 1; i <= transform.childCount; i++)
             {
-                GameObject.Instantiate(dustukPrefab, enemyTransforms[i].position,Quaternion.identity).transform.parent = enemyManager.transform;
+                GameObject.Instantiate(dustukPrefab, enemyTransforms[i].position, Quaternion.identity).transform.parent = enemyManager.transform;
             }
         }
     }

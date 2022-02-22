@@ -937,7 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHpSlider: {fileID: 3269883361432978557}
   BackenemyHpSlider: {fileID: 4817877942221959301}
-  UnitHpshow: {fileID: 604910213208478534}
+  UnitHpShow: {fileID: 604910213208478534}
   enemyMaxHp: 50
   enemyHp: 0
   enemyMoveSpeed: 10

@@ -39,7 +39,10 @@ public class StageManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        PlayerPrefs.SetInt("ChapterIndex", 0);
+        PlayerPrefs.SetInt("StageIndex", 0);
+
+        if (instance == null)
         {
             instance = this;
         }
@@ -95,20 +98,22 @@ public class StageManager : MonoBehaviour
         if (isClear)
         {
             mapVal.gameObject.SetActive(false);
-            if(stageIndex < maxStage)
+            if(++stageIndex < maxStage)
             {
-                PlayerPrefs.SetInt("StageIndex", ++stageIndex);
+                PlayerPrefs.SetInt("StageIndex", stageIndex);
             }
             else
             {
-                if(chapterIndex<maxChapter)
+                if(++chapterIndex<maxChapter)
                 {
-                    PlayerPrefs.SetInt("ChapterIndex", ++chapterIndex);
+                    PlayerPrefs.SetInt("ChapterIndex", chapterIndex);
                     PlayerPrefs.SetInt("StageIndex", 0);
                 }
                 else
                 {
                     Debug.Log("개발 중");
+                    PlayerPrefs.SetInt("ChapterIndex", 0);
+                    PlayerPrefs.SetInt("StageIndex", 0);
                 }
             }
             SetMap();
