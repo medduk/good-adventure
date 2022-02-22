@@ -16,7 +16,6 @@ public class StageManager : MonoBehaviour
     private GameObject player;
 
     public GameObject enemyManager;
-    private bool enemyInfoLoaded = false;
 
     private bool isClear = false;
 
@@ -79,7 +78,6 @@ public class StageManager : MonoBehaviour
     IEnumerator CheckEnemyLoading()
     {
         yield return new WaitUntil(() => (enemyManager.transform.childCount != 0));
-        enemyInfoLoaded = true;
 
         StartCoroutine(StageClear());
     }

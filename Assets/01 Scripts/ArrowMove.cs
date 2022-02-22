@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowMove : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
 
     private Vector2 targetDir2D;
     private int Damage;

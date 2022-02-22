@@ -5,7 +5,7 @@ using System.Linq;
 
 public class MainFmAttack : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
@@ -15,7 +15,6 @@ public class MainFmAttack : MonoBehaviour
     private float arrowDelay;    // 화살 공격 쿨타임
 
     private RaycastHit2D raycastHit2D;
-    private bool isContacting = false;
 
     List<GameObject> enemys = new List<GameObject>();
     private Vector2 enemyPosition;

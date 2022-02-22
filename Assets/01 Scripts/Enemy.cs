@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     private int unitHp = 50; 
 
     private Animator animator;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     private CircleCollider2D circleCollider2D;
     private SpriteRenderer spriteRenderer;
     private RectTransform ImporUnitHP;
@@ -15,19 +15,21 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] Slider enemyHpSlider;
     [SerializeField] Slider BackenemyHpSlider;
-    [SerializeField] GameObject UnitHpshow;
+    [SerializeField] GameObject UnitHpShow;
 
 
     [SerializeField] int enemyMaxHp = 100;
     [SerializeField] int enemyHp;
     [SerializeField] float enemyMoveSpeed = 10f;
     [SerializeField] int enemyDamage = 10;
+    private int curX, curY;
+    private float dontMoveTime = 0f;
 
     List<Enemy> enemyFriends = new List<Enemy>(); // 일점범위내 팀이 맞을때 감지
 
     static WaitForSeconds sec;
 
-    private bool backHpswitch = false;
+    private bool backHpswidth = false;
     private bool playerCheck = false;
     private bool stopMove = false;
     private GameObject player;
@@ -75,6 +77,9 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        curX = (int)transform.position.x;
+        curY = (int)transform.position.y;
+        
         if (playerCheck && !stopMove)
         {
             animator.SetBool("IsWalking", true);
@@ -87,9 +92,9 @@ public class Enemy : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
             }
-            rigidbody2D.velocity = playerDir.normalized * enemyMoveSpeed * Time.fixedDeltaTime;
+            rigidbody2D.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * (enemyMoveSpeed * 0.1f));
+            //rigidbody2D.velocity = (player.transform.position - transform.position) * Time.deltaTime * enemyMoveSpeed;
         }
-        
     }
     private void Start()
     {
@@ -97,19 +102,19 @@ public class Enemy : MonoBehaviour
         enemyHp = enemyMaxHp;
         enemyHpSlider.value = 1f; // 풀 HP
         BackenemyHpSlider.value = 1f;
-        ImporUnitHP = UnitHpshow.GetComponent<RectTransform>();
+        ImporUnitHP = UnitHpShow.GetComponent<RectTransform>();
         Sildershow = enemyHpSlider.GetComponent<RectTransform>();
         HpBarUnit();
     }
     private void Update()
     {
         
-        if (backHpswitch)
+        if (backHpswidth)
         {
             BackenemyHpSlider.value = Mathf.Lerp(BackenemyHpSlider.value, (float)enemyHp / enemyMaxHp, Time.deltaTime * 10f);
             if (enemyHpSlider.value >= BackenemyHpSlider.value - 0.01f)
             {
-                backHpswitch = false;
+                backHpswidth = false;
                 BackenemyHpSlider.value = enemyHpSlider.value;
             }
         }
@@ -162,16 +167,16 @@ public class Enemy : MonoBehaviour
     IEnumerator BackHpRun()
     {
         yield return new WaitForSeconds(0.1f);
-        backHpswitch = true;
+        backHpswidth = true;
     }
     private void HpBarUnit()
     {
         float scaleX = 5.0f / ((float)enemyMaxHp / (float)unitHp);
-        UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(false);
-        foreach (Transform child in UnitHpshow.transform)
+        UnitHpShow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(false);
+        foreach (Transform child in UnitHpShow.transform)
         {
             child.gameObject.transform.localScale = new Vector3(scaleX, 1, 1);
         }
-        UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(true);
+        UnitHpShow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(true);
     }
 }

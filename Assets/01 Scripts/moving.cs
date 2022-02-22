@@ -24,11 +24,6 @@ public class moving : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

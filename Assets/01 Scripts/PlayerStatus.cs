@@ -13,13 +13,14 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] float playerMoveSpeed = 2f;
     [SerializeField] float playerAttackDelay = 1f;    
 
+
     [SerializeField] float playerDefense;
 
     private bool stopDamage = false;
 
     private static PlayerStatus instance = null;
     private Animator animator;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     public int GetPlayerHp()
     {
         return playerHp;
