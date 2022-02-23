@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class moving : MonoBehaviour
 {
-    // Start is called before the first frame update
     #region Private
     private Rigidbody2D rigibody2D;
     private SpriteRenderer spriteRenderer;
@@ -27,6 +26,10 @@ public class moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
         rigibody2D.velocity = Vector2.zero;
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
@@ -35,12 +38,11 @@ public class moving : MonoBehaviour
             isMoving = true;
             animator.SetBool("IsWalking", true);
         }
-        else 
-        { 
+        else
+        {
             isMoving = false;
             animator.SetBool("IsWalking", false);
         }
-
     }
     private void FixedUpdate()
     {
@@ -58,7 +60,7 @@ public class moving : MonoBehaviour
         if(xDirection > 0)
             spriteRenderer.flipX = true;
 
-        rigibody2D.MovePosition(rigibody2D.position + inputPosition * movespeed * Time.fixedDeltaTime);
+        rigibody2D.MovePosition(rigibody2D.position + inputPosition * movespeed * Time.deltaTime);
 
     }
 }

@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     private GameObject player;
 
     public GameObject enemyManager;
+    public Transform mapManager;
 
     private bool isClear = false;
 
@@ -25,6 +26,7 @@ public class StageManager : MonoBehaviour
     private int chapterIndex;
     private int stageIndex;
     private Transform mapVal;
+    private int randomMapIndex;
 
     private static StageManager instance = null;
     public static StageManager Instance
@@ -37,10 +39,15 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    private void InitIndex(int index = 0)
+    {
+        PlayerPrefs.SetInt("ChapterIndex", index);
+        PlayerPrefs.SetInt("StageIndex", index);
+    }
+
     private void Awake()
     {
-        PlayerPrefs.SetInt("ChapterIndex", 0);
-        PlayerPrefs.SetInt("StageIndex", 0);
+        InitIndex();
 
         if (instance == null)
         {
@@ -58,22 +65,28 @@ public class StageManager : MonoBehaviour
 
         SetMap();
     }
-
-    private void SetMap()
+    private void SetMap(int _mapIndex = -1)
     {
         isClear = false;
+        int mapIndex = _mapIndex;
         player.transform.position = Vector3.zero;
 
         // Get the Info of 'stage' and 'chapter'
         chapterIndex = PlayerPrefs.GetInt("ChapterIndex", 0);
         stageIndex = PlayerPrefs.GetInt("StageIndex", 0);
 
-        int randomMapIndex = UnityEngine.Random.Range(0, chapters[chapterIndex].stagePrefabs[stageIndex].transform.childCount);
+        if (_mapIndex < 0)
+        {
+            randomMapIndex = UnityEngine.Random.Range(0, chapters[chapterIndex].stagePrefabs[stageIndex].transform.childCount);
+            mapIndex = randomMapIndex;
+        }
+        PlayerPrefs.SetInt("MapIndex", mapIndex);
 
         Debug.Log("챕터 번호: " + chapterIndex + " 스테이지 번호: " + stageIndex + " 랜덤맵번호:" + randomMapIndex);
 
-        mapVal = Instantiate(chapters[chapterIndex].stagePrefabs[stageIndex].transform.GetChild(randomMapIndex));
-        mapVal.gameObject.SetActive(true);
+        mapVal = Instantiate(chapters[chapterIndex].stagePrefabs[stageIndex].transform.GetChild(mapIndex));
+        mapVal.SetParent(mapManager);
+        mapVal.gameObject.SetActive(true); 
 
         StartCoroutine(CheckEnemyLoading());
     }
@@ -81,6 +94,7 @@ public class StageManager : MonoBehaviour
     IEnumerator CheckEnemyLoading()
     {
         yield return new WaitUntil(() => (enemyManager.transform.childCount != 0));
+        player.transform.position = mapVal.transform.Find("StartPoint").position;
 
         StartCoroutine(StageClear());
     }
@@ -112,11 +126,38 @@ public class StageManager : MonoBehaviour
                 else
                 {
                     Debug.Log("개발 중");
-                    PlayerPrefs.SetInt("ChapterIndex", 0);
-                    PlayerPrefs.SetInt("StageIndex", 0);
+                    InitIndex();
                 }
             }
             SetMap();
         }
+    }
+
+    public void RestartGame(bool isDev = false)
+    {
+        foreach(Transform et in enemyManager.GetComponentInChildren<Transform>())
+        {
+            if(et.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                Destroy(et.gameObject);
+            }
+        }
+
+        Destroy(mapVal.gameObject);
+        if (isDev)
+        {
+            /*완전 초기화 이므로 전부 삭제*/
+            foreach (Transform mt in mapManager.GetComponentInChildren<Transform>())
+            {
+                if (mt.name.Contains("stage"))
+                {
+                    Destroy(mt.gameObject);
+                }
+            }
+            InitIndex();
+            SetMap();
+            return;
+        }
+        SetMap(PlayerPrefs.GetInt("MapIndex"));
     }
 }

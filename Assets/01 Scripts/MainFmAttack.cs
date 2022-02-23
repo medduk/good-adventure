@@ -9,7 +9,6 @@ public class MainFmAttack : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
-
     
     public GameObject arrowPrefab;  // 화살 프리팹을 넣어줘야 함.
     private float arrowDelay;    // 화살 공격 쿨타임
@@ -36,8 +35,6 @@ public class MainFmAttack : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         quiver = new Queue<GameObject>();
-
-
     }
 
     private void Start()
@@ -54,7 +51,6 @@ public class MainFmAttack : MonoBehaviour
             InitArrow(arrow);   
         }
     }
-    
     private void InitArrow(GameObject arrow)
     {
         arrow.transform.SetParent(quiverObject);

@@ -3,7 +3,8 @@ guid: 0064b2f6f0c518c4a8d79eb7ce8c2641
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dustukPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -22,10 +22,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] int enemyHp;
     [SerializeField] float enemyMoveSpeed = 10f;
     [SerializeField] int enemyDamage = 10;
-    private int curX, curY;
-    private float dontMoveTime = 0f;
 
-    List<Enemy> enemyFriends = new List<Enemy>(); // 일점범위내 팀이 맞을때 감지
+    List<Enemy> enemyFriends = new List<Enemy>(); // 일정범위내 팀이 맞을때 감지
 
     static WaitForSeconds sec;
 
@@ -72,14 +70,12 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             PlayerStatus.Instance.TakeDamage(enemyDamage);
+            rigidbody2D.velocity = Vector2.zero;
         }
 
     }
     private void FixedUpdate()
     {
-        curX = (int)transform.position.x;
-        curY = (int)transform.position.y;
-        
         if (playerCheck && !stopMove)
         {
             animator.SetBool("IsWalking", true);
@@ -108,7 +104,6 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        
         if (backHpswidth)
         {
             BackenemyHpSlider.value = Mathf.Lerp(BackenemyHpSlider.value, (float)enemyHp / enemyMaxHp, Time.deltaTime * 10f);

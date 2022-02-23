@@ -7,23 +7,33 @@ public class EnemyGenerator : MonoBehaviour
 {
     private GameObject enemyManager;
     [SerializeField] GameObject dustukPrefab;   // 여기 프리팹 넣어줌.
-    private Transform[] enemyTransforms;
+    public Transform[] enemyTransforms;
 
     private void Awake()
     {
         enemyManager = GameObject.Find("EnemyManager");
 
-        enemyTransforms = GetComponentsInChildren<Transform>(); // 이거 자기자신까지 가져옴 그래서 0이아니라 1부터 시작해야할듯.
+        enemyTransforms = new Transform[transform.childCount+1];
+
+        int i = 0;
+        foreach (Transform et in transform.GetComponentsInChildren<Transform>())
+        {
+            if(et.name.Contains("EnemyPosition"))
+            {
+                enemyTransforms[i] = et;
+                i++;
+            }
+        }
     }
 
     private void Start()
     {
         if (transform.childCount > 1)
         {
-            Debug.Log(transform.childCount);
             for (int i = 1; i <= transform.childCount; i++)
             {
-                GameObject.Instantiate(dustukPrefab, enemyTransforms[i].position, Quaternion.identity).transform.parent = enemyManager.transform;
+                GameObject enemy = Instantiate(dustukPrefab, enemyTransforms[i].position, Quaternion.identity);
+                enemy.transform.SetParent(enemyManager.transform);
             }
         }
     }

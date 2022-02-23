@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustukPrefab: {fileID: 3269883360845180404, guid: 27ea7196eafab324085ebbf7d6153453, type: 3}
+  enemyTransforms: []
