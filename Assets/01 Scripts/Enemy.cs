@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
-    private int unitHp = 50; 
+    private int unitHp = 200; 
 
     private Animator animator;
     private Rigidbody2D rigidbody2D;
@@ -166,7 +166,7 @@ public class Enemy : MonoBehaviour
     }
     private void HpBarUnit()
     {
-        float scaleX = 5.0f / ((float)enemyMaxHp / (float)unitHp);
+        float scaleX = 1.5f / ((float)enemyMaxHp / (float)unitHp);
         UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(false);
         foreach (Transform child in UnitHpshow.transform)
         {
