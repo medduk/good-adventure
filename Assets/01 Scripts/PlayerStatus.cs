@@ -19,7 +19,7 @@ public class PlayerStatus : MonoBehaviour
 
     private static PlayerStatus instance = null;
     private Animator animator;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     public int GetPlayerHp()
     {
         return playerHp;
@@ -87,5 +87,12 @@ public class PlayerStatus : MonoBehaviour
         yield return new WaitForSeconds(1f);
         stopDamage = false;
         rigidbody2D.mass = rigidbody2D.mass * 0.1f;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Portal")
+        {
+            StageManager.Instance.MoveNextStage();
+        }
     }
 }

@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] Chapter[] chapters;
     private GameObject player;
+    private GameObject portal;
 
     public GameObject enemyManager;
     public Transform mapManager;
@@ -94,6 +95,8 @@ public class StageManager : MonoBehaviour
     {
         yield return new WaitUntil(() => (enemyManager.transform.childCount != 0));
         player.transform.position = mapVal.transform.Find("StartPoint").position;
+        portal = mapVal.transform.Find("Portal").gameObject;
+        portal.SetActive(false);
 
         StartCoroutine(StageClear());
     }
@@ -102,6 +105,7 @@ public class StageManager : MonoBehaviour
     {
         yield return new WaitUntil(() => enemyManager.transform.childCount == 0);
         Debug.Log("스테이지 클리어!");
+        portal.SetActive(true);
 
         isClear = true;
     }
