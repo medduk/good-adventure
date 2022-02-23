@@ -1200,7 +1200,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.014301598, y: 0.008978903}
-  m_Size: {x: 0.30692255, y: 0.7741616}
+  m_Size: {x: 0.30692255, y: 0.7041616}
   m_Direction: 0
 --- !u!114 &1599125443
 MonoBehaviour:
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb108f59d1aa89949beed6110f1d1793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 20
+  movespeed: 2
 --- !u!95 &1599125444
 Animator:
   serializedVersion: 3
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   playerHp: 0
   playerDamage: 50
   playerMoveSpeed: 20
-  playerAttackDelay: 0.1
+  playerAttackDelay: 1
   playerDefense: 0
 --- !u!114 &1599125448
 MonoBehaviour:
