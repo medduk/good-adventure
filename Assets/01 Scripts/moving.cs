@@ -32,6 +32,10 @@ public class moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         rigibody2D.velocity = Vector2.zero;
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");

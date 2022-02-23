@@ -5,23 +5,28 @@ using System.Linq;
 
 public class MainFmAttack : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
 
-    
     public GameObject arrowPrefab;  // 화살 프리팹을 넣어줘야 함.
     private float arrowDelay;    // 화살 공격 쿨타임
+    public Transform quiverObject;
+    Queue<GameObject> quiver;
+    [Tooltip("Warning! It's needed at leat more than 6")]
+    public int arrowPoolingCount;
 
     private RaycastHit2D raycastHit2D;
-    private bool isContacting = false;
 
     List<GameObject> enemys = new List<GameObject>();
     private Vector2 enemyPosition;
 
     private float timer;
     private bool isAttacking = false;
+
+    public float arrowAliveTime;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -29,18 +34,35 @@ public class MainFmAttack : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        quiver = new Queue<GameObject>();
     }
 
     private void Start()
     {
-        arrowDelay = PlayerStatus.Instance.GetPlayerAttackDelay();   
+        arrowDelay = PlayerStatus.Instance.GetPlayerAttackDelay();
+
+        SaveQueue(arrowPoolingCount);
     }
+    private void SaveQueue(int arrowsCount)
+    {
+        for (int i = 0; i < arrowsCount; i++)
+        {
+            GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+            InitArrow(arrow);
+        }
+    }
+    private void InitArrow(GameObject arrow)
+    {
+        arrow.transform.SetParent(quiverObject);
+        arrow.transform.position = quiverObject.position;
+        arrow.SetActive(false);
+        quiver.Enqueue(arrow);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            
- 
             raycastHit2D = Physics2D.Raycast(transform.position, enemyPosition, 100, LayerMask.GetMask("Enemy"));
 
             if (!enemys.Contains(collision.gameObject))
@@ -67,8 +89,7 @@ public class MainFmAttack : MonoBehaviour
             isAttacking = false;
         }
 
-
-        if (timer >= arrowDelay && enemys.Count !=0)
+        if (timer >= arrowDelay && enemys.Count != 0)
         {
             if (!animator.GetBool("IsWalking"))
             {
@@ -87,7 +108,7 @@ public class MainFmAttack : MonoBehaviour
         enemyPosition = FindNearestObject(enemys).GetComponent<Rigidbody2D>().position;
         enemyPosition -= rigidbody2D.position;
 
-        if(enemyPosition.x > 0)
+        if (enemyPosition.x > 0)
         {
             spriteRenderer.flipX = true;
         }
@@ -96,7 +117,6 @@ public class MainFmAttack : MonoBehaviour
             spriteRenderer.flipX = false;
         }
         StartCoroutine(ShootArrow());
- 
     }
 
     IEnumerator ShootArrow()
@@ -107,11 +127,29 @@ public class MainFmAttack : MonoBehaviour
         if (isAttacking)
         {
             audioSource.Play();
-            GameObject arrowObj = Instantiate(arrowPrefab, transform.position, Quaternion.identity);  // 화살 오브젝트 생성.
-            ArrowMove arrowMove = arrowObj.GetComponent<ArrowMove>();
-            arrowMove.SetTargetDirection(enemyPosition);     // 화살은 적의 위치로 이동이 아니라 적 방향으로 날라가야함.
+            if (quiver.Count > 0)
+            {
+                GameObject arrow = quiver.Dequeue();
+                arrow.transform.SetParent(null);
+                arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                arrow.SetActive(true);
+                StartCoroutine(ReturnArrow(arrow));
+            }
+            else
+            {
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                InitArrow(arrow);
+            }
         }
     }
+
+    IEnumerator ReturnArrow(GameObject arrow)
+    {
+        WaitForSeconds sec = new WaitForSeconds(arrowAliveTime);
+        yield return sec;
+        InitArrow(arrow);
+    }
+
     private GameObject FindNearestObject(List<GameObject> objects)
     {
         var neareastObject = objects
