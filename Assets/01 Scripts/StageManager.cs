@@ -187,6 +187,11 @@ public class StageManager : MonoBehaviour
             SetMap();
             return;
         }
+        if(wasHidden)
+        {
+            SetHiddenMap();
+            return;
+        }
         SetMap(PlayerPrefs.GetInt("MapIndex"));
     }
 }

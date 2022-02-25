@@ -64,4 +64,12 @@ public class GameManager : MonoBehaviour
         StageManager.Instance.RestartGame(true);
     }
 
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }

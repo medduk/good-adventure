@@ -16,6 +16,8 @@ public class moving : MonoBehaviour
     //Github test
     #region Public
     public float movespeed = 2f;
+    public Joystick joystick;
+
     #endregion
     private void Awake()
     {
@@ -37,8 +39,14 @@ public class moving : MonoBehaviour
             return;
         }
         rigibody2D.velocity = Vector2.zero;
+
+#if UNITY_ANDROID
+        x = joystick.Horizontal;
+        y = joystick.Vertical;
+#else
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
+#endif
         if (x != 0 || y != 0)
         {
             isMoving = true;
