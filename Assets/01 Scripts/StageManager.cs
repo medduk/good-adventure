@@ -63,11 +63,11 @@ public class StageManager : MonoBehaviour
         maxChapter = chapters.Length;
         maxStage = chapters[chapterIndex].stagePrefabs.Length;
 
-
         SetMap();
     }
     private void SetMap(int _mapIndex = -1)
     {
+        player.transform.position = new Vector2(100, 100);
         isClear = false;
         int mapIndex = _mapIndex;
 
