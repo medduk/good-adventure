@@ -27,6 +27,8 @@ public class MainFmAttack : MonoBehaviour
 
     public float arrowAliveTime;
 
+    private bool isGameOver = false;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -35,6 +37,8 @@ public class MainFmAttack : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         quiver = new Queue<GameObject>();
+
+        isGameOver = false;
     }
 
     private void Start()
@@ -82,6 +86,10 @@ public class MainFmAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isGameOver)
+        {
+            return;
+        }
         timer += Time.deltaTime;    // 공격 딜레이를 위한 타이머
 
         if (animator.GetBool("IsWalking"))
@@ -160,5 +168,10 @@ public class MainFmAttack : MonoBehaviour
         .FirstOrDefault();
 
         return neareastObject;
+    }
+
+    public void SetGameOver()
+    {
+        isGameOver = true;
     }
 }

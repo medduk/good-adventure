@@ -20,6 +20,9 @@ public class PlayerStatus : MonoBehaviour
     private static PlayerStatus instance = null;
     private Animator animator;
     private new Rigidbody2D rigidbody2D;
+
+    private bool isGameOver = false;
+
     public int GetPlayerHp()
     {
         return playerHp;
@@ -58,11 +61,13 @@ public class PlayerStatus : MonoBehaviour
         }
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        isGameOver = false;
     }
     private void Start()
     {
         playerHp = playerMaxHp;
-        playerHpSlider.value = 1f; // Ǯ HP
+        playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
     }
 
     private void Update()
@@ -75,8 +80,14 @@ public class PlayerStatus : MonoBehaviour
         {
             playerHp -= damage;
 
-
             animator.SetTrigger("IsHit");
+            if (playerHp <= 0 && !isGameOver)
+            {
+                isGameOver = true;
+                GameManager.Instance.SetGameOver();
+                gameObject.GetComponent<moving>().SetGameOver();
+                gameObject.GetComponent<MainFmAttack>().SetGameOver();
+            }
             StartCoroutine(StopDamage());
         }
     }

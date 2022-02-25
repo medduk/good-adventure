@@ -18,49 +18,55 @@ public class moving : MonoBehaviour
     public float movespeed = 2f;
     public Joystick joystick;
 
+    private bool isGameOver = false;
+
     #endregion
     private void Awake()
     {
         rigibody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        isGameOver = false;
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (isGameOver)
+        {
+            animator.SetBool("IsWalking", false);
+            return;
+        }
         if (Time.timeScale == 0)
         {
             return;
         }
         rigibody2D.velocity = Vector2.zero;
 
-#if UNITY_ANDROID
+#if UNITY_EDITOR
+        x = joystick.Horizontal + Input.GetAxisRaw("Horizontal");
+        y = joystick.Vertical + Input.GetAxisRaw("Vertical");
+#else
         x = joystick.Horizontal;
         y = joystick.Vertical;
-#else
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
 #endif
         if (x != 0 || y != 0)
         {
             isMoving = true;
             animator.SetBool("IsWalking", true);
         }
-        else 
+        else
         { 
             isMoving = false;
             animator.SetBool("IsWalking", false);
         }
-
     }
     private void FixedUpdate()
     {
+        if(isGameOver)
+        {
+            return;
+        }
         if (isMoving)
         {
             Move(x);
@@ -77,5 +83,9 @@ public class moving : MonoBehaviour
 
         rigibody2D.MovePosition(rigibody2D.position + inputPosition * movespeed * Time.fixedDeltaTime);
 
+    }
+    public void SetGameOver()
+    {
+        isGameOver = true;
     }
 }

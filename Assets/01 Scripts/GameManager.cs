@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject puaseImage;
+    public GameObject pauseImage;
+    public GameObject gameOverImage;
 
     public bool isPaused = false;
+
+    private bool isGameOver = false;
 
     private static GameManager instance = null;
     public static GameManager Instance
@@ -32,13 +36,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        puaseImage.SetActive(false);
+        pauseImage.SetActive(false);
+        gameOverImage.SetActive(false);
     }
 
     private void SwitchPause(bool check)
     {
         isPaused = check;
-        puaseImage.SetActive(check);
+        pauseImage.SetActive(check);
     }
 
     public void Puase()
@@ -54,14 +59,27 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
+
     public void RestartMap()
     {
         StageManager.Instance.RestartGame();
+        pauseImage.SetActive(false);
     }
 
     public void InitGame()
     {
         StageManager.Instance.RestartGame(true);
+        pauseImage.SetActive(false);
+        if (isGameOver)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+
+    public void SetGameOver()
+    {
+        gameOverImage.SetActive(true);
+        isGameOver = true;
     }
 
     public void ExitGame()
