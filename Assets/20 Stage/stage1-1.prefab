@@ -39879,6 +39879,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemys
       objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3269883360845180404, guid: 27ea7196eafab324085ebbf7d6153453, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3269883360845180404, guid: a1f0f027deb3cec4daebbb1eb5c5dfc1, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
 --- !u!4 &3434855418360563546 stripped
@@ -39945,6 +39969,30 @@ PrefabInstance:
       propertyPath: dustukPrefab
       value: 
       objectReference: {fileID: 3269883360845180404, guid: a1f0f027deb3cec4daebbb1eb5c5dfc1, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3269883360845180404, guid: 27ea7196eafab324085ebbf7d6153453, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3269883360845180404, guid: a1f0f027deb3cec4daebbb1eb5c5dfc1, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
 --- !u!4 &3722711357281723818 stripped
@@ -40006,6 +40054,30 @@ PrefabInstance:
     - target: {fileID: 4852046244789888510, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
       propertyPath: m_Name
       value: Enemys
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3269883360845180404, guid: 27ea7196eafab324085ebbf7d6153453, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3269883360845180404, guid: a1f0f027deb3cec4daebbb1eb5c5dfc1, type: 3}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199155193955883329, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
+      propertyPath: monsterChance.Array.data[1]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9a7983d6afd494a98d2e4e66f5eb77, type: 3}
