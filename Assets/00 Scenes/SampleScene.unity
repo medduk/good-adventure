@@ -1321,7 +1321,7 @@ MonoBehaviour:
   playerHp: 0
   playerDamage: 50
   playerMoveSpeed: 20
-  playerAttackDelay: 1
+  playerAttackDelay: 0.5
   playerDefense: 0
 --- !u!114 &1599125448
 MonoBehaviour:
@@ -1468,9 +1468,10 @@ MonoBehaviour:
   chapters:
   - stagePrefabs:
     - {fileID: 1501456562296361320, guid: 9958e0949546c064cbe9532105013002, type: 3}
-    - {fileID: 6644737410764453019, guid: 0bd2f3f7f60d46541b64828044547302, type: 3}
-    - {fileID: 1100256698609705140, guid: fc17ba12b01c89b42a111d2162c6df86, type: 3}
-    - {fileID: 2149111103636952318, guid: 76892193f6caa7a48a921a642dd994d5, type: 3}
+  hiddenMapPrefabs:
+  - {fileID: 683067134230709025, guid: f1c1d72ac1b70de4e9206102d8164c42, type: 3}
+  randomMaxRange: 5
+  wasHidden: 0
   enemyManager: {fileID: 1655073360}
   mapManager: {fileID: 1474187457}
 --- !u!4 &1614892375

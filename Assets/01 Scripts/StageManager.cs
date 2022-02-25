@@ -13,6 +13,10 @@ class Chapter
 public class StageManager : MonoBehaviour
 {
     [SerializeField] Chapter[] chapters;
+    [SerializeField] GameObject[] hiddenMapPrefabs;
+    public int randomMaxRange = 10;
+    [SerializeField] bool wasHidden = false;
+
     private GameObject player;
     private GameObject portal;
 
@@ -93,7 +97,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator CheckEnemyLoading()
     {
-        yield return new WaitUntil(() => (enemyManager.transform.childCount != 0));
+        yield return new WaitUntil(() => mapVal.gameObject.activeSelf == true);
         player.transform.position = mapVal.transform.Find("StartPoint").position;
         portal = mapVal.transform.Find("Portal").gameObject;
         portal.SetActive(false);
@@ -115,6 +119,18 @@ public class StageManager : MonoBehaviour
         if (isClear)
         {
             mapVal.gameObject.SetActive(false);
+
+            /* Random Hidden Map Access */
+            int hidden = (int)UnityEngine.Random.Range(0, randomMaxRange);
+            if (hidden == 0 && !wasHidden)
+            {
+                wasHidden = true;
+                SetHiddenMap();
+                return;
+            }
+
+            wasHidden = false;
+
             if (++stageIndex < maxStage)
             {
                 PlayerPrefs.SetInt("StageIndex", stageIndex);
@@ -134,6 +150,16 @@ public class StageManager : MonoBehaviour
             }
             SetMap();
         }
+    }
+
+    void SetHiddenMap(int hiddenMapIndex = 0)
+    {
+        mapVal = Instantiate(hiddenMapPrefabs[hiddenMapIndex]).transform;
+        mapVal.SetParent(mapManager);
+        mapVal.gameObject.SetActive(true);
+        player.transform.position = mapVal.transform.Find("StartPoint").position;
+
+        StartCoroutine(CheckEnemyLoading());
     }
 
     public void RestartGame(bool isDev = false)
