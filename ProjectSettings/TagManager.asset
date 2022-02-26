@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Detecter
   - Portal
+  - Tutorial
   layers:
   - Default
   - TransparentFX

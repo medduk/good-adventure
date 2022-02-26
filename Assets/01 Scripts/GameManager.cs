@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
+    public Button btn;
+    public Sprite[] img;
+
     public GameObject pauseImage;
     public GameObject gameOverImage;
+    public DialogManager dialogManager;
 
     public bool isPaused = false;
 
@@ -52,11 +58,14 @@ public class GameManager : MonoBehaviour
 
         if (isPaused)
         {
+            btn.GetComponent<Image>().sprite = img[0];
             Time.timeScale = 0f;
+            
         }
         else
         {
             Time.timeScale = 1f;
+            btn.GetComponent<Image>().sprite = img[1];
         }
     }
 
@@ -68,10 +77,11 @@ public class GameManager : MonoBehaviour
 
     public void InitGame()
     {
+        dialogManager.tutoNumber = 0;
         StageManager.Instance.RestartGame(true);
         pauseImage.SetActive(false);
         if (isGameOver)
-        {
+        {   
             SceneManager.LoadScene("SampleScene");
         }
     }

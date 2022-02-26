@@ -23,6 +23,8 @@ public class PlayerStatus : MonoBehaviour
 
     private bool isGameOver = false;
 
+    public DialogManager dialogManager;
+
     public int GetPlayerHp()
     {
         return playerHp;
@@ -104,6 +106,13 @@ public class PlayerStatus : MonoBehaviour
         if (collision.transform.tag == "Portal")
         {
             StageManager.Instance.MoveNextStage();
+        }
+
+        if (collision.transform.tag == "Tutorial")
+        {
+           
+            Destroy(collision);
+            dialogManager.Action(collision.gameObject);
         }
     }
 }
