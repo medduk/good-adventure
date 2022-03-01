@@ -31,7 +31,7 @@ public class ArrowMove : MonoBehaviour
     {
         targetDir2D = enemyPosition;
 
-        Damage = PlayerStatus.Instance.GetPlayerDamage();
+        Damage = PlayerStatus.Instance.PlayerDamage;
         float angle = (Mathf.Atan2(targetDir2D.y, targetDir2D.x) * Mathf.Rad2Deg);
         Quaternion angleAxis = Quaternion.AngleAxis(angle - 180, Vector3.forward);
         transform.rotation = angleAxis;

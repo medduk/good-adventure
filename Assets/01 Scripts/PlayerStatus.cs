@@ -9,7 +9,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] Slider playerHpSlider;
 
     [SerializeField] int playerMaxHp = 100;
-    [SerializeField] int playerHp;
+    [SerializeField] int playerCurHp;
     [SerializeField] int playerDamage = 10;     // 공격력
     [SerializeField] float playerMoveSpeed = 2f;    // 이속
     [SerializeField] float playerAttackDelay = 1f;    // 공속
@@ -18,6 +18,26 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] float criticalDamage;      // 치명타 데미지
     [SerializeField] float criticalProbability; // 치명타 확률
     [SerializeField] float absorptionOfVitality;    // 생명력 흡수
+    [SerializeField] int playerMaxExp = 100;   // 모아야할 경험치
+    [SerializeField] float playerCurExp;   // 현재 경험치
+
+    [SerializeField] float playerLevel = 1;   // 현재 경험치
+
+    public enum Runes
+    {
+        hp,
+        damage,
+        moveSpeed,
+        attackDelay,
+        defense,
+        criDamage,
+        criProbability,
+        aov,
+        exp,
+        dropPer
+    }
+
+    [SerializeField] int[] runes;
 
     private bool stopDamage = false;
 
@@ -29,29 +49,139 @@ public class PlayerStatus : MonoBehaviour
 
     public DialogManager dialogManager;
 
-    public int GetPlayerHp()
+    public int PlayerMaxHp
     {
-        return playerHp;
+        set
+        {
+            playerMaxHp = value;
+        }
+        get
+        {
+            return playerMaxHp;
+        }
     }
 
-    public int GetPlayerDamage()
+    public int PlayerDamage
     {
-        return playerDamage;
+        set
+        {
+            playerDamage = value;
+        }
+        get
+        {
+            return playerDamage;
+        }
     }
-    public float GetPlayerMoveSpeed()
+    public float PlayerMoveSpeed
     {
-        return playerMoveSpeed;
+        set 
+        {
+            playerMoveSpeed = value;
+        }
+        get
+        {
+            return playerMoveSpeed;
+        }
     }
-    public float GetPlayerAttackDelay()
+
+    public float PlayerAttackDelay
     {
-        return playerAttackDelay;
+        set
+        {
+            playerAttackDelay = value;
+        }
+        get
+        {
+            return playerAttackDelay;
+        }
     }
+    public float PlayerDefense
+    {
+        set
+        {
+            playerDefense = value;
+        }
+        get
+        {
+            return playerDefense;
+        }
+    }
+
+    public float CriticalDamage
+    {
+        set
+        {
+            criticalDamage = value;
+        }
+        get
+        {
+            return criticalDamage;
+        }
+    }
+
+    public float CriticalProbability
+    {
+        set
+        {
+            criticalProbability = value;
+        }
+        get
+        {
+            return criticalProbability;
+        }
+    }
+
+    public float AbsorptionOfVitality
+    {
+        set
+        {
+            absorptionOfVitality = value;
+        }
+        get
+        {
+            return absorptionOfVitality;
+        }
+    }
+    
+    private int PlayerMaxExp
+    {
+        set
+        {
+            playerMaxExp = value;
+        }
+        get
+        {
+            return playerMaxExp;
+        }
+    }
+
+    public void GainExp(int _exp)
+    {
+        playerCurExp += _exp + (int)(_exp * runes[(int)Runes.exp] * 0.1f);
+        while(playerCurExp >= playerMaxExp)
+        {
+            playerCurExp -= playerMaxExp;
+            playerLevel++;
+        }
+    }
+
     public static PlayerStatus Instance
     {
         get
         {
             if (instance != null) return instance;
             return null;
+        }
+    }
+
+    private void InitiatePlayerStatus() 
+    {
+        /* Runes */
+        runes = new int[System.Enum.GetValues(typeof(Runes)).Length];
+
+        for(int i=0; i < runes.Length; i++)
+        {
+            runes[i] = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), i));
         }
     }
 
@@ -65,6 +195,8 @@ public class PlayerStatus : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        InitiatePlayerStatus();
+
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -72,22 +204,24 @@ public class PlayerStatus : MonoBehaviour
     }
     private void Start()
     {
-        playerHp = playerMaxHp;
+        playerCurHp = playerMaxHp;
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
+
+        Debug.Log(PlayerMaxExp);
     }
 
     private void Update()
     {
-        playerHpSlider.value = Mathf.Lerp(playerHpSlider.value, (float)playerHp / playerMaxHp, Time.deltaTime * 5f);
+        playerHpSlider.value = Mathf.Lerp(playerHpSlider.value, (float)playerCurHp / playerMaxHp, Time.deltaTime * 5f);
     }
     public void TakeDamage(int damage)
     {
         if (!stopDamage)
         {
-            playerHp -= damage;
+            playerCurHp -= damage;
 
             animator.SetTrigger("IsHit");
-            if (playerHp <= 0 && !isGameOver)
+            if (playerCurHp <= 0 && !isGameOver)
             {
                 isGameOver = true;
                 GameManager.Instance.SetGameOver();
@@ -122,5 +256,11 @@ public class PlayerStatus : MonoBehaviour
             Destroy(collision);
             dialogManager.Action(collision.gameObject);
         }
+    }
+
+    public void GetRune(int runeIndex)
+    {
+        runes[runeIndex]++;
+        PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), runeIndex),runes[runeIndex]);
     }
 }

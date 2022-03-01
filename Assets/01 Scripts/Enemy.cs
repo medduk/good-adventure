@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     private int unitHp = 200; 
 
     private Animator animator;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     private CircleCollider2D circleCollider2D;
     private SpriteRenderer spriteRenderer;
     private RectTransform ImporUnitHP;
@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int enemyHp;
     [SerializeField] float enemyMoveSpeed = 10f;
     [SerializeField] int enemyDamage = 10;
+    [SerializeField] int enemyGiveExp = 30;
 
     List<Enemy> enemyFriends = new List<Enemy>(); // 일점범위내 팀이 맞을때 감지
 
@@ -45,7 +46,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {   
             playerCheck = true;
-            
         }
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -147,6 +147,8 @@ public class Enemy : MonoBehaviour
 
         stopMove = true;
         rigidbody2D.velocity = Vector2.zero;
+
+        PlayerStatus.Instance.GainExp(enemyGiveExp);
 
         sec = new WaitForSeconds(0.3f);
         yield return sec;

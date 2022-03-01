@@ -43,7 +43,7 @@ public class MainFmAttack : MonoBehaviour
 
     private void Start()
     {
-        arrowDelay = PlayerStatus.Instance.GetPlayerAttackDelay();
+        arrowDelay = PlayerStatus.Instance.PlayerAttackDelay;
 
         SaveQueue(arrowPoolingCount);
     }
@@ -102,7 +102,7 @@ public class MainFmAttack : MonoBehaviour
         {
             if (!animator.GetBool("IsWalking"))
             {
-                arrowDelay = PlayerStatus.Instance.GetPlayerAttackDelay();
+                arrowDelay = PlayerStatus.Instance.PlayerAttackDelay;
                 Shoot();
             }
         }
