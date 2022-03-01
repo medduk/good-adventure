@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] int playerMaxHp = 100;
     [SerializeField] int playerHp;
-    [SerializeField] int playerDamage = 10;
-    [SerializeField] float playerMoveSpeed = 2f;
-    [SerializeField] float playerAttackDelay = 1f;    
+    [SerializeField] int playerDamage = 10;     // 공격력
+    [SerializeField] float playerMoveSpeed = 2f;    // 이속
+    [SerializeField] float playerAttackDelay = 1f;    // 공속
 
-    [SerializeField] float playerDefense;
+    [SerializeField] float playerDefense;       // 방어력
+    [SerializeField] float criticalDamage;      // 치명타 데미지
+    [SerializeField] float criticalProbability; // 치명타 확률
+    [SerializeField] float absorptionOfVitality;    // 생명력 흡수
 
     private bool stopDamage = false;
 
@@ -103,6 +107,10 @@ public class PlayerStatus : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.transform.name == "GameStartPortal")
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
         if (collision.transform.tag == "Portal")
         {
             StageManager.Instance.MoveNextStage();

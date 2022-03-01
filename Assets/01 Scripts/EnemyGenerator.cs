@@ -31,7 +31,6 @@ public class EnemyGenerator : MonoBehaviour
         for(int c = 0; c< enemyPrefabs.Length; c++)
         {
             sum += monsterChance[c];
-            Debug.Log("SumSum:" + sum);
         }
 
         enemyTransforms = new Transform[transform.childCount];
@@ -65,7 +64,6 @@ public class EnemyGenerator : MonoBehaviour
     private int SelectRandomEnemyPrefab()
     {
         int randomIndex = Random.Range(1, sum+1);
-        Debug.Log(randomIndex);
 
         int i = 0;
         while (i < enemyPrefabs.Length)
@@ -77,7 +75,6 @@ public class EnemyGenerator : MonoBehaviour
             }
             i++;
         }
-        Debug.Log(i);
         return i;
     }
 }
