@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Button pausebtn,statusbtn;
+    public Button btn;
     public Sprite[] img;
 
-    public GameObject pauseImage,statusImage;
+    public GameObject pauseImage;
     public GameObject gameOverImage;
     public DialogManager dialogManager;
 
@@ -49,47 +49,26 @@ public class GameManager : MonoBehaviour
     private void SwitchPause(bool check)
     {
         isPaused = check;
-
+        pauseImage.SetActive(check);
     }
 
     public void Puase()
     {
-        if (!statusImage.gameObject.activeSelf)
-        {
-            SwitchPause(!isPaused);
-            if (isPaused)
-            {
-                pausebtn.GetComponent<Image>().sprite = img[0];
-                Time.timeScale = 0f;
-                pauseImage.SetActive(isPaused);
+        SwitchPause(!isPaused);
 
-            }
-            else
-            {
-                Time.timeScale = 1f;
-                pausebtn.GetComponent<Image>().sprite = img[1];
-                pauseImage.SetActive(isPaused);
-            }
+        if (isPaused)
+        {
+            btn.GetComponent<Image>().sprite = img[0];
+            Time.timeScale = 0f;
+            
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            btn.GetComponent<Image>().sprite = img[1];
         }
     }
-    public void Status()
-    {
-        if (!pauseImage.gameObject.activeSelf)
-        {
-            SwitchPause(!isPaused);
-            if (isPaused)
-            {
-                Time.timeScale = 0f;
-                statusImage.SetActive(isPaused);
 
-            }
-            else
-            {
-                Time.timeScale = 1f;
-                statusImage.SetActive(isPaused);
-            }
-        }
-    }
     public void RestartMap()
     {
         StageManager.Instance.RestartGame();

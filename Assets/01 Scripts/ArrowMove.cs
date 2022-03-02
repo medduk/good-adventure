@@ -34,7 +34,7 @@ public class ArrowMove : MonoBehaviour
                 {
                     if (enemyManager.GetChild(i) != collision.transform)
                     {
-                        enemys.Add(enemyManager.GetChild(i).FindChild("EnemyDetecter"));
+                        enemys.Add(enemyManager.GetChild(i).Find("EnemyDetecter"));
                     }
                 }
 
