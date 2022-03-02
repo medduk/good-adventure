@@ -62,6 +62,7 @@ public class MainFmAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision);
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             raycastHit2D = Physics2D.Raycast(transform.position, enemyPosition, 100, LayerMask.GetMask("Enemy"));
