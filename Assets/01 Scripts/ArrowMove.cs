@@ -7,7 +7,6 @@ public class ArrowMove : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
 
     private Vector2 targetDir2D;
-    private int Damage;
     public float arrowSpeed = 4f;
     private void Awake()
     {
@@ -18,7 +17,7 @@ public class ArrowMove : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(Damage);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
@@ -31,7 +30,6 @@ public class ArrowMove : MonoBehaviour
     {
         targetDir2D = enemyPosition;
 
-        Damage = PlayerStatus.Instance.PlayerDamage;
         float angle = (Mathf.Atan2(targetDir2D.y, targetDir2D.x) * Mathf.Rad2Deg);
         Quaternion angleAxis = Quaternion.AngleAxis(angle - 180, Vector3.forward);
         transform.rotation = angleAxis;

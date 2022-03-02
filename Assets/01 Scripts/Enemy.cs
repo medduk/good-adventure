@@ -125,6 +125,8 @@ public class Enemy : MonoBehaviour
         StartCoroutine(BackHpRun());
         playerCheck = true;
 
+        PlayerStatus.Instance.AbsorbHp(damage);
+
         for(int i = 0; i< enemyFriends.Count; i++)
         {
             enemyFriends[i].FriendHit();

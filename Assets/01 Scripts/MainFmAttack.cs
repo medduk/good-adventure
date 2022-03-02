@@ -11,7 +11,6 @@ public class MainFmAttack : MonoBehaviour
     private AudioSource audioSource;
 
     public GameObject arrowPrefab;  // 화살 프리팹을 넣어줘야 함.
-    private float arrowDelay;    // 화살 공격 쿨타임
     public Transform quiverObject;
     Queue<GameObject> quiver;
     [Tooltip("Warning! It's needed at leat more than 6")]
@@ -43,8 +42,6 @@ public class MainFmAttack : MonoBehaviour
 
     private void Start()
     {
-        arrowDelay = PlayerStatus.Instance.PlayerAttackDelay;
-
         SaveQueue(arrowPoolingCount);
     }
     private void SaveQueue(int arrowsCount)
@@ -98,11 +95,11 @@ public class MainFmAttack : MonoBehaviour
             isAttacking = false;
         }
 
-        if (timer >= arrowDelay && enemys.Count != 0)
+        if (timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0)
         {
             if (!animator.GetBool("IsWalking"))
             {
-                arrowDelay = PlayerStatus.Instance.PlayerAttackDelay;
+                PlayerStatus.Instance.PlayerAttackDelay = PlayerStatus.Instance.PlayerAttackDelay;
                 Shoot();
             }
         }
@@ -130,8 +127,8 @@ public class MainFmAttack : MonoBehaviour
 
     IEnumerator ShootArrow()
     {
-        WaitForSeconds sec = new WaitForSeconds(arrowDelay / 2.2f);
-        animator.SetFloat("AttackSpeed", 1 + (1 - arrowDelay) + (1 - arrowDelay));
+        WaitForSeconds sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay / 2.2f);
+        animator.SetFloat("AttackSpeed", 1 + (1 - PlayerStatus.Instance.PlayerAttackDelay) + (1 - PlayerStatus.Instance.PlayerAttackDelay));
         yield return sec;
         if (isAttacking)
         {

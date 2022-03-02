@@ -15,7 +15,7 @@ public class moving : MonoBehaviour
     #endregion
     //Github test
     #region Public
-    public float movespeed = 2f;
+    //public float movespeed = 2f;
     public Joystick joystick;
 
     private bool isGameOver = false;
@@ -81,7 +81,7 @@ public class moving : MonoBehaviour
         if(xDirection > 0)
             spriteRenderer.flipX = true;
 
-        rigibody2D.MovePosition(rigibody2D.position + inputPosition * movespeed * Time.fixedDeltaTime);
+        rigibody2D.MovePosition(rigibody2D.position + inputPosition * PlayerStatus.Instance.PlayerMoveSpeed * Time.fixedDeltaTime);
 
     }
     public void SetGameOver()
