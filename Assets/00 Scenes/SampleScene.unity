@@ -2613,8 +2613,13 @@ MonoBehaviour:
   playerHpSlider: {fileID: 1035651596}
   playerMaxHp: 100
   playerCurHp: 0
+<<<<<<< Updated upstream
   playerDamage: 20
   playerMoveSpeed: 2
+=======
+  playerDamage: 1
+  playerMoveSpeed: 5
+>>>>>>> Stashed changes
   playerAttackDelay: 1
   playerDefense: 0
   criticalDamage: 50
@@ -2624,6 +2629,7 @@ MonoBehaviour:
   playerCurExp: 0
   playerLevel: 1
   runes: 
+  playerSkills: 01000000
   dialogManager: {fileID: 1996352955}
 --- !u!114 &1599125448
 MonoBehaviour:
@@ -2640,7 +2646,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 2498892593849582925, guid: bc43d88e3f94b794cb743ab6a52bb28a, type: 3}
   quiverObject: {fileID: 3480138}
   arrowPoolingCount: 5
-  arrowAliveTime: 1
+  arrowAliveTime: 2
 --- !u!82 &1599125449
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2884,7 +2890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655073360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.32668, y: 2.0021486, z: -2.146383}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
