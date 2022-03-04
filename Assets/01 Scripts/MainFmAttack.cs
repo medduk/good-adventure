@@ -144,11 +144,11 @@ public class MainFmAttack : MonoBehaviour
                         arrows[i] = quiver.Dequeue();
                         if (i % 2 == 1)
                         {
-                            arrows[i].transform.position = new Vector3(0, 0.16f, 0);
+                            arrows[i].transform.position = new Vector3(quiverObject.position.x, quiverObject.position.y + 0.16f, quiverObject.position.z);
                         }
                         else
                         {
-                            arrows[i].transform.position = new Vector3(0, -0.16f, 0);
+                            arrows[i].transform.position = new Vector3(quiverObject.position.x, quiverObject.position.y - 0.16f, quiverObject.position.z);
                         }
                     }
 

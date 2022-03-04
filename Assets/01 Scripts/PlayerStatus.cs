@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,18 +10,18 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] int playerMaxHp = 100;
     [SerializeField] int playerCurHp;
-    [SerializeField] int playerDamage = 10;     // °ø°İ·Â
-    [SerializeField] float playerMoveSpeed = 2f;    // ÀÌ¼Ó
-    [SerializeField] float playerAttackDelay = 1f;    // °ø¼Ó
+    [SerializeField] int playerDamage = 10;     // ê³µê²©ë ¥
+    [SerializeField] float playerMoveSpeed = 2f;    // ì´ì†
+    [SerializeField] float playerAttackDelay = 1f;    // ê³µì†
 
-    [SerializeField] int playerDefense;       // ¹æ¾î·Â
-    [SerializeField] float criticalDamage = 0.5f;      // Ä¡¸íÅ¸ µ¥¹ÌÁö
-    [SerializeField] float criticalProbability = 1f; // Ä¡¸íÅ¸ È®·ü
-    [SerializeField] float absorptionOfVitality = 0f;    // »ı¸í·Â Èí¼ö
-    [SerializeField] int playerMaxExp = 100;   // ¸ğ¾Æ¾ßÇÒ °æÇèÄ¡
-    [SerializeField] float playerCurExp;   // ÇöÀç °æÇèÄ¡
+    [SerializeField] int playerDefense;       // ë°©ì–´ë ¥
+    [SerializeField] float criticalDamage = 0.5f;      // ì¹˜ëª…íƒ€ ë°ë¯¸ì§€
+    [SerializeField] float criticalProbability = 1f; // ì¹˜ëª…íƒ€ í™•ë¥ 
+    [SerializeField] float absorptionOfVitality = 0f;    // ìƒëª…ë ¥ í¡ìˆ˜
+    [SerializeField] int playerMaxExp = 100;   // ëª¨ì•„ì•¼í•  ê²½í—˜ì¹˜
+    [SerializeField] float playerCurExp;   // í˜„ì¬ ê²½í—˜ì¹˜
 
-    [SerializeField] float playerLevel = 1;   // ÇöÀç °æÇèÄ¡
+    [SerializeField] float playerLevel = 1;   // í˜„ì¬ ê²½í—˜ì¹˜
 
     public enum Runes
     {
