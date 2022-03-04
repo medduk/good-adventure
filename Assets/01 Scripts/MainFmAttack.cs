@@ -62,7 +62,6 @@ public class MainFmAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             raycastHit2D = Physics2D.Raycast(transform.position, enemyPosition, 100, LayerMask.GetMask("Enemy"));
@@ -135,11 +134,40 @@ public class MainFmAttack : MonoBehaviour
             audioSource.Play();
             if (quiver.Count > 0)
             {
-                GameObject arrow = quiver.Dequeue();
-                arrow.transform.SetParent(null);
-                arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
-                arrow.SetActive(true);
-                StartCoroutine(ReturnArrow(arrow));
+                int multi = 0;
+                if ((multi = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot]) > 0)
+                {
+                    multi++;
+                    GameObject[] arrows = new GameObject[multi];
+                    for (int i = 0; i < multi; i++)
+                    {
+                        arrows[i] = quiver.Dequeue();
+                        if (i % 2 == 1)
+                        {
+                            arrows[i].transform.position = new Vector3(0, 0.16f, 0);
+                        }
+                        else
+                        {
+                            arrows[i].transform.position = new Vector3(0, -0.16f, 0);
+                        }
+                    }
+
+                    for (int i = 0; i < multi; i++)
+                    {
+                        arrows[i].transform.SetParent(null);
+                        arrows[i].GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                        arrows[i].SetActive(true);
+                        StartCoroutine(ReturnArrow(arrows[i]));
+                    }
+                }
+                else
+                {
+                    GameObject arrow = quiver.Dequeue();
+                    arrow.transform.SetParent(null);
+                    arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                    arrow.SetActive(true);
+                    StartCoroutine(ReturnArrow(arrow));
+                }
             }
             else
             {

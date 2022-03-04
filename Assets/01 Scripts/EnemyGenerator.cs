@@ -57,6 +57,7 @@ public class EnemyGenerator : MonoBehaviour
                 int enemyIndex = SelectRandomEnemyPrefab();
                 GameObject enemy = Instantiate(enemyPrefabs[enemyIndex], enemyTransforms[i].position, Quaternion.identity);
                 enemy.transform.SetParent(enemyManager.transform);
+                enemy.transform.name = "Dustuk" + i;
             }
         }
     }

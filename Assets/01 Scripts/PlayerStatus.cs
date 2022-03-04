@@ -39,6 +39,16 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] int[] runes;
 
+    public enum ShotSkills
+    {
+        ricochetShot,
+        multiShot,
+        chainShot,
+        diagonalShot,
+    }
+
+    public int[] playerSkills;
+
     private bool stopDamage = false;
 
     private static PlayerStatus instance = null;
@@ -184,8 +194,12 @@ public class PlayerStatus : MonoBehaviour
     {
         /* Runes */
         runes = new int[System.Enum.GetValues(typeof(Runes)).Length];
+        /* Skills */
+        playerSkills = new int[System.Enum.GetValues(typeof(ShotSkills)).Length];
+        playerSkills[(int)ShotSkills.ricochetShot] = 3;
+        playerSkills[(int)ShotSkills.multiShot] = 1;
 
-        for(int i=0; i < runes.Length; i++)
+        for (int i=0; i < runes.Length; i++)
         {
             runes[i] = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), i));
         }
@@ -222,8 +236,6 @@ public class PlayerStatus : MonoBehaviour
     {
         playerCurHp = playerMaxHp;
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
-
-        Debug.Log(PlayerMaxExp);
     }
 
     private void Update()
@@ -280,9 +292,18 @@ public class PlayerStatus : MonoBehaviour
         PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), runeIndex),runes[runeIndex]);
     }
 
+    public void RecoveryHp(int _hp)
+    {
+        playerCurHp += _hp;
+        if (playerCurHp > playerMaxHp)
+        {
+            playerCurHp = playerMaxHp;
+        }
+    }
+
     public void AbsorbHp(int _damage)
     {
-        playerCurHp += (int)(_damage * absorptionOfVitality);
+        RecoveryHp((int)(_damage * absorptionOfVitality));
     }
 
     public int CalPlayerDamage()
@@ -296,7 +317,7 @@ public class PlayerStatus : MonoBehaviour
             damage = (int)(playerDamage * (1 + criticalDamage/100));
         }
 
-        Debug.Log("Damage:" + damage);
+        //Debug.Log("Damage:" + damage);
 
         return damage;
     }
