@@ -128,12 +128,13 @@ public class MainFmAttack : MonoBehaviour
 
     IEnumerator ShootArrow()
     {
-        WaitForSeconds sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay / 2.2f);
+        WaitForSeconds sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay * 0.55f);
         animator.SetFloat("AttackSpeed", 1 + (1 - PlayerStatus.Instance.PlayerAttackDelay) + (1 - PlayerStatus.Instance.PlayerAttackDelay));
+        int chainNum = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.chainShot];
         yield return sec;
-        if (isAttacking)
+        while (isAttacking && chainNum + 1 > 0)
         {
-
+            chainNum--;
             audioSource.Play();
             if (quiver.Count > 0)
             {
@@ -145,7 +146,6 @@ public class MainFmAttack : MonoBehaviour
                     for (int i = 0; i < multi; i++)
                     {
                         arrows[i] = quiver.Dequeue();
-                        Debug.Log(enemyPosition.normalized);
                         if (i % 2 == 1)
                         {
                             arrows[i].transform.position = new Vector3(quiverObject.position.x - 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
@@ -183,6 +183,8 @@ public class MainFmAttack : MonoBehaviour
                     InitArrow(arrow);
                 }
             }
+            sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay * 0.3f);
+            yield return sec;
         }
     }
 
