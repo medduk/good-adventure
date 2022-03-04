@@ -94,6 +94,7 @@ public class ArrowMove : MonoBehaviour
         float angle = (Mathf.Atan2(targetDir2D.y, targetDir2D.x) * Mathf.Rad2Deg);
         Quaternion angleAxis = Quaternion.AngleAxis(angle - 180, Vector3.forward);
         transform.rotation = angleAxis;
+
     }
 
     void FixedUpdate()

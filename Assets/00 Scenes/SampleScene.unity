@@ -2640,7 +2640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 2498892593849582925, guid: bc43d88e3f94b794cb743ab6a52bb28a, type: 3}
   quiverObject: {fileID: 3480138}
-  arrowPoolingCount: 5
+  arrowPoolingCount: 2
   arrowAliveTime: 1
 --- !u!82 &1599125449
 AudioSource:

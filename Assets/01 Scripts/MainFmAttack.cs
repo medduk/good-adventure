@@ -46,6 +46,8 @@ public class MainFmAttack : MonoBehaviour
     }
     private void SaveQueue(int arrowsCount)
     {
+        if (arrowsCount < 10) arrowsCount = 10;
+
         for (int i = 0; i < arrowsCount; i++)
         {
             GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
@@ -131,6 +133,7 @@ public class MainFmAttack : MonoBehaviour
         yield return sec;
         if (isAttacking)
         {
+
             audioSource.Play();
             if (quiver.Count > 0)
             {
@@ -142,13 +145,16 @@ public class MainFmAttack : MonoBehaviour
                     for (int i = 0; i < multi; i++)
                     {
                         arrows[i] = quiver.Dequeue();
+                        Debug.Log(enemyPosition.normalized);
                         if (i % 2 == 1)
                         {
-                            arrows[i].transform.position = new Vector3(quiverObject.position.x, quiverObject.position.y + 0.16f, quiverObject.position.z);
+                            arrows[i].transform.position = new Vector3(quiverObject.position.x - 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
+                                , quiverObject.position.y + 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
                         }
                         else
                         {
-                            arrows[i].transform.position = new Vector3(quiverObject.position.x, quiverObject.position.y - 0.16f, quiverObject.position.z);
+                            arrows[i].transform.position = new Vector3(quiverObject.position.x + 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
+                                , quiverObject.position.y - 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
                         }
                     }
 
@@ -171,8 +177,11 @@ public class MainFmAttack : MonoBehaviour
             }
             else
             {
-                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-                InitArrow(arrow);
+                for (int i = 0; i < PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot] + 1; i++)
+                {
+                    GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                    InitArrow(arrow);
+                }
             }
         }
     }
