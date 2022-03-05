@@ -70,7 +70,6 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             PlayerStatus.Instance.TakeDamage(enemyDamage);
-            rigidbody2D.velocity = Vector2.zero;
         }
 
     }
@@ -89,6 +88,7 @@ public class Enemy : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
             //rigidbody2D.velocity = playerDir.normalized * enemyMoveSpeed * Time.fixedDeltaTime;
+            rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * (enemyMoveSpeed * 0.1f));
         }
         
@@ -105,7 +105,6 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        
         if (backHpswitch)
         {
             BackenemyHpSlider.value = Mathf.Lerp(BackenemyHpSlider.value, (float)enemyHp / enemyMaxHp, Time.deltaTime * 10f);

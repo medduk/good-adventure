@@ -46,6 +46,8 @@ public class MainFmAttack : MonoBehaviour
     }
     private void SaveQueue(int arrowsCount)
     {
+        if (arrowsCount < 10) arrowsCount = 10;
+
         for (int i = 0; i < arrowsCount; i++)
         {
             GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
@@ -62,7 +64,6 @@ public class MainFmAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             raycastHit2D = Physics2D.Raycast(transform.position, enemyPosition, 100, LayerMask.GetMask("Enemy"));
@@ -132,19 +133,55 @@ public class MainFmAttack : MonoBehaviour
         yield return sec;
         if (isAttacking)
         {
+
             audioSource.Play();
             if (quiver.Count > 0)
             {
-                GameObject arrow = quiver.Dequeue();
-                arrow.transform.SetParent(null);
-                arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
-                arrow.SetActive(true);
-                StartCoroutine(ReturnArrow(arrow));
+                int multi = 0;
+                if ((multi = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot]) > 0)
+                {
+                    multi++;
+                    GameObject[] arrows = new GameObject[multi];
+                    for (int i = 0; i < multi; i++)
+                    {
+                        arrows[i] = quiver.Dequeue();
+                        Debug.Log(enemyPosition.normalized);
+                        if (i % 2 == 1)
+                        {
+                            arrows[i].transform.position = new Vector3(quiverObject.position.x - 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
+                                , quiverObject.position.y + 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
+                        }
+                        else
+                        {
+                            arrows[i].transform.position = new Vector3(quiverObject.position.x + 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
+                                , quiverObject.position.y - 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
+                        }
+                    }
+
+                    for (int i = 0; i < multi; i++)
+                    {
+                        arrows[i].transform.SetParent(null);
+                        arrows[i].GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                        arrows[i].SetActive(true);
+                        StartCoroutine(ReturnArrow(arrows[i]));
+                    }
+                }
+                else
+                {
+                    GameObject arrow = quiver.Dequeue();
+                    arrow.transform.SetParent(null);
+                    arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                    arrow.SetActive(true);
+                    StartCoroutine(ReturnArrow(arrow));
+                }
             }
             else
             {
-                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-                InitArrow(arrow);
+                for (int i = 0; i < PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot] + 1; i++)
+                {
+                    GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                    InitArrow(arrow);
+                }
             }
         }
     }

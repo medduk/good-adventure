@@ -17,6 +17,12 @@ public class DialogManager : MonoBehaviour
 
     private int id;
     private bool isNPC;
+
+
+    private void Start()
+    {
+        dialogPanel.SetActive(false);
+    }
     public void DialogNext()
     {
         if (!talk.effectcheck)

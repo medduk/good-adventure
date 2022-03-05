@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,18 +10,18 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] int playerMaxHp = 100;
     [SerializeField] int playerCurHp;
-    [SerializeField] int playerDamage = 10;     // °ø°İ·Â
-    [SerializeField] float playerMoveSpeed = 2f;    // ÀÌ¼Ó
-    [SerializeField] float playerAttackDelay = 1f;    // °ø¼Ó
+    [SerializeField] int playerDamage = 10;     // ê³µê²©ë ¥
+    [SerializeField] float playerMoveSpeed = 2f;    // ì´ì†
+    [SerializeField] float playerAttackDelay = 1f;    // ê³µì†
 
-    [SerializeField] int playerDefense;       // ¹æ¾î·Â
-    [SerializeField] float criticalDamage = 0.5f;      // Ä¡¸íÅ¸ µ¥¹ÌÁö
-    [SerializeField] float criticalProbability = 1f; // Ä¡¸íÅ¸ È®·ü
-    [SerializeField] float absorptionOfVitality = 0f;    // »ı¸í·Â Èí¼ö
-    [SerializeField] int playerMaxExp = 100;   // ¸ğ¾Æ¾ßÇÒ °æÇèÄ¡
-    [SerializeField] float playerCurExp;   // ÇöÀç °æÇèÄ¡
+    [SerializeField] int playerDefense;       // ë°©ì–´ë ¥
+    [SerializeField] float criticalDamage = 0.5f;      // ì¹˜ëª…íƒ€ ë°ë¯¸ì§€
+    [SerializeField] float criticalProbability = 1f; // ì¹˜ëª…íƒ€ í™•ë¥ 
+    [SerializeField] float absorptionOfVitality = 0f;    // ìƒëª…ë ¥ í¡ìˆ˜
+    [SerializeField] int playerMaxExp = 100;   // ëª¨ì•„ì•¼í•  ê²½í—˜ì¹˜
+    [SerializeField] float playerCurExp;   // í˜„ì¬ ê²½í—˜ì¹˜
 
-    [SerializeField] float playerLevel = 1;   // ÇöÀç °æÇèÄ¡
+    [SerializeField] float playerLevel = 1;   // í˜„ì¬ ê²½í—˜ì¹˜
 
     public enum Runes
     {
@@ -38,6 +38,16 @@ public class PlayerStatus : MonoBehaviour
     }
 
     [SerializeField] int[] runes;
+
+    public enum ShotSkills
+    {
+        ricochetShot,
+        multiShot,
+        chainShot,
+        diagonalShot,
+    }
+
+    public int[] playerSkills;
 
     private bool stopDamage = false;
 
@@ -184,8 +194,12 @@ public class PlayerStatus : MonoBehaviour
     {
         /* Runes */
         runes = new int[System.Enum.GetValues(typeof(Runes)).Length];
+        /* Skills */
+        playerSkills = new int[System.Enum.GetValues(typeof(ShotSkills)).Length];
+        playerSkills[(int)ShotSkills.ricochetShot] = 3;
+        playerSkills[(int)ShotSkills.multiShot] = 1;
 
-        for(int i=0; i < runes.Length; i++)
+        for (int i=0; i < runes.Length; i++)
         {
             runes[i] = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), i));
         }
@@ -222,8 +236,6 @@ public class PlayerStatus : MonoBehaviour
     {
         playerCurHp = playerMaxHp;
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
-
-        Debug.Log(PlayerMaxExp);
     }
 
     private void Update()
@@ -280,9 +292,18 @@ public class PlayerStatus : MonoBehaviour
         PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), runeIndex),runes[runeIndex]);
     }
 
+    public void RecoveryHp(int _hp)
+    {
+        playerCurHp += _hp;
+        if (playerCurHp > playerMaxHp)
+        {
+            playerCurHp = playerMaxHp;
+        }
+    }
+
     public void AbsorbHp(int _damage)
     {
-        playerCurHp += (int)(_damage * absorptionOfVitality);
+        RecoveryHp((int)(_damage * absorptionOfVitality));
     }
 
     public int CalPlayerDamage()
@@ -296,7 +317,7 @@ public class PlayerStatus : MonoBehaviour
             damage = (int)(playerDamage * (1 + criticalDamage/100));
         }
 
-        Debug.Log("Damage:" + damage);
+        //Debug.Log("Damage:" + damage);
 
         return damage;
     }
