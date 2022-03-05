@@ -1048,7 +1048,7 @@ RectTransform:
   - {fileID: 250172881}
   - {fileID: 1849527637}
   m_Father: {fileID: 1452920271}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2042,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2312,8 +2312,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 739279289}
   - {fileID: 814765056}
+  - {fileID: 739279289}
   - {fileID: 1340951867}
   - {fileID: 475237460}
   - {fileID: 537043488}
@@ -2771,7 +2771,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapters:
   - stagePrefabs:
-    - {fileID: 1100256698609705140, guid: fc17ba12b01c89b42a111d2162c6df86, type: 3}
     - {fileID: 1171024579060428483, guid: a38ad3973b652d248a2586e2b7e1a4c2, type: 3}
     - {fileID: 1501456562296361320, guid: 9958e0949546c064cbe9532105013002, type: 3}
     - {fileID: 6644737410764453019, guid: 0bd2f3f7f60d46541b64828044547302, type: 3}
