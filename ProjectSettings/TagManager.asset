@@ -7,6 +7,7 @@ TagManager:
   - Detecter
   - Portal
   - Tutorial
+  - PickItem
   layers:
   - Default
   - TransparentFX
