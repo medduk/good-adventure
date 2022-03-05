@@ -196,8 +196,6 @@ public class PlayerStatus : MonoBehaviour
         runes = new int[System.Enum.GetValues(typeof(Runes)).Length];
         /* Skills */
         playerSkills = new int[System.Enum.GetValues(typeof(ShotSkills)).Length];
-        playerSkills[(int)ShotSkills.ricochetShot] = 3;
-        playerSkills[(int)ShotSkills.multiShot] = 1;
 
         for (int i=0; i < runes.Length; i++)
         {

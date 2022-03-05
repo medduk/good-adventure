@@ -177,7 +177,7 @@ public class MainFmAttack : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot] + 1; i++)
+                for (int i = 0; i < PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot] * 2 + 1 ; i++)
                 {
                     GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
                     InitArrow(arrow);

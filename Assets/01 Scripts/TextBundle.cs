@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,9 +13,9 @@ public class TextBundle : MonoBehaviour
     }
     void GenerateData()
     {
-        textBundle.Add(1, new string[] { "¾È³çÇÏ¼¼¿ä !", "¿©±â´Â Æ©Åä¸®¾ó ÀÔ´Ï´Ù ! ", " °¡¸¸È÷ ÀÖÀ¸¸é ÀÚµ¿°ø°İÀ» ÇÑ´ä´Ï´Ù. ","¾ÕÀÇ ÀûÀ» ÇØÄ¡¿ì¼¼¿ä." });
-        textBundle.Add(2, new string[] { "ÁÁ¾Æ¿ä ¼ÒÁúÀÌ ÀÖ¾î¿ä ! ", "Á»´õ ¾ÕÀ¸·Î °¡º¸µµ·Ï ÇØ¿ä ! " });
-        textBundle.Add(3, new string[] { "±âº»ÀûÀÎ °ø°İÀº º®À» Åë°úµÇÁö ¾Ê´Â´ä´Ï´Ù.","º® ³Ê¸ÓÀÇ ÀûÀ» °ø°İ ÇØº¸ÁÒ !" });
+        textBundle.Add(1, new string[] { "ì•ˆë…•í•˜ì„¸ìš” !", "ì—¬ê¸°ëŠ” íŠœí† ë¦¬ì–¼ ì…ë‹ˆë‹¤ ! ", " ê°€ë§Œíˆ ìˆìœ¼ë©´ ìë™ê³µê²©ì„ í•œë‹µë‹ˆë‹¤. ","ì•ì˜ ì ì„ í•´ì¹˜ìš°ì„¸ìš”." });
+        textBundle.Add(2, new string[] { "ì¢‹ì•„ìš” ì†Œì§ˆì´ ìˆì–´ìš” ! ", "ì¢€ë” ì•ìœ¼ë¡œ ê°€ë³´ë„ë¡ í•´ìš” ! " });
+        textBundle.Add(3, new string[] { "ê¸°ë³¸ì ì¸ ê³µê²©ì€ ë²½ì„ í†µê³¼ë˜ì§€ ì•ŠëŠ”ë‹µë‹ˆë‹¤.","ë²½ ë„ˆë¨¸ì˜ ì ì„ ê³µê²© í•´ë³´ì£  !" });
     }
 
     public string GetText(int id, int textIndex)
