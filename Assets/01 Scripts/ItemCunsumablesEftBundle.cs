@@ -6,14 +6,14 @@ using UnityEngine;
 public class ItemCunsumablesEftBundle : ItemEffect
 {
 
-    public override bool ExecuteRole(int ItemID)
+    public override bool ExecuteRole(Item _Item)
     {
-        if (ItemID == 10002)
+        if (_Item.itemID == 10002)
         {
             PlayerStatus.Instance.RecoveryHp(30);
             
         }
-        if (ItemID == 10003)
+        if (_Item.itemID == 10003)
         {
             PlayerStatus.Instance.PlayerDamage += 10;
 

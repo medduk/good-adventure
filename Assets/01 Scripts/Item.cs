@@ -23,7 +23,7 @@ public class Item
         bool isUsed = false;
         foreach (ItemEffect eft in efts)
         {
-            isUsed = eft.ExecuteRole(itemID);
+            isUsed = eft.ExecuteRole(this);
         }
         return isUsed;
     }
