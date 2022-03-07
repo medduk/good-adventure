@@ -16,10 +16,10 @@ public class ItemBundle : MonoBehaviour
     public Vector3[] pos;
     private void Start()
     {
-        for(int i = 0; i<3; i++)
+        for(int i = 0; i<4; i++)
         {
             GameObject go = Instantiate(pickItemPrefab, pos[i], Quaternion.identity);
-            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(0,2)]);
+            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(0,3)]);
         }
     }
 }

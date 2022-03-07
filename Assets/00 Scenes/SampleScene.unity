@@ -5175,12 +5175,23 @@ MonoBehaviour:
       \uC5B4\uCA54\uB798"
     itemImage: {fileID: -3814733229277584775, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
     itemType: 0
+    efts: []
   - itemID: 10002
     itemName: "\uC784\uC2DC\uD15C2"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB7982"
     itemImage: {fileID: -7442401337917996327, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
-    itemType: 0
+    itemType: 1
+    efts:
+    - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
+  - itemID: 10003
+    itemName: "\uC784\uC2DC\uD15C3"
+    itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
+      \uC5B4\uCA54\uB7983"
+    itemImage: {fileID: -2209266248140991221, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
+    itemType: 1
+    efts:
+    - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
   pickItemPrefab: {fileID: 8066104406412270999, guid: 0c26a51ce34dbfb41a669ccf1c758969, type: 3}
   pos:
   - {x: -4, y: -1, z: 0}

@@ -29,7 +29,7 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     public bool AddItem(Item _item)
     {
-        if(items.Count < 25)
+        if (items.Count < 25)
         {
             items.Add(_item);
             if(onChangeItem != null)
@@ -44,6 +44,12 @@ public class inventory : MonoBehaviour
         if (collision.CompareTag("PickItem"))
         {
             PickItems pickItems = collision.GetComponent<PickItems>();
+            if (pickItems.item.itemType == ItemType.Consumables)
+            {
+                pickItems.item.Use();
+                pickItems.DestoryItem();
+                return;
+            }
             if (AddItem(pickItems.GetItem()))
                 pickItems.DestoryItem();
         }

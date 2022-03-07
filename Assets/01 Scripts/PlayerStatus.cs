@@ -70,7 +70,6 @@ public class PlayerStatus : MonoBehaviour
             return playerMaxHp;
         }
     }
-
     public int PlayerDamage
     {
         set
