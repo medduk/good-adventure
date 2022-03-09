@@ -16,7 +16,17 @@ public class inventoryUI : MonoBehaviour
         slots = slotHolder.GetComponentsInChildren<inventorySlot>();
         equips = equipHolder.GetComponentsInChildren<EquipSlot>();
         inven.onChangeItem += RedrawSlotUI;
+        inven.onChangeEquip += RedrawEquipUI;
         gameObject.SetActive(false);
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i].slotnum = i;
+        }
+        for (int i = 0; i < equips.Length; i++)
+        {
+            equips[i].slotnum = i;
+        }
     }
 
     // Update is called once per frame
@@ -35,6 +45,18 @@ public class inventoryUI : MonoBehaviour
         {
             slots[i].item = inven.items[i];
             slots[i].UpdateSlotUI();
+        }
+    }
+    void RedrawEquipUI()
+    {
+        for (int i = 0; i < equips.Length; i++)
+        {
+            equips[i].RemoveSlot();
+        }
+        for (int i = 0; i < inven.equip.Count; i++)
+        {
+            equips[i].item = inven.equip[i];
+            equips[i].UpdateSlotUI();
         }
     }
 }

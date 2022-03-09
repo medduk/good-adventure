@@ -17,9 +17,12 @@ public class inventory : MonoBehaviour
     }
 
     public List<Item> items = new List<Item>();
-
+    public List<Item> equip = new List<Item>();
     public delegate void OnChangeItem();
     public OnChangeItem onChangeItem;
+
+    public delegate void OnChangeEquip();
+    public OnChangeEquip onChangeEquip;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,27 @@ public class inventory : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public bool EquipItem(Item _item)
+    {
+        if (equip.Count < 6)
+        {
+            equip.Add(_item);
+            if(onChangeEquip != null)
+            onChangeEquip.Invoke();
+            return true;
+        }
+        return false;
+    }
+    public void RemoveItem(int _index)
+    {
+        items.RemoveAt(_index);
+        onChangeItem.Invoke();
+    }
+    public void ReEquip(int _index)
+    {
+        equip.RemoveAt(_index);
+        onChangeEquip.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -238,6 +238,7 @@ public class PlayerStatus : MonoBehaviour
     private void Update()
     {
         playerHpSlider.value = Mathf.Lerp(playerHpSlider.value, (float)playerCurHp / playerMaxHp, Time.deltaTime * 5f);
+
     }
     public void TakeDamage(int damage)
     {
