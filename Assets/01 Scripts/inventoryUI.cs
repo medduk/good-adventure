@@ -17,6 +17,8 @@ public class inventoryUI : MonoBehaviour
         equips = equipHolder.GetComponentsInChildren<EquipSlot>();
         inven.onChangeItem += RedrawSlotUI;
         inven.onChangeEquip += RedrawEquipUI;
+        RedrawEquipUI();
+        RedrawSlotUI();
         gameObject.SetActive(false);
 
         for (int i = 0; i < slots.Length; i++)

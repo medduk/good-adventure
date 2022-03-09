@@ -29,11 +29,13 @@ public class inventorySlot : MonoBehaviour, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        bool isEquip = inven.EquipItem(this.item);
-        if (isEquip)
+        if (this.item != null)
         {
-            inven.RemoveItem(slotnum);
+            bool isEquip = inven.EquipItem(this.item);
+            if (isEquip)
+            {
+                inven.RemoveItem(slotnum);
+            }
         }
-
     }
 }

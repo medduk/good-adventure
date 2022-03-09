@@ -31,10 +31,13 @@ public class EquipSlot : MonoBehaviour, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        bool isEquip = inven.AddItem(this.item);
-        if (isEquip)
+        if (this.item != null)
         {
-            inven.ReEquip(slotnum);
+            bool isEquip = inven.AddItem(this.item);
+            if (isEquip)
+            {
+                inven.ReEquip(slotnum);
+            }
         }
     }
 }
