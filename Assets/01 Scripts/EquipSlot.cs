@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class inventorySlot : MonoBehaviour, IPointerUpHandler
+public class EquipSlot : MonoBehaviour, IPointerUpHandler
 {
     public Item item;
     public Image icon;
@@ -23,6 +23,6 @@ public class inventorySlot : MonoBehaviour, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        
+
     }
 }

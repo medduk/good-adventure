@@ -7,11 +7,14 @@ public class inventoryUI : MonoBehaviour
     inventory inven;
 
     public inventorySlot[] slots;
+    public EquipSlot[] equips;
     public Transform slotHolder;
+    public Transform equipHolder;
     void Start()
     {
         inven = inventory.instance;
         slots = slotHolder.GetComponentsInChildren<inventorySlot>();
+        equips = equipHolder.GetComponentsInChildren<EquipSlot>();
         inven.onChangeItem += RedrawSlotUI;
         gameObject.SetActive(false);
     }
