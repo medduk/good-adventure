@@ -45,6 +45,7 @@ public class inventoryUI : MonoBehaviour
         }
         for(int i=0; i<inven.items.Count; i++)
         {
+            inven.items[i].canUse = true;
             slots[i].item = inven.items[i];
             slots[i].UpdateSlotUI();
         }

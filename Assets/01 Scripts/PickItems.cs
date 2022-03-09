@@ -15,7 +15,7 @@ public class PickItems : MonoBehaviour
         item.itemType = _item.itemType;
         item.itemImage = _item.itemImage;
         item.efts = _item.efts;
-
+        item.unefts = _item.unefts;
         image.sprite = item.itemImage;
     }
 

@@ -4627,13 +4627,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemBundle:
   - itemID: 10001
+    canUse: 1
     itemName: "\uC784\uC2DC\uD15C"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB798"
     itemImage: {fileID: -3814733229277584775, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
     itemType: 0
-    efts: []
+    efts:
+    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    unefts:
+    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
   - itemID: 10002
+    canUse: 1
     itemName: "\uC784\uC2DC\uD15C2"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB7982"
@@ -4641,7 +4646,9 @@ MonoBehaviour:
     itemType: 1
     efts:
     - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
+    unefts: []
   - itemID: 10003
+    canUse: 1
     itemName: "\uC784\uC2DC\uD15C3"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB7983"
@@ -4649,6 +4656,7 @@ MonoBehaviour:
     itemType: 1
     efts:
     - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
+    unefts: []
   pickItemPrefab: {fileID: 8066104406412270999, guid: 0c26a51ce34dbfb41a669ccf1c758969, type: 3}
   pos:
   - {x: -4, y: -1, z: 0}

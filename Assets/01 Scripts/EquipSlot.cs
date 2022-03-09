@@ -36,6 +36,7 @@ public class EquipSlot : MonoBehaviour, IPointerUpHandler
             bool isEquip = inven.AddItem(this.item);
             if (isEquip)
             {
+                this.item.UnUse();
                 inven.ReEquip(slotnum);
             }
         }
