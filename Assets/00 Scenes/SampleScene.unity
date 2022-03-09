@@ -5140,7 +5140,7 @@ MonoBehaviour:
   playerHpSlider: {fileID: 1035651596}
   playerMaxHp: 100
   playerCurHp: 0
-  playerDamage: 20
+  playerDamage: 1000
   playerMoveSpeed: 5
   playerAttackDelay: 1
   playerDefense: 0
