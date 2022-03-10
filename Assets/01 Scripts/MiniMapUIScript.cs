@@ -17,7 +17,7 @@ public class MiniMapUIScript : MonoBehaviour
     public void ClickSmallToBig()
     {
         BigMap.SetActive(true);
-        miniMapCamera.orthographicSize = 10f;
+        miniMapCamera.orthographicSize = 8f;
         SmallMap.SetActive(false);
     }
 

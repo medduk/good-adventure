@@ -43,13 +43,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pauseImage.SetActive(false);
+        //statusImage.SetActive(true);
         gameOverImage.SetActive(false);
+
+        isPaused = false;
     }
 
     private void SwitchPause(bool check)
     {
         isPaused = check;
-
     }
 
     public void Puase()
@@ -81,7 +83,6 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 statusImage.SetActive(isPaused);
-
             }
             else
             {

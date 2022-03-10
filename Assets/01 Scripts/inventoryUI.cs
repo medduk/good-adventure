@@ -19,7 +19,7 @@ public class inventoryUI : MonoBehaviour
         inven.onChangeEquip += RedrawEquipUI;
         RedrawEquipUI();
         RedrawSlotUI();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
 
         for (int i = 0; i < slots.Length; i++)
         {

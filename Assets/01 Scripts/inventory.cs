@@ -23,7 +23,6 @@ public class inventory : MonoBehaviour
 
     public delegate void OnChangeEquip();
     public OnChangeEquip onChangeEquip;
-    // Start is called before the first frame update
     private void Update()
     {
         for (int i = 0; i < equip.Count; i++)
