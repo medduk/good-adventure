@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
     public Button pausebtn,statusbtn;
     public Sprite[] img;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;

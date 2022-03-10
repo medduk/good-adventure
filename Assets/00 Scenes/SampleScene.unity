@@ -5151,10 +5151,12 @@ MonoBehaviour:
     itemName: "\uC784\uC2DC\uD15C"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB798"
+    CoolTime: 5
     itemImage: {fileID: -3814733229277584775, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
     itemType: 0
     efts:
     - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    - {fileID: 11400000, guid: 241071dee038dbb409b481eb18d9b4fe, type: 2}
     unefts:
     - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
   - itemID: 10002
@@ -5162,6 +5164,7 @@ MonoBehaviour:
     itemName: "\uC784\uC2DC\uD15C2"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB7982"
+    CoolTime: 0
     itemImage: {fileID: -7442401337917996327, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
     itemType: 1
     efts:
@@ -5172,6 +5175,7 @@ MonoBehaviour:
     itemName: "\uC784\uC2DC\uD15C3"
     itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
       \uC5B4\uCA54\uB7983"
+    CoolTime: 0
     itemImage: {fileID: -2209266248140991221, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
     itemType: 1
     efts:
@@ -5800,6 +5804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   equip: []
+  UseCheck: 000000000000
 --- !u!1 &1611202552
 GameObject:
   m_ObjectHideFlags: 0

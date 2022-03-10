@@ -16,6 +16,7 @@ public class Item
     public bool canUse = true;
     public string itemName;
     public string itemDescription;
+    public float CoolTime;
     public Sprite itemImage;
     public ItemType itemType;
     public List<ItemEffect> efts;

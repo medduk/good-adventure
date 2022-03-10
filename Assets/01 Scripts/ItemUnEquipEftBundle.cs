@@ -10,6 +10,7 @@ public class ItemUnEquipEftBundle : ItemEffect
     {
         if (_Item.itemID == 10001)
         {
+          
             PlayerStatus.Instance.PlayerDamage -= 10;
             return true;
         }

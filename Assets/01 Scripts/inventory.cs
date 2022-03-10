@@ -23,12 +23,28 @@ public class inventory : MonoBehaviour
 
     public delegate void OnChangeEquip();
     public OnChangeEquip onChangeEquip;
+
+
+    public bool[] UseCheck = new bool[6];
+
+    private void Start()
+    {
+        for(int i = 0; i< UseCheck.Length; i++)
+        {
+            UseCheck[i] = true;
+        }
+    }
     private void Update()
     {
-        for (int i = 0; i < equip.Count; i++)
-        {
-            equip[i].canUse = equip[i].Use();
-        }
+
+            for (int i = 0; i < equip.Count; i++)
+            {
+                if (UseCheck[i] == true)
+                {
+                    StartCoroutine(UseItem(equip[i], i));
+                }
+            }
+        
     }
 
     // Update is called once per frame
@@ -47,6 +63,7 @@ public class inventory : MonoBehaviour
     {
         if (equip.Count < 6)
         {
+            _item.Use();
             equip.Add(_item);
             if(onChangeEquip != null)
             onChangeEquip.Invoke();
@@ -79,5 +96,21 @@ public class inventory : MonoBehaviour
             if (AddItem(pickItems.GetItem()))
                 pickItems.DestoryItem();
         }
+    }
+
+    IEnumerator UseItem(Item _item , int index)
+    {
+        equip[index].canUse = false;
+        UseCheck[index] = _item.Use();
+
+        if (GameManager.Instance.statusImage.activeSelf == true)
+        {
+            yield return new WaitForSeconds(0f);
+        }
+        if (GameManager.Instance.statusImage.activeSelf == false)
+        {
+            yield return new WaitForSeconds(_item.CoolTime);
+        }
+        UseCheck[index] = true;
     }
 }
