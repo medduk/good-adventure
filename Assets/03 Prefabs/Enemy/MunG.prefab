@@ -2131,7 +2131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339253349027180293}
   - component: {fileID: 5334097360492899201}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: MiniMapEnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

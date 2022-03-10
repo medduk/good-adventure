@@ -6,7 +6,6 @@ public class MiniMapCameraScript : MonoBehaviour
 {
     [SerializeField] bool x, y, z;
     [SerializeField] Transform target;
-
     private void Update()
     {
         if (!target) return;
