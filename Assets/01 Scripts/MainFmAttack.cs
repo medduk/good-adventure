@@ -13,7 +13,8 @@ public class MainFmAttack : MonoBehaviour
     public GameObject arrowPrefab;  // 화살 프리팹을 넣어줘야 함.
     public Transform quiverObject;
     Queue<GameObject> quiver;
-    [Tooltip("Warning! It's needed at leat more than 6")]
+
+    [Tooltip("Warning! It's needed at leat more than 10")]
     public int arrowPoolingCount;
 
     private RaycastHit2D raycastHit2D;
