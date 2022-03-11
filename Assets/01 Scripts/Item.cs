@@ -16,7 +16,7 @@ public class Item
     public bool canUse = true;
     public string itemName;
     public string itemDescription;
-    public float CoolTime;
+    public float coolTime;
     public Sprite itemImage;
     public ItemType itemType;
     public List<ItemEffect> efts;
@@ -27,7 +27,7 @@ public class Item
         bool isUsed = false;
         foreach (ItemEffect eft in efts)
         {
-            isUsed = eft.ExecuteRole(this);
+            isUsed = isUsed & eft.ExecuteRole(this);
         }
         return isUsed;
     }
@@ -36,7 +36,7 @@ public class Item
         bool isUsed = false;
         foreach (ItemEffect eft in unefts)
         {
-            isUsed = eft.ExecuteRole(this);
+            isUsed = isUsed & eft.ExecuteRole(this);
         }
         return isUsed;
     }

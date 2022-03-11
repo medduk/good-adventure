@@ -37,7 +37,7 @@ public class EquipSlot : MonoBehaviour, IPointerUpHandler
             if (isEquip)
             {
                 this.item.UnUse();
-                inven.ReEquip(slotnum);
+                inven.Unequip(slotnum);
             }
         }
     }

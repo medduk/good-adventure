@@ -36,27 +36,25 @@ public class inventory : MonoBehaviour
     }
     private void Update()
     {
-
-            for (int i = 0; i < equip.Count; i++)
+        for (int i = 0; i < equip.Count; i++)
+        {
+            if (UseCheck[i] == true)
             {
-                if (UseCheck[i] == true)
-                {
-                    StartCoroutine(UseItem(equip[i], i));
-                }
+                StartCoroutine(UseItem(equip[i], i));
             }
-        
+        }
     }
 
-    // Update is called once per frame
     public bool AddItem(Item _item)
     {
         if (items.Count < 25)
         {
             items.Add(_item);
             if(onChangeItem != null)
-            onChangeItem.Invoke();
+            onChangeItem.Invoke();  // ui drawing.
             return true;
         }
+
         return false;
     }
     public bool EquipItem(Item _item)
@@ -66,7 +64,7 @@ public class inventory : MonoBehaviour
             _item.Use();
             equip.Add(_item);
             if(onChangeEquip != null)
-            onChangeEquip.Invoke();
+            onChangeEquip.Invoke(); // ui drawing.
             return true;
         }
         return false;
@@ -74,12 +72,12 @@ public class inventory : MonoBehaviour
     public void RemoveItem(int _index)
     {
         items.RemoveAt(_index);
-        onChangeItem.Invoke();
+        onChangeItem.Invoke();  // ui drawing.
     }
-    public void ReEquip(int _index)
+    public void Unequip(int _index)
     {
         equip.RemoveAt(_index);
-        onChangeEquip.Invoke();
+        onChangeEquip.Invoke(); // ui drawing.
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -103,14 +101,15 @@ public class inventory : MonoBehaviour
         equip[index].canUse = false;
         UseCheck[index] = _item.Use();
 
-        if (GameManager.Instance.statusImage.activeSelf == true)
+        if (GameManager.Instance.statusImage.activeSelf)
         {
-            yield return new WaitForSeconds(0f);
+            yield return null;
         }
-        if (GameManager.Instance.statusImage.activeSelf == false)
+
+        if (!GameManager.Instance.statusImage.activeSelf)
         {
-            yield return new WaitForSeconds(_item.CoolTime);
+            yield return new WaitForSeconds(_item.coolTime);
+            UseCheck[index] = true;
         }
-        UseCheck[index] = true;
     }
 }

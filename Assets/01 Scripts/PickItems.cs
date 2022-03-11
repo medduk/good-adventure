@@ -12,7 +12,7 @@ public class PickItems : MonoBehaviour
         item.itemID = _item.itemID;
         item.itemName = _item.itemName;
         item.itemDescription = _item.itemDescription;
-        item.CoolTime = _item.CoolTime;
+        item.coolTime = _item.coolTime;
         item.itemType = _item.itemType;
         item.itemImage = _item.itemImage;
         item.efts = _item.efts;

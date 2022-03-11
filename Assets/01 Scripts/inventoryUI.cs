@@ -31,12 +31,6 @@ public class inventoryUI : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void RedrawSlotUI()
     {
         for(int i=0; i<slots.Length; i++)
