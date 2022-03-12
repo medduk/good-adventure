@@ -39,16 +39,18 @@ public class MainFmAttack : MonoBehaviour
         quiver = new Queue<GameObject>();
 
         isGameOver = false;
+
+        if (arrowPoolingCount < 10) arrowPoolingCount = 10;
     }
 
     private void Start()
     {
         SaveQueue(arrowPoolingCount);
+
+        StartCoroutine(OnAttack());
     }
     private void SaveQueue(int arrowsCount)
     {
-        if (arrowsCount < 10) arrowsCount = 10;
-
         for (int i = 0; i < arrowsCount; i++)
         {
             GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
@@ -96,17 +98,21 @@ public class MainFmAttack : MonoBehaviour
         {
             isAttacking = false;
         }
-
-        if (timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0)
+    }
+    IEnumerator OnAttack()
+    {
+        while(true)
         {
+            yield return new WaitUntil(() => timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0);
+
             if (!animator.GetBool("IsWalking"))
             {
                 PlayerStatus.Instance.PlayerAttackDelay = PlayerStatus.Instance.PlayerAttackDelay;
                 Shoot();
             }
         }
-
     }
+
     private void Shoot()
     {
         timer = 0;
@@ -137,52 +143,45 @@ public class MainFmAttack : MonoBehaviour
         {
             chainNum--;
             audioSource.Play();
-            if (quiver.Count > 0)
+            if (quiver.Count <= arrowPoolingCount / 2)
             {
-                int multi = 0;
-                if ((multi = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot]) > 0)
+                SaveQueue(arrowPoolingCount/2);
+            }
+            int multi = 0;
+            if ((multi = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot]) > 0)
+            {
+                multi++;
+                GameObject[] arrows = new GameObject[multi];
+                for (int i = 0; i < multi; i++)
                 {
-                    multi++;
-                    GameObject[] arrows = new GameObject[multi];
-                    for (int i = 0; i < multi; i++)
+                    arrows[i] = quiver.Dequeue();
+                    if (i % 2 == 1)
                     {
-                        arrows[i] = quiver.Dequeue();
-                        if (i % 2 == 1)
-                        {
-                            arrows[i].transform.position = new Vector3(quiverObject.position.x - 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
-                                , quiverObject.position.y + 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
-                        }
-                        else
-                        {
-                            arrows[i].transform.position = new Vector3(quiverObject.position.x + 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
-                                , quiverObject.position.y - 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
-                        }
+                        arrows[i].transform.position = new Vector3(quiverObject.position.x - 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
+                            , quiverObject.position.y + 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
                     }
-
-                    for (int i = 0; i < multi; i++)
+                    else
                     {
-                        arrows[i].transform.SetParent(null);
-                        arrows[i].GetComponent<ArrowMove>().StartArrow(enemyPosition);
-                        arrows[i].SetActive(true);
-                        StartCoroutine(ReturnArrow(arrows[i]));
+                        arrows[i].transform.position = new Vector3(quiverObject.position.x + 0.16f * (i / 2 + 1) * enemyPosition.normalized.y
+                            , quiverObject.position.y - 0.16f * (i / 2 + 1) * enemyPosition.normalized.x, quiverObject.position.z);
                     }
                 }
-                else
+
+                for (int i = 0; i < multi; i++)
                 {
-                    GameObject arrow = quiver.Dequeue();
-                    arrow.transform.SetParent(null);
-                    arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
-                    arrow.SetActive(true);
-                    StartCoroutine(ReturnArrow(arrow));
+                    arrows[i].transform.SetParent(null);
+                    arrows[i].GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                    arrows[i].SetActive(true);
+                    StartCoroutine(ReturnArrow(arrows[i]));
                 }
             }
             else
             {
-                for (int i = 0; i < PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot] * 2 + 1 ; i++)
-                {
-                    GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-                    InitArrow(arrow);
-                }
+                GameObject arrow = quiver.Dequeue();
+                arrow.transform.SetParent(null);
+                arrow.GetComponent<ArrowMove>().StartArrow(enemyPosition);
+                arrow.SetActive(true);
+                StartCoroutine(ReturnArrow(arrow));
             }
             sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay * 0.3f);
             yield return sec;

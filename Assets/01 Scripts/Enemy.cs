@@ -117,6 +117,8 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        DamageTextManager.Instance.DisplayDamage(damage, transform.position);   // Damage Text
+
         enemyHp -= damage;
         enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
         ImporUnitHP.sizeDelta = new Vector2(Sildershow.sizeDelta.x * enemyHpSlider.value, ImporUnitHP.sizeDelta.y);
