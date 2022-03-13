@@ -115,18 +115,18 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage((int damage,bool isCritical) _damage)
     {
-        DamageTextManager.Instance.DisplayDamage(damage, transform.position);   // Damage Text
+        DamageTextManager.Instance.DisplayDamage(_damage.damage, transform.position,_damage.isCritical);   // Damage Text
 
-        enemyHp -= damage;
+        enemyHp -= _damage.damage;
         enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
         ImporUnitHP.sizeDelta = new Vector2(Sildershow.sizeDelta.x * enemyHpSlider.value, ImporUnitHP.sizeDelta.y);
         ImporUnitHP.anchoredPosition = new Vector2((Sildershow.sizeDelta.x - ImporUnitHP.sizeDelta.x)/-2, 0);
         StartCoroutine(BackHpRun());
         playerCheck = true;
 
-        PlayerStatus.Instance.AbsorbHp(damage);
+        PlayerStatus.Instance.AbsorbHp(_damage.damage);
 
         for(int i = 0; i< enemyFriends.Count; i++)
         {

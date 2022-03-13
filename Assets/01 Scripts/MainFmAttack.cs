@@ -15,7 +15,7 @@ public class MainFmAttack : MonoBehaviour
     Queue<GameObject> quiver;
 
     [Tooltip("Warning! It's needed at leat more than 10")]
-    public int arrowPoolingCount;
+    [Range(10, 30)] public int arrowPoolingCount;
 
     private RaycastHit2D raycastHit2D;
 
@@ -26,6 +26,7 @@ public class MainFmAttack : MonoBehaviour
     private bool isAttacking = false;
 
     public float arrowAliveTime;
+    public float arrowAttackDistance = 5f;
 
     private bool isGameOver = false;
 
@@ -105,9 +106,13 @@ public class MainFmAttack : MonoBehaviour
         {
             yield return new WaitUntil(() => timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0);
 
-            if (!animator.GetBool("IsWalking"))
+            GameObject enemyObj = FindNearestObject(enemys);
+            enemyPosition = enemyObj.GetComponent<Rigidbody2D>().position;
+
+            float attackDistance = Vector2.Distance(transform.position, enemyPosition);
+
+            if (!animator.GetBool("IsWalking") && attackDistance < arrowAttackDistance)
             {
-                PlayerStatus.Instance.PlayerAttackDelay = PlayerStatus.Instance.PlayerAttackDelay;
                 Shoot();
             }
         }
@@ -119,7 +124,6 @@ public class MainFmAttack : MonoBehaviour
         isAttacking = true;
         animator.SetTrigger("Attack");
 
-        enemyPosition = FindNearestObject(enemys).GetComponent<Rigidbody2D>().position;
         enemyPosition -= rigidbody2D.position;
 
         if (enemyPosition.x > 0)

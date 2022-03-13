@@ -5,7 +5,7 @@ using TMPro;
 
 public class DamageTextManager : MonoBehaviour
 {
-    [SerializeField] int textCount = 10;
+    [SerializeField] [Range(10, 30)] int textPoolingCount = 10;
     [SerializeField] float textMaintainTime = 2f;
 
     public GameObject damageTextPrefab;
@@ -34,7 +34,7 @@ public class DamageTextManager : MonoBehaviour
         }
         instance = this;
 
-        if (textCount < 10) textCount = 10;
+        if (textPoolingCount < 10) textPoolingCount = 10;
     }
 
     private void InitTextObj(GameObject _damageText)
@@ -55,19 +55,24 @@ public class DamageTextManager : MonoBehaviour
 
     private void Start()
     {
-        SaveQueue(textCount);
+        SaveQueue(textPoolingCount);
     }
 
-    public void DisplayDamage(int _damage,Vector3 _position)
+    public void DisplayDamage(int _damage,Vector3 _position,bool isCritical = false)
     {
-        if (damageTextQueue.Count <= textCount/2)
+        if (damageTextQueue.Count <= textPoolingCount/2)
         {
-            SaveQueue(textCount/2);
+            SaveQueue(textPoolingCount/2);
         }
+
         TextMeshPro damageText = damageTextQueue.Dequeue().GetComponent<TextMeshPro>();
+        DamageTextEffectScript dtes = damageText.GetComponent<DamageTextEffectScript>();
         damageText.transform.SetParent(null);
-        damageText.transform.position = _position;
+        damageText.transform.position = _position + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(0,0.3f), 0);
+
         damageText.text = _damage + "";
+        dtes.damageTextColor = isCritical ? new Color(Color.yellow.r, Color.yellow.g, Color.yellow.b, 1) : new Color(Color.white.r, Color.white.g, Color.white.b, 1);
+
         damageText.gameObject.SetActive(true);
         StartCoroutine(ReturnTextObj(damageText.gameObject));
     }

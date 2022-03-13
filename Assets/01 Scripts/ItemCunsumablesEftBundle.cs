@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Item/Eft/Consumable")]
 public class ItemCunsumablesEftBundle : ItemEffect
 {
-
     public override bool ExecuteRole(Item _Item)
     {
         if (_Item.itemID == 10002)

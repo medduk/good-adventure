@@ -304,19 +304,21 @@ public class PlayerStatus : MonoBehaviour
         RecoveryHp((int)(_damage * absorptionOfVitality));
     }
 
-    public int CalPlayerDamage()
+    public (int ,bool) CalPlayerDamage()
     {
         int damage = playerDamage;
+        bool isCritical = false;
 
         float critical = Random.Range(0, 100f);
 
         if(critical <= criticalProbability)
         {
             damage = (int)(playerDamage * (1 + criticalDamage/100));
+            isCritical = true;
         }
 
         //Debug.Log("Damage:" + damage);
 
-        return damage;
+        return (damage,isCritical);
     }
 }
