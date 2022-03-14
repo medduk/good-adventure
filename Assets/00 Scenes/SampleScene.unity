@@ -5747,7 +5747,7 @@ MonoBehaviour:
   playerHpSlider: {fileID: 1035651596}
   playerMaxHp: 100
   playerCurHp: 0
-  playerDamage: 1234
+  playerDamage: 20
   playerMoveSpeed: 5
   playerAttackDelay: 0.5
   playerDefense: 0
@@ -5757,6 +5757,8 @@ MonoBehaviour:
   playerMaxExp: 100
   playerCurExp: 0
   playerLevel: 1
+  textSkillOn: 0
+  textSkillLevel: 1
   runes: 
   playerSkills: 
   dialogManager: {fileID: 1996352955}
@@ -5775,7 +5777,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 2498892593849582925, guid: bc43d88e3f94b794cb743ab6a52bb28a, type: 3}
   quiverObject: {fileID: 3480138}
   arrowPoolingCount: 10
-  arrowAliveTime: 1
+  arrowAliveTime: 3
   arrowAttackDistance: 3.6
 --- !u!82 &1599125449
 AudioSource:

@@ -23,6 +23,10 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] float playerLevel = 1;   // 현재 경험치
 
+    public bool textSkillOn = false;
+    public int textSkillLevel = 1;
+
+    [System.Serializable]
     public enum Runes
     {
         hp,
@@ -231,6 +235,13 @@ public class PlayerStatus : MonoBehaviour
     }
     private void Start()
     {
+        /*For Text*/
+        if (textSkillOn)
+        {
+            playerSkills[(int)ShotSkills.multiShot] = textSkillLevel;
+            playerSkills[(int)ShotSkills.chainShot] = textSkillLevel;
+        }
+
         playerCurHp = playerMaxHp;
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
     }
@@ -257,6 +268,7 @@ public class PlayerStatus : MonoBehaviour
             StartCoroutine(StopDamage());
         }
     }
+
     IEnumerator StopDamage()
     {
         stopDamage = true;
@@ -271,6 +283,7 @@ public class PlayerStatus : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
+
         if (collision.transform.tag == "Portal")
         {
             StageManager.Instance.MoveNextStage();
@@ -278,7 +291,6 @@ public class PlayerStatus : MonoBehaviour
 
         if (collision.transform.tag == "Tutorial")
         {
-           
             Destroy(collision);
             dialogManager.Action(collision.gameObject);
         }
@@ -316,8 +328,6 @@ public class PlayerStatus : MonoBehaviour
             damage = (int)(playerDamage * (1 + criticalDamage/100));
             isCritical = true;
         }
-
-        //Debug.Log("Damage:" + damage);
 
         return (damage,isCritical);
     }

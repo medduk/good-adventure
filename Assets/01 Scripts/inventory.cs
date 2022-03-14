@@ -38,7 +38,7 @@ public class inventory : MonoBehaviour
     {
         for (int i = 0; i < equip.Count; i++)
         {
-            if (UseCheck[i] == true)
+            if (UseCheck[i])
             {
                 StartCoroutine(UseItem(equip[i], i));
             }
