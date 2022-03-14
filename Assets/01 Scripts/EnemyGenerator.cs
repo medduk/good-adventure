@@ -15,7 +15,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         enemyManager = GameObject.Find("EnemyManager");
 
-        if(monsterChance.Length < enemyPrefabs.Length)
+        if(monsterChance.Length < enemyPrefabs.Length) // 에너미 프리팹 배열 개수에 비해 확률 배열의 개수가 적을 경우 같은 크기만큼 배열을 늘리고 늘린 배열은 1로 초기화.
         {
             int[] temp = new int[enemyPrefabs.Length];
             System.Array.Copy(monsterChance, temp, monsterChance.Length);

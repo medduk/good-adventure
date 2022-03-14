@@ -7,14 +7,19 @@ public class ItemCunsumablesEftBundle : ItemEffect
 {
     public override bool ExecuteRole(Item _Item)
     {
+        if (_Item.itemID == 10001)
+        {
+            PlayerStatus.Instance.RecoveryHp(10);
+            
+        }
         if (_Item.itemID == 10002)
         {
             PlayerStatus.Instance.RecoveryHp(30);
-            
+
         }
         if (_Item.itemID == 10003)
         {
-            PlayerStatus.Instance.PlayerDamage += 10;
+            PlayerStatus.Instance.RecoveryHp(50);
 
         }
         return true;

@@ -1026,6 +1026,8 @@ MonoBehaviour:
   enemyMoveSpeed: 10
   enemyDamage: 10
   enemyGiveExp: 30
+  dropItemId: 00000000112700001227000013270000f92a0000
+  dropIChance: 32000000190000000f0000000a00000005000000
 --- !u!1 &3269883360871387010
 GameObject:
   m_ObjectHideFlags: 0

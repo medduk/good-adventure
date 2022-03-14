@@ -2017,7 +2017,7 @@ RectTransform:
   - {fileID: 1757986765}
   - {fileID: 1705264693}
   m_Father: {fileID: 1452920271}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4512,7 +4512,7 @@ RectTransform:
   - {fileID: 1795322356}
   - {fileID: 937843666}
   m_Father: {fileID: 1452920271}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5113,9 +5113,9 @@ RectTransform:
   - {fileID: 1340951867}
   - {fileID: 475237460}
   - {fileID: 537043488}
+  - {fileID: 1348501832}
   - {fileID: 566161687}
   - {fileID: 1751048088}
-  - {fileID: 1348501832}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5186,39 +5186,98 @@ MonoBehaviour:
   itemBundle:
   - itemID: 10001
     canUse: 1
-    itemName: "\uC784\uC2DC\uD15C"
-    itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
-      \uC5B4\uCA54\uB798"
+    itemName: "\uBB3C\uC57D(\uC18C)"
+    itemDescription: "\uCCB4\uB825 10 \uD68C\uBCF5"
+    level: 1
     coolTime: 0
-    itemImage: {fileID: -3814733229277584775, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
-    itemType: 0
+    itemImage: {fileID: -3472508535446328618, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 2
     efts:
-    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
-    - {fileID: 11400000, guid: 241071dee038dbb409b481eb18d9b4fe, type: 2}
-    unefts:
-    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
+    - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
+    unefts: []
   - itemID: 10002
     canUse: 1
-    itemName: "\uC784\uC2DC\uD15C2"
-    itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
-      \uC5B4\uCA54\uB7982"
+    itemName: "\uBB3C\uC57D(\uC911)"
+    itemDescription: "\uCCB4\uB825 30 \uD68C\uBCF5"
+    level: 1
     coolTime: 0
-    itemImage: {fileID: -7442401337917996327, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
-    itemType: 1
+    itemImage: {fileID: -1002747007210208563, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 2
     efts:
     - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
     unefts: []
   - itemID: 10003
     canUse: 1
-    itemName: "\uC784\uC2DC\uD15C3"
-    itemDescription: "\uC0C8\uB85C\uB3C4\uD2B8\uCC0D\uAE30 \uADC0\uCC2E\uC558\uB2E4
-      \uC5B4\uCA54\uB7983"
+    itemName: "\uBB3C\uC57D(\uB300)"
+    itemDescription: "\uCCB4\uB825 50 \uD68C\uBCF5"
+    level: 1
     coolTime: 0
-    itemImage: {fileID: -2209266248140991221, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
-    itemType: 1
+    itemImage: {fileID: -4345016774071498232, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 2
     efts:
     - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
     unefts: []
+  - itemID: 11001
+    canUse: 1
+    itemName: "\uAC80"
+    itemDescription: "\uACF5\uACA9\uB825 2 \uC0C1\uC2B9"
+    level: 1
+    coolTime: 0
+    itemImage: {fileID: -1708785239654787344, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 0
+    efts:
+    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    unefts:
+    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
+  - itemID: 11002
+    canUse: 1
+    itemName: "[\uC4F8\uBAA8\uC788\uB294]\uAC80"
+    itemDescription: "\uACF5\uACA9\uB825 5 \uC0C1\uC2B9"
+    level: 2
+    coolTime: 0
+    itemImage: {fileID: 6687007654891666978, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 0
+    efts:
+    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    unefts:
+    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
+  - itemID: 11003
+    canUse: 1
+    itemName: "[\uBA4B\uC9C4]\uAC80"
+    itemDescription: "\uACF5\uACA9\uB825 10 \uC0C1\uC2B9"
+    level: 3
+    coolTime: 0
+    itemImage: {fileID: 5763743722815407426, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 0
+    efts:
+    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    unefts:
+    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
+  - itemID: 11004
+    canUse: 1
+    itemName: "[\uCC2C\uB780\uD55C]\uAC80"
+    itemDescription: "\uACF5\uACA9\uB825 20 \uC0C1\uC2B9"
+    level: 4
+    coolTime: 0
+    itemImage: {fileID: 5730553224616444508, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 0
+    efts:
+    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    unefts:
+    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
+  - itemID: 11005
+    canUse: 1
+    itemName: "[\uCD5C\uACE0\uC758]\uAC80"
+    itemDescription: "\uACF5\uACA9\uB825 40 \uC0C1\uC2B9 , \uACF5\uACA9\uC18D\uB3C4
+      \uC0C1\uC2B9"
+    level: 5
+    coolTime: 0
+    itemImage: {fileID: 7237753769111153770, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
+    itemType: 0
+    efts:
+    - {fileID: 11400000, guid: 18f6908c5b5e04a49a83f521713383c2, type: 2}
+    unefts:
+    - {fileID: 11400000, guid: d40d6f74ef1fe3a4e91deadc26c99563, type: 2}
   pickItemPrefab: {fileID: 8066104406412270999, guid: 0c26a51ce34dbfb41a669ccf1c758969, type: 3}
   pos:
   - {x: -4, y: -1, z: 0}
@@ -6580,7 +6639,7 @@ RectTransform:
   - {fileID: 1886629719}
   - {fileID: 1255990470}
   m_Father: {fileID: 1452920271}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

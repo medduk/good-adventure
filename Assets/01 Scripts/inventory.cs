@@ -61,7 +61,7 @@ public class inventory : MonoBehaviour
     {
         if (equip.Count < 6)
         {
-            _item.Use();
+            _item.canUse = _item.Use();
             equip.Add(_item);
             if(onChangeEquip != null)
             onChangeEquip.Invoke(); // ui drawing.
@@ -98,7 +98,6 @@ public class inventory : MonoBehaviour
 
     IEnumerator UseItem(Item _item , int index)
     {
-        equip[index].canUse = false;
         UseCheck[index] = _item.Use();
 
         if (GameManager.Instance.statusImage.activeSelf)

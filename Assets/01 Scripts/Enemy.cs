@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] int enemyDamage = 10;
     [SerializeField] int enemyGiveExp = 30;
 
+    [SerializeField] int[] dropItemId;
+    [SerializeField] int[] dropIChance;
+    private int sum = 0;
     List<Enemy> enemyFriends = new List<Enemy>(); // 일점범위내 팀이 맞을때 감지
 
     static WaitForSeconds sec;
@@ -40,6 +43,11 @@ public class Enemy : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider2D = GetComponent<CircleCollider2D>();
+
+        for (int c = 0; c < dropItemId.Length; c++)
+        {
+            sum += dropIChance[c];
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -155,6 +163,8 @@ public class Enemy : MonoBehaviour
 
         sec = new WaitForSeconds(0.3f);
         yield return sec;
+        int DropIndex = DropItem();
+        ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
         Destroy(gameObject);      
     }
 
@@ -180,5 +190,21 @@ public class Enemy : MonoBehaviour
             child.gameObject.transform.localScale = new Vector3(scaleX, 1, 1);
         }
         UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(true);
+    }
+    private int DropItem()
+    {
+        int randomIndex = Random.Range(1, sum + 1);
+
+        int i = 0;
+        while (i < dropItemId.Length)
+        {
+            randomIndex = randomIndex - dropIChance[i];
+            if (randomIndex <= 0)
+            {
+                break;
+            }
+            i++;
+        }
+        return i;
     }
 }

@@ -19,7 +19,16 @@ public class ItemBundle : MonoBehaviour
         for(int i = 0; i<4; i++)
         {
             GameObject go = Instantiate(pickItemPrefab, pos[i], Quaternion.identity);
-            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(0,3)]);
+            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(0,8)]);
         }
+    }
+
+    public void Drop(Vector3 i , int indexkey)
+    {
+        if (indexkey == 0)
+            return;
+
+        GameObject go = Instantiate(pickItemPrefab,i, Quaternion.identity);
+        go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID ==indexkey)]);
     }
 }

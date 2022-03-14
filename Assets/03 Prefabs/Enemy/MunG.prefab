@@ -925,6 +925,8 @@ MonoBehaviour:
   enemyMoveSpeed: 10
   enemyDamage: 10
   enemyGiveExp: 30
+  dropItemId: 000000001227000013270000fa2a0000
+  dropIChance: 320000001e0000000f00000005000000
 --- !u!95 &605073024300295394
 Animator:
   serializedVersion: 3

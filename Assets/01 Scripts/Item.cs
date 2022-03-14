@@ -5,6 +5,7 @@ using UnityEngine;
 public enum ItemType
 {
     Equip,
+    Lasting,
     Consumables,
     Etc
 }
@@ -16,6 +17,7 @@ public class Item
     public bool canUse = true;
     public string itemName;
     public string itemDescription;
+    public int level = 1;
     public float coolTime;
     public Sprite itemImage;
     public ItemType itemType;
