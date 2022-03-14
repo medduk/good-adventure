@@ -4534,6 +4534,8 @@ MonoBehaviour:
   miniMapCamera: {fileID: 1611202554}
   SmallMap: {fileID: 1795322355}
   BigMap: {fileID: 937843665}
+  bigOrthographicSize: 11
+  smallOrthographicSize: 5
 --- !u!1001 &1372349562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5948,7 +5950,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 5783
+    m_Bits: 5142
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 64637f5bdb2dc9d43bdf05f761b33407, type: 2}
   m_TargetDisplay: 0
@@ -7941,7 +7943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2093271357
 Transform:
   m_ObjectHideFlags: 0

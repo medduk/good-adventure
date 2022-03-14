@@ -8,6 +8,9 @@ public class MiniMapUIScript : MonoBehaviour
     [SerializeField] GameObject SmallMap;
     [SerializeField] GameObject BigMap;
 
+    [SerializeField] float bigOrthographicSize = 9f;
+    [SerializeField] float smallOrthographicSize = 5f;
+
     private void Start()
     {
         SmallMap.SetActive(true);
@@ -17,14 +20,14 @@ public class MiniMapUIScript : MonoBehaviour
     public void ClickSmallToBig()
     {
         BigMap.SetActive(true);
-        miniMapCamera.orthographicSize = 8f;
+        miniMapCamera.orthographicSize = bigOrthographicSize;
         SmallMap.SetActive(false);
     }
 
     public void MakeBigToSmall()
     {
         SmallMap.SetActive(true);
-        miniMapCamera.orthographicSize = 5f;
+        miniMapCamera.orthographicSize = smallOrthographicSize;
         BigMap.SetActive(false);
     }
 }

@@ -104,16 +104,19 @@ public class MainFmAttack : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitUntil(() => timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0);
+            yield return null;
 
-            GameObject enemyObj = FindNearestObject(enemys);
-            enemyPosition = enemyObj.GetComponent<Rigidbody2D>().position;
-
-            float attackDistance = Vector2.Distance(transform.position, enemyPosition);
-
-            if (!animator.GetBool("IsWalking") && attackDistance < arrowAttackDistance)
+            if (timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0)
             {
-                Shoot();
+                GameObject enemyObj = FindNearestObject(enemys);
+                enemyPosition = enemyObj.GetComponent<Rigidbody2D>().position;
+
+                float attackDistance = Vector2.Distance(transform.position, enemyPosition);
+
+                if (!animator.GetBool("IsWalking") && attackDistance < arrowAttackDistance)
+                {
+                    Shoot();
+                }
             }
         }
     }
