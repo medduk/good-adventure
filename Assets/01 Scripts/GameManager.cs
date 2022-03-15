@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject s;
     public Button pausebtn,statusbtn;
     public Sprite[] img;
 
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 statusImage.SetActive(isPaused);
+                s.GetComponent<ShowStatus>().NowChange();
             }
         }
     }
