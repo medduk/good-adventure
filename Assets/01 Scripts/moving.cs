@@ -19,6 +19,9 @@ public class moving : MonoBehaviour
     public Joystick joystick;
     public ParticleSystem playerWalkingParticle;
 
+    public ParticleSystem playerAfterimageParticle;
+    public bool onAfterimage;
+
     private bool isGameOver = false;
 
     #endregion
@@ -34,6 +37,7 @@ public class moving : MonoBehaviour
     private void Start()
     {
         StartCoroutine(OnWalkingParticle());
+        StartCoroutine(OnAtferimageParticle());
     }
 
     void Update()
@@ -82,11 +86,16 @@ public class moving : MonoBehaviour
     {
         Vector2 inputPosition = new Vector2(x, y);
         if (xDirection < 0)
+        {
             spriteRenderer.flipX = false;
-  
-        if(xDirection > 0)
-            spriteRenderer.flipX = true;
+            playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.zero;
+        }
 
+        if (xDirection > 0)
+        {
+            spriteRenderer.flipX = true;
+            playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.right;
+        }
         rigibody2D.MovePosition(rigibody2D.position + inputPosition * PlayerStatus.Instance.PlayerMoveSpeed * Time.fixedDeltaTime);
 
     }
@@ -104,6 +113,20 @@ public class moving : MonoBehaviour
             playerWalkingParticle.Play();
             yield return new WaitUntil(() => !animator.GetBool("IsWalking"));
             playerWalkingParticle.Stop();
+        }
+    }
+    IEnumerator OnAtferimageParticle()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => animator.GetBool("IsWalking"));
+            if (onAfterimage)
+            {
+                Debug.Log("¸ÕÁö»×");
+                playerAfterimageParticle.Play();
+            }
+            yield return new WaitUntil(() => !animator.GetBool("IsWalking"));
+            if(playerAfterimageParticle.isPlaying) playerAfterimageParticle.Stop();
         }
     }
 }
