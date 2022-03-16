@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 7c4a5dfdd017a8f4bb6f52595c0248d1
+guid: d9980034ed9e3fd43a3150d506ca0797
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4681854758029664026
-    second: MiniMapSprite_0
+      213: -289158164482558647
+    second: PlayerWalkingDusk_0
   - first:
-      213: 1210966008979918499
-    second: MiniMapSprite_1
+      213: -8904639726082873126
+    second: PlayerWalkingDusk_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,7 +71,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -83,7 +83,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -95,7 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MiniMapSprite_0
+      name: PlayerWalkingDusk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 31
-        height: 31
+        x: 4
+        y: 15
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1f945ec81a49f040800000000000000
-      internalID: 4681854758029664026
+      spriteID: 945fc127e24bcfbf0800000000000000
+      internalID: -289158164482558647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniMapSprite_1
+      name: PlayerWalkingDusk_1
       rect:
         serializedVersion: 2
-        x: 31
+        x: 15
         y: 0
-        width: 31
-        height: 31
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,8 +144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae02505b273ec010800000000000000
-      internalID: 1210966008979918499
+      spriteID: ad8aff1195d5c6480800000000000000
+      internalID: -8904639726082873126
       vertices: []
       indices: 
       edges: []

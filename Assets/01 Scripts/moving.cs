@@ -17,6 +17,7 @@ public class moving : MonoBehaviour
     #region Public
     //public float movespeed = 2f;
     public Joystick joystick;
+    public ParticleSystem playerWalkingParticle;
 
     private bool isGameOver = false;
 
@@ -28,6 +29,11 @@ public class moving : MonoBehaviour
         animator = GetComponent<Animator>();
 
         isGameOver = false;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(OnWalkingParticle());
     }
 
     void Update()
@@ -87,5 +93,17 @@ public class moving : MonoBehaviour
     public void SetGameOver()
     {
         isGameOver = true;
+    }
+
+    IEnumerator OnWalkingParticle()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => animator.GetBool("IsWalking"));
+            Debug.Log("¸ÕÁö»×");
+            playerWalkingParticle.Play();
+            yield return new WaitUntil(() => !animator.GetBool("IsWalking"));
+            playerWalkingParticle.Stop();
+        }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,9 +49,9 @@ public class ShowStatus : MonoBehaviour
 
             ColorChange();
 
-            Text.text = "°ø°İ·Â : <color="+C[0]+">" +status.PlayerDamage+ "</color>\n" + "°ø°İ¼Óµµ : <color=" + C[1] + ">" + status.PlayerAttackDelay + "</color>/s\n" + "¹æ¾î·Â : <color=" + C[2] + ">" + status.PlayerDefense + "</color>\n" + "ÀÌµ¿¼Óµµ : <color=" + C[3] + ">" + status.PlayerMoveSpeed + "</color>\n" + "Å©¸®Æ¼ÄÃ È®·ü\n<color=" + C[4] + ">" + status.CriticalProbability + "</color>%\n" + "Å©¸®Æ¼ÄÃ µ¥¹ÌÁö\n<color=" + C[5] + ">" + status.CriticalDamage + "</color>%\n";
+            Text.text = "ê³µê²©ë ¥ : <color="+C[0]+">" +status.PlayerDamage+ "</color>\n" + "ê³µê²©ì†ë„ : <color=" + C[1] + ">" + status.PlayerAttackDelay + "</color>/s\n" + "ë°©ì–´ë ¥ : <color=" + C[2] + ">" + status.PlayerDefense + "</color>\n" + "ì´ë™ì†ë„ : <color=" + C[3] + ">" + status.PlayerMoveSpeed + "</color>\n" + "í¬ë¦¬í‹°ì»¬ í™•ë¥ \n<color=" + C[4] + ">" + status.CriticalProbability + "</color>%\n" + "í¬ë¦¬í‹°ì»¬ ë°ë¯¸ì§€\n<color=" + C[5] + ">" + status.CriticalDamage + "</color>%\n";
             if (status.AbsorptionOfVitality != 0)
-                Text.text += "ÈíÇ÷·Â : <color=" + C[6] + ">" + status.AbsorptionOfVitality * 100 + "</color>%"; 
+                Text.text += "í¡í˜ˆë ¥ : <color=" + C[6] + ">" + status.AbsorptionOfVitality * 100 + "</color>%"; 
         }        
     }
     void ColorChange()
