@@ -7507,7 +7507,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 670111451}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1560564521}
+        m_TargetAssemblyTypeName: ReinForce, Assembly-CSharp
+        m_MethodName: ReinForceSuccess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &670111451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7885,7 +7897,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1094e8de8548ec244a056cf289f558d5, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -9125,12 +9137,12 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 50
+    m_Top: 30
     m_Bottom: 0
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 250, y: 250}
+  m_CellSize: {x: 300, y: 300}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 3
@@ -17371,6 +17383,7 @@ GameObject:
   - component: {fileID: 1560564518}
   - component: {fileID: 1560564520}
   - component: {fileID: 1560564519}
+  - component: {fileID: 1560564521}
   m_Layer: 5
   m_Name: ReinForceImage
   m_TagString: Untagged
@@ -17414,7 +17427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.73333335}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17439,6 +17452,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560564517}
   m_CullTransparentMesh: 1
+--- !u!114 &1560564521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560564517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae9ba3fbf3236c48903ffa3f1000104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: []
+  ReinForces: []
+  Result: {fileID: 1576272072}
+  slotHolder: {fileID: 1173608087}
+  ReinForceHolder: {fileID: 916194196}
+  items: []
+  ReForce: []
+  ReinForceResult:
+    itemID: 0
+    canUse: 1
+    itemName: 
+    itemDescription: 
+    level: 1
+    coolTime: 0
+    itemImage: {fileID: 0}
+    itemType: 0
+    efts: []
+    unefts: []
+--- !u!114 &1576272072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4688216828795616004, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
+  m_PrefabInstance: {fileID: 5380920602951051329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7994080cedb2dab4aa6ab6e4ccb4acbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1582615134
 GameObject:
   m_ObjectHideFlags: 0
@@ -21031,11 +21085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163760795311681358, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5163760795311681358, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5163760795311681358, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21071,7 +21125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163760795311681358, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -175
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 5163760795311681358, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21088,6 +21142,22 @@ PrefabInstance:
     - target: {fileID: 5163760795311681359, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
       propertyPath: m_Name
       value: reinforceResultslot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163760795450247781, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163760795450247781, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163760795953368323, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163760795953368323, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a247cb6ec82eba45af1b223e6797e44, type: 3}

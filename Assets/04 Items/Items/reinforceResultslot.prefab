@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5163760795311681356}
   - component: {fileID: 5163760795311681357}
   - component: {fileID: 5595480661484792122}
+  - component: {fileID: 4688216828795616004}
   m_Layer: 5
   m_Name: reinforceResultslot
   m_TagString: Untagged
@@ -95,6 +96,31 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &4688216828795616004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163760795311681359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7994080cedb2dab4aa6ab6e4ccb4acbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemID: 0
+    canUse: 1
+    itemName: 
+    itemDescription: 
+    level: 1
+    coolTime: 0
+    itemImage: {fileID: 0}
+    itemType: 0
+    efts: []
+    unefts: []
+  icon: {fileID: 5163760795450247780}
+  Text: {fileID: 5163760795953368322}
 --- !u!1 &5163760795450247782
 GameObject:
   m_ObjectHideFlags: 0

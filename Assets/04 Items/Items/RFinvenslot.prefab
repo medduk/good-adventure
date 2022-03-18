@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7335914445817678880}
   - component: {fileID: 7335914445817678886}
   - component: {fileID: 7335914445817678887}
-  - component: {fileID: 4046079325855146638}
   - component: {fileID: 5406529284576604664}
+  - component: {fileID: 2005727153282655069}
   m_Layer: 5
   m_Name: RFinvenslot
   m_TagString: Untagged
@@ -78,31 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4046079325855146638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7335914445817678881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457f782d51a85b041b90dd44235ac5ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotnum: 0
-  item:
-    itemID: 0
-    canUse: 1
-    itemName: 
-    itemDescription: 
-    level: 1
-    coolTime: 0
-    itemImage: {fileID: 0}
-    itemType: 0
-    efts: []
-    unefts: []
-  icon: {fileID: 7335914446160368494}
 --- !u!114 &5406529284576604664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +95,31 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &2005727153282655069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335914445817678881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f7adbccdad9c04bab6955b9bf12711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnum: 0
+  item:
+    itemID: 0
+    canUse: 1
+    itemName: 
+    itemDescription: 
+    level: 1
+    coolTime: 0
+    itemImage: {fileID: 0}
+    itemType: 0
+    efts: []
+    unefts: []
+  icon: {fileID: 7335914446160368494}
 --- !u!1 &7335914446160368488
 GameObject:
   m_ObjectHideFlags: 0

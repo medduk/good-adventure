@@ -17,6 +17,7 @@ public class inventory : MonoBehaviour
 
     public List<Item> items = new List<Item>();
     public List<Item> equip = new List<Item>();
+    Item result; 
     public delegate void OnChangeItem();
     public OnChangeItem onChangeItem;
 
