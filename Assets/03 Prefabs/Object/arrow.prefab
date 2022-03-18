@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpeed: 4
+  hitParticle: {fileID: 4664696825272920292, guid: 8c0a666a57446534188348149ed4936c, type: 3}

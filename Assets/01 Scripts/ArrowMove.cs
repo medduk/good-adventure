@@ -16,6 +16,8 @@ public class ArrowMove : MonoBehaviour
     List<Transform> hitEnemys;
     private int ricochetCount = 0;
 
+    public ParticleSystem hitParticle;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -27,7 +29,8 @@ public class ArrowMove : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
-
+            Instantiate(hitParticle.gameObject,collision.transform.position,Quaternion.identity);
+            
             hitEnemys.Add(collision.transform);
 
             if (ricochetCount <= 0)
