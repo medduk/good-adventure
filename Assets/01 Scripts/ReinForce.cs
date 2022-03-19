@@ -51,6 +51,9 @@ public class ReinForce : MonoBehaviour
         items = inven.items.ToList();
            
         RedrawRFSlotUI();
+        CanRFdraw();
+        unCanRFdraw();
+
     }
 
 
@@ -77,6 +80,30 @@ public class ReinForce : MonoBehaviour
         {
             ReinForces[i].item = ReForce[i];
             ReinForces[i].UpdateSlotUI();
+        }
+    }
+    void CanRFdraw()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            slots[i].canRF();
+        }
+    }
+    void unCanRFdraw()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].level == 5)
+            {
+                slots[i].uncanRF();
+            }
+            if(ReForce.Count == 1)
+            {
+                if(ReForce[0].itemID != items[i].itemID)
+                {
+                    slots[i].uncanRF();
+                }
+            }
         }
     }
 
@@ -117,12 +144,18 @@ public class ReinForce : MonoBehaviour
     public void Removelist(int _index)
     {
         items.RemoveAt(_index);
-        RedrawRFSlotUI();  // ui drawing.
+        RedrawRFSlotUI();
+        CanRFdraw();
+        unCanRFdraw();
     }
+    
     public void RemoveReinForceItem(int _index)
     {
         ReForce.RemoveAt(_index);
         RedrawReinForceUI();
+        CanRFdraw();
+        unCanRFdraw();
+        
     }
 
     private void Update()
@@ -137,6 +170,7 @@ public class ReinForce : MonoBehaviour
                 Result.UpdateSlotUI();
             }
         }
+
         if (Result.item != null && ReForce.Count < 2)
         {
             Debug.Log("ÃÊ±âÈ­!");

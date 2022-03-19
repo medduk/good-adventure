@@ -9,11 +9,14 @@ public class ReinForceInvenslot : MonoBehaviour, IPointerUpHandler
     public int slotnum;
     public Item item;
     public Image icon;
+    Color color = new Color (1f,1f,1f);
+    public bool canReinForce;
     // Start is called before the first frame update
 
     public void Start()
     {
         RF = ReinForce.instance;
+        canReinForce = true;
     }
     public void UpdateSlotUI()
     {
@@ -25,6 +28,24 @@ public class ReinForceInvenslot : MonoBehaviour, IPointerUpHandler
     {
         item = null;
         icon.gameObject.SetActive(false);
+    }
+
+    public void canRF()
+    {
+        if (!canReinForce || item.level !=5) 
+        { 
+        canReinForce = true;
+            color.a = 1f;
+            icon.color = color;
+        }
+    }
+    public void uncanRF()
+    {
+        if (canReinForce)
+        {
+            color.a = 0.25f;
+            icon.color = color;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
