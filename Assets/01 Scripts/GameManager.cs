@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject s;
-    public Button pausebtn,statusbtn;
+    public Button pausebtn,statusbtn,Exitbtn;
     public Sprite[] img;
 
-    public GameObject pauseImage,statusImage;
+    public GameObject pauseImage,statusImage,ReinforceImage;
     public GameObject gameOverImage;
     public DialogManager dialogManager;
 
@@ -45,9 +45,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pauseImage.SetActive(false);
-        //statusImage.SetActive(true);
+        statusImage.SetActive(true);
         gameOverImage.SetActive(false);
-
+        ReinforceImage.SetActive(true);
         isPaused = false;
     }
 
@@ -92,6 +92,22 @@ public class GameManager : MonoBehaviour
                 s.GetComponent<ShowStatus>().NowChange();
             }
         }
+    }
+    public void OpenReinForce()
+    {
+        pausebtn.gameObject.SetActive(false);
+        statusbtn.gameObject.SetActive(false);
+        Exitbtn.gameObject.SetActive(true);
+        ReinforceImage.SetActive(true);
+        ReinForce.instance.ReinForceStart();
+    }
+    public void closeReinForce()
+    {
+        Exitbtn.gameObject.SetActive(false);
+        pausebtn.gameObject.SetActive(true);
+        statusbtn.gameObject.SetActive(true);
+        ReinForce.instance.ReinForceEnd();
+        ReinforceImage.SetActive(false);
     }
     public void RestartMap()
     {

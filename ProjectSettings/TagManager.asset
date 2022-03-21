@@ -8,6 +8,7 @@ TagManager:
   - Portal
   - Tutorial
   - PickItem
+  - ReinForce
   layers:
   - Default
   - TransparentFX

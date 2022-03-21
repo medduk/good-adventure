@@ -291,8 +291,13 @@ public class PlayerStatus : MonoBehaviour
 
         if (collision.transform.tag == "Tutorial")
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
             dialogManager.Action(collision.gameObject);
+        }
+        if (collision.transform.tag == "ReinForce")
+        {
+            Destroy(collision.gameObject);
+            GameManager.Instance.OpenReinForce();
         }
     }
 

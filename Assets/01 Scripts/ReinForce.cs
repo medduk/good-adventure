@@ -42,20 +42,32 @@ public class ReinForce : MonoBehaviour
             ReinForces[i].slotnum = i;
         }
 
-        ReinForceStart();
+        gameObject.SetActive(false);
     }
 
     public void ReinForceStart()
     {
         
-        items = inven.items.ToList();
+        this.items = inven.items.ToList();
            
         RedrawRFSlotUI();
         CanRFdraw();
         unCanRFdraw();
 
     }
-
+    public void ReinForceEnd()
+    {
+        int j = ReForce.Count;
+        for (int i = 0; i < j ; i++)
+        {
+            Addlist(ReForce[0]);
+            RemoveReinForceItem(0);
+        }
+        inven.items = null;
+        inven.items = this.items.ToList();
+        inven.onChangeItem();
+        this.items = null;
+    }
 
     void RedrawRFSlotUI()
     {

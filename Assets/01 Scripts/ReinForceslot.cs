@@ -14,6 +14,7 @@ public class ReinForceslot : MonoBehaviour, IPointerUpHandler
     public void Start()
     {
         RF = ReinForce.instance;
+        this.item = null;
     }
     public void UpdateSlotUI()
     {

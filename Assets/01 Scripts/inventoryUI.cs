@@ -29,6 +29,7 @@ public class inventoryUI : MonoBehaviour
         {
             equips[i].slotnum = i;
         }
+        gameObject.SetActive(false);
     }
 
     void RedrawSlotUI()
