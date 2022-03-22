@@ -168,7 +168,6 @@ public class ReinForce : MonoBehaviour
         RedrawReinForceUI();
         CanRFdraw();
         unCanRFdraw();
-        
     }
 
     private void Update()

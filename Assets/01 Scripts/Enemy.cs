@@ -165,6 +165,9 @@ public class Enemy : MonoBehaviour
         yield return sec;
         int DropIndex = DropItem();
         ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
+
+        MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
+
         Destroy(gameObject);      
     }
 

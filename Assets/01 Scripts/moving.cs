@@ -109,7 +109,6 @@ public class moving : MonoBehaviour
         while (true)
         {
             yield return new WaitUntil(() => animator.GetBool("IsWalking"));
-            Debug.Log("¸ÕÁö»×");
             playerWalkingParticle.Play();
             yield return new WaitUntil(() => !animator.GetBool("IsWalking"));
             playerWalkingParticle.Stop();
@@ -122,7 +121,6 @@ public class moving : MonoBehaviour
             yield return new WaitUntil(() => animator.GetBool("IsWalking"));
             if (onAfterimage)
             {
-                Debug.Log("¸ÕÁö»×");
                 playerAfterimageParticle.Play();
             }
             yield return new WaitUntil(() => !animator.GetBool("IsWalking"));

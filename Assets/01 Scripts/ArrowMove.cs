@@ -28,7 +28,7 @@ public class ArrowMove : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
+            collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
             //Instantiate(hitParticle.gameObject,collision.transform.position,Quaternion.identity);
             hitParticle.Play();
 

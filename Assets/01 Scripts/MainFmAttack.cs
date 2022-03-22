@@ -30,8 +30,30 @@ public class MainFmAttack : MonoBehaviour
 
     private bool isGameOver = false;
 
+    private static MainFmAttack instance = null;
+    public static MainFmAttack Instance
+    {
+        get
+        {
+            if(instance != null)
+            {
+                return instance;
+            }
+            return null;
+        }
+    }
+
     private void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         rigidbody2D = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
@@ -78,11 +100,19 @@ public class MainFmAttack : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (enemys.Contains(collision.gameObject))
+    //    {
+    //        enemys.Remove(collision.gameObject);
+    //    }
+    //}
+
+    public void RemoveDeadEnemy(GameObject enemyObject)
     {
-        if (enemys.Contains(collision.gameObject))
+        if (enemys.Contains(enemyObject))
         {
-            enemys.Remove(collision.gameObject);
+            enemys.Remove(enemyObject);
         }
     }
 
