@@ -27,6 +27,7 @@ public class ReinForce : MonoBehaviour
     public List<Item> items = new List<Item>();
     public List<Item> ReForce = new List<Item>();
     public Item ReinForceResult;
+
     private void Start()
     {
         inven = inventory.instance;
