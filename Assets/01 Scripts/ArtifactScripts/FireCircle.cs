@@ -31,7 +31,6 @@ public class FireCircle : MonoBehaviour
 
     void Update()
     {
-        
         transform.RotateAround(transform.parent.position, Vector3.forward, rotateSpeed * Time.deltaTime);
         fireCircleShadow.rotation = Quaternion.identity;
 
@@ -45,7 +44,9 @@ public class FireCircle : MonoBehaviour
             if (!attackCheckList.Contains(collision))
             {
                 attackCheckList.Add(collision);
-                collision.GetComponent<Enemy>().TakeDamage(((int)(PlayerStatus.Instance.CalPlayerDamage().Item1 * damagePercent), PlayerStatus.Instance.CalPlayerDamage().Item2));
+                //collision.GetComponent<Enemy>().TakeDamage(((int)(PlayerStatus.Instance.CalPlayerDamage().Item1 * damagePercent), PlayerStatus.Instance.CalPlayerDamage().Item2));
+                collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage(damagePercent,false));
+
                 StartCoroutine(CheckOutCollider(collision));
             }
         }
@@ -62,4 +63,5 @@ public class FireCircle : MonoBehaviour
             attackCheckList.Remove(collider);
         }
     }
+
 }
