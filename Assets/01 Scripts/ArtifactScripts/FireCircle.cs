@@ -14,10 +14,28 @@ public class FireCircle : MonoBehaviour
     #endregion
 
     private static List<Collider2D> attackCheckList = new List<Collider2D>();
+    [SerializeField] private Transform fireCircleShadow;
+    private float yDis;
+
+    private WaitForSeconds sec;
+
+    private void Awake()
+    {
+        fireCircleShadow = transform.GetChild(0);
+    }
+
+    private void Start()
+    {
+        yDis = transform.position.y - fireCircleShadow.position.y;
+    }
 
     void Update()
     {
+        
         transform.RotateAround(transform.parent.position, Vector3.forward, rotateSpeed * Time.deltaTime);
+        fireCircleShadow.rotation = Quaternion.identity;
+
+        fireCircleShadow.position = new Vector3(transform.position.x, transform.position.y - yDis, transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +53,10 @@ public class FireCircle : MonoBehaviour
 
     IEnumerator CheckOutCollider(Collider2D collider)
     {
-        yield return new WaitForSeconds(circleAttackDelay);
+        sec = new WaitForSeconds(circleAttackDelay);
+
+        yield return sec;
+
         if (attackCheckList.Contains(collider))
         {
             attackCheckList.Remove(collider);
