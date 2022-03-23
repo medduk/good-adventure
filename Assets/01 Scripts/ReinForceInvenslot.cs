@@ -58,7 +58,10 @@ public class ReinForceInvenslot : MonoBehaviour, IPointerUpHandler , IPointerDow
         if (click && timer > 0.5f)
         {
             click = false;
-            Debug.Log("길게 눌러써요 ! ");
+            ItemInformation.Instance.item = this.item;
+            ItemInformation.Instance.Show();
+            GameManager.Instance.OpenItemInformation(false);
+
         }
     }
     public void OnPointerUp(PointerEventData eventData)
