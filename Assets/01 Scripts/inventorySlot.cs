@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class inventorySlot : MonoBehaviour, IPointerUpHandler
+public class inventorySlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     inventory inven;
     public int slotnum;
     public Item item;
     public Image icon;
+    private bool click;
     // Start is called before the first frame update
 
     public void Start()
@@ -26,16 +27,40 @@ public class inventorySlot : MonoBehaviour, IPointerUpHandler
         item = null;
         icon.gameObject.SetActive(false);
     }
-
+    IEnumerator openInformation()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        if (click)
+        {
+            click = false;
+            ItemInformation.Instance.item = this.item;
+            ItemInformation.Instance.slotnum = this.slotnum;
+            ItemInformation.Instance.Show();
+            GameManager.Instance.OpenItemInformation(true);
+        }
+    }
     public void OnPointerUp(PointerEventData eventData)
     {
         if (this.item != null)
         {
-            bool isEquip = inven.EquipItem(this.item);
-            if (isEquip)
+            if (click)
             {
-                inven.RemoveItem(slotnum);
+                StopCoroutine("openInformation");
+                click = false;
+                bool isEquip = inven.EquipItem(this.item);
+                if (isEquip)
+                {
+                    inven.RemoveItem(slotnum);
+                }
             }
+        }
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (this.item != null)
+        {
+            click = true;
+            StartCoroutine("openInformation");
         }
     }
 }

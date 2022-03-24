@@ -9,7 +9,7 @@ public class ItemInformation : MonoBehaviour
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Text;
     public Image icon;
-
+    public int slotnum;
     string showcolor;
 
     public Item item;
@@ -62,6 +62,11 @@ public class ItemInformation : MonoBehaviour
     }
     public void close()
     {
+        gameObject.SetActive(false);
+    }
+    public void Remove()
+    {
+        inventory.instance.RemoveItem(slotnum);
         gameObject.SetActive(false);
     }
 }

@@ -122,6 +122,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &107277888158427522
 GameObject:
   m_ObjectHideFlags: 0
