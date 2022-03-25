@@ -106,7 +106,7 @@ public class ReinForce : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].level == 5)
+            if (items[i].level >= 5)
             {
                 slots[i].uncanRF();
             }
@@ -133,7 +133,7 @@ public class ReinForce : MonoBehaviour
     }
     public bool ReinForceItem(Item _item)
     {
-        if (_item.level != 5)
+        if (_item.level < 5)
         {
             if (ReForce.Count == 0)
             {

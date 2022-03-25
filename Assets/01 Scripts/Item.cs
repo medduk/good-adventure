@@ -29,7 +29,7 @@ public class Item
         bool isUsed = false;
         foreach (ItemEffect eft in efts)
         {
-            isUsed = isUsed & eft.ExecuteRole(this);
+            isUsed = eft.ExecuteRole(this);
         }
         return isUsed;
     }
@@ -38,7 +38,7 @@ public class Item
         bool isUsed = false;
         foreach (ItemEffect eft in unefts)
         {
-            isUsed = isUsed & eft.ExecuteRole(this);
+            isUsed = eft.ExecuteRole(this);
         }
         return isUsed;
     }

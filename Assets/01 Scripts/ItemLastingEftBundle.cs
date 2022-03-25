@@ -9,14 +9,20 @@ public class ItemLastingEftBundle : ItemEffect
     {
         if (!GameManager.Instance.statusImage.activeSelf)
         {
-            if (_Item.itemID == 10001)
+            if (_Item.itemID == 20001)
             {
-                PlayerStatus.Instance.RecoveryHp(5);
+                GameManager.Instance.StartCoroutine(Id20001());
                 return false;
             }
-            return true;
+        
         }
         return true;
+    }
+    IEnumerator Id20001() 
+    {
+        PlayerStatus.Instance.PlayerDamage += 30;
+        yield return new WaitForSeconds(10f);
+        PlayerStatus.Instance.PlayerDamage -= 30;
     }
 }
 

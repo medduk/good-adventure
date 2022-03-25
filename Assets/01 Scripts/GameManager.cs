@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject s;
+    public GameObject realstatus;
     public Button pausebtn,statusbtn,Exitbtn,removebtn;
     public Sprite[] img;
 
@@ -84,13 +84,14 @@ public class GameManager : MonoBehaviour
             if (isPaused)
             {
                 Time.timeScale = 0f;
+                realstatus.GetComponent<ShowStatus>().NowChange();
                 statusImage.SetActive(isPaused);
             }
             else
             {
                 Time.timeScale = 1f;
                 statusImage.SetActive(isPaused);
-                s.GetComponent<ShowStatus>().NowChange();
+ 
             }
         }
     }

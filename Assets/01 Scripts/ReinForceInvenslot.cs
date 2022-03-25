@@ -34,7 +34,7 @@ public class ReinForceInvenslot : MonoBehaviour, IPointerUpHandler , IPointerDow
 
     public void canRF()
     {
-        if (!canReinForce || item.level !=5) 
+        if (!canReinForce || item.level < 5) 
         { 
         canReinForce = true;
             color.a = 1f;

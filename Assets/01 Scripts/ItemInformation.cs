@@ -58,6 +58,8 @@ public class ItemInformation : MonoBehaviour
             return "yellow";
         if (item.level == 5)
             return "red";
+        if (item.level == 6)
+            return "#d95b9a";
         return "white";
     }
     public void close()

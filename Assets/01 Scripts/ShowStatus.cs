@@ -79,6 +79,14 @@ public class ShowStatus : MonoBehaviour
     }
     public void NowChange()
     {
+        New[0] = (float)status.PlayerDamage;
+        New[1] = (float)status.PlayerAttackDelay;
+        New[2] = (float)status.PlayerDefense;
+        New[3] = (float)status.PlayerMoveSpeed;
+        New[4] = (float)status.CriticalProbability;
+        New[5] = (float)status.CriticalDamage;
+        New[6] = (float)status.AbsorptionOfVitality;
+
         for (int i = 0; i < New.Length; i++)
         {
             Now[i] = New[i];

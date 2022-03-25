@@ -19,7 +19,7 @@ public class ItemBundle : MonoBehaviour
         for(int i = 0; i<4; i++)
         {
             GameObject go = Instantiate(pickItemPrefab, pos[i], Quaternion.identity);
-            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(0,8)]);
+            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(0,9)]);
         }
     }
 

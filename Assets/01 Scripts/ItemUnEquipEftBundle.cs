@@ -10,26 +10,34 @@ public class ItemUnEquipEftBundle : ItemEffect
         if (_Item.itemID == 11001)
         {
             if (_Item.canUse)
+            {
                 PlayerStatus.Instance.PlayerDamage -= 2;
-            return false;
+                return true;
+            }
         }
         if (_Item.itemID == 11002)
         {
             if (_Item.canUse)
+            {
                 PlayerStatus.Instance.PlayerDamage -= 5;
-            return false;
+                return true;
+            }
         }
         if (_Item.itemID == 11003)
         {
             if (_Item.canUse)
+            {
                 PlayerStatus.Instance.PlayerDamage -= 10;
-            return false;
+                return true;
+            }
         }
         if (_Item.itemID == 11004)
         {
             if (_Item.canUse)
+            {
                 PlayerStatus.Instance.PlayerDamage -= 20;
-            return false;
+                return true;
+            }
         }
         if (_Item.itemID == 11005)
         {
@@ -37,9 +45,18 @@ public class ItemUnEquipEftBundle : ItemEffect
             {
                 PlayerStatus.Instance.PlayerDamage -= 40;
                 PlayerStatus.Instance.PlayerAttackDelay += 0.2f;
+
+                return true;
             }
-            return false;
         }
-        return true;
+        if (_Item.itemID == 20001)
+        {
+            if (_Item.canUse)
+            {
+                PlayerMagicManager.Instance.playerMagics[0].SetActive(false);
+                return true;
+            }
+        }
+        return false;
     }
 }

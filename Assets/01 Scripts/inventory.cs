@@ -38,7 +38,7 @@ public class inventory : MonoBehaviour
     {
         for (int i = 0; i < equip.Count; i++)
         {
-            if (UseCheck[i])
+            if (UseCheck[i]&& equip[i].itemType == ItemType.Lasting)
             {
                 StartCoroutine(UseItem(equip[i], i));
             }
@@ -99,7 +99,6 @@ public class inventory : MonoBehaviour
     IEnumerator UseItem(Item _item , int index)
     {
         UseCheck[index] = _item.Use();
-
         if (GameManager.Instance.statusImage.activeSelf)
         {
             yield return null;
