@@ -9,6 +9,7 @@ TagManager:
   - Tutorial
   - PickItem
   - ReinForce
+  - ItemBox
   layers:
   - Default
   - TransparentFX

@@ -94,6 +94,17 @@ public class inventory : MonoBehaviour
             if (AddItem(pickItems.GetItem()))
                 pickItems.DestoryItem();
         }
+
+        if (collision.CompareTag("ItemBox"))
+        {
+            ItemBox itembox = collision.GetComponent<ItemBox>();
+            if(items.Count < 25)
+            {
+                Destroy(collision);
+                itembox.DropItem();
+            }
+        }
+
     }
 
     IEnumerator UseItem(Item _item , int index)

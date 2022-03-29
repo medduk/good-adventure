@@ -177,7 +177,7 @@ public class ReinForce : MonoBehaviour
             if (ReForce[0].itemID == ReForce[1].itemID && Result.item == null)
             {
                 Debug.Log("¼º°ø!");
-                ReinForceResult = ItemBundle.instance.ReinForce(ReForce[0].itemID + 1);
+                ReinForceResult = ItemBundle.instance.makeItem(ReForce[0].itemID + 1);
                 Result.item = ReinForceResult;
                 Result.UpdateSlotUI();
             }

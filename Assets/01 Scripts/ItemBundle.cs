@@ -32,7 +32,7 @@ public class ItemBundle : MonoBehaviour
         go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID ==indexkey)]);
     }
 
-    public Item ReinForce(int indexkey)
+    public Item makeItem(int indexkey)
     {
         return itemBundle[itemBundle.FindIndex(a => a.itemID == indexkey)];
     }
