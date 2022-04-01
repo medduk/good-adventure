@@ -28,7 +28,10 @@ public class ArrowMove : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
+            if(collision.transform.tag == "Boss")
+                collision.GetComponent<BossEnemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
+            else
+                collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage());
             //Instantiate(hitParticle.gameObject,collision.transform.position,Quaternion.identity);
             hitParticle.Play();
 
@@ -68,7 +71,6 @@ public class ArrowMove : MonoBehaviour
                 }
             }
         }
-
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             gameObject.SetActive(false);

@@ -2,41 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Enemy : MonoBehaviour
+public class BossEnemy : MonoBehaviour
 {
-    private int unitHp = 200;
+
 
     private Animator animator;
     private new Rigidbody2D rigidbody2D;
     private CircleCollider2D circleCollider2D;
     private SpriteRenderer spriteRenderer;
-    private RectTransform ImporUnitHP;
-    private RectTransform Sildershow;
 
     [SerializeField] Slider enemyHpSlider;
     [SerializeField] Slider BackenemyHpSlider;
-    [SerializeField] GameObject UnitHpshow;
 
 
-    [SerializeField] int enemyMaxHp = 100;
+    [SerializeField] int enemyMaxHp = 500;
     [SerializeField] int enemyHp;
-    [SerializeField] float enemyMoveSpeed = 10f;
-    [SerializeField] int enemyDamage = 10;
+    [SerializeField] float enemyMoveSpeed = 0f;
+    [SerializeField] int enemyDamage = 20;
     [SerializeField] int enemyGiveExp = 30;
 
     [SerializeField] int[] dropItemId;
     [SerializeField] int[] dropIChance;
     private int sum = 0;
-    List<Enemy> enemyFriends = new List<Enemy>(); // ÏùºÏ†êÎ≤îÏúÑÎÇ¥ ÌåÄÏù¥ ÎßûÏùÑÎïå Í∞êÏßÄ
+    List<Enemy> enemyFriends = new List<Enemy>(); // ¿œ¡°π¸¿ß≥ª ∆¿¿Ã ∏¬¿ª∂ß ∞®¡ˆ
     List<BossEnemy> enemyBosses = new List<BossEnemy>();
-    static WaitForSeconds sec;
 
     private bool backHpswitch = false;
     private bool playerCheck = false;
     private bool stopMove = false;
-    public bool cangiveItem = true;
     private GameObject player;
     private Vector3 playerDir;
+
+    public delegate void HitPattern();
+    public HitPattern hitPattern;
 
     public int EnemyMaxHp
     {
@@ -109,13 +107,13 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {   
+        {
             playerCheck = true;
         }
 
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            if (collision.transform.tag == "Boss") //Î≥¥Ïä§Í∞Ä ÏïÑÎãàÎùºÎ©¥
+            if (collision.transform.tag == "Boss") //∫∏Ω∫∂Û∏È
                 enemyBosses.Add(collision.gameObject.GetComponent<BossEnemy>());
             else
                 enemyFriends.Add(collision.gameObject.GetComponent<Enemy>());
@@ -125,32 +123,33 @@ public class Enemy : MonoBehaviour
     {
         if (enemyFriends.Contains(collision.gameObject.GetComponent<Enemy>()))
         {
-            if (collision.transform.tag == "Boss") //Î≥¥Ïä§Í∞Ä ÏïÑÎãàÎùºÎ©¥
+            if (collision.transform.tag == "Boss") //∫∏Ω∫∂Û∏È
                 enemyBosses.Remove(collision.gameObject.GetComponent<BossEnemy>());
             else
                 enemyFriends.Remove(collision.gameObject.GetComponent<Enemy>());
         }
     }
-    public void FriendHit()
-    {
-        playerCheck = true;
-    }
+
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             PlayerStatus.Instance.TakeDamage(enemyDamage);
         }
+
+    }
+    public void FriendHit()
+    {
+        playerCheck = true;
 
     }
     private void FixedUpdate()
     {
         if (playerCheck && !stopMove)
         {
-            animator.SetBool("IsWalking", true);
             playerDir = player.transform.position - transform.position;
-            if(playerDir.x > 0)
+            if (playerDir.x > 0)
             {
                 spriteRenderer.flipX = true;
             }
@@ -162,17 +161,14 @@ public class Enemy : MonoBehaviour
             rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * (enemyMoveSpeed * 0.1f));
         }
-        
+
     }
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         enemyHp = enemyMaxHp;
-        enemyHpSlider.value = 1f; // ÌíÄ HP
+        enemyHpSlider.value = 1f; // «Æ HP
         BackenemyHpSlider.value = 1f;
-        ImporUnitHP = UnitHpshow.GetComponent<RectTransform>();
-        Sildershow = enemyHpSlider.GetComponent<RectTransform>();
-        HpBarUnit();
     }
     private void Update()
     {
@@ -186,20 +182,19 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    public void TakeDamage((int damage,bool isCritical) _damage)
+    public void TakeDamage((int damage, bool isCritical) _damage)
     {
-        DamageTextManager.Instance.DisplayDamage(_damage.damage, transform.position,_damage.isCritical);   // Damage Text
+        DamageTextManager.Instance.DisplayDamage(_damage.damage, transform.position, _damage.isCritical);   // Damage Text
 
         enemyHp -= _damage.damage;
-        enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
-        ImporUnitHP.sizeDelta = new Vector2(Sildershow.sizeDelta.x * enemyHpSlider.value, ImporUnitHP.sizeDelta.y);
-        ImporUnitHP.anchoredPosition = new Vector2((Sildershow.sizeDelta.x - ImporUnitHP.sizeDelta.x)/-2, 0);
-        StartCoroutine(BackHpRun());
+        Hpbar();
         playerCheck = true;
+
+
 
         PlayerStatus.Instance.AbsorbHp(_damage.damage);
 
-        for(int i = 0; i< enemyFriends.Count; i++)
+        for (int i = 0; i < enemyFriends.Count; i++)
         {
             enemyFriends[i].FriendHit();
         }
@@ -207,37 +202,35 @@ public class Enemy : MonoBehaviour
         {
             enemyBosses[i].FriendHit();
         }
-        if (enemyHp <= 0) StartCoroutine(DieEnemy());
+        if (enemyHp <= 0)
+        {
+            animator.SetTrigger("bossdie");
+            circleCollider2D.enabled = false;
+            enemyHpSlider.gameObject.SetActive(false);
+
+            stopMove = true;
+            rigidbody2D.velocity = Vector2.zero;
+            PlayerStatus.Instance.GainExp(enemyGiveExp);
+        }
         else
         {
-            animator.SetTrigger("IsHit");
+            animator.SetTrigger("bosshit");
+            if (hitPattern != null) hitPattern.Invoke(); // ««∞›Ω√ ∆–≈œ πﬂµø
             StartCoroutine(StopMove());
         }
     }
 
-    private IEnumerator DieEnemy()
+    public void Hpbar()
     {
-        animator.SetTrigger("IsDie");
+        enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
+        StartCoroutine(BackHpRun());
+    }
 
-        circleCollider2D.enabled = false;
-        enemyHpSlider.gameObject.SetActive(false);
 
-        stopMove = true;
-        rigidbody2D.velocity = Vector2.zero;
-
-        PlayerStatus.Instance.GainExp(enemyGiveExp);
-
-        sec = new WaitForSeconds(0.3f);
-        yield return sec;
-        int DropIndex = DropItem();
-        if (cangiveItem) // ÎßåÏïΩ ÏïÑÏù¥ÌÖúÏùÑ Ï£ºÎäî Î™¨Ïä§ÌÑ∞ ÎùºÎ©¥
-        { 
-            ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
-        }
-
+    private void DieEnemy()
+    {
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
-
-        Destroy(gameObject);      
+        Destroy(gameObject);
     }
 
     IEnumerator StopMove()
@@ -252,16 +245,6 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         backHpswitch = true;
-    }
-    private void HpBarUnit()
-    {
-        float scaleX = 1.5f / ((float)enemyMaxHp / (float)unitHp);
-        UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(false);
-        foreach (Transform child in UnitHpshow.transform)
-        {
-            child.gameObject.transform.localScale = new Vector3(scaleX, 1, 1);
-        }
-        UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(true);
     }
     private int DropItem()
     {

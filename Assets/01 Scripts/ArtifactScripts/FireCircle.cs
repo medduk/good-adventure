@@ -41,11 +41,15 @@ public class FireCircle : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            
             if (!attackCheckList.Contains(collision))
             {
                 attackCheckList.Add(collision);
                 //collision.GetComponent<Enemy>().TakeDamage(((int)(PlayerStatus.Instance.CalPlayerDamage().Item1 * damagePercent), PlayerStatus.Instance.CalPlayerDamage().Item2));
-                collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage(damagePercent,false));
+                if(collision.transform.tag == "Boss") //보스라면
+                    collision.GetComponent<BossEnemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage(damagePercent, false));
+                else // 일반 몬스터라면
+                    collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage(damagePercent,false));
 
                 StartCoroutine(CheckOutCollider(collision));
             }
