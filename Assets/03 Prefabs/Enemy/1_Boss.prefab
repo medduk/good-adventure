@@ -171,9 +171,10 @@ GameObject:
   - component: {fileID: 4459723038271906778}
   - component: {fileID: 4459723038271906779}
   - component: {fileID: 1214394064105435869}
-  m_Layer: 11
+  - component: {fileID: 1214394064105435870}
+  m_Layer: 8
   m_Name: 1_Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,7 +303,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &1214394064105435869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db79701559d213c40943f9e1b028c26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iDName: 1_Boss
   enemyHpSlider: {fileID: 4459723038859840105}
   BackenemyHpSlider: {fileID: 5933599815692058257}
   enemyMaxHp: 500
@@ -324,6 +326,21 @@ MonoBehaviour:
   enemyGiveExp: 30
   dropItemId: 
   dropIChance: 
+--- !u!114 &1214394064105435870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459723038271906784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193f2ff0fce8cc04ca5addc1743d121a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy:
+  - {fileID: 3269883360845180404, guid: a1f0f027deb3cec4daebbb1eb5c5dfc1, type: 3}
+  - {fileID: 3269883360845180404, guid: 27ea7196eafab324085ebbf7d6153453, type: 3}
 --- !u!1 &4459723038279238038
 GameObject:
   m_ObjectHideFlags: 0

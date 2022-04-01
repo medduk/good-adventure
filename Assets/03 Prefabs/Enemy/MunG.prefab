@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb6adea60a41114dbfb75d54238454b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iDName: MunG
   enemyHpSlider: {fileID: 3269883361432978557}
   BackenemyHpSlider: {fileID: 4817877942221959301}
   UnitHpshow: {fileID: 604910213208478534}
@@ -927,6 +928,7 @@ MonoBehaviour:
   enemyGiveExp: 30
   dropItemId: 000000001227000013270000fa2a0000
   dropIChance: 320000001e0000000f00000005000000
+  cangiveItem: 1
 --- !u!95 &605073024300295394
 Animator:
   serializedVersion: 3

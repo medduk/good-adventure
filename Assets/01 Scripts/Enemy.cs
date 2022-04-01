@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] string iDName;
+
     private int unitHp = 200;
 
-    private Animator animator;
+    public Animator animator;
     private new Rigidbody2D rigidbody2D;
     private CircleCollider2D circleCollider2D;
     private SpriteRenderer spriteRenderer;
@@ -38,6 +40,24 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private Vector3 playerDir;
 
+    public string IDName
+    {
+        get
+        {
+            return iDName;
+        }
+    }
+    public bool PlayerCheck
+    {
+        get
+        {
+            return playerCheck;
+        }
+        set
+        {
+            playerCheck = value;
+        }
+    }
     public int EnemyMaxHp
     {
         get
@@ -125,11 +145,17 @@ public class Enemy : MonoBehaviour
     {
         if (enemyFriends.Contains(collision.gameObject.GetComponent<Enemy>()))
         {
-            if (collision.transform.tag == "Boss") //보스가 아니라면
-                enemyBosses.Remove(collision.gameObject.GetComponent<BossEnemy>());
-            else
-                enemyFriends.Remove(collision.gameObject.GetComponent<Enemy>());
+
+
+            enemyFriends.Remove(collision.gameObject.GetComponent<Enemy>());
         }
+        if (enemyBosses.Contains(collision.gameObject.GetComponent<BossEnemy>()))
+        {
+
+
+            enemyBosses.Remove(collision.gameObject.GetComponent<BossEnemy>());
+        }
+
     }
     public void FriendHit()
     {
@@ -278,5 +304,10 @@ public class Enemy : MonoBehaviour
             i++;
         }
         return i;
+    }
+    public void TriggerDie()
+    {
+        circleCollider2D.enabled = false;
+        StartCoroutine(DieEnemy());
     }
 }

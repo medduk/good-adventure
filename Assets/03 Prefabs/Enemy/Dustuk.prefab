@@ -1018,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb6adea60a41114dbfb75d54238454b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iDName: Dustuk
   enemyHpSlider: {fileID: 3269883361432978557}
   BackenemyHpSlider: {fileID: 4817877942221959301}
   UnitHpshow: {fileID: 604910213208478534}
@@ -1028,6 +1029,7 @@ MonoBehaviour:
   enemyGiveExp: 30
   dropItemId: 00000000112700001227000013270000f92a0000
   dropIChance: 32000000190000000f0000000a00000005000000
+  cangiveItem: 1
 --- !u!1 &3269883360871387010
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BossEnemy : MonoBehaviour
 {
+    [SerializeField] string iDName;
 
-
-    private Animator animator;
+    public Animator animator;
     private new Rigidbody2D rigidbody2D;
     private CircleCollider2D circleCollider2D;
     private SpriteRenderer spriteRenderer;
@@ -36,6 +36,13 @@ public class BossEnemy : MonoBehaviour
     public delegate void HitPattern();
     public HitPattern hitPattern;
 
+    public string IDName
+    {
+        get
+        {
+            return iDName;
+        }
+    }
     public int EnemyMaxHp
     {
         get
@@ -98,7 +105,7 @@ public class BossEnemy : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider2D = GetComponent<CircleCollider2D>();
-
+        gameObject.transform.parent = GameObject.Find("EnemyManager").transform;
         for (int c = 0; c < dropItemId.Length; c++)
         {
             sum += dropIChance[c];
@@ -123,11 +130,17 @@ public class BossEnemy : MonoBehaviour
     {
         if (enemyFriends.Contains(collision.gameObject.GetComponent<Enemy>()))
         {
-            if (collision.transform.tag == "Boss") //보스라면
-                enemyBosses.Remove(collision.gameObject.GetComponent<BossEnemy>());
-            else
-                enemyFriends.Remove(collision.gameObject.GetComponent<Enemy>());
+
+                
+            enemyFriends.Remove(collision.gameObject.GetComponent<Enemy>());
         }
+        if (enemyBosses.Contains(collision.gameObject.GetComponent<BossEnemy>()))
+        {
+
+
+            enemyBosses.Remove(collision.gameObject.GetComponent<BossEnemy>());
+        }
+        
     }
 
 
