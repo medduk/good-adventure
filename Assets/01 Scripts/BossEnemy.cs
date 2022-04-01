@@ -204,6 +204,7 @@ public class BossEnemy : MonoBehaviour
         }
         if (enemyHp <= 0)
         {
+            gameObject.transform.localScale = new Vector3(1f, 1f);
             animator.SetTrigger("bossdie");
             circleCollider2D.enabled = false;
             enemyHpSlider.gameObject.SetActive(false);
