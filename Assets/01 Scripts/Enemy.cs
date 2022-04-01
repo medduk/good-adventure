@@ -226,7 +226,7 @@ public class Enemy : MonoBehaviour
         rigidbody2D.velocity = Vector2.zero;
 
         PlayerStatus.Instance.GainExp(enemyGiveExp);
-
+ 
         sec = new WaitForSeconds(0.3f);
         yield return sec;
         int DropIndex = DropItem();
@@ -235,8 +235,8 @@ public class Enemy : MonoBehaviour
             ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
         }
 
-        MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
 
+        MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
         Destroy(gameObject);      
     }
 
