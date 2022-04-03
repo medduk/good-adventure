@@ -33,8 +33,12 @@ public class BossEnemy : MonoBehaviour
     private GameObject player;
     private Vector3 playerDir;
 
+    public Sprite Icon;
+
     public delegate void HitPattern();
     public HitPattern hitPattern;
+    public delegate void DiePattern();
+    public DiePattern diePattern;
 
     public string IDName
     {
@@ -182,6 +186,8 @@ public class BossEnemy : MonoBehaviour
         enemyHp = enemyMaxHp;
         enemyHpSlider.value = 1f; // Ǯ HP
         BackenemyHpSlider.value = 1f;
+        GameManager.Instance.OpenBossHpbar();
+        GameManager.Instance.changeBossIcon(Icon);
     }
     private void Update()
     {
@@ -198,8 +204,9 @@ public class BossEnemy : MonoBehaviour
     public void TakeDamage((int damage, bool isCritical) _damage)
     {
         DamageTextManager.Instance.DisplayDamage(_damage.damage, transform.position, _damage.isCritical);   // Damage Text
-
+        enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
         enemyHp -= _damage.damage;
+        GameManager.Instance.changeBossIcon(Icon);
         Hpbar();
         playerCheck = true;
 
@@ -220,8 +227,7 @@ public class BossEnemy : MonoBehaviour
             gameObject.transform.localScale = new Vector3(1f, 1f);
             animator.SetTrigger("bossdie");
             circleCollider2D.enabled = false;
-            enemyHpSlider.gameObject.SetActive(false);
-
+            if (diePattern != null) diePattern.Invoke();
             stopMove = true;
             rigidbody2D.velocity = Vector2.zero;
             PlayerStatus.Instance.GainExp(enemyGiveExp);
@@ -236,6 +242,7 @@ public class BossEnemy : MonoBehaviour
 
     public void Hpbar()
     {
+        BackenemyHpSlider.value = enemyHpSlider.value;
         enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
         StartCoroutine(BackHpRun());
     }
@@ -243,6 +250,7 @@ public class BossEnemy : MonoBehaviour
 
     private void DieEnemy()
     {
+        GameManager.Instance.CloseBossHpbar();
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
         Destroy(gameObject);
     }

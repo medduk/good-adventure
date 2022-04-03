@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject realstatus;
+    public GameObject realstatus,bossHPbar;
     public Button pausebtn,statusbtn,Exitbtn,removebtn;
     public Sprite[] img;
+    public Image bossIcon;
 
     public GameObject pauseImage,statusImage,ReinforceImage,ItemInformationImage;
     public GameObject gameOverImage;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
 
     private bool isGameOver = false;
-
+    private int BossCount = 0;
     private static GameManager instance = null;
     public static GameManager Instance
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         gameOverImage.SetActive(false);
         ReinforceImage.SetActive(true);
         ItemInformationImage.SetActive(true);
+        bossHPbar.SetActive(true);
         isPaused = false;
     }
 
@@ -116,6 +118,22 @@ public class GameManager : MonoBehaviour
     {
         ItemInformationImage.gameObject.SetActive(true);
         removebtn.gameObject.SetActive(can);
+    }
+    public void OpenBossHpbar()
+    {
+        BossCount++;
+        bossHPbar.gameObject.SetActive(true);      
+    }
+    public void CloseBossHpbar()
+    {
+        BossCount--;
+        if(BossCount == 0)
+            bossHPbar.gameObject.SetActive(false);
+    }
+
+    public void changeBossIcon(Sprite Icon)
+    {
+        bossIcon.sprite = Icon;
     }
     public void RestartMap()
     {

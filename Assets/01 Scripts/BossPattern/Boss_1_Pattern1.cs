@@ -34,7 +34,7 @@ public class Boss_1_Pattern1 : MonoBehaviour
                 Thing[i].GetComponent<Rigidbody2D>().position = Vector2.MoveTowards(Thing[i].transform.position, transform.position, Time.deltaTime * 12.5f);
 
             }
-        }
+        }   
         if (time > 7f)
         {
             Destroy(gameObject);
