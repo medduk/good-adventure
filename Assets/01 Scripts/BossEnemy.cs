@@ -183,11 +183,14 @@ public class BossEnemy : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        GameManager.Instance.OpenBossHpbar();
+        GameManager.Instance.changeBossIcon(Icon);
+        enemyHpSlider = GameObject.Find("BossEnemyHPCanvas").GetComponent<BossHPbar>().GetBossHP;
+        BackenemyHpSlider = GameObject.Find("BossEnemyHPCanvas").GetComponent<BossHPbar>().GetBossHPEffect;
         enemyHp = enemyMaxHp;
         enemyHpSlider.value = 1f; // Ǯ HP
         BackenemyHpSlider.value = 1f;
-        GameManager.Instance.OpenBossHpbar();
-        GameManager.Instance.changeBossIcon(Icon);
+
     }
     private void Update()
     {
@@ -205,6 +208,7 @@ public class BossEnemy : MonoBehaviour
     {
         DamageTextManager.Instance.DisplayDamage(_damage.damage, transform.position, _damage.isCritical);   // Damage Text
         enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
+        BackenemyHpSlider.value = enemyHpSlider.value;
         enemyHp -= _damage.damage;
         GameManager.Instance.changeBossIcon(Icon);
         Hpbar();
@@ -242,7 +246,6 @@ public class BossEnemy : MonoBehaviour
 
     public void Hpbar()
     {
-        BackenemyHpSlider.value = enemyHpSlider.value;
         enemyHpSlider.value = (float)enemyHp / enemyMaxHp;
         StartCoroutine(BackHpRun());
     }
