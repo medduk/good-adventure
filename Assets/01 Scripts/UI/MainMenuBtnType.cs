@@ -30,7 +30,7 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 CanvasGroupOff(StartGroup);
                 break;
             case BTNType.New:
-                SceneManager.LoadScene("MainGame");
+                SceneManager.LoadScene("Loading");
                 break;
             case BTNType.Continue:
 

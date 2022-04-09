@@ -10,6 +10,8 @@ public class DialogManager : MonoBehaviour
     public GameObject dialogPanel;
     public GameObject scanObject;
     public TextEffect talk;
+    public Image portraitImg;
+
     public bool isAction;
     public int textIndex;
     public int tutoNumber = 0;
@@ -43,13 +45,25 @@ public class DialogManager : MonoBehaviour
                 textIndex = 0;
                 return;
             }
-            if (isNPC)
+            if (textData.Split(':')[1] == "n")
             {
-                talk.SetText(textData);
+                portraitImg.color = new Color(1, 1, 1, 0);
             }
             else
             {
-                talk.SetText(textData);
+                portraitImg.sprite = textBundle.GetPortrait(int.Parse(textData.Split(':')[1]));
+                portraitImg.color = new Color(1, 1, 1, 1);
+            }
+
+            if (isNPC)
+            {
+                talk.SetText(textData.Split(':')[0]);
+                talk.namechange(textData.Split(':')[2]);
+            }
+            else
+            {
+                talk.SetText(textData.Split(':')[0]);
+                talk.namechange(textData.Split(':')[2]);
             }
             isAction = true;
             textIndex++;
@@ -87,14 +101,26 @@ public class DialogManager : MonoBehaviour
             textData = textBundle.GetText(id , textIndex);
         }
 
-
-        if (isNpc)
+        if(textData.Split(':')[1] == "n")
         {
-            talk.SetText(textData);
+            portraitImg.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            talk.SetText(textData);
+            portraitImg.sprite = textBundle.GetPortrait(int.Parse(textData.Split(':')[1]));
+            portraitImg.color = new Color(1, 1, 1, 1);
+        }
+
+        if (isNpc)
+        {
+            talk.SetText(textData.Split(':')[0]);
+            talk.namechange(textData.Split(':')[2]);
+            
+        }
+        else
+        {
+            talk.SetText(textData.Split(':')[0]);
+            talk.namechange(textData.Split(':')[2]);
         }
         isAction = true;
         dialogPanel.SetActive(isAction);

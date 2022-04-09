@@ -8,6 +8,7 @@ public class TextEffect : MonoBehaviour
     string targetText;
     public float CharPerSeconds;
     Text msgText;
+    [SerializeField] Text sayname;
     int index;
     float interval;
 
@@ -54,5 +55,9 @@ public class TextEffect : MonoBehaviour
     public void EffectfastEnd()
     {
         msgText.text = targetText;
+    }
+    public void namechange(string name)
+    {
+        sayname.text = name;
     }
 }
