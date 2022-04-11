@@ -51,7 +51,9 @@ public class EquipSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             {
                 StopCoroutine("openInformation");
                 click = false;
+                
                 bool isEquip = inven.AddItem(this.item);
+                
                 if (isEquip)
                 {
                     this.item.UnUse();

@@ -34,6 +34,10 @@ public class ItemBundle : MonoBehaviour
 
     public Item makeItem(int indexkey)
     {
-        return itemBundle[itemBundle.FindIndex(a => a.itemID == indexkey)];
-    }
+        GameObject go = Instantiate(pickItemPrefab, new Vector3(1000,1000), Quaternion.identity);
+        go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID == indexkey)]);
+        Item a = go.GetComponent<PickItems>().GetItem();
+        Destroy(go);
+        return a;
+    }   
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] int playerCurHp;
     [SerializeField] int playerDamage = 10;     // 공격력
     [SerializeField] float playerMoveSpeed = 2f;    // 이속
-    [SerializeField] float playerAttackDelay = 1f;    // 공속
+    [SerializeField] float playerAttackDelay = 1f;    // 실제공속
+    [SerializeField] float playerChangeAttackDelay =1f; // 누적공속
 
     [SerializeField] int playerDefense;       // 방어력
     [SerializeField] float criticalDamage = 0.5f;      // 치명타 데미지
@@ -21,7 +23,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] int playerMaxExp = 100;   // 모아야할 경험치
     [SerializeField] float playerCurExp;   // 현재 경험치
 
-    [SerializeField] float playerLevel = 1;   // 현재 경험치
+    [SerializeField] float playerLevel = 1;   // 현재 레벨
 
     public bool textSkillOn = false;
     public int textSkillLevel = 1;
@@ -74,6 +76,17 @@ public class PlayerStatus : MonoBehaviour
             return playerMaxHp;
         }
     }
+    public int PlayerCurHp
+    {
+        set
+        {
+            playerCurHp = value;
+        }
+        get
+        {
+            return playerCurHp;
+        }
+    }
     public int PlayerDamage
     {
         set
@@ -97,18 +110,28 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public float PlayerAttackDelay
+    public float PlayerChangeAttackDelay
     {
         set
         {
-            playerAttackDelay = value;
+            playerChangeAttackDelay = value;
+            if (playerChangeAttackDelay <= 0.2f)
+            {
+                playerAttackDelay = 0.2f;
+            }
+            else
+                playerAttackDelay = playerChangeAttackDelay;
         }
         get
         {
-            if(playerAttackDelay <= 0.2f)
-            {
-                return 0.2f;
-            }
+
+            return playerChangeAttackDelay;
+        }
+    }
+    public float PlayerAttackDelay
+    {
+        get
+        {
             return playerAttackDelay;
         }
     }
@@ -169,6 +192,28 @@ public class PlayerStatus : MonoBehaviour
         get
         {
             return playerMaxExp;
+        }
+    }
+    private float PlayerCurExp
+    {
+        set
+        {
+            playerCurExp = value;
+        }
+        get
+        {
+            return playerCurExp;
+        }
+    }
+    private float PlayerLevel
+    {
+        set
+        {
+            playerLevel = value;
+        }
+        get
+        {
+            return playerLevel;
         }
     }
 
@@ -335,5 +380,58 @@ public class PlayerStatus : MonoBehaviour
         }
 
         return ((int)damage,isCritical);
+    }
+
+    public void SaveGame()
+    {
+        SaveData save = new SaveData();
+        save.PlayerMaxHp = PlayerMaxHp;
+        save.playerCurHp = playerCurHp;
+        save.playerMaxExp = playerMaxExp;
+        save.playerCurExp = playerCurExp;
+        save.playerLevel = playerLevel;
+
+        save.x = transform.position.x;
+        save.y = transform.position.y;
+        save.z = transform.position.z;
+
+        for (int i = 0; i < inventory.instance.equip.Count; i++)
+        {
+
+            save.equip.Add(inventory.instance.equip[i].itemID);
+        }
+
+        for (int i = 0; i < inventory.instance.items.Count; i++)
+        {
+            save.items.Add(inventory.instance.items[i].itemID);
+        }
+
+        SaveManager.Save(save);
+    }
+
+    public void LoadGame()
+    {
+        SaveData save = SaveManager.Load();
+        PlayerMaxHp = save.PlayerMaxHp;
+        playerCurHp = save.playerCurHp;
+        playerMaxExp = save.playerMaxExp;
+        playerCurExp = save.playerCurExp;
+        playerLevel = save.playerLevel;
+
+        transform.position = new Vector3(save.x, save.y, save.z);
+
+        
+
+        for(int i = 0; i < save.equip.Count; i++)
+        {
+            inventory.instance.AddItem(ItemBundle.instance.makeItem(save.equip[i]));
+            inventory.instance.EquipItem(inventory.instance.items[0]);
+            inventory.instance.RemoveItem(0);
+        }
+        for (int i = 0; i < save.items.Count; i++)
+        {
+            inventory.instance.AddItem(ItemBundle.instance.makeItem(save.items[i]));
+        }
+
     }
 }

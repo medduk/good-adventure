@@ -44,7 +44,7 @@ public class ItemUnEquipEftBundle : ItemEffect
             if (_Item.canUse)
             {
                 PlayerStatus.Instance.PlayerDamage -= 40;
-                PlayerStatus.Instance.PlayerAttackDelay += 0.2f;
+                PlayerStatus.Instance.PlayerChangeAttackDelay += 0.2f;
 
                 return true;
             }
