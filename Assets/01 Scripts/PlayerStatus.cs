@@ -260,6 +260,7 @@ public class PlayerStatus : MonoBehaviour
         absorptionOfVitality += (runes[(int)Runes.aov] * 0.05f);
     }
 
+    
     private void Awake()
     {
         if(instance == null)

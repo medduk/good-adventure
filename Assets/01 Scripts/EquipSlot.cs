@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class EquipSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-
     inventory inven;
     public int slotnum;
     public Item item;
