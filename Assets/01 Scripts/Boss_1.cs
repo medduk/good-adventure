@@ -12,7 +12,10 @@ public class Boss_1 : MonoBehaviour
 
     private bool playPattern1 = false;
     private float time;
-    // Start is called before the first frame update
+
+    [SerializeField] float warningTime = 2f;
+    [SerializeField] float patternMaintainTime = 3f;
+
     void Start()
     {
         bossEnemy = gameObject.GetComponent<BossEnemy>();
@@ -73,9 +76,9 @@ public class Boss_1 : MonoBehaviour
     {
         bossEnemy.animator.SetBool("pattern1", true);
         P1 = Instantiate(Patterns[0], transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(warningTime);
         playPattern1 = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(patternMaintainTime);
         Destroy(P1);
         playPattern1 = false;
         bossEnemy.animator.SetBool("pattern1", false);

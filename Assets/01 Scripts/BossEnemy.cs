@@ -14,7 +14,6 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] Slider enemyHpSlider;
     [SerializeField] Slider BackenemyHpSlider;
 
-
     [SerializeField] int enemyMaxHp = 500;
     [SerializeField] int enemyHp;
     [SerializeField] float enemyMoveSpeed = 0f;

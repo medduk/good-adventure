@@ -21202,7 +21202,7 @@ MonoBehaviour:
   playerMaxHp: 100
   playerCurHp: 0
   playerDamage: 20
-  playerMoveSpeed: 5
+  playerMoveSpeed: 3
   playerAttackDelay: 0.6
   playerChangeAttackDelay: 0.6
   playerDefense: 0
