@@ -28,9 +28,9 @@ public class Rune : MonoBehaviour
 
     private void Start()
     {
-        runepower();
+        RunePower();
     }
-    public void runepower() { 
+    public void RunePower() { 
         switch (rune)
         {
             case Runes.hp:
