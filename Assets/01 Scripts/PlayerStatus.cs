@@ -28,21 +28,6 @@ public class PlayerStatus : MonoBehaviour
     public bool textSkillOn = false;
     public int textSkillLevel = 1;
 
-    [System.Serializable]
-    public enum Runes
-    {
-        hp,
-        damage,
-        moveSpeed,
-        attackDelay,
-        defense,
-        criDamage,
-        criProbability,
-        aov,
-        exp,
-        dropPer
-    }
-
     [SerializeField] int[] runes;
 
     public enum ShotSkills
@@ -252,12 +237,12 @@ public class PlayerStatus : MonoBehaviour
 
         playerMaxHp += (runes[(int)Runes.hp] * 2);
         playerDamage += runes[(int)Runes.damage];
-        playerAttackDelay -= runes[(int)Runes.attackDelay] * 0.01f;
+        PlayerChangeAttackDelay -= runes[(int)Runes.attackDelay] * 0.01f;
         playerMoveSpeed += runes[(int)Runes.attackDelay] * 0.02f;
         playerDefense += runes[(int)Runes.defense];
         criticalDamage += (runes[(int)Runes.criDamage] * 0.02f);
         criticalProbability += (runes[(int)Runes.criProbability] * 0.5f);
-        absorptionOfVitality += (runes[(int)Runes.aov] * 0.05f);
+        absorptionOfVitality += (runes[(int)Runes.aov] * 0.005f);
     }
 
     private void Awake()
@@ -433,5 +418,12 @@ public class PlayerStatus : MonoBehaviour
             inventory.instance.AddItem(ItemBundle.instance.makeItem(save.items[i]));
         }
 
+    }
+    public void runeReset()
+    {
+        for (int i = 0; i < runes.Length; i++)
+        {
+            PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), i),0);
+        }
     }
 }

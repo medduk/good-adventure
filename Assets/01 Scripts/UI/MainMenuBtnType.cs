@@ -11,6 +11,7 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     public CanvasGroup mainGroup;
     public CanvasGroup StartGroup;
     public CanvasGroup OptionGroup;
+    public CanvasGroup RuneUI;
     private void Start()
     {
         defaultScale = buttonScale.localScale;
@@ -24,8 +25,9 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 CanvasGroupOff(OptionGroup);
                 CanvasGroupOff(mainGroup);
                 break;
-            case BTNType.Option:
+            case BTNType.Upgrade:
                 CanvasGroupOn(OptionGroup);
+                CanvasGroupOff(RuneUI);
                 CanvasGroupOff(mainGroup);
                 CanvasGroupOff(StartGroup);
                 break;
@@ -35,8 +37,11 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
             case BTNType.Continue:
 
                 break;
-            case BTNType.SoundON:
-
+            case BTNType.Rune:
+                CanvasGroupOn(RuneUI);
+                CanvasGroupOff(mainGroup);
+                CanvasGroupOff(OptionGroup);
+                CanvasGroupOff(StartGroup);
                 break;
             case BTNType.SoundOFF:
 

@@ -7,8 +7,8 @@ public enum BTNType
     Start,
     New,
     Continue,
-    Option,
-    SoundON,
+    Upgrade,
+    Rune,
     SoundOFF,
     Back,
     Quit

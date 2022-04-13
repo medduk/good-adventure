@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class Rune : MonoBehaviour
-{
-    public enum Runes
+public enum Runes
     {
         hp,
         damage,
@@ -17,44 +17,69 @@ public class Rune : MonoBehaviour
         exp,
         dropPer
     }
+public class Rune : MonoBehaviour
+{
+
 
     [SerializeField] Runes rune;
     [SerializeField] int level; // runeÀÇ °¹¼ö
-    
+    public TextMeshProUGUI LVText;
+    public TextMeshProUGUI CountText;
+
+    private void Start()
+    {
+        runepower();
+    }
     public void runepower() { 
         switch (rune)
         {
             case Runes.hp:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.damage:
-            { 
-                break;
+            {
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.moveSpeed:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.attackDelay:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.defense:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.criDamage:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.criProbability:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
             case Runes.aov:
             {
-                break;
+                    level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
+                    LVText.text = "LV." + level;
+                    break;
             }
         }
     }
