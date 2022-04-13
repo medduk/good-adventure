@@ -19,12 +19,13 @@ public class Rune : MonoBehaviour
     }
 
     [SerializeField] Runes rune;
-    [SerializeField] int level;
+    [SerializeField] int level; // runeÀÇ °¹¼ö
+    
     public void runepower() { 
         switch (rune)
         {
             case Runes.hp:
-            { 
+            {
                 break;
             }
             case Runes.damage:
@@ -57,6 +58,4 @@ public class Rune : MonoBehaviour
             }
         }
     }
-
-
 }

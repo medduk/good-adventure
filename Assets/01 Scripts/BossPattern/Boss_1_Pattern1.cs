@@ -7,13 +7,10 @@ public class Boss_1_Pattern1 : MonoBehaviour
     float time;
     List<GameObject> Thing = new List<GameObject>();
     [SerializeField] GameObject Image;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
+    [SerializeField] float patternForce = 12.5f;
+
     void Update()
     {
         time += Time.deltaTime;
@@ -31,7 +28,7 @@ public class Boss_1_Pattern1 : MonoBehaviour
                     if (Thing[i].GetComponent<Enemy>().PlayerCheck)
                         Thing[i].GetComponent<Enemy>().PlayerCheck = false;
                 }
-                Thing[i].GetComponent<Rigidbody2D>().position = Vector2.MoveTowards(Thing[i].transform.position, transform.position, Time.deltaTime * 12.5f);
+                Thing[i].GetComponent<Rigidbody2D>().position = Vector2.MoveTowards(Thing[i].transform.position, transform.position, Time.deltaTime * patternForce);
 
             }
         }   
