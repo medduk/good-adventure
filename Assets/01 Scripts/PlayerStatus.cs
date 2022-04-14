@@ -238,9 +238,9 @@ public class PlayerStatus : MonoBehaviour
         playerMaxHp += (runes[(int)Runes.hp] * 2);
         playerDamage += runes[(int)Runes.damage];
         PlayerChangeAttackDelay -= runes[(int)Runes.attackDelay] * 0.01f;
-        playerMoveSpeed += runes[(int)Runes.attackDelay] * 0.02f;
+        playerMoveSpeed += runes[(int)Runes.moveSpeed] * 0.02f;
         playerDefense += runes[(int)Runes.defense];
-        criticalDamage += (runes[(int)Runes.criDamage] * 0.02f);
+        criticalDamage += (runes[(int)Runes.criDamage]);
         criticalProbability += (runes[(int)Runes.criProbability] * 0.5f);
         absorptionOfVitality += (runes[(int)Runes.aov] * 0.005f);
     }

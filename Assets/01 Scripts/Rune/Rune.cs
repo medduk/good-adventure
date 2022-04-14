@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public enum Runes
     {
@@ -17,15 +18,16 @@ public enum Runes
         exp,
         dropPer
     }
-public class Rune : MonoBehaviour
+public class Rune : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
 
 
     [SerializeField] Runes rune;
     [SerializeField] int level; // runeÀÇ °¹¼ö
     public TextMeshProUGUI LVText;
-    public TextMeshProUGUI CountText;
+    public GameObject Explanation;
 
+    bool click;
     private void Start()
     {
         RunePower();
@@ -82,5 +84,35 @@ public class Rune : MonoBehaviour
                     break;
             }
         }
+    }
+    IEnumerator stoplevelup()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        if (click)
+        {
+            click = false;
+
+        }
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+
+            if (click)
+            {
+                StopCoroutine("stoplevelup");
+                click = false;
+                RuneUI.instance.Levelup(rune);
+                RunePower();
+                Explanation.GetComponent<RuneExplanation>().RunePowerWrite();
+
+        }
+        
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+
+            click = true;
+            StartCoroutine("stoplevelup");
+        
     }
 }
