@@ -19920,7 +19920,7 @@ MonoBehaviour:
     canUse: 1
     itemName: "[\uCD5C\uACE0\uC758]\uAC80"
     itemDescription: "\uACF5\uACA9\uB825 <color=#92f4ff>40</color> \uC0C1\uC2B9 ,
-      \uACF5\uACA9\uC18D\uB3C4 \uC0C1\uC2B9"
+      \uACF5\uACA9\uC18D\uB3C4 <color=#92f4ff>0.2</color>/s \uC0C1\uC2B9"
     level: 5
     coolTime: 0
     itemImage: {fileID: 7237753769111153770, guid: 3074c24a3fd1323408f34399c6ac2c5a, type: 3}
