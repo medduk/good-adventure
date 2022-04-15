@@ -13,8 +13,18 @@ public class RuneUI : MonoBehaviour
     public TextMeshProUGUI Count;
 
     bool IsRunepage = true;
-    int RunestoneCount = 5;
+    int runestoneCount = 5;
     int level;
+
+
+    public int RunestoneCount
+    {
+        get
+        {
+            return runestoneCount;
+        }
+    }
+
     // Start is called before the first frame update
     public static RuneUI instance;
     private void Awake()
@@ -28,7 +38,7 @@ public class RuneUI : MonoBehaviour
     }
     private void Start()
     {
-        Count.text = +RunestoneCount+ ""; 
+        runestoneCountchange();
     }
     public void ChangePage()
     {
@@ -52,12 +62,21 @@ public class RuneUI : MonoBehaviour
     }
     public void Levelup(Runes runes)
     {
-        if(RunestoneCount > 0)
+        if(runestoneCount > 0)
         {
             level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), runes));
             PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), runes), level+1);
-            RunestoneCount--;
-            Count.text = +RunestoneCount + "";
+            runestoneCount--;
+            runestoneCountchange();
+        }
+    }
+    void runestoneCountchange()
+    {
+        Count.text = +runestoneCount + "";
+
+        if(runestoneCount > 99)
+        {
+            Count.text = "99+";
         }
     }
 }

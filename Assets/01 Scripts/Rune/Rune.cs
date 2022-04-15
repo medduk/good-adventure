@@ -18,7 +18,7 @@ public enum Runes
         exp,
         dropPer
     }
-public class Rune : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class Rune : MonoBehaviour
 {
 
 
@@ -27,7 +27,7 @@ public class Rune : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public TextMeshProUGUI LVText;
     public GameObject Explanation;
 
-    bool click;
+
     private void Start()
     {
         RunePower();
@@ -85,34 +85,16 @@ public class Rune : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             }
         }
     }
-    IEnumerator stoplevelup()
+
+
+
+
+    public void LevelUP()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        if (click)
-        {
-            click = false;
+        RuneUI.instance.Levelup(rune);
+        RunePower();
+        Explanation.GetComponent<RuneExplanation>().RunePowerWrite();
 
-        }
     }
-    public void OnPointerUp(PointerEventData eventData)
-    {
 
-            if (click)
-            {
-                StopCoroutine("stoplevelup");
-                click = false;
-                RuneUI.instance.Levelup(rune);
-                RunePower();
-                Explanation.GetComponent<RuneExplanation>().RunePowerWrite();
-
-        }
-        
-    }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
-            click = true;
-            StartCoroutine("stoplevelup");
-        
-    }
 }
