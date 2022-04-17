@@ -9,6 +9,8 @@ public class PlayerStatus : MonoBehaviour
 {
     [SerializeField] Slider playerHpSlider;
     [SerializeField] Slider playerEXPSlider;
+    [SerializeField] Text HPshow;
+    [SerializeField] Text LVshow;
 
     [SerializeField] int playerMaxHp = 100;
     [SerializeField] int playerCurHp;
@@ -211,6 +213,7 @@ public class PlayerStatus : MonoBehaviour
             playerCurExp -= playerMaxExp;
             playerEXPSlider.value = playerCurExp / playerMaxExp;
             playerLevel++;
+            LVshow.text = "LV. " + playerLevel;
             playerMaxExp = (int)(playerMaxExp * 1.25f);
         }
     }
@@ -275,6 +278,8 @@ public class PlayerStatus : MonoBehaviour
 
         playerCurHp = playerMaxHp;
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
+        LVshow.text = "LV. " + playerLevel;
+        HPText();
     }
 
     private void Update()
@@ -299,6 +304,7 @@ public class PlayerStatus : MonoBehaviour
             }
             StartCoroutine(StopDamage());
         }
+        HPText();
     }
 
     IEnumerator StopDamage()
@@ -346,6 +352,7 @@ public class PlayerStatus : MonoBehaviour
         {
             playerCurHp = playerMaxHp;
         }
+        HPText();
     }
 
     public void AbsorbHp(int _damage)
@@ -367,6 +374,10 @@ public class PlayerStatus : MonoBehaviour
         }
 
         return ((int)damage,isCritical);
+    }
+    public void HPText() // 체력 수치 표시 함수
+    {
+        HPshow.text = playerCurHp + " / " + playerMaxHp;
     }
 
     public void SaveGame()
@@ -407,9 +418,10 @@ public class PlayerStatus : MonoBehaviour
 
         transform.position = new Vector3(save.x, save.y, save.z);
 
-        
+        LVshow.text = "LV. " + playerLevel;
+        HPText();
 
-        for(int i = 0; i < save.equip.Count; i++)
+        for (int i = 0; i < save.equip.Count; i++)
         {
             inventory.instance.AddItem(ItemBundle.instance.makeItem(save.equip[i]));
             inventory.instance.EquipItem(inventory.instance.items[0]);

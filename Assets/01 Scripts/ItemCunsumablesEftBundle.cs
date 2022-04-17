@@ -27,6 +27,7 @@ public class ItemCunsumablesEftBundle : ItemEffect
             int Count = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), 0));
             PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), 0), Count + 1);
             PlayerStatus.Instance.PlayerMaxHp += 2;
+            PlayerStatus.Instance.HPText();
 
         }
         if (_Item.itemID == 10951)
