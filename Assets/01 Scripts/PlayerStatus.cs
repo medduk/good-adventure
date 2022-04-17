@@ -8,6 +8,7 @@ using System.Linq;
 public class PlayerStatus : MonoBehaviour
 {
     [SerializeField] Slider playerHpSlider;
+    [SerializeField] Slider playerEXPSlider;
 
     [SerializeField] int playerMaxHp = 100;
     [SerializeField] int playerCurHp;
@@ -208,7 +209,7 @@ public class PlayerStatus : MonoBehaviour
         while(playerCurExp >= playerMaxExp)
         {
             playerCurExp -= playerMaxExp;
-
+            playerEXPSlider.value = playerCurExp / playerMaxExp;
             playerLevel++;
             playerMaxExp = (int)(playerMaxExp * 1.25f);
         }
@@ -279,6 +280,7 @@ public class PlayerStatus : MonoBehaviour
     private void Update()
     {
         playerHpSlider.value = Mathf.Lerp(playerHpSlider.value, (float)playerCurHp / playerMaxHp, Time.deltaTime * 5f);
+        playerEXPSlider.value = Mathf.Lerp(playerEXPSlider.value, (float)playerCurExp / playerMaxExp, Time.deltaTime * 5f);
 
     }
     public void TakeDamage(int damage)
