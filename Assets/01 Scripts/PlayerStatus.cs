@@ -30,7 +30,7 @@ public class PlayerStatus : MonoBehaviour
 
     public bool textSkillOn = false;
     public int textSkillLevel = 1;
-
+    public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length -1];
     [SerializeField] int[] runes;
 
     public enum ShotSkills
@@ -214,7 +214,8 @@ public class PlayerStatus : MonoBehaviour
             playerEXPSlider.value = playerCurExp / playerMaxExp;
             playerLevel++;
             LVshow.text = "LV. " + playerLevel;
-            playerMaxExp = (int)(playerMaxExp * 1.25f);
+            playerMaxExp = 10;//(int)(playerMaxExp * 1.25f);
+            gameObject.GetComponent<LevelAblilty>().openUI();
         }
     }
 
