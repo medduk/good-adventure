@@ -214,7 +214,7 @@ public class PlayerStatus : MonoBehaviour
             playerEXPSlider.value = playerCurExp / playerMaxExp;
             playerLevel++;
             LVshow.text = "LV. " + playerLevel;
-            playerMaxExp = 10;//(int)(playerMaxExp * 1.25f);
+            playerMaxExp = (int)(playerMaxExp * 1.25f);
             gameObject.GetComponent<LevelAblilty>().openUI();
         }
     }
