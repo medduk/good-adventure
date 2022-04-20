@@ -44,7 +44,6 @@ public class LevelAbility : MonoBehaviour
     void Start()
     {
         defaultScale = buttonScale.localScale;
-        LevelUPUI.SetActive(false);
         LVAblilty.Add(HpUp);
         LVAblilty.Add(DamageUp);
         LVAblilty.Add(SpeedUp);

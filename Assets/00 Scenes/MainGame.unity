@@ -6611,7 +6611,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 300, y: 0}
+  m_SizeDelta: {x: 288, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &267687116
 GameObject:
@@ -9257,7 +9257,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 300, y: 0}
+  m_SizeDelta: {x: 288, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &626411057
 GameObject:
@@ -10966,7 +10966,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 / 100
+  m_Text: 100/100
 --- !u!222 &844691142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11821,7 +11821,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 300, y: 0}
+  m_SizeDelta: {x: 288, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &967666371
 MonoBehaviour:
@@ -22961,7 +22961,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1599125440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c1483d78f366a244b51416ad2e9f2ca, type: 3}
+  m_Script: {fileID: 11500000, guid: aa53ec2f97857b54480863751392c17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LevelUPUI: {fileID: 56205625}
@@ -22978,25 +22978,15 @@ MonoBehaviour:
   - {fileID: 691104403}
   - {fileID: 124908002}
   sprites:
-  - {fileID: -1434503043371559436, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: 2902220513525928883, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: -4012180912927445520, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: 6730382474357506583, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: -4368453385860816810, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: 5742422804034057910, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: 4177191506168593827, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
-  - {fileID: 1465439420131822266, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
+  - {fileID: -2561669936226062239, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: -9081052308219400833, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: 7145645490332671556, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: 3725990919158541525, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: 6257024024968784914, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: -2273396585835428301, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: 5170805742859868854, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: 7924603414007874070, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
   buttonScale: {fileID: 974392673}
-  defaultScale: {x: 0, y: 0, z: 0}
-  HpUp: 000000000700000005000000
-  DamageUp: 010000000700000004000000
-  SpeedUp: 020000000700000003000000
-  DefenseUp: 030000000700000004000000
-  CriDamageUp: 040000000700000003000000
-  CriProbabliltyUp: 050000000700000003000000
-  AovUp: 060000000700000003000000
-  Gold: 07000000070000000a000000
-  sum: 0
 --- !u!1 &1611202552
 GameObject:
   m_ObjectHideFlags: 0
@@ -26102,7 +26092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943037960

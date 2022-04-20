@@ -378,7 +378,7 @@ public class PlayerStatus : MonoBehaviour
     }
     public void HPText() // 체력 수치 표시 함수
     {
-        HPshow.text = playerCurHp + " / " + playerMaxHp;
+        HPshow.text = playerCurHp + "/" + playerMaxHp;
     }
 
     public void SaveGame()
