@@ -10954,7 +10954,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1094e8de8548ec244a056cf289f558d5, type: 3}
+    m_Font: {fileID: 12800000, guid: 91416f3d4b1ee8f44ace59f77eded408, type: 3}
     m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
@@ -22987,6 +22987,16 @@ MonoBehaviour:
   - {fileID: 4177191506168593827, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
   - {fileID: 1465439420131822266, guid: 900f77b9fac0a2940a781dd685aaa367, type: 3}
   buttonScale: {fileID: 974392673}
+  defaultScale: {x: 0, y: 0, z: 0}
+  HpUp: 000000000700000005000000
+  DamageUp: 010000000700000004000000
+  SpeedUp: 020000000700000003000000
+  DefenseUp: 030000000700000004000000
+  CriDamageUp: 040000000700000003000000
+  CriProbabliltyUp: 050000000700000003000000
+  AovUp: 060000000700000003000000
+  Gold: 07000000070000000a000000
+  sum: 0
 --- !u!1 &1611202552
 GameObject:
   m_ObjectHideFlags: 0
@@ -26116,7 +26126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1094e8de8548ec244a056cf289f558d5, type: 3}
+    m_Font: {fileID: 12800000, guid: 91416f3d4b1ee8f44ace59f77eded408, type: 3}
     m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
