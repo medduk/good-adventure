@@ -215,7 +215,7 @@ public class PlayerStatus : MonoBehaviour
             playerLevel++;
             LVshow.text = "LV. " + playerLevel;
             playerMaxExp = (int)(playerMaxExp * 1.25f);
-            gameObject.GetComponent<LevelAblilty>().openUI();
+            gameObject.GetComponent<LevelAbility>().OpenUI();
         }
     }
 
