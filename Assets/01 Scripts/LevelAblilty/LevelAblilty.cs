@@ -115,7 +115,7 @@ public class LevelAblilty : MonoBehaviour
                 break;
             case (int)Ablilty.damageup:
                 images[i].sprite = sprites[choose[i][0]];
-                Texts[i].text = "°ø°Ý·Â\n<color=#92F4FF>20</color>»ó½Â\n" + PlayerStatus.Instance.Levelablilty[choose[i][0]] + "/" + choose[i][2];
+                Texts[i].text = "°ø°Ý·Â\n<color=#92F4FF>15</color>»ó½Â\n" + PlayerStatus.Instance.Levelablilty[choose[i][0]] + "/" + choose[i][2];
                 break;
             case (int)Ablilty.moveSpeedup:
                 images[i].sprite = sprites[choose[i][0]];
@@ -145,6 +145,10 @@ public class LevelAblilty : MonoBehaviour
     }
     public void openUI()
     {
+        for (int j = 0; j < btns.Length; j++)
+        {
+            btns[j].gameObject.SetActive(true);
+        }
         LevelUPUI.SetActive(true);
         Time.timeScale = 0f;
     }
