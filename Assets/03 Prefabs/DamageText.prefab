@@ -103,7 +103,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 216ace4ffcee13e43b9519904f03b9b4, type: 2}
   m_sharedMaterial: {fileID: 695896264225379889, guid: 4e43b5a65bad6664cb305297750887e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -186,5 +186,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextColor: {r: 0, g: 0, b: 0, a: 0}
-  textMoveSpped: 1
+  textMoveSpeed: 1
   alphaSpeed: 1
