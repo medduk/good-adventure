@@ -287,8 +287,8 @@ public class PlayerStatus : MonoBehaviour
     {
         playerHpSlider.value = Mathf.Lerp(playerHpSlider.value, (float)playerCurHp / playerMaxHp, Time.deltaTime * 5f);
         playerEXPSlider.value = Mathf.Lerp(playerEXPSlider.value, (float)playerCurExp / playerMaxExp, Time.deltaTime * 5f);
-
     }
+
     public void TakeDamage(int damage)
     {
         if (!stopDamage)
@@ -396,7 +396,6 @@ public class PlayerStatus : MonoBehaviour
 
         for (int i = 0; i < inventory.instance.equip.Count; i++)
         {
-
             save.equip.Add(inventory.instance.equip[i].itemID);
         }
 

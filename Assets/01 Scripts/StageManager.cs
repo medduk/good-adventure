@@ -12,6 +12,10 @@ class Chapter
 
 public class StageManager : MonoBehaviour
 {
+    [Header("Data")]
+    public Transform dataManaer;
+
+    [Header("Maps")]
     [SerializeField] Chapter[] chapters;
     [SerializeField] GameObject[] hiddenMapPrefabs;
     public int randomMaxRange = 10;
@@ -120,12 +124,24 @@ public class StageManager : MonoBehaviour
         {
             mapVal.gameObject.SetActive(false);
 
+            int mapItemCount = dataManaer.childCount;
+
+            Debug.Log("아이템 갯수: " + mapItemCount +" 아이템 없어집니다.");
+            if (mapItemCount > 0)
+            {
+                for(int i=0; i< mapItemCount; i++)
+                {
+                    Destroy(dataManaer.GetChild(i).gameObject);
+                }
+            }
+
             /* Random Hidden Map Access */
             int hidden = (int)UnityEngine.Random.Range(0, randomMaxRange);
             if (hidden == 0 && !wasHidden)
             {
                 wasHidden = true;
                 SetHiddenMap();
+                
                 return;
             }
 

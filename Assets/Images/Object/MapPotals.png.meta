@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: fd995423d41224546bc6555280924ac9
+guid: 89a4fe83eed12974ba1df4290dbf0b3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 891027379592733769
-    second: functionOJ_0
+      213: 569530903573724972
+    second: MapPotals_0
   - first:
-      213: -4542235214951833617
-    second: functionOJ_1
+      213: 373211391240096417
+    second: MapPotals_1
   - first:
-      213: 5717730314493213556
-    second: functionOJ_2
+      213: -2835896434707708329
+    second: MapPotals_2
   - first:
-      213: 3119086150412447361
-    second: functionOJ_3
+      213: 2392368588874684878
+    second: MapPotals_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: functionOJ_0
+      name: MapPotals_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 944a5cd4ea09d5c00800000000000000
-      internalID: 891027379592733769
+      spriteID: c2f7e1cd65167e700800000000000000
+      internalID: 569530903573724972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: functionOJ_1
+      name: MapPotals_1
       rect:
         serializedVersion: 2
         x: 32
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fef9686432db6f0c0800000000000000
-      internalID: -4542235214951833617
+      spriteID: 1aacef078c9ed2500800000000000000
+      internalID: 373211391240096417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: functionOJ_2
+      name: MapPotals_2
       rect:
         serializedVersion: 2
         x: 0
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47bb9dc5d65795f40800000000000000
-      internalID: 5717730314493213556
+      spriteID: 7564375c73fd4a8d0800000000000000
+      internalID: -2835896434707708329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: functionOJ_3
+      name: MapPotals_3
       rect:
         serializedVersion: 2
         x: 32
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18eac230458394b20800000000000000
-      internalID: 3119086150412447361
+      spriteID: ec99da76e86633120800000000000000
+      internalID: 2392368588874684878
       vertices: []
       indices: 
       edges: []

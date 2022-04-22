@@ -21040,6 +21040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da4d92f2a671a844988bb3ca160fd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 1520582419}
   itemBundle:
   - itemID: 10001
     canUse: 1
@@ -21517,6 +21518,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5932081104331672122, guid: 6da693a1504a0d84681bcaf0e7483dd5, type: 3}
   m_PrefabInstance: {fileID: 1519293023}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1520582418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1520582419}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1520582419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520582418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -81.14076, y: 1641.0886, z: -224.70068}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1522085105
 GameObject:
   m_ObjectHideFlags: 0
@@ -23117,6 +23148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1283ddf0fceef42a7fd8ac64a470d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManaer: {fileID: 1520582419}
   chapters:
   - stagePrefabs:
     - {fileID: 1171024579060428483, guid: a38ad3973b652d248a2586e2b7e1a4c2, type: 3}

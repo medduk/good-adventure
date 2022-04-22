@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemBundle : MonoBehaviour
 {
+    public Transform dataManager;
+
     public static ItemBundle instance;
 
     private void Awake()
@@ -20,6 +22,7 @@ public class ItemBundle : MonoBehaviour
         {
             GameObject go = Instantiate(pickItemPrefab, pos[i], Quaternion.identity);
             go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(9,10)]);
+            go.transform.SetParent(dataManager);
         }
     }
 
@@ -29,7 +32,8 @@ public class ItemBundle : MonoBehaviour
             return;
 
         GameObject go = Instantiate(pickItemPrefab,i, Quaternion.identity);
-        go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID ==indexkey)]);
+        go.transform.SetParent(dataManager);
+        go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID == indexkey)]);
     }
 
     public Item makeItem(int indexkey)
