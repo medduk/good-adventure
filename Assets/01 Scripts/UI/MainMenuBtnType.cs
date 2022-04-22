@@ -12,10 +12,12 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     public CanvasGroup StartGroup;
     public CanvasGroup OptionGroup;
     public CanvasGroup RuneUI;
+
     private void Start()
     {
         defaultScale = buttonScale.localScale;
     }
+
     public void OnBtnClick()
     {
         switch (currentType)
@@ -24,34 +26,47 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 CanvasGroupOn(StartGroup);
                 CanvasGroupOff(OptionGroup);
                 CanvasGroupOff(mainGroup);
+
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Upgrade:
                 CanvasGroupOn(OptionGroup);
                 CanvasGroupOff(RuneUI);
                 CanvasGroupOff(mainGroup);
                 CanvasGroupOff(StartGroup);
+
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.New:
                 SceneManager.LoadScene("Loading");
+
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Continue:
 
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Rune:
                 CanvasGroupOn(RuneUI);
                 CanvasGroupOff(mainGroup);
                 CanvasGroupOff(OptionGroup);
                 CanvasGroupOff(StartGroup);
+
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.SoundOFF:
 
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Back:
                 CanvasGroupOn(mainGroup);
                 CanvasGroupOff(OptionGroup);
                 CanvasGroupOff(StartGroup);
+
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Quit:
+                SoundManager.Instance.buttonsSound.Play();
                 Application.Quit();
                 break;
         }

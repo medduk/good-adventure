@@ -7,19 +7,23 @@ public class SceneLoad : MonoBehaviour
 {
     public Slider progressbar;
     public Text loadtext;
+
+    public AsyncOperation operation;
+
     private void Start()
     {
         StartCoroutine(LoadScene());
     }
+
     IEnumerator LoadScene()
     {
         yield return null;
-        AsyncOperation operation = SceneManager.LoadSceneAsync("MainGame");
+        operation = SceneManager.LoadSceneAsync("MainGame");
         operation.allowSceneActivation = false;
-
         while (!operation.isDone)
         {
             yield return null;
+
             if (progressbar.value < 0.9f)
             {
                 progressbar.value = Mathf.MoveTowards(progressbar.value, 0.9f, Time.deltaTime);

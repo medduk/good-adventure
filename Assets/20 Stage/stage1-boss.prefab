@@ -1983,7 +1983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2149111103697223533}
   m_Layer: 0
-  m_Name: stage1-0a
+  m_Name: stage1-0boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

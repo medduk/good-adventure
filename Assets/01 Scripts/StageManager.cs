@@ -96,6 +96,8 @@ public class StageManager : MonoBehaviour
         mapVal.SetParent(mapManager);
         mapVal.gameObject.SetActive(true);
 
+        ChangeStageSound(mapVal.name.ToLower());    //소리변경
+
         StartCoroutine(CheckEnemyLoading());
     }
 
@@ -165,6 +167,19 @@ public class StageManager : MonoBehaviour
                 }
             }
             SetMap();
+
+
+        }
+    }
+
+    void ChangeStageSound(string stageName)
+    {
+        if (stageName.Contains("boss"))
+        {
+            SoundManager.Instance.nowPlaying.Stop();
+
+            SoundManager.Instance.nowPlaying = SoundManager.Instance.boss1Bgm;
+            SoundManager.Instance.nowPlaying.Play();
         }
     }
 

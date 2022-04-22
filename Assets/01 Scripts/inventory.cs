@@ -50,6 +50,10 @@ public class inventory : MonoBehaviour
         if (items.Count < 25)
         {
             items.Add(_item);
+
+            /* 장비 아이템 전용 사운드 */
+            SoundManager.Instance.itemGetSound.Play();
+
             if(onChangeItem != null)
             onChangeItem.Invoke();  // ui drawing.
             return true;
@@ -84,9 +88,11 @@ public class inventory : MonoBehaviour
     {
         if (collision.CompareTag("PickItem"))
         {
+
             PickItems pickItems = collision.GetComponent<PickItems>();
             if (pickItems.item.itemType == ItemType.Consumables)
             {
+                SoundManager.Instance.itemGetSound.Play();
                 pickItems.item.Use();
                 pickItems.DestoryItem();
                 return;

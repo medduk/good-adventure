@@ -127,8 +127,12 @@ public class GameManager : MonoBehaviour
     public void CloseBossHpbar()
     {
         BossCount--;
-        if(BossCount == 0)
+        if (BossCount == 0)
+        {
             bossHPbar.gameObject.SetActive(false);
+            /* boss클리어 시 발동 사운드 등*/
+        }
+
     }
 
     public void changeBossIcon(Sprite Icon)
@@ -139,6 +143,12 @@ public class GameManager : MonoBehaviour
     {
         StageManager.Instance.RestartGame();
         pauseImage.SetActive(false);
+    }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
 
     public void InitGame()

@@ -16,8 +16,6 @@ public class MainScreen : MonoBehaviour, IPointerDownHandler
     {
         StartCoroutine("Logoshow");
     }
-
-
     IEnumerator Logoshow()
     {
         while(image.color.a < 1.0f)

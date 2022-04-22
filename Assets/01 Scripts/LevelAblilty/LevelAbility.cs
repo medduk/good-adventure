@@ -17,6 +17,7 @@ public enum Ablilty
 }
 public class LevelAbility : MonoBehaviour
 {
+    bool Canchoose;
     [SerializeField] GameObject LevelUPUI;
     [SerializeField] Button[] btns;
     [SerializeField] Image[] images;
@@ -150,38 +151,43 @@ public class LevelAbility : MonoBehaviour
         {
             btns[j].gameObject.SetActive(true);
         }
+        Canchoose = true;
         LevelUPUI.SetActive(true);
         Time.timeScale = 0f;
     }
     public void Select(int i)
     {
-        switch(OptionsPlayerCanChoose[i][0])
+        if (Canchoose)
         {
-            case (int)Ablilty.hpUp:
-                PlayerStatus.Instance.PlayerMaxHp += 20;
-                PlayerStatus.Instance.RecoveryHp(20);
-                break;
-            case (int)Ablilty.damageUp:
-                PlayerStatus.Instance.PlayerDamage += 15;
-                break;
-            case (int)Ablilty.moveSpeedUp:
-                PlayerStatus.Instance.PlayerMoveSpeed += (float)0.5f;
-                break;
-            case (int)Ablilty.defenseUp:
-                PlayerStatus.Instance.PlayerDefense += 5;
-                break;
-            case (int)Ablilty.criDamageUp:
-                PlayerStatus.Instance.CriticalDamage += 10;
-                break;
-            case (int)Ablilty.criProbabilityUp:
-                PlayerStatus.Instance.CriticalProbability += 5f;
-                break;
-            case (int)Ablilty.aovUp:
-                PlayerStatus.Instance.AbsorptionOfVitality += (float)0.05;
-                break;
-            case (int)Ablilty.gold:
-                Debug.Log("∞ÒµÂ»πµÊ");
-                break;
+            switch (OptionsPlayerCanChoose[i][0])
+            {
+                case (int)Ablilty.hpUp:
+                    PlayerStatus.Instance.PlayerMaxHp += 20;
+                    PlayerStatus.Instance.RecoveryHp(20);
+                    break;
+                case (int)Ablilty.damageUp:
+                    PlayerStatus.Instance.PlayerDamage += 15;
+                    break;
+                case (int)Ablilty.moveSpeedUp:
+                    PlayerStatus.Instance.PlayerMoveSpeed += (float)0.5f;
+                    break;
+                case (int)Ablilty.defenseUp:
+                    PlayerStatus.Instance.PlayerDefense += 5;
+                    break;
+                case (int)Ablilty.criDamageUp:
+                    PlayerStatus.Instance.CriticalDamage += 10;
+                    break;
+                case (int)Ablilty.criProbabilityUp:
+                    PlayerStatus.Instance.CriticalProbability += 5f;
+                    break;
+                case (int)Ablilty.aovUp:
+                    PlayerStatus.Instance.AbsorptionOfVitality += (float)0.05;
+                    break;
+                case (int)Ablilty.gold:
+                    Debug.Log("∞ÒµÂ»πµÊ");
+                    break;
+            }
+            Canchoose = false;
         }
 
         if (OptionsPlayerCanChoose[i][0] < LVAblilty.Count - 1)
