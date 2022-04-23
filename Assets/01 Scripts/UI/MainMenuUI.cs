@@ -6,10 +6,12 @@ public enum BTNType
 {
     Start,
     New,
-    Continue,
     Upgrade,
     Rune,
+    Option,
+    SoundON,
     SoundOFF,
+    GameBack,
     Back,
     Quit
 }

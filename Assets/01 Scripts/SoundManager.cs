@@ -29,6 +29,9 @@ public class SoundManager : MonoBehaviour
     [Header("Effect Sound List")]
     public AudioSource buttonsSound;
     public AudioSource itemGetSound;
+    public AudioSource LevelUpSound;
+    public AudioSource chooseAbilitySound;
+    public AudioSource GameOverSound;
 
     private void Awake()
     {

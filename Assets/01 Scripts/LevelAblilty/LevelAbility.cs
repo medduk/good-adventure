@@ -188,6 +188,7 @@ public class LevelAbility : MonoBehaviour
                     break;
             }
             Canchoose = false;
+            SoundManager.Instance.chooseAbilitySound.Play();
         }
 
         if (OptionsPlayerCanChoose[i][0] < LVAblilty.Count - 1)

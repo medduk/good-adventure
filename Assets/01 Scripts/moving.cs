@@ -24,6 +24,7 @@ public class moving : MonoBehaviour
 
     private bool isGameOver = false;
 
+    public GameObject talking;
     #endregion
     private void Awake()
     {
@@ -62,11 +63,19 @@ public class moving : MonoBehaviour
 #endif
         if (x != 0 || y != 0)
         {
-            isMoving = true;
-            animator.SetBool("IsWalking", true);
+            if (!talking.activeSelf)
+            {
+                isMoving = true;
+                animator.SetBool("IsWalking", true);
+            }
         }
         else
         { 
+            isMoving = false;
+            animator.SetBool("IsWalking", false);
+        }
+        if (talking.activeSelf) // 임시로 대화창 열릴떄 바로멈추게 
+        {
             isMoving = false;
             animator.SetBool("IsWalking", false);
         }
@@ -85,19 +94,21 @@ public class moving : MonoBehaviour
     private void Move(float xDirection)
     {
         Vector2 inputPosition = new Vector2(x, y);
-        if (xDirection < 0)
+        if (!talking.activeSelf) // 대화이벤트시 움직임 제한
         {
-            spriteRenderer.flipX = false;
-            playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.zero;
-        }
+            if (xDirection < 0)
+            {
+                spriteRenderer.flipX = false;
+                playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.zero;
+            }
 
-        if (xDirection > 0)
-        {
-            spriteRenderer.flipX = true;
-            playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.right;
+            if (xDirection > 0)
+            {
+                spriteRenderer.flipX = true;
+                playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.right;
+            }
+            rigibody2D.MovePosition(rigibody2D.position + inputPosition * PlayerStatus.Instance.PlayerMoveSpeed * Time.fixedDeltaTime);
         }
-        rigibody2D.MovePosition(rigibody2D.position + inputPosition * PlayerStatus.Instance.PlayerMoveSpeed * Time.fixedDeltaTime);
-
     }
     public void SetGameOver()
     {

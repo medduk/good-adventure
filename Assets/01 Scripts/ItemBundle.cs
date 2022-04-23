@@ -15,6 +15,7 @@ public class ItemBundle : MonoBehaviour
     public List<Item> itemBundle = new List<Item>();
 
     public GameObject pickItemPrefab;
+    public GameObject ItemBox;
     public Vector3[] pos;
     private void Start()
     {
@@ -30,6 +31,13 @@ public class ItemBundle : MonoBehaviour
     {
         if (indexkey == 0)
             return;
+
+        if (indexkey == 1)
+        {
+            GameObject goo = Instantiate(ItemBox, i, Quaternion.identity);
+            goo.transform.SetParent(dataManager);
+            return;
+        }
 
         GameObject go = Instantiate(pickItemPrefab,i, Quaternion.identity);
         go.transform.SetParent(dataManager);

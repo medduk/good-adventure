@@ -216,6 +216,7 @@ public class PlayerStatus : MonoBehaviour
             LVshow.text = "LV. " + playerLevel;
             playerMaxExp = (int)(playerMaxExp * 1.25f);
             gameObject.GetComponent<LevelAbility>().OpenUI();
+            SoundManager.Instance.LevelUpSound.Play();
         }
     }
 
@@ -300,6 +301,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 isGameOver = true;
                 GameManager.Instance.SetGameOver();
+                SoundManager.Instance.GameOverSound.Play();
                 gameObject.GetComponent<moving>().SetGameOver();
                 gameObject.GetComponent<MainFmAttack>().SetGameOver();
             }

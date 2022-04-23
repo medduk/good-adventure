@@ -249,8 +249,9 @@ MonoBehaviour:
   enemyMoveSpeed: 0
   enemyDamage: 10
   enemyGiveExp: 30
-  dropItemId: 
-  dropIChance: 
+  dropCount: 3
+  dropItemId: 0100000013270000f92a0000fc2a0000c62a0000
+  dropIChance: 0a0000000a000000320000001900000005000000
   Icon: {fileID: -2425555879700969435, guid: 5443d8553397c3243834b5f93125fe9a, type: 3}
 --- !u!114 &1214394064105435870
 MonoBehaviour:
@@ -269,6 +270,8 @@ MonoBehaviour:
   - {fileID: 3269883360845180404, guid: 27ea7196eafab324085ebbf7d6153453, type: 3}
   Patterns:
   - {fileID: 1262913871699260214, guid: 4edac7a38da52d445a10cca82377ec4b, type: 3}
+  warningTime: 2
+  patternMaintainTime: 3
 --- !u!1 &4459723038564333304
 GameObject:
   m_ObjectHideFlags: 0

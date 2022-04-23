@@ -20,6 +20,7 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] int enemyDamage = 20;
     [SerializeField] int enemyGiveExp = 30;
 
+    [SerializeField] int dropCount;
     [SerializeField] int[] dropItemId;
     [SerializeField] int[] dropIChance;
     private int sum = 0;
@@ -254,6 +255,13 @@ public class BossEnemy : MonoBehaviour
     {
         GameManager.Instance.CloseBossHpbar();
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
+        for(int i = 0; i<dropCount; i++)
+        {
+            int id = dropItemId[DropItem()];
+            Vector3 P = gameObject.transform.position;
+            P.x = P.x + (-1 * (dropCount / 2)) + i;
+            ItemBundle.instance.Drop(P, id);
+        }
         Destroy(gameObject);
     }
 

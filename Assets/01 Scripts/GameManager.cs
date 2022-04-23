@@ -131,6 +131,10 @@ public class GameManager : MonoBehaviour
         {
             bossHPbar.gameObject.SetActive(false);
             /* boss클리어 시 발동 사운드 등*/
+            SoundManager.Instance.nowPlaying.Stop();
+
+            SoundManager.Instance.nowPlaying = SoundManager.Instance.tutorialBgm;
+            SoundManager.Instance.nowPlaying.Play();
         }
 
     }

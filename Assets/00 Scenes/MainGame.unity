@@ -21380,6 +21380,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: be9b2b05dcc924c4a9daaeac6f8697e1, type: 2}
     unefts: []
   pickItemPrefab: {fileID: 8066104406412270999, guid: 0c26a51ce34dbfb41a669ccf1c758969, type: 3}
+  ItemBox: {fileID: 475182726846229817, guid: 31414e1e9d1b3e545b99e77f1c0b438c, type: 3}
   pos:
   - {x: -4, y: -1, z: 0}
   - {x: -4, y: 0, z: 0}
@@ -22863,6 +22864,7 @@ MonoBehaviour:
   playerWalkingParticle: {fileID: 1215698826}
   playerAfterimageParticle: {fileID: 120752739}
   onAfterimage: 0
+  talking: {fileID: 739279288}
 --- !u!95 &1599125444
 Animator:
   serializedVersion: 3
@@ -23287,10 +23289,10 @@ MonoBehaviour:
   chapters:
   - stagePrefabs:
     - {fileID: 1171024579060428483, guid: a38ad3973b652d248a2586e2b7e1a4c2, type: 3}
+    - {fileID: 2149111103636952318, guid: 76892193f6caa7a48a921a642dd994d5, type: 3}
     - {fileID: 1501456562296361320, guid: 9958e0949546c064cbe9532105013002, type: 3}
     - {fileID: 6644737410764453019, guid: 0bd2f3f7f60d46541b64828044547302, type: 3}
     - {fileID: 1100256698609705140, guid: fc17ba12b01c89b42a111d2162c6df86, type: 3}
-    - {fileID: 2149111103636952318, guid: 76892193f6caa7a48a921a642dd994d5, type: 3}
   hiddenMapPrefabs:
   - {fileID: 683067134230709025, guid: f1c1d72ac1b70de4e9206102d8164c42, type: 3}
   randomMaxRange: 5
