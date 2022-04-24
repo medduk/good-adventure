@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class inventory : MonoBehaviour
 {
@@ -17,7 +20,9 @@ public class inventory : MonoBehaviour
 
     public List<Item> items = new List<Item>();
     public List<Item> equip = new List<Item>();
-    
+    public int Coin;
+    public TextMeshProUGUI CoinText;
+
     public delegate void OnChangeItem();
     public OnChangeItem onChangeItem;
 
@@ -111,6 +116,33 @@ public class inventory : MonoBehaviour
             }
         }
 
+    }
+
+    public void GetORGiveCoin(int coin)
+    {
+        Coin += coin;
+        if (Coin < 0)
+            Coin = 0;
+        if(coin != 0)
+        {
+            StopCoroutine("CoinTextChange");
+            StartCoroutine("CoinTextChange",coin);
+        }
+        
+    }
+
+    IEnumerator CoinTextChange(int coin)
+    {
+        if (coin > 0)
+        {
+            CoinText.text = Coin + "<color=blue>+" + coin + "</color>";
+        }
+        if (coin < 0)
+        {
+            CoinText.text = Coin + "<color=red>-" + coin + "</color>";
+        }
+        yield return new WaitForSeconds(3f);
+        CoinText.text = + Coin + "";
     }
 
     IEnumerator UseItem(Item _item , int index)

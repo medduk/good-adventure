@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float enemyMoveSpeed = 10f;
     [SerializeField] int enemyDamage = 10;
     [SerializeField] int enemyGiveExp = 30;
+    [SerializeField] int enemyGiveCoin = 30;
 
     [SerializeField] int[] dropItemId;
     [SerializeField] int[] dropIChance;
@@ -111,6 +112,17 @@ public class Enemy : MonoBehaviour
         set
         {
             enemyGiveExp = value;
+        }
+    }
+    public int EnemyGiveCoin
+    {
+        get
+        {
+            return enemyGiveCoin;
+        }
+        set
+        {
+            enemyGiveCoin = value;
         }
     }
 
@@ -259,6 +271,7 @@ public class Enemy : MonoBehaviour
         if (cangiveItem) // 만약 아이템을 주는 몬스터 라면
         { 
             ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
+            inventory.instance.GetORGiveCoin(enemyGiveCoin);
         }
 
 

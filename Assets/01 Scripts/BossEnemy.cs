@@ -19,6 +19,7 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] float enemyMoveSpeed = 0f;
     [SerializeField] int enemyDamage = 20;
     [SerializeField] int enemyGiveExp = 30;
+    [SerializeField] int enemyGiveCoin = 30;
 
     [SerializeField] int dropCount;
     [SerializeField] int[] dropItemId;
@@ -100,6 +101,17 @@ public class BossEnemy : MonoBehaviour
         set
         {
             enemyGiveExp = value;
+        }
+    }
+    public int EnemyGiveCoin
+    {
+        get
+        {
+            return enemyGiveCoin;
+        }
+        set
+        {
+            enemyGiveCoin = value;
         }
     }
 
@@ -255,7 +267,8 @@ public class BossEnemy : MonoBehaviour
     {
         GameManager.Instance.CloseBossHpbar();
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
-        for(int i = 0; i<dropCount; i++)
+        inventory.instance.GetORGiveCoin(enemyGiveCoin);
+        for (int i = 0; i<dropCount; i++)
         {
             int id = dropItemId[DropItem()];
             Vector3 P = gameObject.transform.position;
