@@ -19,7 +19,12 @@ public class TextBundle : MonoBehaviour
         textBundle.Add(1, new string[] { "안녕하세요 !:n:???", "ㅁ..뭐?:0:주인공", "여기는 튜토리얼 입니다 !:n:???", "잠깐만 ! :7:주인공", " 가만히 있으면 자동공격을 한답니다. :n:???", " 아니... :2:주인공" , "앞의 적을 해치우세요.:n:???" });
         textBundle.Add(2, new string[] { "좋아요 소질이 있어요 ! :n:???", "헤헤:4:주인공", "좀더 앞으로 가보도록 해요 ! :n:???" });
         textBundle.Add(3, new string[] { "기본적인 공격은 벽을 통과되지 않는답니다.:n:???", "응 알겠어:1:주인공", "벽 너머의 적을 공격 해보죠 !:n:???" });
-
+        textBundle.Add(1000, new string[] { "어서와, 전부 맡기라고.:9:대장장이", "안녕하세요! :4:주인공"});
+        textBundle.Add(1001, new string[] { "돈은??:9:대장장이", "...:7:주인공", "농담이야:12:대장장이" });
+        textBundle.Add(30000, new string[] { "미지의 힘을 확인하러 오셧나요?:n:거대룬", "행운을 빕니다.:n:거대룬" });
+        textBundle.Add(30001, new string[] { "미지의 힘이 도움이 되길.:n:거대룬",});
+        // 표정: 8로 나누었을때 나머지가 ( 0 : 무표정 , 1 : 기본표정 , 2: 정색 , 3: 외침 , 4: 웃음 , 5: 화남, 6 : 슬픈 , 7 : 당황 )
+        //주인공
         portraitData.Add(0, portraitArr[0]);
         portraitData.Add(1, portraitArr[1]);
         portraitData.Add(2, portraitArr[2]);
@@ -28,6 +33,15 @@ public class TextBundle : MonoBehaviour
         portraitData.Add(5, portraitArr[5]);
         portraitData.Add(6, portraitArr[6]);
         portraitData.Add(7, portraitArr[7]);
+        //대장장이
+        portraitData.Add(8, portraitArr[8]);
+        portraitData.Add(9, portraitArr[9]);
+        portraitData.Add(10, portraitArr[10]);
+        portraitData.Add(11, portraitArr[11]);
+        portraitData.Add(12, portraitArr[12]);
+        portraitData.Add(13, portraitArr[13]);
+        portraitData.Add(14, portraitArr[14]);
+        portraitData.Add(15, portraitArr[15]);
     }
 
     public string GetText(int id, int textIndex)

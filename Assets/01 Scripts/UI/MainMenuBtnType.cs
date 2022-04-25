@@ -9,10 +9,7 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     public Transform buttonScale;
     Vector3 defaultScale;
     public CanvasGroup mainGroup;
-    public CanvasGroup StartGroup;
-    public CanvasGroup UpgradeGroup;
     public CanvasGroup OptionGroup;
-    public CanvasGroup RuneUI;
 
     private void Start()
     {
@@ -24,39 +21,12 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
         switch (currentType)
         {
             case BTNType.Start:
-                CanvasGroupOn(StartGroup);
-                CanvasGroupOff(UpgradeGroup);
-                CanvasGroupOff(OptionGroup);
-                CanvasGroupOff(mainGroup);
-
-                SoundManager.Instance.buttonsSound.Play();
-                break;
-            case BTNType.Upgrade:
-                CanvasGroupOn(UpgradeGroup);
-                CanvasGroupOff(RuneUI);
-                CanvasGroupOff(mainGroup);
-                CanvasGroupOff(StartGroup);
-
-                SoundManager.Instance.buttonsSound.Play();
-                break;
-            case BTNType.New:   //  Go Adventure
                 SceneManager.LoadScene("Loading");
-
                 SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Option:
                 CanvasGroupOn(OptionGroup);
-                CanvasGroupOff(UpgradeGroup);
-                CanvasGroupOff(StartGroup);
                 CanvasGroupOff(mainGroup);
-                SoundManager.Instance.buttonsSound.Play();
-                break;
-            case BTNType.Rune:
-                CanvasGroupOn(RuneUI);
-                CanvasGroupOff(mainGroup);
-                CanvasGroupOff(UpgradeGroup);
-                CanvasGroupOff(StartGroup);
-
                 SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.SoundON:
@@ -69,14 +39,6 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 break;
             case BTNType.Back:
                 CanvasGroupOn(mainGroup);
-                CanvasGroupOff(OptionGroup);
-                CanvasGroupOff(StartGroup);
-
-                SoundManager.Instance.buttonsSound.Play();
-                break;
-            case BTNType.GameBack:
-                CanvasGroupOn(StartGroup);
-                CanvasGroupOff(UpgradeGroup);
                 CanvasGroupOff(OptionGroup);
 
                 SoundManager.Instance.buttonsSound.Play();

@@ -11,6 +11,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] Slider playerEXPSlider;
     [SerializeField] Text HPshow;
     [SerializeField] Text LVshow;
+    [SerializeField] GameObject nowtalk;
 
     [SerializeField] int playerMaxHp = 100;
     [SerializeField] int playerCurHp;
@@ -340,6 +341,17 @@ public class PlayerStatus : MonoBehaviour
             Destroy(collision.gameObject);
             GameManager.Instance.OpenReinForce();
         }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("NPC"))
+        {
+            if(collision.transform.tag == "Rune")
+            {
+                StartCoroutine(RuneNPCmeet(collision.gameObject));
+            }
+            if (collision.transform.tag == "BlackSmith")
+            {
+                StartCoroutine(BlackSmithNPCmeet(collision.gameObject));
+            }
+        }
     }
 
     public void GetRune(int runeIndex)
@@ -439,7 +451,36 @@ public class PlayerStatus : MonoBehaviour
     {
         for (int i = 0; i < runes.Length; i++)
         {
-            PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), i),0);
+            PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), i), 0);
         }
+    }
+
+    IEnumerator RuneNPCmeet(GameObject NPC)
+    {
+        dialogManager.Action(NPC);
+        GameManager.Instance.Who = NPC;
+        Vector3 P = NPC.transform.position;
+        P.y = P.y + 1.5f;
+        gameObject.transform.position = P;
+        while (nowtalk.activeSelf)
+        {
+            yield return null;
+        }
+        GameManager.Instance.OpenRune();
+
+    }
+    IEnumerator BlackSmithNPCmeet(GameObject NPC)
+    {
+        dialogManager.Action(NPC);
+        GameManager.Instance.Who = NPC;
+        Vector3 P = NPC.transform.position;
+        P.x = P.x - 1.5f;
+        gameObject.transform.position = P;
+        while (nowtalk.activeSelf)
+        {
+            yield return null;
+        }
+        GameManager.Instance.OpenReinForce();
+
     }
 }

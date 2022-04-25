@@ -72,12 +72,12 @@ public class DialogManager : MonoBehaviour
             talk.EffectfastEnd();
     }
 
-    public void Action(GameObject scanObj)
+    public void Action(GameObject scanObj, int pulsID = 0)
     {
         textIndex = 0;
         scanObject = scanObj;
         ObjNumber objNumber = scanObject.GetComponent<ObjNumber>();
-        id = objNumber.id;
+        id = objNumber.id + pulsID;
         isNPC = objNumber.isNPC;
         Dialog(id,isNPC);
     }

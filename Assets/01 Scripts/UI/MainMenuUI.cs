@@ -5,13 +5,9 @@ using UnityEngine;
 public enum BTNType
 {
     Start,
-    New,
-    Upgrade,
-    Rune,
     Option,
     SoundON,
     SoundOFF,
-    GameBack,
     Back,
     Quit
 }

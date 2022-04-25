@@ -79,4 +79,6 @@ public class RuneUI : MonoBehaviour
             Count.text = "99+";
         }
     }
+
+
 }

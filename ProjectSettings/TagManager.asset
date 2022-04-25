@@ -11,6 +11,8 @@ TagManager:
   - ReinForce
   - ItemBox
   - Boss
+  - Rune
+  - BlackSmith
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Enemy
   - Detecter
   - Wall
-  - 
+  - NPC
   - MiniMap
   - 
   - 

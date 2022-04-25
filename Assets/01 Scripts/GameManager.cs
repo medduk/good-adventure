@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject realstatus,bossHPbar;
+    public GameObject realstatus,bossHPbar,Runestart;
     public Button pausebtn,statusbtn,Exitbtn,removebtn;
     public Sprite[] img;
     public Image bossIcon;
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private int BossCount = 0;          // Boss stage can have many boss
 
     private static GameManager instance = null;
+
+    public GameObject Who;
     public static GameManager Instance
     {
         get
@@ -113,6 +115,7 @@ public class GameManager : MonoBehaviour
         statusbtn.gameObject.SetActive(true);
         ReinForce.instance.ReinForceEnd();
         ReinforceImage.SetActive(false);
+        DialogON();
     }
 
     public void OpenItemInformation(bool can)
@@ -143,6 +146,25 @@ public class GameManager : MonoBehaviour
     public void changeBossIcon(Sprite Icon)
     {
         bossIcon.sprite = Icon;
+    }
+
+    public void OpenRune()
+    {
+        Runestart.gameObject.SetActive(true);
+    }
+    public void CloseRune()
+    {
+        Runestart.gameObject.SetActive(false);
+        DialogON();
+    }
+
+    void DialogON()
+    {
+        if (Who != null)
+        {
+            dialogManager.Action(Who , 1);
+            Who = null;
+        }
     }
     public void RestartMap()
     {

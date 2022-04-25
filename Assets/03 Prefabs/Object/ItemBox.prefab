@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6139639271213028026}
   - component: {fileID: 6139639271213028025}
   - component: {fileID: 3914036543115774892}
+  - component: {fileID: 378459577710749745}
   m_Layer: 0
   m_Name: ItemBox
   m_TagString: ItemBox
@@ -158,3 +159,15 @@ MonoBehaviour:
   dropItemId: f92a0000fa2a0000fb2a0000fc2a0000fd2a0000
   dropIChance: 1400000014000000140000001400000014000000
   Openbox: {fileID: -4542235214951833617, guid: fd995423d41224546bc6555280924ac9, type: 3}
+--- !u!114 &378459577710749745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475182726846229817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fee64c0914ddde469bd71a5d62e223b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
