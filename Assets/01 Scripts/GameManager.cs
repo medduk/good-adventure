@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused = false;
 
-    private bool isGameOver = false;
-    private int BossCount = 0;
+    private bool isGameOver = false;    // Check GameOver
+    private int BossCount = 0;          // Boss stage can have many boss
+
+    public static bool ContinueGame = PlayerPrefs.GetInt("ContinueGame", 0) == 1 ? true : false;
+
     private static GameManager instance = null;
     public static GameManager Instance
     {

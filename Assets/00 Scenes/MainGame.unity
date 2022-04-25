@@ -23522,6 +23522,8 @@ MonoBehaviour:
   chapters:
   - stagePrefabs:
     - {fileID: 1171024579060428483, guid: a38ad3973b652d248a2586e2b7e1a4c2, type: 3}
+  - stagePrefabs:
+    - {fileID: 1171024579060428483, guid: a38ad3973b652d248a2586e2b7e1a4c2, type: 3}
     - {fileID: 2149111103636952318, guid: 76892193f6caa7a48a921a642dd994d5, type: 3}
     - {fileID: 1501456562296361320, guid: 9958e0949546c064cbe9532105013002, type: 3}
     - {fileID: 6644737410764453019, guid: 0bd2f3f7f60d46541b64828044547302, type: 3}
