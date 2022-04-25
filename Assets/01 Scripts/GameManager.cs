@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;    // Check GameOver
     private int BossCount = 0;          // Boss stage can have many boss
 
-    public static bool ContinueGame = PlayerPrefs.GetInt("ContinueGame", 0) == 1 ? true : false;
-
     private static GameManager instance = null;
     public static GameManager Instance
     {
@@ -165,12 +163,14 @@ public class GameManager : MonoBehaviour
         pauseImage.SetActive(false);
         if (isGameOver)
         {   
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainGame");
         }
     }
 
     public void SetGameOver()
     {
+        PlayerPrefs.SetInt("ContinueGame", 0);
+
         gameOverImage.SetActive(true);
         isGameOver = true;
     }

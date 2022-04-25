@@ -56,7 +56,7 @@ public class StageManager : MonoBehaviour
 
     private void Awake()
     {
-        InitIndex();
+        if(!ContinueDataManager.isContinuousGame) InitIndex();
 
         if (instance == null)
         {
@@ -75,6 +75,8 @@ public class StageManager : MonoBehaviour
     }
     private void SetMap(int _mapIndex = -1)
     {
+        PlayerPrefs.SetInt("ContinueGame", 1);
+
         player.transform.position = new Vector2(100, 100);
         isClear = false;
         int mapIndex = _mapIndex;

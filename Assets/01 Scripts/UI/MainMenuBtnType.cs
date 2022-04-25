@@ -29,7 +29,6 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 CanvasGroupOff(OptionGroup);
                 CanvasGroupOff(mainGroup);
 
-
                 SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Upgrade:
@@ -40,7 +39,7 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
 
                 SoundManager.Instance.buttonsSound.Play();
                 break;
-            case BTNType.New:
+            case BTNType.New:   //  Go Adventure
                 SceneManager.LoadScene("Loading");
 
                 SoundManager.Instance.buttonsSound.Play();
