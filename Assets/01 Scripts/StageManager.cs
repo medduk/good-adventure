@@ -56,7 +56,6 @@ public class StageManager : MonoBehaviour
 
     private void Awake()
     {
-        if(!ContinueDataManager.isContinuousGame) InitIndex();
 
         if (instance == null)
         {
@@ -71,11 +70,20 @@ public class StageManager : MonoBehaviour
         maxChapter = chapters.Length;
         maxStage = chapters[chapterIndex].stagePrefabs.Length;
 
-        SetMap();
+        if (!ContinueDataManager.isContinuousGame)  // 이어하기가 없다면 초기화.
+        {
+            InitIndex();
+            SetMap();
+        }
+        else
+        {
+            SetMap(PlayerPrefs.GetInt("MapIndex",-1));  // 있다면 초기화 하지않고 저장되어 있는 맵 인덱스를 불러옴.
+        }
+
     }
     private void SetMap(int _mapIndex = -1)
     {
-        PlayerPrefs.SetInt("ContinueGame", 1);
+        ContinueDataManager.SetContinueGame(true);
 
         player.transform.position = new Vector2(100, 100);
         isClear = false;
@@ -173,7 +181,6 @@ public class StageManager : MonoBehaviour
 
         }
     }
-
     void ChangeStageSound(string stageName)
     {
         if (stageName.Contains("boss"))
