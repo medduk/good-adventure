@@ -60,7 +60,7 @@ public class inventory : MonoBehaviour
             SoundManager.Instance.itemGetSound.Play();
 
             if(onChangeItem != null)
-            onChangeItem.Invoke();  // ui drawing.
+                onChangeItem.Invoke();  // ui drawing.
             return true;
         }
 
@@ -73,7 +73,7 @@ public class inventory : MonoBehaviour
             _item.canUse = _item.Use();
             equip.Add(_item);
             if(onChangeEquip != null)
-            onChangeEquip.Invoke(); // ui drawing.
+                onChangeEquip.Invoke(); // ui drawing.
             return true;
         }
         return false;
@@ -81,12 +81,16 @@ public class inventory : MonoBehaviour
     public void RemoveItem(int _index)
     {
         items.RemoveAt(_index);
-        onChangeItem.Invoke();  // ui drawing.
+
+        if (onChangeItem != null)
+            onChangeItem.Invoke();  // ui drawing.
     }
     public void Unequip(int _index)
     {
         equip.RemoveAt(_index);
-        onChangeEquip.Invoke(); // ui drawing.
+
+        if (onChangeEquip != null)
+            onChangeEquip.Invoke(); // ui drawing.
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

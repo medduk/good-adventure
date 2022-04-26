@@ -77,6 +77,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
+            PlayerStatus.Instance.LoadGame();
             SetMap(PlayerPrefs.GetInt("MapIndex",-1));  // ÀÖ´Ù¸é ÃÊ±âÈ­ ÇÏÁö¾Ê°í ÀúÀåµÇ¾î ÀÖ´Â ¸Ê ÀÎµ¦½º¸¦ ºÒ·¯¿È.
         }
 
@@ -134,6 +135,8 @@ public class StageManager : MonoBehaviour
     {
         if (isClear)
         {
+            PlayerStatus.Instance.SaveGame();   // ¸ÊÀÌ ³Ñ¾î°¡¸é¼­ ÀúÀåµÊ.
+
             mapVal.gameObject.SetActive(false);
 
             int mapItemCount = dataManaer.childCount;
@@ -146,6 +149,7 @@ public class StageManager : MonoBehaviour
                     Destroy(dataManaer.GetChild(i).gameObject);
                 }
             }
+
 
             /* Random Hidden Map Access */
             int hidden = (int)UnityEngine.Random.Range(0, randomMaxRange);
