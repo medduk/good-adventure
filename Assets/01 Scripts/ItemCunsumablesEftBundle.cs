@@ -62,7 +62,7 @@ public class ItemCunsumablesEftBundle : ItemEffect
         {
             int Count = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), 5));
             PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), 5), Count + 1);
-            PlayerStatus.Instance.CriticalDamage += 0.02f;
+            PlayerStatus.Instance.CriticalDamage += 1f;
 
         }
         if (_Item.itemID == 10956)

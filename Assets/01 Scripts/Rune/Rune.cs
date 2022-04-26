@@ -9,8 +9,8 @@ public enum Runes
     {
         hp,
         damage,
-        moveSpeed,
         attackDelay,
+        moveSpeed,
         defense,
         criDamage,
         criProbability,
@@ -47,13 +47,13 @@ public class Rune : MonoBehaviour
                     LVText.text = "LV." + level;
                     break;
             }
-            case Runes.moveSpeed:
+            case Runes.attackDelay:
             {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
                     LVText.text = "LV." + level;
                     break;
             }
-            case Runes.attackDelay:
+            case Runes.moveSpeed:
             {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
                     LVText.text = "LV." + level;

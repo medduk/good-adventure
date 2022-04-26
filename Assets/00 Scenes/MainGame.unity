@@ -17457,7 +17457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31efbe4c02b19e643a4809726016cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rune: 2
+  rune: 3
   level: 0
   LVText: {fileID: 817880223}
   Explanation: {fileID: 1880130154}
@@ -30177,10 +30177,10 @@ MonoBehaviour:
   dataManaer: {fileID: 1520582419}
   chapters:
   - stagePrefabs:
+    - {fileID: 1982820938339119971, guid: 6fc89b7d0c6d3ed43876a5be5ecf1b22, type: 3}
     - {fileID: 1171024579060428483, guid: a38ad3973b652d248a2586e2b7e1a4c2, type: 3}
     - {fileID: 1501456562296361320, guid: 9958e0949546c064cbe9532105013002, type: 3}
     - {fileID: 6644737410764453019, guid: 0bd2f3f7f60d46541b64828044547302, type: 3}
-    - {fileID: 1982820938339119971, guid: 6fc89b7d0c6d3ed43876a5be5ecf1b22, type: 3}
     - {fileID: 1100256698609705140, guid: fc17ba12b01c89b42a111d2162c6df86, type: 3}
   hiddenMapPrefabs:
   - {fileID: 683067134230709025, guid: f1c1d72ac1b70de4e9206102d8164c42, type: 3}
@@ -32520,7 +32520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31efbe4c02b19e643a4809726016cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rune: 3
+  rune: 2
   level: 0
   LVText: {fileID: 679584987}
   Explanation: {fileID: 1601868401}

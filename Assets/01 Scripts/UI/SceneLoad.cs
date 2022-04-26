@@ -50,7 +50,8 @@ public class SceneLoad : MonoBehaviour
             {
                 if (ContinueDataManager.isContinuousGame) // 이어하던 기록이 있다면
                 {
-                    loadtext.text = "Loading Complete";
+                    loadtext.color = new Color(1, 1, 1, 0);
+                    progressbar.transform.position = new Vector3(progressbar.transform.position.x, progressbar.transform.position.y - 1000);
                     if (!imageContinueWindow.activeSelf) imageContinueWindow.SetActive(true);
                 }
                 else

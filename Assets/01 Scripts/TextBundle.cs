@@ -23,6 +23,8 @@ public class TextBundle : MonoBehaviour
         textBundle.Add(1001, new string[] { "돈은??:9:대장장이", "...:7:주인공", "농담이야:12:대장장이" });
         textBundle.Add(30000, new string[] { "미지의 힘을 확인하러 오셧나요?:n:거대룬", "행운을 빕니다.:n:거대룬" });
         textBundle.Add(30001, new string[] { "미지의 힘이 도움이 되길.:n:거대룬",});
+        textBundle.Add(31000, new string[] { "모험을 떠난지 얼마 안됐는데..:1:주인공", "수상한 문을 발견했어..:1:주인공", " 히얍 ! :5:주인공" });
+        textBundle.Add(31001, new string[] { "좋아 가볼까 ! :4:주인공", });
         // 표정: 8로 나누었을때 나머지가 ( 0 : 무표정 , 1 : 기본표정 , 2: 정색 , 3: 외침 , 4: 웃음 , 5: 화남, 6 : 슬픈 , 7 : 당황 )
         //주인공
         portraitData.Add(0, portraitArr[0]);

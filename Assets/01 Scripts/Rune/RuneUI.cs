@@ -66,6 +66,7 @@ public class RuneUI : MonoBehaviour
         {
             level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), runes));
             PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), runes), level+1);
+            AddPower(runes);
             runestoneCount--;
             runestoneCountchange();
         }
@@ -79,6 +80,52 @@ public class RuneUI : MonoBehaviour
             Count.text = "99+";
         }
     }
-
+    public void AddPower(Runes rune)
+    {
+        switch (rune)
+        {
+            case Runes.hp:
+                {
+                    PlayerStatus.Instance.PlayerMaxHp += 2;
+                    PlayerStatus.Instance.HPText();
+                    break;
+                }
+            case Runes.damage:
+                {
+                    PlayerStatus.Instance.PlayerDamage += 1;
+                    break;
+                }
+            case Runes.attackDelay:
+                {
+                    PlayerStatus.Instance.PlayerChangeAttackDelay -= 0.01f;
+                    break;
+                }
+            case Runes.moveSpeed:
+                {
+                    PlayerStatus.Instance.PlayerMoveSpeed += 0.02f;
+                    break;
+                }
+            case Runes.defense:
+                {
+                    PlayerStatus.Instance.PlayerDefense += 1;
+                    break;
+                }
+            case Runes.criDamage:
+                {
+                    PlayerStatus.Instance.CriticalDamage += 1;
+                    break;
+                }
+            case Runes.criProbability:
+                {
+                    PlayerStatus.Instance.CriticalProbability += 0.5f;
+                    break;
+                }
+            case Runes.aov:
+                {
+                    PlayerStatus.Instance.AbsorptionOfVitality += 0.005f;
+                    break;
+                }
+        }
+    }
 
 }

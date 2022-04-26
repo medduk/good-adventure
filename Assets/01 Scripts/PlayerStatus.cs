@@ -29,6 +29,7 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] float playerLevel = 1;   // 현재 레벨
 
+    bool Loadgame = false;
     public bool textSkillOn = false;
     public int textSkillLevel = 1;
     public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length -1];
@@ -278,8 +279,10 @@ public class PlayerStatus : MonoBehaviour
             playerSkills[(int)ShotSkills.multiShot] = textSkillLevel;
             playerSkills[(int)ShotSkills.chainShot] = textSkillLevel;
         }
-
-        playerCurHp = playerMaxHp;
+        if (!Loadgame)
+        {
+            playerCurHp = playerMaxHp;
+        }    
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
         LVshow.text = "LV. " + playerLevel;
         HPText();
@@ -404,6 +407,13 @@ public class PlayerStatus : MonoBehaviour
         save.playerCurExp = playerCurExp;
         save.playerLevel = playerLevel;
 
+        save.Coin = inventory.instance.Coin;
+
+        for(int k = 0; k < Levelablilty.Length; k++)
+        {
+            save.Levelablilty[k] = Levelablilty[k];
+        }
+
         save.x = transform.position.x;
         save.y = transform.position.y;
         save.z = transform.position.z;
@@ -423,6 +433,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void LoadGame()
     {
+        Loadgame = true;
         SaveData save = SaveManager.Load();
         PlayerMaxHp = save.PlayerMaxHp;
         playerCurHp = save.playerCurHp;
@@ -430,10 +441,25 @@ public class PlayerStatus : MonoBehaviour
         playerCurExp = save.playerCurExp;
         playerLevel = save.playerLevel;
 
+        inventory.instance.GetORGiveCoin(save.Coin);
+
         transform.position = new Vector3(save.x, save.y, save.z);
 
         LVshow.text = "LV. " + playerLevel;
         HPText();
+
+        for (int k = 0; k < Levelablilty.Length; k++)
+        {
+            Levelablilty[k] = save.Levelablilty[k];
+        }
+        playerDamage += Levelablilty[1] * 15;
+        playerMoveSpeed += Levelablilty[2] * 0.5f;
+        playerDefense += Levelablilty[3] * 5;
+        criticalDamage += Levelablilty[4] * 10;
+        criticalProbability += Levelablilty[5] * 5;
+        absorptionOfVitality += Levelablilty[6] * 0.05f;
+
+
 
         for (int i = 0; i < save.equip.Count; i++)
         {
