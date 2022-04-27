@@ -150,7 +150,6 @@ public class StageManager : MonoBehaviour
                 }
             }
 
-
             /* Random Hidden Map Access */
             int hidden = (int)UnityEngine.Random.Range(0, randomMaxRange);
             if (hidden == 0 && !wasHidden)
@@ -181,8 +180,6 @@ public class StageManager : MonoBehaviour
                 }
             }
             SetMap();
-
-
         }
     }
     void ChangeStageSound(string stageName)
