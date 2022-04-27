@@ -172,6 +172,7 @@ public class StageManager : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("ChapterIndex", chapterIndex);
                     PlayerPrefs.SetInt("StageIndex", 0);
+                    maxStage = chapters[chapterIndex].stagePrefabs.Length;
                 }
                 else
                 {
