@@ -21,6 +21,8 @@ public class TextBundle : MonoBehaviour
         textBundle.Add(3, new string[] { "기본적인 공격은 벽을 통과되지 않는답니다.:n:???", "응 알겠어:1:주인공", "벽 너머의 적을 공격 해보죠 !:n:???" });
         textBundle.Add(1000, new string[] { "어서와, 전부 맡기라고.:9:대장장이", "안녕하세요! :4:주인공"});
         textBundle.Add(1001, new string[] { "돈은??:9:대장장이", "...:7:주인공", "농담이야:12:대장장이" });
+        textBundle.Add(2000, new string[] { ".....:16:상점주인", "안녕하세요...? :0:주인공" });
+        textBundle.Add(2001, new string[] { "ㄱ..ㄱ..:23:상점주인", "에....?:6:주인공", "감사합니다 !!!:20:상점주인", "깜짝이야 !!:3:주인공" });
         textBundle.Add(30000, new string[] { "미지의 힘을 확인하러 오셧나요?:n:거대룬", "행운을 빕니다.:n:거대룬" });
         textBundle.Add(30001, new string[] { "미지의 힘이 도움이 되길.:n:거대룬",});
         textBundle.Add(31000, new string[] { "모험을 떠난지 얼마 안됐는데..:1:주인공", "수상한 문을 발견했어..:1:주인공", " 히얍 ! :5:주인공" });
@@ -44,6 +46,15 @@ public class TextBundle : MonoBehaviour
         portraitData.Add(13, portraitArr[13]);
         portraitData.Add(14, portraitArr[14]);
         portraitData.Add(15, portraitArr[15]);
+        //상점
+        portraitData.Add(16, portraitArr[16]);
+        portraitData.Add(17, portraitArr[17]);
+        portraitData.Add(18, portraitArr[18]);
+        portraitData.Add(19, portraitArr[19]);
+        portraitData.Add(20, portraitArr[20]);
+        portraitData.Add(21, portraitArr[21]);
+        portraitData.Add(22, portraitArr[22]);
+        portraitData.Add(23, portraitArr[23]);
     }
 
     public string GetText(int id, int textIndex)

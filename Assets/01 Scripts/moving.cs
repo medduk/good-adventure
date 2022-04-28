@@ -114,6 +114,10 @@ public class moving : MonoBehaviour
     {
         isGameOver = true;
     }
+    public void SetGameLiving()
+    {
+        isGameOver = false;
+    }
 
     IEnumerator OnWalkingParticle()
     {

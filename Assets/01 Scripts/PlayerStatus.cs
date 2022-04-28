@@ -314,6 +314,14 @@ public class PlayerStatus : MonoBehaviour
         HPText();
     }
 
+    public void playerLiving()
+    {
+        isGameOver = false;
+        gameObject.GetComponent<moving>().SetGameLiving();
+        GameManager.Instance.SetGameLiving();
+        playerCurHp = playerMaxHp;
+    }
+
     IEnumerator StopDamage()
     {
         stopDamage = true;
@@ -353,6 +361,10 @@ public class PlayerStatus : MonoBehaviour
             if (collision.transform.tag == "BlackSmith")
             {
                 StartCoroutine(BlackSmithNPCmeet(collision.gameObject));
+            }
+            if (collision.transform.tag == "SHOP")
+            {
+                StartCoroutine(SHOPNPCmeet(collision.gameObject));
             }
         }
     }
@@ -507,6 +519,20 @@ public class PlayerStatus : MonoBehaviour
             yield return null;
         }
         GameManager.Instance.OpenReinForce();
+
+    }
+    IEnumerator SHOPNPCmeet(GameObject NPC)
+    {
+        dialogManager.Action(NPC);
+        GameManager.Instance.Who = NPC;
+        Vector3 P = NPC.transform.position;
+        P.x = P.x + 1.5f;
+        gameObject.transform.position = P;
+        while (nowtalk.activeSelf)
+        {
+            yield return null;
+        }
+        GameManager.Instance.OpenSHOP();
 
     }
 }

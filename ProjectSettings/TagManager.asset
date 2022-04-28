@@ -13,6 +13,7 @@ TagManager:
   - Boss
   - Rune
   - BlackSmith
+  - SHOP
   layers:
   - Default
   - TransparentFX

@@ -23,6 +23,7 @@ public class Item
     public ItemType itemType;
     public List<ItemEffect> efts;
     public List<ItemEffect> unefts;
+    public int price;
 
     public bool Use()
     {

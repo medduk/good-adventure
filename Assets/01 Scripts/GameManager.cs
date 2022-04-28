@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject realstatus,bossHPbar,Runestart;
+    public GameObject realstatus,bossHPbar,Runestart,SHOPstart;
     public Button pausebtn,statusbtn,Exitbtn,removebtn;
     public Sprite[] img;
     public Image bossIcon;
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         ReinforceImage.SetActive(true);
         ItemInformationImage.SetActive(true);
         bossHPbar.SetActive(true);
+        SHOPstart.SetActive(true);
         isPaused = false;
     }
 
@@ -157,6 +158,15 @@ public class GameManager : MonoBehaviour
         Runestart.gameObject.SetActive(false);
         DialogON();
     }
+    public void OpenSHOP()
+    {
+        SHOPstart.gameObject.SetActive(true);
+    }
+    public void CloseSHOP()
+    {
+        SHOPstart.gameObject.SetActive(false);
+        DialogON();
+    }
 
     void DialogON()
     {
@@ -192,6 +202,11 @@ public class GameManager : MonoBehaviour
 
         gameOverImage.SetActive(true);
         isGameOver = true;
+    }
+    
+    public void SetGameLiving()
+    {
+        isGameOver = false;
     }
 
     public void ExitGame()

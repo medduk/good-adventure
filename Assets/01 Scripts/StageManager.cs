@@ -123,6 +123,7 @@ public class StageManager : MonoBehaviour
     {
         InitIndex();
         SetMap();
+
     }
     IEnumerator CheckEnemyLoading()
     {
