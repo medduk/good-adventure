@@ -72,8 +72,7 @@ public class StageManager : MonoBehaviour
 
         if (!ContinueDataManager.isContinuousGame)  // 이어하기가 없다면 초기화.
         {
-            InitIndex();
-            SetMap();
+            MoveToLobby();
         }
         else
         {
@@ -84,7 +83,6 @@ public class StageManager : MonoBehaviour
     }
     private void SetMap(int _mapIndex = -1)
     {
-        ContinueDataManager.SetContinueGame(true);
 
         player.transform.position = new Vector2(100, 100);
         isClear = false;
@@ -93,6 +91,15 @@ public class StageManager : MonoBehaviour
         // Get the Info of 'stage' and 'chapter'
         chapterIndex = PlayerPrefs.GetInt("ChapterIndex", 0);
         stageIndex = PlayerPrefs.GetInt("StageIndex", 0);
+
+        if (chapterIndex == 0)  // 만약 로비라면 이어하기 상태가 저장되지 않음.
+        {
+            ContinueDataManager.SetContinueGame(false);
+        }
+        else
+        {
+            ContinueDataManager.SetContinueGame(true);
+        }
 
         if (_mapIndex < 0)
         {
@@ -112,6 +119,11 @@ public class StageManager : MonoBehaviour
         StartCoroutine(CheckEnemyLoading());
     }
 
+    public void MoveToLobby()
+    {
+        InitIndex();
+        SetMap();
+    }
     IEnumerator CheckEnemyLoading()
     {
         yield return new WaitUntil(() => mapVal.gameObject.activeSelf == true);
@@ -135,8 +147,6 @@ public class StageManager : MonoBehaviour
     {
         if (isClear)
         {
-            PlayerStatus.Instance.SaveGame();   // 맵이 넘어가면서 저장됨.
-
             mapVal.gameObject.SetActive(false);
 
             int mapItemCount = dataManaer.childCount;
@@ -152,7 +162,7 @@ public class StageManager : MonoBehaviour
 
             /* Random Hidden Map Access */
             int hidden = (int)UnityEngine.Random.Range(0, randomMaxRange);
-            if (hidden == 0 && !wasHidden)
+            if (hidden == 0 && !wasHidden && stageIndex != 0)   // 튜토리얼 일 때는 발생 안함
             {
                 wasHidden = true;
                 SetHiddenMap();
@@ -180,6 +190,7 @@ public class StageManager : MonoBehaviour
                     InitIndex();
                 }
             }
+            PlayerStatus.Instance.SaveGame();   // 맵이 넘어가면서 저장됨.
             SetMap();
         }
     }

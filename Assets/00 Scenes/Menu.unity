@@ -1145,7 +1145,7 @@ MonoBehaviour:
   itemGetSound: {fileID: 1290244787}
   LevelUpSound: {fileID: 725276458}
   chooseAbilitySound: {fileID: 256753091}
-  GameOverSound: {fileID: 0}
+  GameOverSound: {fileID: 596876133}
 --- !u!4 &640626489
 Transform:
   m_ObjectHideFlags: 0

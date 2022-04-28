@@ -183,10 +183,7 @@ public class GameManager : MonoBehaviour
         dialogManager.tutoNumber = 0;
         StageManager.Instance.RestartGame(true);
         pauseImage.SetActive(false);
-        if (isGameOver) // 여기 수정필요 할 듯. 로비로 갈 수 있도록
-        {   
-            SceneManager.LoadScene("MainGame");
-        }
+        gameOverImage.SetActive(false);
     }
 
     public void SetGameOver()
