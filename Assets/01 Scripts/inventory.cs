@@ -145,7 +145,7 @@ public class inventory : MonoBehaviour
         {
             CoinText.text = Coin + "<color=red>-" + coin + "</color>";
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         CoinText.text = + Coin + "";
     }
 

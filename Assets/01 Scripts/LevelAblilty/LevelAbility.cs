@@ -189,14 +189,15 @@ public class LevelAbility : MonoBehaviour
             }
             Canchoose = false;
             SoundManager.Instance.chooseAbilitySound.Play();
-        }
 
-        if (OptionsPlayerCanChoose[i][0] < LVAblilty.Count - 1)
-        {
-            PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] += 1;
-        }
 
-        StartCoroutine(ShowSelcetedAbilityOptionWindow(i));
+            if (OptionsPlayerCanChoose[i][0] < LVAblilty.Count - 1)
+            {
+                PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] += 1;
+            }
+
+            StartCoroutine(ShowSelcetedAbilityOptionWindow(i));
+        }
     }
     IEnumerator ShowSelcetedAbilityOptionWindow(int i)
     {
