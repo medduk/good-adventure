@@ -141,7 +141,7 @@ public class LevelAbility : MonoBehaviour
                 break;
             case (int)Ablilty.gold:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "°ñµå\n<color=#92F4FF>¾Æ¹«Æ°</color>%È¹µæ\n";
+                Texts[i].text = "°ñµå\n<color=#92F4FF>"+ PlayerStatus.Instance.PlayerLevel*50 +"</color>È¹µæ\n";
                 break;
         }
     }
@@ -184,7 +184,7 @@ public class LevelAbility : MonoBehaviour
                     PlayerStatus.Instance.AbsorptionOfVitality += (float)0.05;
                     break;
                 case (int)Ablilty.gold:
-                    Debug.Log("°ñµåÈ¹µæ");
+                    inventory.instance.GetORGiveCoin((int)PlayerStatus.Instance.PlayerLevel * 50);
                     break;
             }
             Canchoose = false;

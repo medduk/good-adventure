@@ -195,7 +195,7 @@ public class PlayerStatus : MonoBehaviour
             return playerCurExp;
         }
     }
-    private float PlayerLevel
+    public float PlayerLevel
     {
         set
         {
