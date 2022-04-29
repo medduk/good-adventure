@@ -202,13 +202,25 @@ public class StageManager : MonoBehaviour
     }
     void ChangeStageSound(string stageName)
     {
+        AudioSource tempPlaying = SoundManager.Instance.nowPlaying;
+
         if (stageName.Contains("boss"))
         {
-            SoundManager.Instance.nowPlaying.Stop();
-
             SoundManager.Instance.nowPlaying = SoundManager.Instance.boss1Bgm;
-            SoundManager.Instance.nowPlaying.Play();
         }
+        else if(stageName.Contains("stage") && chapterIndex == 1)
+        {
+            SoundManager.Instance.nowPlaying = SoundManager.Instance.gameBgm;
+        }
+
+        if (SoundManager.Instance.nowPlaying == tempPlaying)    // 만약 바꾸려는 음악과 현재 재생되는 음악이 같다면 굳이 안바꿔도됨.
+        {
+            return;
+        }
+
+        tempPlaying.Stop();
+
+        SoundManager.Instance.nowPlaying.Play();
     }
 
     void SetHiddenMap(int hiddenMapIndex = 0)
