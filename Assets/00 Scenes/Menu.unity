@@ -822,7 +822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC18C\uB9AC\uCF1C\uAE30"
+  m_text: "\uD29C\uD1A0\uB9AC\uC5BC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 216ace4ffcee13e43b9519904f03b9b4, type: 2}
   m_sharedMaterial: {fileID: 726209909182025752, guid: 216ace4ffcee13e43b9519904f03b9b4, type: 2}
@@ -1140,6 +1140,8 @@ MonoBehaviour:
   buttonScale: {fileID: 322198766}
   mainGroup: {fileID: 1282487753}
   OptionGroup: {fileID: 0}
+  skipbutton: {fileID: 0}
+  Soundbutton: {fileID: 0}
 --- !u!114 &632634370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,6 +1278,10 @@ MonoBehaviour:
   enemyHitSound: {fileID: 1454216354}
   playerHitSound: {fileID: 41537255}
   buySound: {fileID: 968030910}
+  bgms: []
+  effects: []
+  bgm: {fileID: 758757551}
+  effect: {fileID: 1117523820}
 --- !u!4 &640626489
 Transform:
   m_ObjectHideFlags: 0
@@ -1824,6 +1830,8 @@ MonoBehaviour:
   buttonScale: {fileID: 1616447491}
   mainGroup: {fileID: 1282487753}
   OptionGroup: {fileID: 1240299092}
+  skipbutton: {fileID: 0}
+  Soundbutton: {fileID: 0}
 --- !u!114 &960941580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2057,7 +2065,7 @@ GameObject:
   - component: {fileID: 998689010}
   - component: {fileID: 998689009}
   m_Layer: 5
-  m_Name: Sound ON
+  m_Name: Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3569,6 +3577,8 @@ MonoBehaviour:
   buttonScale: {fileID: 998689008}
   mainGroup: {fileID: 1282487753}
   OptionGroup: {fileID: 0}
+  skipbutton: {fileID: 278090437}
+  Soundbutton: {fileID: 0}
 --- !u!114 &1792733447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3593,7 +3603,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-    m_SelectedColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3719,6 +3729,8 @@ MonoBehaviour:
   buttonScale: {fileID: 2036293212}
   mainGroup: {fileID: 1282487753}
   OptionGroup: {fileID: 0}
+  skipbutton: {fileID: 0}
+  Soundbutton: {fileID: 1022386408}
 --- !u!114 &1837322261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3743,7 +3755,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
-    m_SelectedColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4079,6 +4091,8 @@ MonoBehaviour:
   buttonScale: {fileID: 1062655654}
   mainGroup: {fileID: 1282487753}
   OptionGroup: {fileID: 1240299092}
+  skipbutton: {fileID: 0}
+  Soundbutton: {fileID: 0}
 --- !u!114 &1964255235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4185,7 +4199,7 @@ GameObject:
   - component: {fileID: 2036293214}
   - component: {fileID: 2036293213}
   m_Layer: 5
-  m_Name: Sound OFF
+  m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4287,6 +4301,8 @@ MonoBehaviour:
   buttonScale: {fileID: 1287012157}
   mainGroup: {fileID: 1282487753}
   OptionGroup: {fileID: 1240299092}
+  skipbutton: {fileID: 0}
+  Soundbutton: {fileID: 0}
 --- !u!114 &2058243749
 MonoBehaviour:
   m_ObjectHideFlags: 0

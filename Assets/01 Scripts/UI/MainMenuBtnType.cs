@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
+using System;
+
 public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
 {
     public BTNType currentType;
@@ -10,10 +13,13 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     Vector3 defaultScale;
     public CanvasGroup mainGroup;
     public CanvasGroup OptionGroup;
+    public TextMeshProUGUI skipbutton, Soundbutton;
 
+    bool sound = true;
     private void Start()
     {
         defaultScale = buttonScale.localScale;
+        SkipButtonText();
     }
 
     public void OnBtnClick()
@@ -29,12 +35,27 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 CanvasGroupOff(mainGroup);
                 SoundManager.Instance.buttonsSound.Play();
                 break;
-            case BTNType.SoundON:
-
-                SoundManager.Instance.buttonsSound.Play();
+            case BTNType.Skip:
+                ContinueDataManager.Setskip();
+                if (ContinueDataManager.skip)
+                    skipbutton.text = "Æ©Åä¸®¾ó OFF";
+                else
+                    skipbutton.text = "Æ©Åä¸®¾ó ON";
+                    SoundManager.Instance.buttonsSound.Play();
                 break;
-            case BTNType.SoundOFF:
-
+            case BTNType.Sound:
+                if (sound)
+                {
+                    sound = false;
+                    SoundManager.Instance.SoundOFF();
+                    Soundbutton.text = "¼Ò¸®ÄÑ±â";
+                }
+                else
+                {
+                    sound = true;
+                    SoundManager.Instance.SoundON();
+                    Soundbutton.text = "¼Ò¸®²ô±â";
+                }
                 SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Back:
@@ -71,5 +92,20 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     public void OnPointerExit(PointerEventData eventData)
     {
         buttonScale.localScale = defaultScale;
+    }
+
+    public void SkipButtonText()
+    {
+        try
+        {
+            if (ContinueDataManager.skip)
+                skipbutton.text = "Æ©Åä¸®¾ó OFF";
+            else
+                skipbutton.text = "Æ©Åä¸®¾ó ON";
+        }
+        catch (Exception ex)
+        {
+            return;
+        }
     }
 }

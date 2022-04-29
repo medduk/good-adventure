@@ -6,8 +6,8 @@ public enum BTNType
 {
     Start,
     Option,
-    SoundON,
-    SoundOFF,
+    Skip,
+    Sound,
     Back,
     Quit
 }

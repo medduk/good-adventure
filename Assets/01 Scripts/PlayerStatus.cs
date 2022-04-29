@@ -351,7 +351,10 @@ public class PlayerStatus : MonoBehaviour
         if (collision.transform.tag == "Tutorial")
         {
             Destroy(collision.gameObject);
-            dialogManager.Action(collision.gameObject);
+            if (!ContinueDataManager.skip)
+            {
+                dialogManager.Action(collision.gameObject);
+            }
         }
         if (collision.transform.tag == "ReinForce")
         {

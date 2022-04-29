@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
+    
+
     private static SoundManager instance = null;
     public static SoundManager Instance
     {
@@ -36,6 +38,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource playerHitSound;
     public AudioSource buySound;
 
+    public AudioSource[] bgms;
+    public AudioSource[] effects;
+    public Transform bgm;
+    public Transform effect;
+
     private void Awake()
     {
         if (instance == null)
@@ -52,7 +59,8 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        
+        bgms = bgm.GetComponentsInChildren<AudioSource>();
+        effects = effect.GetComponentsInChildren<AudioSource>();
     }
 
     /* 씬이 로드 될 때 호출. */
@@ -92,5 +100,27 @@ public class SoundManager : MonoBehaviour
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    public void SoundON()
+    {
+        for(int i = 0; i < bgms.Length; i++)
+        {
+            bgms[i].mute = false;
+        }
+        for (int i = 0; i < effects.Length; i++)
+        {
+            effects[i].mute = false;
+        }
+    }
+    public void SoundOFF()
+    {
+        for (int i = 0; i < bgms.Length; i++)
+        {
+            bgms[i].mute = true;
+        }
+        for (int i = 0; i < effects.Length; i++)
+        {
+            effects[i].mute = true;
+        }
     }
 }
