@@ -84,6 +84,8 @@ public class SHOPInformation : MonoBehaviour
     {
         if (canbuy)
         {
+            SoundManager.Instance.buySound.Play();
+
             if(item.itemType == ItemType.Consumables)
             {
                 item.Use();

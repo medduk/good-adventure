@@ -32,6 +32,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource LevelUpSound;
     public AudioSource chooseAbilitySound;
     public AudioSource GameOverSound;
+    public AudioSource enemyHitSound;
+    public AudioSource playerHitSound;
+    public AudioSource buySound;
 
     private void Awake()
     {

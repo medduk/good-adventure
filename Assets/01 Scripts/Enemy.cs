@@ -226,6 +226,8 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage((int damage,bool isCritical) _damage)
     {
+        SoundManager.Instance.enemyHitSound.Play();
+
         DamageTextManager.Instance.DisplayDamage(_damage.damage, transform.position,_damage.isCritical);   // Damage Text
 
         enemyHp -= _damage.damage;
