@@ -184,7 +184,7 @@ public class LevelAbility : MonoBehaviour
                     PlayerStatus.Instance.AbsorptionOfVitality += (float)0.05;
                     break;
                 case (int)Ablilty.gold:
-                    inventory.instance.GetORGiveCoin((int)PlayerStatus.Instance.PlayerLevel * 50);
+                    inventory.instance.GetOrGiveCoin((int)PlayerStatus.Instance.PlayerLevel * 50);
                     break;
             }
             Canchoose = false;

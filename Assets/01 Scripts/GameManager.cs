@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void InitGame()
+    public void InitGame()  // 죽었을 때 사용.
     {
         dialogManager.tutoNumber = 0;
         StageManager.Instance.RestartGame(true);

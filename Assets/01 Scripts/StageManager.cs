@@ -83,29 +83,32 @@ public class StageManager : MonoBehaviour
     }
     private void SetMap(int _mapIndex = -1)
     {
-
         player.transform.position = new Vector2(100, 100);
-        isClear = false;
         int mapIndex = _mapIndex;
 
         // Get the Info of 'stage' and 'chapter'
         chapterIndex = PlayerPrefs.GetInt("ChapterIndex", 0);
         stageIndex = PlayerPrefs.GetInt("StageIndex", 0);
+        Debug.Log("챕터인덱스!!: " + chapterIndex);
+        Debug.Log("스퉤이지인덱스!!: " + stageIndex);
 
         if (chapterIndex == 0)  // 만약 로비라면 이어하기 상태가 저장되지 않음.
         {
+            isClear = true;
             ContinueDataManager.SetContinueGame(false);
         }
         else
         {
+            isClear = false;
             ContinueDataManager.SetContinueGame(true);
         }
 
         if (_mapIndex < 0)
-        {
+        {   
             randomMapIndex = UnityEngine.Random.Range(0, chapters[chapterIndex].stagePrefabs[stageIndex].transform.childCount);
             mapIndex = randomMapIndex;
         }
+
         PlayerPrefs.SetInt("MapIndex", mapIndex);
 
         Debug.Log("챕터 번호: " + chapterIndex + " 스테이지 번호: " + stageIndex + " 랜덤맵번호:" + randomMapIndex);
@@ -123,8 +126,8 @@ public class StageManager : MonoBehaviour
     {
         InitIndex();
         SetMap();
-
     }
+
     IEnumerator CheckEnemyLoading()
     {
         yield return new WaitUntil(() => mapVal.gameObject.activeSelf == true);
@@ -139,7 +142,7 @@ public class StageManager : MonoBehaviour
     {
         yield return new WaitUntil(() => enemyManager.transform.childCount == 0);
         Debug.Log("스테이지 클리어!");
-        portal.SetActive(true);
+        if(portal != null) portal.SetActive(true);
 
         isClear = true;
     }
@@ -172,6 +175,8 @@ public class StageManager : MonoBehaviour
             }
 
             wasHidden = false;
+
+            maxStage = chapters[chapterIndex].stagePrefabs.Length;
 
             if (++stageIndex < maxStage)
             {
@@ -216,9 +221,9 @@ public class StageManager : MonoBehaviour
         StartCoroutine(CheckEnemyLoading());
     }
 
-    public void RestartGame(bool isDev = false)
+    public void RestartGame(bool isDev = false) // 게임 재시작
     {
-        foreach (Transform et in enemyManager.GetComponentInChildren<Transform>())
+        foreach (Transform et in enemyManager.GetComponentInChildren<Transform>())  // 적들을 다 없애줌.
         {
             if (et.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
@@ -226,11 +231,12 @@ public class StageManager : MonoBehaviour
             }
         }
 
-        Destroy(mapVal.gameObject);
+        Destroy(mapVal.gameObject); // 맵을 지운다.
+
         if (isDev)
         {
             /*완전 초기화 이므로 전부 삭제*/
-            foreach (Transform mt in mapManager.GetComponentInChildren<Transform>())
+            foreach (Transform mt in mapManager.GetComponentInChildren<Transform>())    // Map Manager 오브젝트에 있는 맵들 다 삭제(메모리관리)
             {
                 if (mt.name.Contains("stage"))
                 {
@@ -241,6 +247,7 @@ public class StageManager : MonoBehaviour
             SetMap();
             return;
         }
+
         if(wasHidden)
         {
             SetHiddenMap();

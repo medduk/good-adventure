@@ -957,7 +957,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1086411568}
         m_TargetAssemblyTypeName: SHOPInformation, Assembly-CSharp
-        m_MethodName: close
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8444,7 +8444,7 @@ MonoBehaviour:
   BUY: {fileID: 1086411566}
   NormalThing: 112700001227000013270000f92a0000fa2a0000
   RareThing: fb2a0000fc2a0000
-  UnigueThing: fd2a0000c62a0000c72a0000c82a0000c92a0000ca2a0000cb2a0000cc2a0000cd2a0000
+  UniqueThing: fd2a0000c62a0000c72a0000c82a0000c92a0000ca2a0000cb2a0000cc2a0000cd2a0000
   Chance: 010000000100000001000000
 --- !u!1 &300452591
 GameObject:
@@ -12811,7 +12811,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 271480418}
         m_TargetAssemblyTypeName: SHOP, Assembly-CSharp
-        m_MethodName: openBuyTap
+        m_MethodName: OpenBuyTap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13855,7 +13855,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 271480418}
         m_TargetAssemblyTypeName: SHOP, Assembly-CSharp
-        m_MethodName: openBuyTap
+        m_MethodName: OpenBuyTap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16915,7 +16915,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1599125447}
         m_TargetAssemblyTypeName: PlayerStatus, Assembly-CSharp
-        m_MethodName: playerLiving
+        m_MethodName: RevivalPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18050,7 +18050,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 271480418}
         m_TargetAssemblyTypeName: SHOP, Assembly-CSharp
-        m_MethodName: openBuyTap
+        m_MethodName: OpenBuyTap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19791,7 +19791,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 271480418}
         m_TargetAssemblyTypeName: SHOP, Assembly-CSharp
-        m_MethodName: openBuyTap
+        m_MethodName: OpenBuyTap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20362,8 +20362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7ea64d981a275449519f3c30b67874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: {fileID: 1145349552}
-  Text: {fileID: 705765482}
+  name: {fileID: 1145349552}
+  text: {fileID: 705765482}
   canbuytext: {fileID: 417302087}
   icon: {fileID: 1756349100}
   slotnum: 0
@@ -30538,7 +30538,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 271480418}
         m_TargetAssemblyTypeName: SHOP, Assembly-CSharp
-        m_MethodName: openBuyTap
+        m_MethodName: OpenBuyTap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38386,7 +38386,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 271480418}
         m_TargetAssemblyTypeName: SHOP, Assembly-CSharp
-        m_MethodName: openBuyTap
+        m_MethodName: OpenBuyTap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

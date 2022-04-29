@@ -267,7 +267,7 @@ public class BossEnemy : MonoBehaviour
     {
         GameManager.Instance.CloseBossHpbar();
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
-        inventory.instance.GetORGiveCoin(enemyGiveCoin);
+        inventory.instance.GetOrGiveCoin(enemyGiveCoin);
         for (int i = 0; i<dropCount; i++)
         {
             int id = dropItemId[DropItem()];

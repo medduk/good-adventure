@@ -6,16 +6,17 @@ using TMPro;
 
 public class SHOP : MonoBehaviour
 {
-    public List<Item> Sell = new List<Item>();
-    public Button[] BuyButton;
-    public GameObject BUY;
+    public List<Item> Sell = new List<Item>();  // 파는 아이템 리스트.
+    public Button[] BuyButton;  // 아이템 버튼들(구매)
+    public GameObject BUY;  // shop information을 띄우기 위한 오브젝트.
 
     [SerializeField] int[] NormalThing;
     [SerializeField] int[] RareThing;
-    [SerializeField] int[] UnigueThing;
+    [SerializeField] int[] UniqueThing;
 
     [SerializeField] int[] Chance;
     int sum;
+
     private static SHOP instance = null;
     public static SHOP Instance
     {
@@ -52,13 +53,13 @@ public class SHOP : MonoBehaviour
     }
     public void SellStart()
     {
-        Sell.Clear();
-        int sellcount = Random.Range(3, 7);
+        Sell.Clear();    // 파는 아이템 리스트를 초기화
+        int sellcount = Random.Range(3, 7);     // 물건 갯수 랜덤.
         
         for(int i = 0; i < sellcount; i++)
         {
-            int Quality = SellChance();
-            switch (Quality)
+            int quality = SellChance();
+            switch (quality)
             {
                 case 0:
                     Sell.Add(ItemBundle.instance.makeItem(NormalThing[Random.Range(0, NormalThing.Length)]));
@@ -67,14 +68,14 @@ public class SHOP : MonoBehaviour
                     Sell.Add(ItemBundle.instance.makeItem(RareThing[Random.Range(0, RareThing.Length)]));
                     break;
                 case 2:
-                    Sell.Add(ItemBundle.instance.makeItem(UnigueThing[Random.Range(0, UnigueThing.Length)]));
+                    Sell.Add(ItemBundle.instance.makeItem(UniqueThing[Random.Range(0, UniqueThing.Length)]));
                     break;
             }
             BuyButton[i].transform.GetChild(0).GetComponent<Image>().sprite = Sell[i].itemImage;
             BuyButton[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "" + Sell[i].price;
         }
-        Redrow();
-        Ondrow();
+        Redraw();
+        Ondraw();
     }
 
     private int SellChance()
@@ -94,7 +95,7 @@ public class SHOP : MonoBehaviour
         return i;
     }
 
-    public void openBuyTap(int index)
+    public void OpenBuyTap(int index)   // 아이템을 클릭 했을 때 구매할 수 있는지 없는지 정보창을 띄워줌.
     {
         if (inventory.instance.Coin < Sell[index].price)
             SHOPInformation.Instance.canbuy = false;
@@ -106,7 +107,7 @@ public class SHOP : MonoBehaviour
         SHOPInformation.Instance.Show();
         BUY.SetActive(true);
     }
-    private void Redrow()
+    private void Redraw()
     {
         for(int i = 0; i< BuyButton.Length; i++)
         {
@@ -116,7 +117,7 @@ public class SHOP : MonoBehaviour
         }
             
     }
-    private void Ondrow()
+    private void Ondraw()
     {
         for (int i = 0; i < Sell.Count; i++)
         {
@@ -127,11 +128,8 @@ public class SHOP : MonoBehaviour
     }
     public void SellEnd(int index)
     {
-
             BuyButton[index].GetComponent<CanvasGroup>().alpha = 0.5f;
             BuyButton[index].GetComponent<CanvasGroup>().interactable = false;
             BuyButton[index].GetComponent<CanvasGroup>().blocksRaycasts = false;
-        
-
     }
 }

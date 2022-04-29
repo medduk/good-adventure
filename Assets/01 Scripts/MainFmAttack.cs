@@ -130,13 +130,18 @@ public class MainFmAttack : MonoBehaviour
             isAttacking = false;
         }
     }
+    public void SetGameLiving() // 부활 시 공격하도록.
+    {
+        isGameOver = false;
+    }
+
     IEnumerator OnAttack()
     {
         while(true)
         {
             yield return null;
 
-            if (timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0)
+            if (timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0 && !isGameOver)
             {
                 GameObject enemyObj = FindNearestObject(enemys);
                 enemyPosition = enemyObj.GetComponent<Rigidbody2D>().position;
@@ -246,6 +251,7 @@ public class MainFmAttack : MonoBehaviour
 
     public void SetGameOver()
     {
+        enemys.Clear();
         isGameOver = true;
     }
 }

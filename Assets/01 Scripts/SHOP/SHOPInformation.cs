@@ -6,8 +6,8 @@ using TMPro;
 
 public class SHOPInformation : MonoBehaviour
 {
-    public TextMeshProUGUI Name;
-    public TextMeshProUGUI Text;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI text;
     public Text canbuytext;
     public Image icon;
     public int slotnum;
@@ -15,7 +15,7 @@ public class SHOPInformation : MonoBehaviour
 
     string showcolor;
 
-    public Item item;
+    public Item item;   // SHOP스크립트로 부터 정보를 받아 왔음.
 
     private static SHOPInformation instance = null;
 
@@ -44,25 +44,25 @@ public class SHOPInformation : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void Show()
+    public void Show()  // 클릭했을 때 띄워지는 창의 정보.
     {
-        showcolor = changecolor();
+        showcolor = Changecolor();
         icon.sprite = item.itemImage;
-        Text.text = "<color=white>" + item.itemDescription + "</color>";
-        Name.text = "<color=" + showcolor + ">" + item.itemName + "</color>";
+        text.text = "<color=white>" + item.itemDescription + "</color>";
+        name.text = "<color=" + showcolor + ">" + item.itemName + "</color>";
 
         if (canbuy)
             canbuytext.text = "구매";
         else
             canbuytext.text = "골드부족";
 
-        if(inventory.instance.items.Count == 25)
+        if(inventory.instance.items.Count == 25)    // 인벤토리가 꽉 차면.
         {
             canbuy = false;
             canbuytext.text = "가방꽉참";
         }
     }
-    private string changecolor()
+    private string Changecolor()    // 등급에 따라 텍스트 변경.
     {
         if (item.level == 2)
             return "blue";
@@ -76,7 +76,7 @@ public class SHOPInformation : MonoBehaviour
             return "#d95b9a";
         return "white";
     }
-    public void close()
+    public void Close()
     {
         gameObject.SetActive(false);
     }
@@ -94,7 +94,7 @@ public class SHOPInformation : MonoBehaviour
                 inventory.instance.AddItem(ItemBundle.instance.makeItem(item.itemID));
             }
             SHOP.Instance.SellEnd(slotnum);
-            inventory.instance.GetORGiveCoin(-item.price);
+            inventory.instance.GetOrGiveCoin(-item.price);
             gameObject.SetActive(false);
         }   
     }

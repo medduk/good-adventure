@@ -122,7 +122,7 @@ public class inventory : MonoBehaviour
 
     }
 
-    public void GetORGiveCoin(int coin)
+    public void GetOrGiveCoin(int coin)
     {
         Coin += coin;
         if (Coin < 0)

@@ -271,7 +271,7 @@ public class Enemy : MonoBehaviour
         if (cangiveItem) // 만약 아이템을 주는 몬스터 라면
         { 
             ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
-            inventory.instance.GetORGiveCoin(enemyGiveCoin);
+            inventory.instance.GetOrGiveCoin(enemyGiveCoin);
         }
 
 

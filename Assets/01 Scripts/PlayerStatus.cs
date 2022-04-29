@@ -314,12 +314,15 @@ public class PlayerStatus : MonoBehaviour
         HPText();
     }
 
-    public void playerLiving()
+    public void RevivalPlayer()
     {
         isGameOver = false;
         gameObject.GetComponent<moving>().SetGameLiving();
+        gameObject.GetComponent<MainFmAttack>().SetGameLiving();
         GameManager.Instance.SetGameLiving();
+
         playerCurHp = playerMaxHp;
+        HPText();
     }
 
     IEnumerator StopDamage()
@@ -453,7 +456,7 @@ public class PlayerStatus : MonoBehaviour
         playerCurExp = save.playerCurExp;
         playerLevel = save.playerLevel;
 
-        inventory.instance.GetORGiveCoin(save.Coin);
+        inventory.instance.GetOrGiveCoin(save.Coin);
 
         transform.position = new Vector3(save.x, save.y, save.z);
 
