@@ -13,7 +13,9 @@ public enum Ablilty
     criProbabilityUp,
     aovUp,
     gold,
-
+    ricochetShot,
+    multiShot,
+    chainShot,
 }
 public class LevelAbility : MonoBehaviour
 {
@@ -38,7 +40,10 @@ public class LevelAbility : MonoBehaviour
     int[] CriDamageUp = { 4, 7, 3 };
     int[] CriProbabliltyUp = { 5, 7, 3 };
     int[] AovUp = { 6, 7, 3 };
-    int[] Gold = { 7, 7, 10 };
+    int[] Gold = { 7, 7, -1 };
+    int[] RichchetShot = { 8, 7, 1 };
+    int[] MultiShot = { 9, 7, 1 };
+    int[] ChainetShot = { 10, 7, 1 };
 
     int sum;
     // Start is called before the first frame update
@@ -53,13 +58,16 @@ public class LevelAbility : MonoBehaviour
         LVAblilty.Add(CriProbabliltyUp);
         LVAblilty.Add(AovUp);
         LVAblilty.Add(Gold);
+        LVAblilty.Add(RichchetShot);
+        LVAblilty.Add(MultiShot);
+        LVAblilty.Add(ChainetShot);
         ReadyPlayerLevelUP();
     }
 
     public void ReadyPlayerLevelUP()
     {
         
-        for(int i=0; i < PlayerStatus.Instance.Levelablilty.Length; i++)
+        for(int i=0; i < System.Enum.GetNames(typeof(Ablilty)).Length; i++)
         {
             if(PlayerStatus.Instance.Levelablilty[i] < LVAblilty[i][2])
             {
@@ -141,7 +149,19 @@ public class LevelAbility : MonoBehaviour
                 break;
             case (int)Ablilty.gold:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "°ñµå\n<color=#92F4FF>"+ PlayerStatus.Instance.PlayerLevel*50 +"</color>È¹µæ\n";
+                Texts[i].text = "°ñµå\n<color=#92F4FF>"+ (PlayerStatus.Instance.PlayerLevel+1)*50 +"</color>È¹µæ";
+                break;
+            case (int)Ablilty.ricochetShot:
+                images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
+                Texts[i].text = "¹Ù¿î½º¼¦\n<color=#92F4FF>±âº»°ø°ÝÀÌ Æ¨±é´Ï´Ù.</color>";
+                break;
+            case (int)Ablilty.multiShot:
+                images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
+                Texts[i].text = "¸ÖÆ¼¼¦\n<color=#92F4FF>±âº»°ø°ÝÀÌ µÎ°³·Î ´Ã¾î³³´Ï´Ù.</color>";
+                break;
+            case (int)Ablilty.chainShot:
+                images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
+                Texts[i].text = "Ã¼ÀÎ¼¦\n<color=#92F4FF>±âº»°ø°ÝÀ» µÎ¹ø¾¿ ¹ßµ¿ÇÕ´Ï´Ù.</color>";
                 break;
         }
     }
@@ -186,12 +206,21 @@ public class LevelAbility : MonoBehaviour
                 case (int)Ablilty.gold:
                     inventory.instance.GetOrGiveCoin((int)PlayerStatus.Instance.PlayerLevel * 50);
                     break;
+                case (int)Ablilty.ricochetShot:
+                    PlayerStatus.Instance.playerSkills[0] = 1;
+                    break;
+                case (int)Ablilty.multiShot:
+                    PlayerStatus.Instance.playerSkills[1] = 1;
+                    break;
+                case (int)Ablilty.chainShot:
+                    PlayerStatus.Instance.playerSkills[2] = 1;
+                    break;
             }
             Canchoose = false;
             SoundManager.Instance.chooseAbilitySound.Play();
 
 
-            if (OptionsPlayerCanChoose[i][0] < LVAblilty.Count - 1)
+            if (OptionsPlayerCanChoose[i][0] != (int)Ablilty.gold)
             {
                 PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] += 1;
             }

@@ -32,7 +32,7 @@ public class PlayerStatus : MonoBehaviour
     bool Loadgame = false;
     public bool textSkillOn = false;
     public int textSkillLevel = 1;
-    public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length -1];
+    public int[] Levelablilty;
     [SerializeField] int[] runes;
 
     public enum ShotSkills
@@ -268,7 +268,7 @@ public class PlayerStatus : MonoBehaviour
 
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-
+        Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length];
         isGameOver = false;
     }
     private void Start()
@@ -285,6 +285,9 @@ public class PlayerStatus : MonoBehaviour
         }    
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
         LVshow.text = "LV. " + playerLevel;
+        inventory.instance.Coin = 0;
+        inventory.instance.CoinText.text = "0";
+        inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
         HPText();
     }
 
@@ -306,6 +309,7 @@ public class PlayerStatus : MonoBehaviour
             animator.SetTrigger("IsHit");
             if (playerCurHp <= 0 && !isGameOver)
             {
+                PlayerPrefs.SetInt("coin", inventory.instance.Coin/10);
                 isGameOver = true;
                 GameManager.Instance.SetGameOver();
                 SoundManager.Instance.GameOverSound.Play();
@@ -323,9 +327,12 @@ public class PlayerStatus : MonoBehaviour
         gameObject.GetComponent<moving>().SetGameLiving();
         gameObject.GetComponent<MainFmAttack>().SetGameLiving();
         GameManager.Instance.SetGameLiving();
-
+        Resetplay();
         playerCurHp = playerMaxHp;
         HPText();
+        inventory.instance.Coin = 0;
+        inventory.instance.CoinText.text = "0";
+        inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
     }
 
     IEnumerator StopDamage()
@@ -479,7 +486,10 @@ public class PlayerStatus : MonoBehaviour
         criticalDamage += Levelablilty[4] * 10;
         criticalProbability += Levelablilty[5] * 5;
         absorptionOfVitality += Levelablilty[6] * 0.05f;
-
+        playerLevel = 1;
+        playerSkills[0] = Levelablilty[8];
+        playerSkills[1] = Levelablilty[9];
+        playerSkills[2] = Levelablilty[10];
 
 
         for (int i = 0; i < save.equip.Count; i++)
@@ -493,6 +503,39 @@ public class PlayerStatus : MonoBehaviour
             inventory.instance.AddItem(ItemBundle.instance.makeItem(save.items[i]));
         }
 
+    }
+    public void Resetplay()
+    {
+        inventory.instance.items.Clear();
+
+        for (int i = 0; i < inventory.instance.equip.Count; i++) 
+        {
+            inventory.instance.equip[i].UnUse();
+            
+        }
+        inventory.instance.equip.Clear();
+        inventory.instance.onChangeItem.Invoke();
+        inventory.instance.onChangeEquip.Invoke();
+
+        playerMaxHp -= Levelablilty[0] * 20;
+        playerDamage -= Levelablilty[1] * 15;
+        playerMoveSpeed -= Levelablilty[2] * 0.5f;
+        playerDefense -= Levelablilty[3] * 5;
+        criticalDamage -= Levelablilty[4] * 10;
+        criticalProbability -= Levelablilty[5] * 5;
+        absorptionOfVitality -= Levelablilty[6] * 0.05f;
+
+        for(int i = 0; i< Levelablilty.Length; i++)
+        {
+            if( i != (int)Ablilty.gold)
+                Levelablilty[i] = 0;
+        }
+        for (int i = 0; i < playerSkills.Length; i++)
+        {
+            playerSkills[i] = 0;
+        }
+        playerMaxExp = 100;
+        playerCurExp = 0;
     }
     public void runeReset()
     {

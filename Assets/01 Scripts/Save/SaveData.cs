@@ -18,7 +18,7 @@ public class SaveData
     public float y;
     public float z;
 
-    public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length - 1];
+    public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length];
 
     public List<int> items = new List<int>();
     public List<int> equip = new List<int>();

@@ -12,6 +12,7 @@ public class SHOPInformation : MonoBehaviour
     public Image icon;
     public int slotnum;
     public bool canbuy;
+    public Button button;
 
     string showcolor;
 
@@ -61,6 +62,7 @@ public class SHOPInformation : MonoBehaviour
             canbuy = false;
             canbuytext.text = "가방꽉참";
         }
+        button.gameObject.SetActive(false);
     }
     private string Changecolor()    // 등급에 따라 텍스트 변경.
     {
@@ -78,6 +80,7 @@ public class SHOPInformation : MonoBehaviour
     }
     public void Close()
     {
+        button.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
     public void BUY()
@@ -97,7 +100,9 @@ public class SHOPInformation : MonoBehaviour
             }
             SHOP.Instance.SellEnd(slotnum);
             inventory.instance.GetOrGiveCoin(-item.price);
+            button.gameObject.SetActive(true);
             gameObject.SetActive(false);
+
         }   
     }
 }

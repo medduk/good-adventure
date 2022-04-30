@@ -246,6 +246,16 @@ public class StageManager : MonoBehaviour
             }
         }
 
+        int mapItemCount = dataManaer.childCount;
+
+        if (mapItemCount > 0)             // 아이템 삭제
+        {
+            for (int i = 0; i < mapItemCount; i++)
+            {
+                Destroy(dataManaer.GetChild(i).gameObject);
+            }
+        }
+
         Destroy(mapVal.gameObject); // 맵을 지운다.
 
         if (isDev)

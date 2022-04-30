@@ -11340,7 +11340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 216ace4ffcee13e43b9519904f03b9b4, type: 2}
   m_sharedMaterial: {fileID: 726209909182025752, guid: 216ace4ffcee13e43b9519904f03b9b4, type: 2}
@@ -20368,6 +20368,7 @@ MonoBehaviour:
   icon: {fileID: 1756349100}
   slotnum: 0
   canbuy: 0
+  button: {fileID: 2124255370}
   item:
     itemID: 0
     canUse: 1
@@ -32670,7 +32671,7 @@ MonoBehaviour:
   playerLevel: 1
   textSkillOn: 0
   textSkillLevel: 1
-  Levelablilty: 00000000000000000000000000000000000000000000000000000000
+  Levelablilty: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   runes: 
   playerSkills: 
   dialogManager: {fileID: 1996352955}
@@ -32838,6 +32839,9 @@ MonoBehaviour:
   - {fileID: -2273396585835428301, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
   - {fileID: 5170805742859868854, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
   - {fileID: 7924603414007874070, guid: 801a713a3cf963f48ae50bd5721ca610, type: 3}
+  - {fileID: -5068495683315309002, guid: 3e1d1a36968f9af4c8b3871887d706f9, type: 3}
+  - {fileID: -2504038915369852453, guid: 3e1d1a36968f9af4c8b3871887d706f9, type: 3}
+  - {fileID: 5717442354007163937, guid: 3e1d1a36968f9af4c8b3871887d706f9, type: 3}
   buttonScale: {fileID: 974392673}
 --- !u!1 &1601868401
 GameObject:
@@ -34759,7 +34763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1751048088
 RectTransform:
   m_ObjectHideFlags: 0
