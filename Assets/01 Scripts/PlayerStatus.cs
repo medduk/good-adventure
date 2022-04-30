@@ -486,7 +486,6 @@ public class PlayerStatus : MonoBehaviour
         criticalDamage += Levelablilty[4] * 10;
         criticalProbability += Levelablilty[5] * 5;
         absorptionOfVitality += Levelablilty[6] * 0.05f;
-        playerLevel = 1;
         playerSkills[0] = Levelablilty[8];
         playerSkills[1] = Levelablilty[9];
         playerSkills[2] = Levelablilty[10];
@@ -534,6 +533,8 @@ public class PlayerStatus : MonoBehaviour
         {
             playerSkills[i] = 0;
         }
+        playerLevel = 1;
+        LVshow.text = "LV. " + playerLevel;
         playerMaxExp = 100;
         playerCurExp = 0;
     }
