@@ -89,8 +89,6 @@ public class StageManager : MonoBehaviour
         // Get the Info of 'stage' and 'chapter'
         chapterIndex = PlayerPrefs.GetInt("ChapterIndex", 0);
         stageIndex = PlayerPrefs.GetInt("StageIndex", 0);
-        Debug.Log("챕터인덱스!!: " + chapterIndex);
-        Debug.Log("스퉤이지인덱스!!: " + stageIndex);
 
         if (chapterIndex == 0)  // 만약 로비라면 이어하기 상태가 저장되지 않음.
         {
@@ -204,7 +202,11 @@ public class StageManager : MonoBehaviour
     {
         AudioSource tempPlaying = SoundManager.Instance.nowPlaying;
 
-        if (stageName.Contains("boss"))
+        if(chapterIndex == 0)
+        {
+            SoundManager.Instance.nowPlaying = SoundManager.Instance.tutorialBgm;
+        }
+        else if (stageName.Contains("boss"))
         {
             SoundManager.Instance.nowPlaying = SoundManager.Instance.boss1Bgm;
         }
@@ -212,6 +214,7 @@ public class StageManager : MonoBehaviour
         {
             SoundManager.Instance.nowPlaying = SoundManager.Instance.gameBgm;
         }
+        
 
         if (SoundManager.Instance.nowPlaying == tempPlaying)    // 만약 바꾸려는 음악과 현재 재생되는 음악이 같다면 굳이 안바꿔도됨.
         {

@@ -28,15 +28,18 @@ public class SoundManager : MonoBehaviour
     /*bossBGM은 나중에 clip을 배열로 만들어서 확장 가능*/
     public AudioSource boss1Bgm;
 
-    [Header("Effect Sound List")]
+    [Header("Menu & UI Effect Sound List")]
     public AudioSource buttonsSound;
-    public AudioSource itemGetSound;
     public AudioSource LevelUpSound;
     public AudioSource chooseAbilitySound;
     public AudioSource GameOverSound;
+    public AudioSource buySound;
+
+    [Header("InGame Object Effect Sound ")]
+    public AudioSource itemGetSound;
     public AudioSource enemyHitSound;
     public AudioSource playerHitSound;
-    public AudioSource buySound;
+    public AudioSource arrowShootSound;
 
     public AudioSource[] bgms;
     public AudioSource[] effects;
@@ -80,13 +83,13 @@ public class SoundManager : MonoBehaviour
             nowPlaying.Stop();
         }
 
-        if(scene.name == "MainGame")
-        {
-            nowPlaying.Stop();
+        //if(scene.name == "MainGame")
+        //{
+        //    nowPlaying.Stop();
 
-            nowPlaying = tutorialBgm;
-            nowPlaying.Play();
-        }
+        //    nowPlaying = tutorialBgm;
+        //    nowPlaying.Play();
+        //}
 
         if(scene.name == "Menu")
         {

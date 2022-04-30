@@ -8,7 +8,6 @@ public class MainFmAttack : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private AudioSource audioSource;
 
     public GameObject arrowPrefab;  // 화살 프리팹을 넣어줘야 함.
     public Transform quiverObject;
@@ -55,7 +54,6 @@ public class MainFmAttack : MonoBehaviour
         }
 
         rigidbody2D = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -184,7 +182,7 @@ public class MainFmAttack : MonoBehaviour
         while (isAttacking && chainNum + 1 > 0)
         {
             chainNum--;
-            audioSource.Play();
+            SoundManager.Instance.arrowShootSound.Play();
             if (quiver.Count <= arrowPoolingCount / 2)
             {
                 SaveQueue(arrowPoolingCount/2);

@@ -40,7 +40,7 @@ public class PlayerStatus : MonoBehaviour
         ricochetShot,
         multiShot,
         chainShot,
-        diagonalShot,
+        diagonalShot,   // 미구현
     }
 
     public int[] playerSkills;
@@ -236,7 +236,7 @@ public class PlayerStatus : MonoBehaviour
         /* Runes */
         runes = new int[System.Enum.GetValues(typeof(Runes)).Length];
         /* Skills */
-        playerSkills = new int[System.Enum.GetValues(typeof(ShotSkills)).Length];
+        playerSkills = new int[System.Enum.GetValues(typeof(ShotSkills)).Length];   // 스킬을 초기화 함.
 
         for (int i=0; i < runes.Length; i++)
         {
