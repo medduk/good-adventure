@@ -6,10 +6,10 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     private GameObject enemyManager;
-    [SerializeField] GameObject[] enemyPrefabs;
-    [SerializeField] int[] monsterChance;
+    [SerializeField] GameObject[] enemyPrefabs;  // 맵에 등장 가능한 몬스터 종류
+    [SerializeField] int[] monsterChance;  // 몬스터에 따라 등장확률
     private int sum = 0;
-    public Transform[] enemyTransforms;
+    public Transform[] enemyTransforms; // 몬스터 생성위치
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class EnemyGenerator : MonoBehaviour
         enemyTransforms = new Transform[transform.childCount];
 
         int i = 0;
-        foreach (Transform et in transform.GetComponentsInChildren<Transform>())
+        foreach (Transform et in transform.GetComponentsInChildren<Transform>())  // 맵의 정보를 읽어 몬스터의 생성위치를 저장한다
         {
             if (et.name.Contains("EnemyPosition"))
             {
@@ -62,7 +62,7 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
-    private int SelectRandomEnemyPrefab()
+    private int SelectRandomEnemyPrefab()  // 몬스터 랜덤뽑기
     {
         int randomIndex = Random.Range(1, sum+1);
 

@@ -27,7 +27,7 @@ public class SceneLoad : MonoBehaviour
         StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene()
+    IEnumerator LoadScene() // 로딩하는 시각적 효과를 내기 위하여 
     {
         yield return null;
         operation = SceneManager.LoadSceneAsync("MainGame");
@@ -36,12 +36,12 @@ public class SceneLoad : MonoBehaviour
         {
             yield return null;
 
-            if (progressbar.value < 0.9f)
+            if (progressbar.value < 0.9f) // 시각적으로 답답함을 덜어주기 위한 
             {
                 progressbar.value = Mathf.MoveTowards(progressbar.value, 0.9f, Time.deltaTime);
             }
 
-            else if(operation.progress >= 0.9f)
+            else if(operation.progress >= 0.9f) // 90%에서 로딩바를 멈추고 효과실제로 로딩이 끝났으면 100%로 다시 채워준다
             {
                 progressbar.value = Mathf.MoveTowards(progressbar.value, 1f, Time.deltaTime);
             }

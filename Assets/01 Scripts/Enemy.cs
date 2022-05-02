@@ -20,22 +20,25 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject UnitHpshow;
 
 
-    [SerializeField] int enemyMaxHp = 100;
-    [SerializeField] int enemyHp;
-    [SerializeField] float enemyMoveSpeed = 10f;
-    [SerializeField] int enemyDamage = 10;
-    [SerializeField] int enemyGiveExp = 30;
-    [SerializeField] int enemyGiveCoin = 30;
+    [SerializeField] int enemyMaxHp = 100; // 몬스터 최대체력
+    [SerializeField] int enemyHp;  // 몬스터 현제체력
+    [SerializeField] float enemyMoveSpeed = 10f; // 몬스터 이동속도
+    [SerializeField] int enemyDamage = 10; // 몬스터 데미지
+    [SerializeField] int enemyGiveExp = 30; // 처치시 지급경험치
+    [SerializeField] int enemyGiveCoin = 30; // 처치시 지급골드
 
-    [SerializeField] int[] dropItemId;
-    [SerializeField] int[] dropIChance;
-    private int sum = 0;
-    List<Enemy> enemyFriends = new List<Enemy>(); // 일점범위내 팀이 맞을때 감지
+    [SerializeField] int[] dropItemId;  // 아이템 드랍테이블
+    [SerializeField] int[] dropIChance; // 아이템 드랍확률
+    private int sum = 0;  // 아이템 확률계산용
+
+    /* 일정범위내 팀이 공격받을때 감지하기 위한 주변몬스터 등록리스트 */
+    List<Enemy> enemyFriends = new List<Enemy>(); 
     List<BossEnemy> enemyBosses = new List<BossEnemy>();
-    static WaitForSeconds sec;
+
+    static WaitForSeconds sec;  // 피격시 경직길이
 
     private bool backHpswitch = false;
-    private bool playerCheck = false;
+    private bool playerCheck = false;  // 플레이어 확인여부
     private bool stopMove = false;
     public bool cangiveItem = true;
     private GameObject player;
@@ -138,7 +141,7 @@ public class Enemy : MonoBehaviour
             sum += dropIChance[c];
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)  // 주변의 같은 몬스터 등록
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {   
@@ -153,7 +156,7 @@ public class Enemy : MonoBehaviour
                 enemyFriends.Add(collision.gameObject.GetComponent<Enemy>());
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) // 주변의 같은 몬스터 사망시 리스트에서 제거
     {
         if (enemyFriends.Contains(collision.gameObject.GetComponent<Enemy>()))
         {
@@ -169,12 +172,12 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    public void FriendHit()
+    public void FriendHit()  // 주변 몬스터가 피격시 플레이어를 인지하게만듬
     {
         playerCheck = true;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)  // 몬스터의 기본공격방식, 접촉으로 공격함
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
@@ -182,7 +185,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    private void FixedUpdate()
+    private void FixedUpdate()  // 움직임과 관련된 함수, 플레이어를 인지하였으면 공격하기위해 플레이어위치로 이동함, 플레이어의 이동함수와 유사
     {
         if (playerCheck && !stopMove)
         {
@@ -212,7 +215,7 @@ public class Enemy : MonoBehaviour
         Sildershow = enemyHpSlider.GetComponent<RectTransform>();
         HpBarUnit();
     }
-    private void Update()
+    private void Update() // 데미지를 받았을때 데미지 만큼의 하얀색의 영역을 보여줘서 강함을 느낄 수 있게 함, 타격감을 위하여 이렇게 구현  
     {
         if (backHpswitch)
         {
@@ -239,7 +242,7 @@ public class Enemy : MonoBehaviour
 
         PlayerStatus.Instance.AbsorbHp(_damage.damage);
 
-        for(int i = 0; i< enemyFriends.Count; i++)
+        for(int i = 0; i< enemyFriends.Count; i++) // 데미지를 받았을때 주변 몬스터에게 플레이어를 인지시킴
         {
             enemyFriends[i].FriendHit();
         }
@@ -255,7 +258,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator DieEnemy()
+    private IEnumerator DieEnemy()  // 죽을 때 발동
     {
         animator.SetTrigger("IsDie");
 
@@ -281,7 +284,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);      
     }
 
-    IEnumerator StopMove()
+    IEnumerator StopMove() // 데미지 받고 경직효과
     {
         stopMove = true;
         rigidbody2D.velocity = Vector2.zero;
@@ -294,7 +297,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         backHpswitch = true;
     }
-    private void HpBarUnit()
+    private void HpBarUnit()  // 기타 게임처럼 체력이 많을수록 시작적으로 체력바의 이미지가 빼곡해져서 체력이 많아보임을 인지가능
     {
         float scaleX = 1.5f / ((float)enemyMaxHp / (float)unitHp);
         UnitHpshow.GetComponent<HorizontalLayoutGroup>().gameObject.SetActive(false);

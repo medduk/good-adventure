@@ -11,7 +11,7 @@ public class moving : MonoBehaviour
     private Animator animator;
     
     private bool isMoving = false; // 키 입력 받을때 움직임 체크 용도
-    private float x, y;
+    private float x, y;     // 이동계산 좌표
     #endregion
     //Github test
     #region Public
@@ -24,7 +24,7 @@ public class moving : MonoBehaviour
 
     private bool isGameOver = false;
 
-    public GameObject talking;
+    public GameObject talking;  // 대화중을 나타내는 변수
     #endregion
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class moving : MonoBehaviour
         StartCoroutine(OnAtferimageParticle());
     }
 
-    void Update()
+    void Update()  
     {
         if (isGameOver)
         {
@@ -74,7 +74,7 @@ public class moving : MonoBehaviour
             isMoving = false;
             animator.SetBool("IsWalking", false);
         }
-        if (talking.activeSelf) // 임시로 대화창 열릴떄 바로멈추게 
+        if (talking.activeSelf) // 대화이벤트시 움직임 제한
         {
             isMoving = false;
             animator.SetBool("IsWalking", false);
@@ -91,12 +91,12 @@ public class moving : MonoBehaviour
             Move(x);
         }
     }
-    private void Move(float xDirection)
+    private void Move(float xDirection)  
     {
         Vector2 inputPosition = new Vector2(x, y);
         if (!talking.activeSelf) // 대화이벤트시 움직임 제한
         {
-            if (xDirection < 0)
+            if (xDirection < 0)  // 이동방향에 따라 캐릭터 좌우 반전 ㄴ
             {
                 spriteRenderer.flipX = false;
                 playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.zero;

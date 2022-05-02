@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class ReinForce : MonoBehaviour
+public class ReinForce : MonoBehaviour  // Inventroy 스크립트와 유사하게 제작 인벤토리의 상태를 불러와서 강화UI및 강화전용 공간에서 작업후 인벤토리에 적용하는 방식
 {
     public static ReinForce instance;
     private void Awake()
@@ -95,14 +95,14 @@ public class ReinForce : MonoBehaviour
             ReinForces[i].UpdateSlotUI();
         }
     }
-    void CanRFdraw()
+    void CanRFdraw() // 기본적으로 등록가능하게 반투명하게 표현하지 않음
     {
         for (int i = 0; i < items.Count; i++)
         {
             slots[i].canRF();
         }
     }
-    void unCanRFdraw()
+    void unCanRFdraw() // 아이템을 반투명하게 표현하여 등록불가를 표현
     {
         for (int i = 0; i < items.Count; i++)
         {
@@ -131,7 +131,7 @@ public class ReinForce : MonoBehaviour
 
         return false;
     }
-    public bool ReinForceItem(Item _item)
+    public bool ReinForceItem(Item _item)  // 최고등급이 아닌 아이템을 최초등록후 같은 아이템외에는 등록불가로 표현함
     {
         if (_item.level < 5)
         {
@@ -170,7 +170,7 @@ public class ReinForce : MonoBehaviour
         unCanRFdraw();
     }
 
-    private void Update()
+    private void Update() // 같은 아이템 두개로 상위아이템을 만드는 방식
     {
         if (ReForce.Count == 2) 
         {
@@ -191,7 +191,7 @@ public class ReinForce : MonoBehaviour
         }
     }
 
-    public void ReinForceSuccess()
+    public void ReinForceSuccess() // 강화결과물 아이템지급
     {
         
         if(ReForce.Count == 2 && Result.item != null)

@@ -26,9 +26,9 @@ public class LevelAbility : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] Texts;
     [SerializeField] Sprite[] sprites;
 
-    List<int[]> LVAblilty = new List<int[]>();
-    List<int[]> randomAbilityTable = new List<int[]>();
-    List<int[]> OptionsPlayerCanChoose = new List<int[]>();
+    List<int[]> LVAblilty = new List<int[]>();  // 레벨업능력의 총 리스트
+    List<int[]> randomAbilityTable = new List<int[]>();  // 업그레이드가 가능한 레벨업 능력의 총 리스트
+    List<int[]> OptionsPlayerCanChoose = new List<int[]>(); // randomAbilityTable 에서 랜덤으로 정해준 개수 만큼 뽑아올 리스트
 
     public Transform buttonScale;
     Vector3 defaultScale;
@@ -46,9 +46,9 @@ public class LevelAbility : MonoBehaviour
     int[] ChainetShot = { 10, 7, 1 };
 
     int sum;
-    // Start is called before the first frame update
-    void Start()
+    void Start()  
     {
+        /* 레벨업능력 초기화 */
         defaultScale = buttonScale.localScale;
         LVAblilty.Add(HpUp);
         LVAblilty.Add(DamageUp);
@@ -64,25 +64,25 @@ public class LevelAbility : MonoBehaviour
         ReadyPlayerLevelUP();
     }
 
-    public void ReadyPlayerLevelUP()
+    public void ReadyPlayerLevelUP()  // 레벨업 목록 랜덤 뽑기
     {
         
         for(int i=0; i < System.Enum.GetNames(typeof(Ablilty)).Length; i++)
         {
-            if(PlayerStatus.Instance.Levelablilty[i] < LVAblilty[i][2])
+            if(PlayerStatus.Instance.Levelablilty[i] < LVAblilty[i][2])  // 레벨업능력이 최대레벨이 아닐경우
             {
                 randomAbilityTable.Add(LVAblilty[i]);
             }
         }
 
-        for(int i=0; i<3; i++)
+        for(int i=0; i<3; i++)  
         {
             ChooseRandomAbilityOption();
             RewriteAbilityOptionWindow(i);
         }
     }
 
-    public void ChooseRandomAbilityOption()
+    public void ChooseRandomAbilityOption()  // 레벨업 가능 능력 리스트에서 확률에따라 정해준 개수만큼 뽑는 함수
     {
         sum = 0;
 
@@ -109,13 +109,13 @@ public class LevelAbility : MonoBehaviour
             randomAbilityTable.RemoveAt(j);
         }
 
-        if(sum == 0)
+        if(sum == 0)  // 더이상 남은 레벨업 능력이 남아있지 않다면 무한루프용 골드지급을 제공
         {
             OptionsPlayerCanChoose.Add(LVAblilty[(int)Ablilty.gold]);
         }
     }
 
-    void RewriteAbilityOptionWindow(int i)
+    void RewriteAbilityOptionWindow(int i) // 레벨업능력 UI 그리기
     {
         switch (OptionsPlayerCanChoose[i][0])
         {
@@ -175,7 +175,7 @@ public class LevelAbility : MonoBehaviour
         LevelUPUI.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void Select(int i)
+    public void Select(int i)  // 레벨업 결정시 효과
     {
         if (Canchoose)
         {
@@ -220,7 +220,7 @@ public class LevelAbility : MonoBehaviour
             SoundManager.Instance.chooseAbilitySound.Play();
 
 
-            if (OptionsPlayerCanChoose[i][0] != (int)Ablilty.gold)
+            if (OptionsPlayerCanChoose[i][0] != (int)Ablilty.gold) // 골드는 무한루프이기 때문에 골드지급은 레벨업을 하지않음
             {
                 PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] += 1;
             }
@@ -228,7 +228,7 @@ public class LevelAbility : MonoBehaviour
             StartCoroutine(ShowSelcetedAbilityOptionWindow(i));
         }
     }
-    IEnumerator ShowSelcetedAbilityOptionWindow(int i)
+    IEnumerator ShowSelcetedAbilityOptionWindow(int i)  // 시각적 효과
     {
         for(int j = 0; j < btns.Length; j++)
         {

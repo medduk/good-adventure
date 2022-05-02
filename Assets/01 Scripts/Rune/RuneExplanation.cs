@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class RuneExplanation : MonoBehaviour
+public class RuneExplanation : MonoBehaviour  // 룬의 효과를 설명하기위한 스크립트
 {
 
 

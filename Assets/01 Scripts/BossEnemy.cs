@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class BossEnemy : MonoBehaviour
+public class BossEnemy : MonoBehaviour // Enemy 스크립트와 거의 유사 하지만 지급 아이템 개수와, 사망시 대화 이벤트를 고려하여 추가한 스크립트
 {
     [SerializeField] string iDName;
 
@@ -36,9 +36,10 @@ public class BossEnemy : MonoBehaviour
 
     public Sprite Icon;
 
-    public delegate void HitPattern();
+    /* 패턴의 경우의 수는 추가 가능 , 일반 몬스터에게도 이러한 알고리즘을 사용가능 */
+    public delegate void HitPattern(); // 피격 시 패턴
     public HitPattern hitPattern;
-    public delegate void DiePattern();
+    public delegate void DiePattern(); // 사망 시 패턴
     public DiePattern diePattern;
 
     public string IDName
@@ -268,7 +269,7 @@ public class BossEnemy : MonoBehaviour
         GameManager.Instance.CloseBossHpbar();
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
         inventory.instance.GetOrGiveCoin(enemyGiveCoin);
-        for (int i = 0; i<dropCount; i++)
+        for (int i = 0; i<dropCount; i++)  // 보스몬스터의 경우 아이템 지급 개수가 많다.
         {
             int id = dropItemId[DropItem()];
             Vector3 P = gameObject.transform.position;

@@ -13,8 +13,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] Text LVshow;
     [SerializeField] GameObject nowtalk;
 
-    [SerializeField] int playerMaxHp = 100;
-    [SerializeField] int playerCurHp;
+    [SerializeField] int playerMaxHp = 100; //최대체력
+    [SerializeField] int playerCurHp;       //현재체력
     [SerializeField] int playerDamage = 10;     // 공격력
     [SerializeField] float playerMoveSpeed = 2f;    // 이속
     [SerializeField] float playerAttackDelay = 1f;    // 실제공속
@@ -29,13 +29,13 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] float playerLevel = 1;   // 현재 레벨
 
-    bool Loadgame = false;
-    public bool textSkillOn = false;
+    bool Loadgame = false;      //이어하기 확인
+    public bool textSkillOn = false; 
     public int textSkillLevel = 1;
-    public int[] Levelablilty;
-    [SerializeField] int[] runes;
+    public int[] Levelablilty;      // 레벨업을 통한 능력습득상태
+    [SerializeField] int[] runes;   // 영구상승 능력치 목록 , PlayerPrefs 의 저장기능을 이용하여 저장함
 
-    public enum ShotSkills
+    public enum ShotSkills      // 스킬목록
     {
         ricochetShot,
         multiShot,
@@ -43,7 +43,7 @@ public class PlayerStatus : MonoBehaviour
         diagonalShot,   // 미구현
     }
 
-    public int[] playerSkills;
+    public int[] playerSkills;  // 스킬습득상태
 
     private bool stopDamage = false;
 
@@ -207,7 +207,7 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public void GainExp(int _exp)
+    public void GainExp(int _exp)   // 경험치습득 및 레벨업
     {
         playerCurExp += (int)(_exp * (1 - (runes[(int)Runes.exp] * 0.1f)));
         while(playerCurExp >= playerMaxExp)
@@ -231,7 +231,7 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    private void InitiatePlayerStatus() 
+    private void InitiatePlayerStatus() // 게임을 첫 실행시 영구상승 능력을 적용하기 위함
     {
         /* Runes */
         runes = new int[System.Enum.GetValues(typeof(Runes)).Length];
@@ -279,7 +279,7 @@ public class PlayerStatus : MonoBehaviour
             playerSkills[(int)ShotSkills.multiShot] = textSkillLevel;
             playerSkills[(int)ShotSkills.chainShot] = textSkillLevel;
         }
-        if (!Loadgame)
+        if (!Loadgame)  // 이어하기 인지 확인후, 이어하기가 맞다면 100% 체력셋팅과 골드지급을 하지 않음
         {
             inventory.instance.Coin = 0;
             inventory.instance.CoinText.text = "0";
@@ -292,7 +292,7 @@ public class PlayerStatus : MonoBehaviour
         HPText();
     }
 
-    private void Update()
+    private void Update()  // 체력바의 자연스러운 시각적 효과를 위해서 작성
     {
         playerHpSlider.value = Mathf.Lerp(playerHpSlider.value, (float)playerCurHp / playerMaxHp, Time.deltaTime * 5f);
         playerEXPSlider.value = Mathf.Lerp(playerEXPSlider.value, (float)playerCurExp / playerMaxExp, Time.deltaTime * 5f);
@@ -322,7 +322,7 @@ public class PlayerStatus : MonoBehaviour
         HPText();
     }
 
-    public void RevivalPlayer()
+    public void RevivalPlayer() // 게임 클리어 및 캐릭터가 죽어 재시작시 캐릭터 초기상태로 초기화용
     {
         isGameOver = false;
         gameObject.GetComponent<moving>().SetGameLiving();
@@ -336,7 +336,7 @@ public class PlayerStatus : MonoBehaviour
         inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
     }
 
-    IEnumerator StopDamage()
+    IEnumerator StopDamage()  // 데미지를 받고난후 무적시간
     {
         stopDamage = true;
         rigidbody2D.mass = rigidbody2D.mass * 10f;
@@ -344,7 +344,7 @@ public class PlayerStatus : MonoBehaviour
         stopDamage = false;
         rigidbody2D.mass = rigidbody2D.mass * 0.1f;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)  // 각종 NPC 및 사물 상호작용, 본 게임에서는 원터치 진행을 선택하여 사용자의 편의성을 위해 접촉으로 모든 상호작용을 시도하게 하였음
     {
         if(collision.transform.name == "GameStartPortal")
         {
@@ -427,7 +427,7 @@ public class PlayerStatus : MonoBehaviour
         HPshow.text = playerCurHp + "/" + playerMaxHp;
     }
 
-    public void SaveGame()
+    public void SaveGame() // 플랫폼마다의 특정 경로를 구하여 그 경로에다가 플레이어의 정보를 직렬화 하여 bin파일을 생성하여 저장
     {
         SaveData save = new SaveData();
         save.PlayerMaxHp = PlayerMaxHp;
@@ -460,7 +460,7 @@ public class PlayerStatus : MonoBehaviour
         SaveManager.Save(save);
     }
 
-    public void LoadGame()
+    public void LoadGame() // 플랫폼마다의 특정 경로를 구하여 그 경로에 저장된 플레이어의 정보를 역직렬화 하여 불러옴
     {
         Loadgame = true;
         SaveData save = SaveManager.Load();
@@ -538,13 +538,6 @@ public class PlayerStatus : MonoBehaviour
         LVshow.text = "LV. " + playerLevel;
         playerMaxExp = 100;
         playerCurExp = 0;
-    }
-    public void runeReset()
-    {
-        for (int i = 0; i < runes.Length; i++)
-        {
-            PlayerPrefs.SetInt(System.Enum.GetName(typeof(Runes), i), 0);
-        }
     }
 
     IEnumerator RuneNPCmeet(GameObject NPC)

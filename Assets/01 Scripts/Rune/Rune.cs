@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public enum Runes
+public enum Runes // 룬의 종류 , 추가 가능
     {
         hp,
         damage,

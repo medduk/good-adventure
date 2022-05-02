@@ -12,7 +12,7 @@ public class RuneLevelUp : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] GameObject UI;
     [SerializeField] int[] RuneChance;
-    [SerializeField] Image show, real;
+    [SerializeField] Image show, real; // 랜덤으로 변하는 이미지와, 결과를 나타내는 이미지
     [SerializeField] Button choose , back;
     private int sum = 0;
     int index;
@@ -24,7 +24,7 @@ public class RuneLevelUp : MonoBehaviour, IPointerDownHandler
             sum += RuneChance[c];
         }
     }
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)  // 화면을 클릭하여 랜덤의 룬을 획득할때 시작적으로 즐거움을 주기위하여 이렇게 구현
     {   
         if(RuneUI.instance.RunestoneCount > 0)
         {

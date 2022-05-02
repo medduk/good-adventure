@@ -18,19 +18,19 @@ public class inventory : MonoBehaviour
         instance = this;
     }
 
-    public List<Item> items = new List<Item>();
-    public List<Item> equip = new List<Item>();
-    public int Coin;
+    public List<Item> items = new List<Item>();  // 가지고있는 인벤토리 리스트
+    public List<Item> equip = new List<Item>();  // 현재 착용중인 장비칸 리스트
+    public int Coin;  // 보유골드
     public TextMeshProUGUI CoinText;
 
-    public delegate void OnChangeItem();
+    public delegate void OnChangeItem();  // 인벤UI 정리용
     public OnChangeItem onChangeItem;
 
-    public delegate void OnChangeEquip();
+    public delegate void OnChangeEquip(); // 장비칸UI 정리용
     public OnChangeEquip onChangeEquip;
 
 
-    public bool[] UseCheck = new bool[6];
+    public bool[] UseCheck = new bool[6];  // 지속효과 아이템 쿨타임여부 확인
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class inventory : MonoBehaviour
             UseCheck[i] = true;
         }
     }
-    private void Update()
+    private void Update()  // 지속효과 아이템의 경우 쿨타임마다 사용을 위하여 
     {
         for (int i = 0; i < equip.Count; i++)
         {
@@ -50,7 +50,7 @@ public class inventory : MonoBehaviour
         }
     }
 
-    public bool AddItem(Item _item)
+    public bool AddItem(Item _item)  // 아이템 습득
     {
         if (items.Count < 25)
         {
@@ -66,7 +66,7 @@ public class inventory : MonoBehaviour
 
         return false;
     }
-    public bool EquipItem(Item _item)
+    public bool EquipItem(Item _item) // 아이템 장착
     {
         if (equip.Count < 6)
         {
@@ -78,14 +78,14 @@ public class inventory : MonoBehaviour
         }
         return false;
     }
-    public void RemoveItem(int _index)
+    public void RemoveItem(int _index) // 아이템 제거
     {
         items.RemoveAt(_index);
 
         if (onChangeItem != null)
             onChangeItem.Invoke();  // ui drawing.
     }
-    public void Unequip(int _index)
+    public void Unequip(int _index)  // 아이템 장착해제
     {
         equip.RemoveAt(_index);
 
@@ -99,7 +99,7 @@ public class inventory : MonoBehaviour
         {
 
             PickItems pickItems = collision.GetComponent<PickItems>();
-            if (pickItems.item.itemType == ItemType.Consumables)
+            if (pickItems.item.itemType == ItemType.Consumables)  // 소비아이템의 경우 즉시 사용하도록 만듬, 좀더 간편한 컨트롤 방식을 위하여 이렇게 구현함
             {
                 SoundManager.Instance.itemGetSound.Play();
                 pickItems.item.Use();
@@ -122,7 +122,7 @@ public class inventory : MonoBehaviour
 
     }
 
-    public void GetOrGiveCoin(int coin)
+    public void GetOrGiveCoin(int coin)  // 골드획득
     {
         Coin += coin;
         if (Coin < 0)
