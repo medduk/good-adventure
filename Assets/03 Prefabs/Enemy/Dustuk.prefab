@@ -1019,16 +1019,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iDName: Dustuk
+  animator: {fileID: 0}
   enemyHpSlider: {fileID: 3269883361432978557}
   BackenemyHpSlider: {fileID: 4817877942221959301}
   UnitHpshow: {fileID: 604910213208478534}
-  enemyMaxHp: 70
+  enemyMaxHp: 40
   enemyHp: 0
   enemyMoveSpeed: 10
   enemyDamage: 10
   enemyGiveExp: 30
+  enemyGiveCoin: 1000
   dropItemId: 00000000112700001227000013270000f92a0000
-  dropIChance: 32000000190000000f0000000a00000005000000
+  dropIChance: 460000000c000000090000000600000003000000
   cangiveItem: 1
 --- !u!1 &3269883360871387010
 GameObject:

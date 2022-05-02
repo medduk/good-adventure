@@ -248,7 +248,8 @@ MonoBehaviour:
   enemyHp: 0
   enemyMoveSpeed: 0
   enemyDamage: 10
-  enemyGiveExp: 30
+  enemyGiveExp: 150
+  enemyGiveCoin: 30000
   dropCount: 3
   dropItemId: 0100000013270000f92a0000fc2a0000c62a0000
   dropIChance: 0a0000000a000000320000001900000005000000

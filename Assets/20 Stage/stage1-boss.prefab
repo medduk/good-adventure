@@ -2388,6 +2388,7 @@ MonoBehaviour:
   enemyMoveSpeed: 10
   enemyDamage: 10
   enemyGiveExp: 30
+  enemyGiveCoin: 30
   dropItemId: 
   dropIChance: 
   cangiveItem: 1
@@ -7070,6 +7071,7 @@ MonoBehaviour:
   enemyMoveSpeed: 10
   enemyDamage: 10
   enemyGiveExp: 30
+  enemyGiveCoin: 30
   dropItemId: 
   dropIChance: 
   cangiveItem: 1

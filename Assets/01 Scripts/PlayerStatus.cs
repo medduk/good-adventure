@@ -281,13 +281,14 @@ public class PlayerStatus : MonoBehaviour
         }
         if (!Loadgame)
         {
+            inventory.instance.Coin = 0;
+            inventory.instance.CoinText.text = "0";
+            inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
             playerCurHp = playerMaxHp;
         }    
         playerHpSlider.value = 1f;  // Make Full Hp when the game gets started.
         LVshow.text = "LV. " + playerLevel;
-        inventory.instance.Coin = 0;
-        inventory.instance.CoinText.text = "0";
-        inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
+
         HPText();
     }
 
@@ -469,7 +470,7 @@ public class PlayerStatus : MonoBehaviour
         playerCurExp = save.playerCurExp;
         playerLevel = save.playerLevel;
 
-        inventory.instance.GetOrGiveCoin(save.Coin);
+
 
         transform.position = new Vector3(save.x, save.y, save.z);
 
@@ -501,7 +502,7 @@ public class PlayerStatus : MonoBehaviour
         {
             inventory.instance.AddItem(ItemBundle.instance.makeItem(save.items[i]));
         }
-
+        inventory.instance.GetOrGiveCoin(save.Coin);
     }
     public void Resetplay()
     {

@@ -16,16 +16,6 @@ public class ItemBundle : MonoBehaviour
 
     public GameObject pickItemPrefab;
     public GameObject ItemBox;
-    public Vector3[] pos;
-    private void Start()
-    {
-        for(int i = 0; i<4; i++)
-        {
-            GameObject go = Instantiate(pickItemPrefab, pos[i], Quaternion.identity);
-            go.GetComponent<PickItems>().SetItem(itemBundle[Random.Range(9,10)]);
-            go.transform.SetParent(dataManager);
-        }
-    }
 
     public void Drop(Vector3 i , int indexkey)
     {
