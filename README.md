@@ -44,4 +44,6 @@
 ### 공동 개발
 ongcu(이승석), JeongJaew0n(정재원)
 
+## 블로그
+https://ongcu.tistory.com/
 
