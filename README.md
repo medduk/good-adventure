@@ -3,7 +3,7 @@
 
 ### 어떤 게임 인가요?
 원터치 조작 2D 탑다운 로그라이크 RPG 게임입니다
-![Screenshot_20220503-200616_GoodAdventure](https://user-images.githubusercontent.com/45487307/166442688-729c7474-12fc-40cb-af84-3ae12019ffe2.jpg)
+![sScreenshot_20220503-200616_GoodAdventure](https://user-images.githubusercontent.com/45487307/166442911-a9f3c7ce-9fe1-4430-b614-cd42d91d33a3.jpg)
 
 **목차**
 
