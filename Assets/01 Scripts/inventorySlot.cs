@@ -10,7 +10,6 @@ public class inventorySlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandl
     public Item item;
     public Image icon;
     private bool click;
-    // Start is called before the first frame update
 
     public void Start()
     {

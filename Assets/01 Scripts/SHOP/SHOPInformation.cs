@@ -96,7 +96,7 @@ public class SHOPInformation : MonoBehaviour
             }
             else
             {
-                inventory.instance.AddItem(ItemBundle.instance.makeItem(item.itemID));
+                inventory.instance.AddItem(ItemBundle.instance.MakeItem(item.itemID));
             }
             SHOP.Instance.SellEnd(slotnum);
             inventory.instance.GetOrGiveCoin(-item.price);

@@ -62,13 +62,13 @@ public class SHOP : MonoBehaviour
             switch (quality)
             {
                 case 0:
-                    Sell.Add(ItemBundle.instance.makeItem(NormalThing[Random.Range(0, NormalThing.Length)]));
+                    Sell.Add(ItemBundle.instance.MakeItem(NormalThing[Random.Range(0, NormalThing.Length)]));
                     break;
                 case 1:
-                    Sell.Add(ItemBundle.instance.makeItem(RareThing[Random.Range(0, RareThing.Length)]));
+                    Sell.Add(ItemBundle.instance.MakeItem(RareThing[Random.Range(0, RareThing.Length)]));
                     break;
                 case 2:
-                    Sell.Add(ItemBundle.instance.makeItem(UniqueThing[Random.Range(0, UniqueThing.Length)]));
+                    Sell.Add(ItemBundle.instance.MakeItem(UniqueThing[Random.Range(0, UniqueThing.Length)]));
                     break;
             }
             BuyButton[i].transform.GetChild(0).GetComponent<Image>().sprite = Sell[i].itemImage;

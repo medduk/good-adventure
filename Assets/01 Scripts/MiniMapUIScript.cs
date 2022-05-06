@@ -10,6 +10,7 @@ public class MiniMapUIScript : MonoBehaviour
 
     [SerializeField] float bigOrthographicSize = 9f;
     [SerializeField] float smallOrthographicSize = 5f;
+
     private void Start()
     {
         SmallMap.SetActive(true);
@@ -20,7 +21,7 @@ public class MiniMapUIScript : MonoBehaviour
     {
         BigMap.SetActive(true);
         miniMapCamera.orthographicSize = bigOrthographicSize;
-        SmallMap.SetActive(false);
+        //SmallMap.SetActive(false);
     }
 
     public void MakeBigToSmall()

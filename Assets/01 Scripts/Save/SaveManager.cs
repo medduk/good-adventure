@@ -11,7 +11,7 @@ public static class SaveManager
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Path.Combine(Application.persistentDataPath,"Savefile.bin");  // 매우 중요함!! 저장할 파일의 경로는 persistentDataPath로 사용
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
         FileStream stream = File.Create(path);
 
         formatter.Serialize(stream, data);

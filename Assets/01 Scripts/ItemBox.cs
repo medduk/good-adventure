@@ -25,7 +25,7 @@ public class ItemBox : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = Openbox;
         int DropIndex = SelectItem();
-        item = ItemBundle.instance.makeItem(dropItemId[DropIndex]);
+        item = ItemBundle.instance.MakeItem(dropItemId[DropIndex]);
         ItemInformation.Instance.item = this.item;
         ItemInformation.Instance.Show();
         GameManager.Instance.OpenItemInformation(false);

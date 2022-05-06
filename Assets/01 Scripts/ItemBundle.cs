@@ -34,7 +34,7 @@ public class ItemBundle : MonoBehaviour
         go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID == indexkey)]);
     }
 
-    public Item makeItem(int indexkey)
+    public Item MakeItem(int indexkey)
     {
         GameObject go = Instantiate(pickItemPrefab, new Vector3(1000,1000), Quaternion.identity);
         go.GetComponent<PickItems>().SetItem(itemBundle[itemBundle.FindIndex(a => a.itemID == indexkey)]);

@@ -177,7 +177,7 @@ public class ReinForce : MonoBehaviour  // Inventroy 스크립트와 유사하게 제작 인
             if (ReForce[0].itemID == ReForce[1].itemID && Result.item == null)
             {
                 Debug.Log("성공!");
-                ReinForceResult = ItemBundle.instance.makeItem(ReForce[0].itemID + 1);
+                ReinForceResult = ItemBundle.instance.MakeItem(ReForce[0].itemID + 1);
                 Result.item = ReinForceResult;
                 Result.UpdateSlotUI();
             }

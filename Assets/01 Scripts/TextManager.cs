@@ -19,11 +19,6 @@ public class TextManager : MonoBehaviour
         StartCoroutine(FadeText());
     }
 
-    private void Update()
-    {
-
-    }
-
     IEnumerator FadeText()
     {
         sec = new WaitForSeconds(fadeTime);
@@ -32,13 +27,11 @@ public class TextManager : MonoBehaviour
             while (text.color.a < 1)
             {
                 text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + Time.deltaTime);
-                Debug.Log("µÅ°í ÀÖ¾î?");
                 yield return sec;
             }
             while (text.color.a > 0.1)
             {
                 text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - Time.deltaTime);
-                Debug.Log("µÇ°í ÀÖÂÄ!!!!");
                 yield return sec;
             }
         }

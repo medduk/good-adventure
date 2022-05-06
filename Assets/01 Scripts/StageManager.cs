@@ -27,7 +27,7 @@ public class StageManager : MonoBehaviour
     public GameObject enemyManager;
     public Transform mapManager;
 
-    private bool isClear = false;
+    public bool isClear = false;
 
     private int maxChapter;
     private int maxStage;

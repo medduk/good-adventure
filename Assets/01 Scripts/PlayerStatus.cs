@@ -359,7 +359,7 @@ public class PlayerStatus : MonoBehaviour
         if (collision.transform.tag == "Tutorial")
         {
             Destroy(collision.gameObject);
-            if (!ContinueDataManager.skip)
+            if (!ContinueDataManager.skip)  // 옵션에서 skip이 아니라면
             {
                 dialogManager.Action(collision.gameObject);
             }
@@ -494,13 +494,13 @@ public class PlayerStatus : MonoBehaviour
 
         for (int i = 0; i < save.equip.Count; i++)
         {
-            inventory.instance.AddItem(ItemBundle.instance.makeItem(save.equip[i]));
+            inventory.instance.AddItem(ItemBundle.instance.MakeItem(save.equip[i]));
             inventory.instance.EquipItem(inventory.instance.items[0]);
             inventory.instance.RemoveItem(0);
         }
         for (int i = 0; i < save.items.Count; i++)
         {
-            inventory.instance.AddItem(ItemBundle.instance.makeItem(save.items[i]));
+            inventory.instance.AddItem(ItemBundle.instance.MakeItem(save.items[i]));
         }
         inventory.instance.GetOrGiveCoin(save.Coin);
     }
