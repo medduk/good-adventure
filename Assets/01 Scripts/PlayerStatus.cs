@@ -356,14 +356,6 @@ public class PlayerStatus : MonoBehaviour
             StageManager.Instance.MoveNextStage();
         }
 
-        if (collision.transform.tag == "Tutorial")
-        {
-            Destroy(collision.gameObject);
-            if (!ContinueDataManager.skip)  // 옵션에서 skip이 아니라면
-            {
-                dialogManager.Action(collision.gameObject);
-            }
-        }
         if (collision.transform.tag == "ReinForce")
         {
             Destroy(collision.gameObject);
