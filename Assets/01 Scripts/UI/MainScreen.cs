@@ -39,7 +39,6 @@ public class MainScreen : MonoBehaviour, IPointerDownHandler
     }
     IEnumerator textOutshow()
     {
-
         while (Text.color.a > 0f)
         {
             Text.color = new Color(1.0f, 1.0f, 1.0f, Text.color.a - Time.deltaTime / 2.0f);

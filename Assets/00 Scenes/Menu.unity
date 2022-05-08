@@ -384,6 +384,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56259562}
   m_CullTransparentMesh: 1
+--- !u!1 &62551638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62551639}
+  - component: {fileID: 62551641}
+  - component: {fileID: 62551640}
+  - component: {fileID: 62551642}
+  m_Layer: 5
+  m_Name: Image Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &62551639
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62551638}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2036293212}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 110, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &62551640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62551638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.08167672, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1210966008979918499, guid: 7c4a5dfdd017a8f4bb6f52595c0248d1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &62551641
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62551638}
+  m_CullTransparentMesh: 1
+--- !u!114 &62551642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62551638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: 5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &62946320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,10 +1356,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 5
   buttonScale: {fileID: 322198766}
-  mainGroup: {fileID: 1282487753}
-  OptionGroup: {fileID: 0}
   skipbutton: {fileID: 0}
   Soundbutton: {fileID: 0}
+  mainGroup: {fileID: 1282487753}
+  OptionGroup: {fileID: 0}
+  tutorialSkipStateImage: {fileID: 0}
+  soundStateImage: {fileID: 0}
+  onStateColor: {r: 0, g: 0, b: 0, a: 0}
+  offStateColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &632634370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,6 +1997,97 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &941941948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941941949}
+  - component: {fileID: 941941951}
+  - component: {fileID: 941941950}
+  - component: {fileID: 941941952}
+  m_Layer: 5
+  m_Name: Image Skip Tuto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &941941949
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941941948}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 998689008}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 110, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &941941950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941941948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.08167672, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1210966008979918499, guid: 7c4a5dfdd017a8f4bb6f52595c0248d1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &941941951
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941941948}
+  m_CullTransparentMesh: 1
+--- !u!114 &941941952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941941948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: 5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &960941577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,10 +2142,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 1
   buttonScale: {fileID: 1616447491}
-  mainGroup: {fileID: 1282487753}
-  OptionGroup: {fileID: 1240299092}
   skipbutton: {fileID: 0}
   Soundbutton: {fileID: 0}
+  mainGroup: {fileID: 1282487753}
+  OptionGroup: {fileID: 1240299092}
+  tutorialSkipStateImage: {fileID: 0}
+  soundStateImage: {fileID: 0}
+  onStateColor: {r: 0, g: 0, b: 0, a: 0}
+  offStateColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &960941580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2211,6 +2401,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1792733445}
+  - {fileID: 941941949}
   m_Father: {fileID: 1240299091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3704,10 +3895,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 2
   buttonScale: {fileID: 998689008}
-  mainGroup: {fileID: 1282487753}
-  OptionGroup: {fileID: 0}
   skipbutton: {fileID: 278090437}
   Soundbutton: {fileID: 0}
+  mainGroup: {fileID: 1282487753}
+  OptionGroup: {fileID: 0}
+  tutorialSkipStateImage: {fileID: 941941950}
+  soundStateImage: {fileID: 0}
+  onStateColor: {r: 0.22352941, g: 1, b: 0, a: 1}
+  offStateColor: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
 --- !u!114 &1792733447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,10 +4051,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 3
   buttonScale: {fileID: 2036293212}
-  mainGroup: {fileID: 1282487753}
-  OptionGroup: {fileID: 0}
   skipbutton: {fileID: 0}
   Soundbutton: {fileID: 1022386408}
+  mainGroup: {fileID: 1282487753}
+  OptionGroup: {fileID: 0}
+  tutorialSkipStateImage: {fileID: 0}
+  soundStateImage: {fileID: 62551640}
+  onStateColor: {r: 0.22167933, g: 1, b: 0, a: 1}
+  offStateColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
 --- !u!114 &1837322261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4158,7 +4357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933727346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 126, y: 322, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4218,10 +4417,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 0
   buttonScale: {fileID: 1062655654}
-  mainGroup: {fileID: 1282487753}
-  OptionGroup: {fileID: 1240299092}
   skipbutton: {fileID: 0}
   Soundbutton: {fileID: 0}
+  mainGroup: {fileID: 1282487753}
+  OptionGroup: {fileID: 1240299092}
+  tutorialSkipStateImage: {fileID: 0}
+  soundStateImage: {fileID: 0}
+  onStateColor: {r: 0, g: 0, b: 0, a: 0}
+  offStateColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1964255235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4346,6 +4549,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1837322259}
+  - {fileID: 62551639}
   m_Father: {fileID: 1240299091}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4428,10 +4632,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 4
   buttonScale: {fileID: 1287012157}
-  mainGroup: {fileID: 1282487753}
-  OptionGroup: {fileID: 1240299092}
   skipbutton: {fileID: 0}
   Soundbutton: {fileID: 0}
+  mainGroup: {fileID: 1282487753}
+  OptionGroup: {fileID: 1240299092}
+  tutorialSkipStateImage: {fileID: 0}
+  soundStateImage: {fileID: 0}
+  onStateColor: {r: 0, g: 0, b: 0, a: 0}
+  offStateColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2058243749
 MonoBehaviour:
   m_ObjectHideFlags: 0

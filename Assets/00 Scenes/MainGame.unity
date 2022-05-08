@@ -7690,7 +7690,7 @@ MonoBehaviour:
   EndCursor: {fileID: 1849527636}
   CharPerSeconds: 15
   sayname: {fileID: 1776324031}
-  effectcheck: 0
+  effectCheck: 0
 --- !u!1001 &252512185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32426,6 +32426,7 @@ MonoBehaviour:
   wasHidden: 0
   enemyManager: {fileID: 1655073360}
   mapManager: {fileID: 1474187457}
+  isClear: 0
 --- !u!4 &1614892375
 Transform:
   m_ObjectHideFlags: 0
@@ -39023,7 +39024,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBundle: {fileID: 1726153019}
   dialogPanel: {fileID: 739279288}
-  scanObject: {fileID: 0}
   talk: {fileID: 250172884}
   portraitImg: {fileID: 1553162050}
   isAction: 0

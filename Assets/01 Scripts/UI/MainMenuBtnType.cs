@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
@@ -11,11 +12,21 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     public BTNType currentType;
     public Transform buttonScale;
     Vector3 defaultScale;
-    public CanvasGroup mainGroup;
-    public CanvasGroup OptionGroup;
-    public TextMeshProUGUI skipbutton, Soundbutton;
 
     bool sound = true;
+
+    public TextMeshProUGUI skipbutton, Soundbutton;
+
+    [Header("CanvasGroup")]
+    public CanvasGroup mainGroup;
+    public CanvasGroup OptionGroup;
+
+    [Header("State Images")]
+    public Image tutorialSkipStateImage;
+    public Image soundStateImage;
+    public Color onStateColor;
+    public Color offStateColor;
+
     private void Start()
     {
         defaultScale = buttonScale.localScale;
@@ -38,23 +49,31 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
             case BTNType.Skip:
                 ContinueDataManager.Setskip();
                 if (ContinueDataManager.skip)
-                    skipbutton.text = "Æ©Åä¸®¾ó OFF";
+                {
+                    skipbutton.text = "[Æ©Åä¸®¾ó]²ô±â";
+                    tutorialSkipStateImage.color = onStateColor;
+                }
                 else
-                    skipbutton.text = "Æ©Åä¸®¾ó ON";
-                    SoundManager.Instance.buttonsSound.Play();
+                {
+                    skipbutton.text = "[Æ©Åä¸®¾ó]ÄÑ±â";
+                    tutorialSkipStateImage.color = offStateColor;
+                }
+                SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Sound:
                 if (sound)
                 {
                     sound = false;
                     SoundManager.Instance.SoundOFF();
-                    Soundbutton.text = "¼Ò¸®ÄÑ±â";
+                    Soundbutton.text = "[¼Ò¸®]ÄÑ±â";
+                    soundStateImage.color = offStateColor;
                 }
                 else
                 {
                     sound = true;
                     SoundManager.Instance.SoundON();
-                    Soundbutton.text = "¼Ò¸®²ô±â";
+                    Soundbutton.text = "[¼Ò¸®]²ô±â";
+                    soundStateImage.color = onStateColor;
                 }
                 SoundManager.Instance.buttonsSound.Play();
                 break;
@@ -99,9 +118,15 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
         try
         {
             if (ContinueDataManager.skip)
-                skipbutton.text = "Æ©Åä¸®¾ó OFF";
+            {
+                skipbutton.text = "[Æ©Åä¸®¾ó]²ô±â";
+                tutorialSkipStateImage.color = onStateColor;
+            }
             else
-                skipbutton.text = "Æ©Åä¸®¾ó ON";
+            {
+                skipbutton.text = "[Æ©Åä¸®¾ó]ÄÑ±â";
+                tutorialSkipStateImage.color = offStateColor;
+            }
         }
         catch (Exception ex)
         {

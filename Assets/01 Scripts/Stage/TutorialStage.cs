@@ -12,9 +12,13 @@ public class TutorialStage : MonoBehaviour
     public GameObject portal;
     public bool isEndTutorial = false;
 
-
     private void Start()
     {
+        if (ContinueDataManager.skip)
+        {
+            Destroy(gameObject);
+        }
+
         if (isEndTutorial)
         {
             StartCoroutine(ActiveEndOfTutorial());
