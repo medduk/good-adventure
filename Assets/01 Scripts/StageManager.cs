@@ -70,14 +70,14 @@ public class StageManager : MonoBehaviour
         maxChapter = chapters.Length;
         maxStage = chapters[chapterIndex].stagePrefabs.Length;
 
-        if (!ContinueDataManager.isContinuousGame)  // ÀÌ¾îÇÏ±â°¡ ¾ø´Ù¸é ÃÊ±âÈ­.
+        if (!ContinueDataManager.isContinuousGame)  // ì´ì–´í•˜ê¸°ê°€ ì—†ë‹¤ë©´ ì´ˆê¸°í™”.
         {
             MoveToLobby();
         }
         else
         {
             PlayerStatus.Instance.LoadGame();
-            SetMap(PlayerPrefs.GetInt("MapIndex",-1));  // ÀÖ´Ù¸é ÃÊ±âÈ­ ÇÏÁö¾Ê°í ÀúÀåµÇ¾î ÀÖ´Â ¸Ê ÀÎµ¦½º¸¦ ºÒ·¯¿È.
+            SetMap(PlayerPrefs.GetInt("MapIndex",-1));  // ìˆë‹¤ë©´ ì´ˆê¸°í™” í•˜ì§€ì•Šê³  ì €ì¥ë˜ì–´ ìˆëŠ” ë§µ ì¸ë±ìŠ¤ë¥¼ ë¶ˆëŸ¬ì˜´.
         }
 
     }
@@ -90,7 +90,7 @@ public class StageManager : MonoBehaviour
         chapterIndex = PlayerPrefs.GetInt("ChapterIndex", 0);
         stageIndex = PlayerPrefs.GetInt("StageIndex", 0);
 
-        if (chapterIndex == 0)  // ¸¸¾à ·Îºñ¶ó¸é ÀÌ¾îÇÏ±â »óÅÂ°¡ ÀúÀåµÇÁö ¾ÊÀ½.
+        if (chapterIndex == 0)  // ë§Œì•½ ë¡œë¹„ë¼ë©´ ì´ì–´í•˜ê¸° ìƒíƒœê°€ ì €ì¥ë˜ì§€ ì•ŠìŒ.
         {
             isClear = true;
             ContinueDataManager.SetContinueGame(false);
@@ -109,13 +109,13 @@ public class StageManager : MonoBehaviour
 
         PlayerPrefs.SetInt("MapIndex", mapIndex);
 
-        Debug.Log("Ã©ÅÍ ¹øÈ£: " + chapterIndex + " ½ºÅ×ÀÌÁö ¹øÈ£: " + stageIndex + " ·£´ı¸Ê¹øÈ£:" + randomMapIndex);
+        Debug.Log("ì±•í„° ë²ˆí˜¸: " + chapterIndex + " ìŠ¤í…Œì´ì§€ ë²ˆí˜¸: " + stageIndex + " ëœë¤ë§µë²ˆí˜¸:" + randomMapIndex);
 
         mapVal = Instantiate(chapters[chapterIndex].stagePrefabs[stageIndex].transform.GetChild(mapIndex));
         mapVal.SetParent(mapManager);
         mapVal.gameObject.SetActive(true);
 
-        ChangeStageSound(mapVal.name.ToLower());    //¼Ò¸®º¯°æ
+        ChangeStageSound(mapVal.name.ToLower());    //ì†Œë¦¬ë³€ê²½
 
         StartCoroutine(CheckEnemyLoading());
     }
@@ -139,7 +139,7 @@ public class StageManager : MonoBehaviour
     IEnumerator StageClear()
     {
         yield return new WaitUntil(() => enemyManager.transform.childCount == 0);
-        Debug.Log("½ºÅ×ÀÌÁö Å¬¸®¾î!");
+        Debug.Log("ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´!");
         if(portal != null) portal.SetActive(true);
 
         isClear = true;
@@ -153,7 +153,7 @@ public class StageManager : MonoBehaviour
 
             int mapItemCount = dataManaer.childCount;
 
-            Debug.Log("¾ÆÀÌÅÛ °¹¼ö: " + mapItemCount +" ¾ÆÀÌÅÛ ¾ø¾îÁı´Ï´Ù.");
+            Debug.Log("ì•„ì´í…œ ê°¯ìˆ˜: " + mapItemCount +" ì•„ì´í…œ ì—†ì–´ì§‘ë‹ˆë‹¤.");
             if (mapItemCount > 0)
             {
                 for(int i=0; i< mapItemCount; i++)
@@ -164,7 +164,7 @@ public class StageManager : MonoBehaviour
 
             /* Random Hidden Map Access */
             int hidden = (int)UnityEngine.Random.Range(0, randomMaxRange);
-            if (hidden == 0 && !wasHidden && stageIndex != 0)   // Æ©Åä¸®¾ó ÀÏ ¶§´Â ¹ß»ı ¾ÈÇÔ
+            if (hidden == 0 && !wasHidden && stageIndex != 0)   // íŠœí† ë¦¬ì–¼ ì¼ ë•ŒëŠ” ë°œìƒ ì•ˆí•¨
             {
                 wasHidden = true;
                 SetHiddenMap();
@@ -190,11 +190,11 @@ public class StageManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("°³¹ß Áß");
+                    Debug.Log("ê°œë°œ ì¤‘");
                     InitIndex();
                 }
             }
-            PlayerStatus.Instance.SaveGame();   // ¸ÊÀÌ ³Ñ¾î°¡¸é¼­ ÀúÀåµÊ.
+            PlayerStatus.Instance.SaveGame();   // ë§µì´ ë„˜ì–´ê°€ë©´ì„œ ì €ì¥ë¨.
             SetMap();
         }
     }
@@ -216,7 +216,7 @@ public class StageManager : MonoBehaviour
         }
         
 
-        if (SoundManager.Instance.nowPlaying == tempPlaying)    // ¸¸¾à ¹Ù²Ù·Á´Â À½¾Ç°ú ÇöÀç Àç»ıµÇ´Â À½¾ÇÀÌ °°´Ù¸é ±»ÀÌ ¾È¹Ù²ãµµµÊ.
+        if (SoundManager.Instance.nowPlaying == tempPlaying)    // ë§Œì•½ ë°”ê¾¸ë ¤ëŠ” ìŒì•…ê³¼ í˜„ì¬ ì¬ìƒë˜ëŠ” ìŒì•…ì´ ê°™ë‹¤ë©´ êµ³ì´ ì•ˆë°”ê¿”ë„ë¨.
         {
             return;
         }
@@ -236,9 +236,9 @@ public class StageManager : MonoBehaviour
         StartCoroutine(CheckEnemyLoading());
     }
 
-    public void RestartGame(bool isDev = false) // °ÔÀÓ Àç½ÃÀÛ
+    public void RestartGame(bool isDev = false) // ê²Œì„ ì¬ì‹œì‘
     {
-        foreach (Transform et in enemyManager.GetComponentInChildren<Transform>())  // ÀûµéÀ» ´Ù ¾ø¾ÖÁÜ.
+        foreach (Transform et in enemyManager.GetComponentInChildren<Transform>())  // ì ë“¤ì„ ë‹¤ ì—†ì• ì¤Œ.
         {
             if (et.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
@@ -248,7 +248,7 @@ public class StageManager : MonoBehaviour
 
         int mapItemCount = dataManaer.childCount;
 
-        if (mapItemCount > 0)             // ¾ÆÀÌÅÛ »èÁ¦
+        if (mapItemCount > 0)             // ì•„ì´í…œ ì‚­ì œ
         {
             for (int i = 0; i < mapItemCount; i++)
             {
@@ -256,20 +256,19 @@ public class StageManager : MonoBehaviour
             }
         }
 
-        Destroy(mapVal.gameObject); // ¸ÊÀ» Áö¿î´Ù.
+        Destroy(mapVal.gameObject); // ë§µì„ ì§€ìš´ë‹¤.
 
         if (isDev)
         {
-            /*¿ÏÀü ÃÊ±âÈ­ ÀÌ¹Ç·Î ÀüºÎ »èÁ¦*/
-            foreach (Transform mt in mapManager.GetComponentInChildren<Transform>())    // Map Manager ¿ÀºêÁ§Æ®¿¡ ÀÖ´Â ¸Êµé ´Ù »èÁ¦(¸Ş¸ğ¸®°ü¸®)
+            /*ì™„ì „ ì´ˆê¸°í™” ì´ë¯€ë¡œ ì „ë¶€ ì‚­ì œ*/
+            foreach (Transform mt in mapManager.GetComponentInChildren<Transform>())    // Map Manager ì˜¤ë¸Œì íŠ¸ì— ìˆëŠ” ë§µë“¤ ë‹¤ ì‚­ì œ(ë©”ëª¨ë¦¬ê´€ë¦¬)
             {
                 if (mt.name.Contains("stage"))
                 {
                     Destroy(mt.gameObject);
                 }
             }
-            InitIndex();
-            SetMap();
+            MoveToLobby();
             return;
         }
 

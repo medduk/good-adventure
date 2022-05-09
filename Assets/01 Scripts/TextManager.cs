@@ -14,7 +14,7 @@ public class TextManager : MonoBehaviour
     {
         text = GetComponent<TextMeshProUGUI>();
     }
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(FadeText());
     }

@@ -6,9 +6,9 @@ using TMPro;
 
 public class SHOP : MonoBehaviour
 {
-    public List<Item> Sell = new List<Item>();  // ÆÄ´Â ¾ÆÀÌÅÛ ¸®½ºÆ®.
-    public Button[] BuyButton;  // ¾ÆÀÌÅÛ ¹öÆ°µé(±¸¸Å)
-    public GameObject BUY;  // shop informationÀ» ¶ç¿ì±â À§ÇÑ ¿ÀºêÁ§Æ®.
+    public List<Item> Sell = new List<Item>();  // íŒŒëŠ” ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸.
+    public Button[] BuyButton;  // ì•„ì´í…œ ë²„íŠ¼ë“¤(êµ¬ë§¤)
+    public GameObject BUY;  // shop informationì„ ë„ìš°ê¸° ìœ„í•œ ì˜¤ë¸Œì íŠ¸.
 
     [SerializeField] int[] NormalThing;
     [SerializeField] int[] RareThing;
@@ -44,7 +44,6 @@ public class SHOP : MonoBehaviour
             sum += Chance[c];
         }
     }
-
     private void Start()
     {
         SellStart();
@@ -53,8 +52,8 @@ public class SHOP : MonoBehaviour
     }
     public void SellStart()
     {
-        Sell.Clear();    // ÆÄ´Â ¾ÆÀÌÅÛ ¸®½ºÆ®¸¦ ÃÊ±âÈ­
-        int sellcount = Random.Range(3, 7);     // ¹°°Ç °¹¼ö ·£´ı.
+        Sell.Clear();    // íŒŒëŠ” ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ì´ˆê¸°í™”
+        int sellcount = Random.Range(3, 7);     // ë¬¼ê±´ ê°¯ìˆ˜ ëœë¤.
         
         for(int i = 0; i < sellcount; i++)
         {
@@ -95,7 +94,7 @@ public class SHOP : MonoBehaviour
         return i;
     }
 
-    public void OpenBuyTap(int index)   // ¾ÆÀÌÅÛÀ» Å¬¸¯ ÇßÀ» ¶§ ±¸¸ÅÇÒ ¼ö ÀÖ´ÂÁö ¾ø´ÂÁö Á¤º¸Ã¢À» ¶ç¿öÁÜ.
+    public void OpenBuyTap(int index)   // ì•„ì´í…œì„ í´ë¦­ í–ˆì„ ë•Œ êµ¬ë§¤í•  ìˆ˜ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ ì •ë³´ì°½ì„ ë„ì›Œì¤Œ.
     {
         if (inventory.instance.Coin < Sell[index].price)
             SHOPInformation.Instance.canbuy = false;

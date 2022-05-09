@@ -85,9 +85,6 @@ public class Rune : MonoBehaviour
         }
     }
 
-
-
-
     public void LevelUP()
     {
         RuneUI.instance.Levelup(rune);
