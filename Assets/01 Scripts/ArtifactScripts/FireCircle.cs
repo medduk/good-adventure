@@ -23,12 +23,10 @@ public class FireCircle : MonoBehaviour
     {
         fireCircleShadow = transform.GetChild(0);
     }
-
     private void Start()
     {
         yDis = transform.position.y - fireCircleShadow.position.y;
     }
-
     void Update()
     {
         transform.RotateAround(transform.parent.position, Vector3.forward, rotateSpeed * Time.deltaTime);
@@ -46,9 +44,9 @@ public class FireCircle : MonoBehaviour
             {
                 attackCheckList.Add(collision);
                 //collision.GetComponent<Enemy>().TakeDamage(((int)(PlayerStatus.Instance.CalPlayerDamage().Item1 * damagePercent), PlayerStatus.Instance.CalPlayerDamage().Item2));
-                if(collision.transform.tag == "Boss") //∫∏Ω∫∂Û∏È
+                if(collision.transform.tag == "Boss") //Î≥¥Ïä§ÎùºÎ©¥
                     collision.GetComponent<BossEnemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage(damagePercent, false));
-                else // ¿œπ› ∏ÛΩ∫≈Õ∂Û∏È
+                else // ÏùºÎ∞ò Î™¨Ïä§ÌÑ∞ÎùºÎ©¥
                     collision.GetComponent<Enemy>().TakeDamage(PlayerStatus.Instance.CalPlayerDamage(damagePercent,false));
 
                 StartCoroutine(CheckOutCollider(collision));

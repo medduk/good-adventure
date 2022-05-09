@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BTNType // ¸ŞÀÎ ¹öÆ° Á¾·ù , Ãß°¡ °¡´É
+public enum BTNType // ë©”ì¸ ë²„íŠ¼ ì¢…ë¥˜ , ì¶”ê°€ ê°€ëŠ¥
 {
     Start,
     Option,

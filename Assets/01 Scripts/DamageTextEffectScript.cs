@@ -19,7 +19,7 @@ public class DamageTextEffectScript : MonoBehaviour
         damageText = GetComponent<TextMeshPro>();
     }
 
-    // ¸ÕÀú 1/2¸¸Å­ ¿Ã¶ó°¬´Ù°¡. ±× ÀÌÈÄ¿¡´Â ³»·Á°¡¾ßÇÔ.
+    // ë¨¼ì € 1/2ë§Œí¼ ì˜¬ë¼ê°”ë‹¤ê°€. ê·¸ ì´í›„ì—ëŠ” ë‚´ë ¤ê°€ì•¼í•¨.
 
     void Update()
     {

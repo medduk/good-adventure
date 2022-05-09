@@ -23,11 +23,10 @@ public class SceneLoad : MonoBehaviour
 
     private void Start()
     {
-
         StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene() // ·ÎµùÇÏ´Â ½Ã°¢Àû È¿°ú¸¦ ³»±â À§ÇÏ¿© 
+    IEnumerator LoadScene() // ë¡œë”©í•˜ëŠ” ì‹œê°ì  íš¨ê³¼ë¥¼ ë‚´ê¸° ìœ„í•˜ì—¬ 
     {
         yield return null;
         operation = SceneManager.LoadSceneAsync("MainGame");
@@ -36,19 +35,19 @@ public class SceneLoad : MonoBehaviour
         {
             yield return null;
 
-            if (progressbar.value < 0.9f) // ½Ã°¢ÀûÀ¸·Î ´ä´äÇÔÀ» ´ú¾îÁÖ±â À§ÇÑ 
+            if (progressbar.value < 0.9f) // ì‹œê°ì ìœ¼ë¡œ ë‹µë‹µí•¨ì„ ëœì–´ì£¼ê¸° ìœ„í•œ 
             {
                 progressbar.value = Mathf.MoveTowards(progressbar.value, 0.9f, Time.deltaTime);
             }
 
-            else if(operation.progress >= 0.9f) // 90%¿¡¼­ ·Îµù¹Ù¸¦ ¸ØÃß°í È¿°ú½ÇÁ¦·Î ·ÎµùÀÌ ³¡³µÀ¸¸é 100%·Î ´Ù½Ã Ã¤¿öÁØ´Ù
+            else if(operation.progress >= 0.9f) // 90%ì—ì„œ ë¡œë”©ë°”ë¥¼ ë©ˆì¶”ê³  íš¨ê³¼ì‹¤ì œë¡œ ë¡œë”©ì´ ëë‚¬ìœ¼ë©´ 100%ë¡œ ë‹¤ì‹œ ì±„ì›Œì¤€ë‹¤
             {
                 progressbar.value = Mathf.MoveTowards(progressbar.value, 1f, Time.deltaTime);
             }
 
             if (progressbar.value >= 1f && operation.progress >= 0.9f )
             {
-                if (ContinueDataManager.isContinuousGame) // ÀÌ¾îÇÏ´ø ±â·ÏÀÌ ÀÖ´Ù¸é
+                if (ContinueDataManager.isContinuousGame) // ì´ì–´í•˜ë˜ ê¸°ë¡ì´ ìˆë‹¤ë©´
                 {
                     loadtext.color = new Color(1, 1, 1, 0);
                     progressbar.transform.position = new Vector3(progressbar.transform.position.x, progressbar.transform.position.y - 1000);

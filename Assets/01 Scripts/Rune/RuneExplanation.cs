@@ -5,12 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class RuneExplanation : MonoBehaviour  // ·éÀÇ È¿°ú¸¦ ¼³¸íÇÏ±âÀ§ÇÑ ½ºÅ©¸³Æ®
+public class RuneExplanation : MonoBehaviour  // ë£¬ì˜ íš¨ê³¼ë¥¼ ì„¤ëª…í•˜ê¸°ìœ„í•œ ìŠ¤í¬ë¦½íŠ¸
 {
-
-
     [SerializeField] Runes rune;
-    [SerializeField] int level; // runeÀÇ °¹¼ö
+    [SerializeField] int level; // runeì˜ ê°¯ìˆ˜
     public TextMeshProUGUI Explanation;
 
     private void Start()
@@ -24,49 +22,49 @@ public class RuneExplanation : MonoBehaviour  // ·éÀÇ È¿°ú¸¦ ¼³¸íÇÏ±âÀ§ÇÑ ½ºÅ©¸³
             case Runes.hp:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "Ã¼·ÂÀÌ <color=blue>" + level*2 + "</color> Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "ì²´ë ¥ì´ <color=blue>" + level*2 + "</color> ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.damage:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "°ø°İ·ÂÀÌ <color=blue>" + level + "</color> Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "ê³µê²©ë ¥ì´ <color=blue>" + level + "</color> ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.moveSpeed:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "ÀÌµ¿¼Óµµ°¡ <color=blue>" + level*0.02 + "</color> Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "ì´ë™ì†ë„ê°€ <color=blue>" + level*0.02 + "</color> ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.attackDelay:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "°ø°İ¼Óµµ°¡ <color=blue>" + level*0.01 + "</color>/s Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "ê³µê²©ì†ë„ê°€ <color=blue>" + level*0.01 + "</color>/s ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.defense:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "¹æ¾î·ÂÀÌ <color=blue>" + level + "</color> Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "ë°©ì–´ë ¥ì´ <color=blue>" + level + "</color> ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.criDamage:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "Å©¸®Æ¼ÄÃ µ¥¹ÌÁö°¡ <color=blue>" + level + "</color>% Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "í¬ë¦¬í‹°ì»¬ ë°ë¯¸ì§€ê°€ <color=blue>" + level + "</color>% ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.criProbability:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "Å©¸®Æ¼ÄÃ È®·üÀÌ <color=blue>" + level * 0.5 + "</color>% Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "í¬ë¦¬í‹°ì»¬ í™•ë¥ ì´ <color=blue>" + level * 0.5 + "</color>% ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
             case Runes.aov:
                 {
                     level = PlayerPrefs.GetInt(System.Enum.GetName(typeof(Runes), rune));
-                    Explanation.text = "ÈíÇ÷·ÂÀÌ <color=blue>" + level *0.5f + "</color>% Áõ°¡ÇÕ´Ï´Ù";
+                    Explanation.text = "í¡í˜ˆë ¥ì´ <color=blue>" + level *0.5f + "</color>% ì¦ê°€í•©ë‹ˆë‹¤";
                     break;
                 }
         }

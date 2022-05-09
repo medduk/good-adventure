@@ -16,7 +16,7 @@ public class SHOPInformation : MonoBehaviour
 
     string showcolor;
 
-    public Item item;   // SHOP½ºÅ©¸³Æ®·Î ºÎÅÍ Á¤º¸¸¦ ¹Ş¾Æ ¿ÔÀ½.
+    public Item item;   // SHOPìŠ¤í¬ë¦½íŠ¸ë¡œ ë¶€í„° ì •ë³´ë¥¼ ë°›ì•„ ì™”ìŒ.
 
     private static SHOPInformation instance = null;
 
@@ -45,7 +45,7 @@ public class SHOPInformation : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void Show()  // Å¬¸¯ÇßÀ» ¶§ ¶ç¿öÁö´Â Ã¢ÀÇ Á¤º¸.
+    public void Show()  // í´ë¦­í–ˆì„ ë•Œ ë„ì›Œì§€ëŠ” ì°½ì˜ ì •ë³´.
     {
         showcolor = Changecolor();
         icon.sprite = item.itemImage;
@@ -53,18 +53,18 @@ public class SHOPInformation : MonoBehaviour
         name.text = "<color=" + showcolor + ">" + item.itemName + "</color>";
 
         if (canbuy)
-            canbuytext.text = "±¸¸Å";
+            canbuytext.text = "êµ¬ë§¤";
         else
-            canbuytext.text = "°ñµåºÎÁ·";
+            canbuytext.text = "ê³¨ë“œë¶€ì¡±";
 
-        if(inventory.instance.items.Count == 25)    // ÀÎº¥Åä¸®°¡ ²Ë Â÷¸é.
+        if(inventory.instance.items.Count == 25)    // ì¸ë²¤í† ë¦¬ê°€ ê½‰ ì°¨ë©´.
         {
             canbuy = false;
-            canbuytext.text = "°¡¹æ²ËÂü";
+            canbuytext.text = "ê°€ë°©ê½‰ì°¸";
         }
         button.gameObject.SetActive(false);
     }
-    private string Changecolor()    // µî±Ş¿¡ µû¶ó ÅØ½ºÆ® º¯°æ.
+    private string Changecolor()    // ë“±ê¸‰ì— ë”°ë¼ í…ìŠ¤íŠ¸ ë³€ê²½.
     {
         if (item.level == 2)
             return "blue";
@@ -78,6 +78,7 @@ public class SHOPInformation : MonoBehaviour
             return "#d95b9a";
         return "white";
     }
+
     public void Close()
     {
         button.gameObject.SetActive(true);

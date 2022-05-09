@@ -12,7 +12,7 @@ public class RuneLevelUp : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] GameObject UI;
     [SerializeField] int[] RuneChance;
-    [SerializeField] Image show, real; // ·£´ýÀ¸·Î º¯ÇÏ´Â ÀÌ¹ÌÁö¿Í, °á°ú¸¦ ³ªÅ¸³»´Â ÀÌ¹ÌÁö
+    [SerializeField] Image show, real; // ëžœë¤ìœ¼ë¡œ ë³€í•˜ëŠ” ì´ë¯¸ì§€ì™€, ê²°ê³¼ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ì´ë¯¸ì§€
     [SerializeField] Button choose , back;
     private int sum = 0;
     int index;
@@ -24,7 +24,7 @@ public class RuneLevelUp : MonoBehaviour, IPointerDownHandler
             sum += RuneChance[c];
         }
     }
-    public void OnPointerDown(PointerEventData eventData)  // È­¸éÀ» Å¬¸¯ÇÏ¿© ·£´ýÀÇ ·éÀ» È¹µæÇÒ¶§ ½ÃÀÛÀûÀ¸·Î Áñ°Å¿òÀ» ÁÖ±âÀ§ÇÏ¿© ÀÌ·¸°Ô ±¸Çö
+    public void OnPointerDown(PointerEventData eventData)  // í™”ë©´ì„ í´ë¦­í•˜ì—¬ ëžœë¤ì˜ ë£¬ì„ íšë“í• ë•Œ ì‹œìž‘ì ìœ¼ë¡œ ì¦ê±°ì›€ì„ ì£¼ê¸°ìœ„í•˜ì—¬ ì´ë ‡ê²Œ êµ¬í˜„
     {   
         if(RuneUI.instance.RunestoneCount > 0)
         {

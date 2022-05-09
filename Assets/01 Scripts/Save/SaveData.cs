@@ -5,23 +5,23 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public int PlayerMaxHp; // ÀúÀå½Ã ÃÖ´ëÃ¼·Â
-    public int playerCurHp; // ÀúÀå½Ã ÇöÀçÃ¼·Â
+    public int PlayerMaxHp; // ì €ì¥ì‹œ ìµœëŒ€ì²´ë ¥
+    public int playerCurHp; // ì €ì¥ì‹œ í˜„ì¬ì²´ë ¥
 
-    public int Coin; // ÀúÀå½Ã º¸À¯°ñµå
+    public int Coin; // ì €ì¥ì‹œ ë³´ìœ ê³¨ë“œ
 
-    public int playerMaxExp;   // ÀúÀå½Ã ¸ğ¾Æ¾ßÇÒ °æÇèÄ¡
-    public float playerCurExp;   // ÀúÀå½Ã ÇöÀç °æÇèÄ¡
-    public float playerLevel; // ÀúÀå½Ã ·¹º§
+    public int playerMaxExp;   // ì €ì¥ì‹œ ëª¨ì•„ì•¼í•  ê²½í—˜ì¹˜
+    public float playerCurExp;   // ì €ì¥ì‹œ í˜„ì¬ ê²½í—˜ì¹˜
+    public float playerLevel; // ì €ì¥ì‹œ ë ˆë²¨
 
-    /* ÀúÀå½Ã ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡ */
+    /* ì €ì¥ì‹œ í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ */
     public float x; 
     public float y;
     public float z;
 
-    public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length]; // ÀúÀå½Ã ´É·ÂÄ¡ ·¹º§¾÷»óÅÂ
+    public int[] Levelablilty = new int[System.Enum.GetNames(typeof(Ablilty)).Length]; // ì €ì¥ì‹œ ëŠ¥ë ¥ì¹˜ ë ˆë²¨ì—…ìƒíƒœ
 
-    /* ¾ÆÀÌÅÛÀÇ °æ¿ì IDÄÚµå¸¦ ÀÌ¿ëÇÏ¿© ÀúÀåÇÏ°í ºÒ·¯¿Ã¶§ ¾ÆÀÌÅÛÀ» ¹Ù·Î Áï½Ã Áö±ŞÇÏ´Â ¹æ½ÄÀ» »ç¿ë */
-    public List<int> items = new List<int>(); // ÀúÀå½Ã ¾ÆÀÌÅÛ º¸À¯»óÅÂ
-    public List<int> equip = new List<int>(); // ÀúÀå½Ã ¾ÆÀÌÅÛ Âø¿ë»óÅÂ
+    /* ì•„ì´í…œì˜ ê²½ìš° IDì½”ë“œë¥¼ ì´ìš©í•˜ì—¬ ì €ì¥í•˜ê³  ë¶ˆëŸ¬ì˜¬ë•Œ ì•„ì´í…œì„ ë°”ë¡œ ì¦‰ì‹œ ì§€ê¸‰í•˜ëŠ” ë°©ì‹ì„ ì‚¬ìš© */
+    public List<int> items = new List<int>(); // ì €ì¥ì‹œ ì•„ì´í…œ ë³´ìœ ìƒíƒœ
+    public List<int> equip = new List<int>(); // ì €ì¥ì‹œ ì•„ì´í…œ ì°©ìš©ìƒíƒœ
 }

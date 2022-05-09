@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Æ©Åä¸®¾óÀÌ ³¡³µÀ» ¶§ ¾Ë·ÁÁİ´Ï´Ù. */
+/* íŠœí† ë¦¬ì–¼ì´ ëë‚¬ì„ ë•Œ ì•Œë ¤ì¤ë‹ˆë‹¤. */
 public class TutorialStage : MonoBehaviour
 {
     [Header("For Attack Tutorial")]
@@ -35,7 +35,7 @@ public class TutorialStage : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            if (isAttackTutorial)   // °ø°İ Æ©Åä¸®¾óÀÌ¶ó¸é
+            if (isAttackTutorial)   // ê³µê²© íŠœí† ë¦¬ì–¼ì´ë¼ë©´
             {
                 StartCoroutine(ReadyAttack());
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -51,7 +51,7 @@ public class TutorialStage : MonoBehaviour
     IEnumerator ReadyAttack()
     {
         yield return new WaitUntil(() => StageManager.Instance.enemyManager.transform.childCount <= 1);
-        if (!ContinueDataManager.skip)  // ¿É¼Ç¿¡¼­ skipÀÌ ¾Æ´Ï¶ó¸é
+        if (!ContinueDataManager.skip)  // ì˜µì…˜ì—ì„œ skipì´ ì•„ë‹ˆë¼ë©´
         {
             DialogManager.Instance.Action(gameObject);
         }

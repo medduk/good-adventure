@@ -26,13 +26,13 @@ public class LevelAbility : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] Texts;
     [SerializeField] Sprite[] sprites;
 
-    List<int[]> LVAblilty = new List<int[]>();  // ·¹º§¾÷´É·ÂÀÇ ÃÑ ¸®½ºÆ®
-    List<int[]> randomAbilityTable = new List<int[]>();  // ¾÷±×·¹ÀÌµå°¡ °¡´ÉÇÑ ·¹º§¾÷ ´É·ÂÀÇ ÃÑ ¸®½ºÆ®
-    List<int[]> OptionsPlayerCanChoose = new List<int[]>(); // randomAbilityTable ¿¡¼­ ·£´ıÀ¸·Î Á¤ÇØÁØ °³¼ö ¸¸Å­ »Ì¾Æ¿Ã ¸®½ºÆ®
+    List<int[]> LVAblilty = new List<int[]>();  // ë ˆë²¨ì—…ëŠ¥ë ¥ì˜ ì´ ë¦¬ìŠ¤íŠ¸
+    List<int[]> randomAbilityTable = new List<int[]>();  // ì—…ê·¸ë ˆì´ë“œê°€ ê°€ëŠ¥í•œ ë ˆë²¨ì—… ëŠ¥ë ¥ì˜ ì´ ë¦¬ìŠ¤íŠ¸
+    List<int[]> OptionsPlayerCanChoose = new List<int[]>(); // randomAbilityTable ì—ì„œ ëœë¤ìœ¼ë¡œ ì •í•´ì¤€ ê°œìˆ˜ ë§Œí¼ ë½‘ì•„ì˜¬ ë¦¬ìŠ¤íŠ¸
 
     public Transform buttonScale;
     Vector3 defaultScale;
-    // ÀÎµ¦½º,È®·ü,ÃÖ´ë°­È­Ä¡ 
+    // ì¸ë±ìŠ¤,í™•ë¥ ,ìµœëŒ€ê°•í™”ì¹˜ 
     int[] HpUp = { 0, 7, 5 };
     int[] DamageUp = { 1, 7, 4 };
     int[] SpeedUp = { 2, 7, 3 };
@@ -48,7 +48,7 @@ public class LevelAbility : MonoBehaviour
     int sum;
     void Start()  
     {
-        /* ·¹º§¾÷´É·Â ÃÊ±âÈ­ */
+        /* ë ˆë²¨ì—…ëŠ¥ë ¥ ì´ˆê¸°í™” */
         defaultScale = buttonScale.localScale;
         LVAblilty.Add(HpUp);
         LVAblilty.Add(DamageUp);
@@ -64,12 +64,12 @@ public class LevelAbility : MonoBehaviour
         ReadyPlayerLevelUP();
     }
 
-    public void ReadyPlayerLevelUP()  // ·¹º§¾÷ ¸ñ·Ï ·£´ı »Ì±â
+    public void ReadyPlayerLevelUP()  // ë ˆë²¨ì—… ëª©ë¡ ëœë¤ ë½‘ê¸°
     {
         
         for(int i=0; i < System.Enum.GetNames(typeof(Ablilty)).Length; i++)
         {
-            if(PlayerStatus.Instance.Levelablilty[i] < LVAblilty[i][2])  // ·¹º§¾÷´É·ÂÀÌ ÃÖ´ë·¹º§ÀÌ ¾Æ´Ò°æ¿ì
+            if(PlayerStatus.Instance.Levelablilty[i] < LVAblilty[i][2])  // ë ˆë²¨ì—…ëŠ¥ë ¥ì´ ìµœëŒ€ë ˆë²¨ì´ ì•„ë‹ê²½ìš°
             {
                 randomAbilityTable.Add(LVAblilty[i]);
             }
@@ -82,7 +82,7 @@ public class LevelAbility : MonoBehaviour
         }
     }
 
-    public void ChooseRandomAbilityOption()  // ·¹º§¾÷ °¡´É ´É·Â ¸®½ºÆ®¿¡¼­ È®·ü¿¡µû¶ó Á¤ÇØÁØ °³¼ö¸¸Å­ »Ì´Â ÇÔ¼ö
+    public void ChooseRandomAbilityOption()  // ë ˆë²¨ì—… ê°€ëŠ¥ ëŠ¥ë ¥ ë¦¬ìŠ¤íŠ¸ì—ì„œ í™•ë¥ ì—ë”°ë¼ ì •í•´ì¤€ ê°œìˆ˜ë§Œí¼ ë½‘ëŠ” í•¨ìˆ˜
     {
         sum = 0;
 
@@ -109,59 +109,59 @@ public class LevelAbility : MonoBehaviour
             randomAbilityTable.RemoveAt(j);
         }
 
-        if(sum == 0)  // ´õÀÌ»ó ³²Àº ·¹º§¾÷ ´É·ÂÀÌ ³²¾ÆÀÖÁö ¾Ê´Ù¸é ¹«ÇÑ·çÇÁ¿ë °ñµåÁö±ŞÀ» Á¦°ø
+        if(sum == 0)  // ë”ì´ìƒ ë‚¨ì€ ë ˆë²¨ì—… ëŠ¥ë ¥ì´ ë‚¨ì•„ìˆì§€ ì•Šë‹¤ë©´ ë¬´í•œë£¨í”„ìš© ê³¨ë“œì§€ê¸‰ì„ ì œê³µ
         {
             OptionsPlayerCanChoose.Add(LVAblilty[(int)Ablilty.gold]);
         }
     }
 
-    void RewriteAbilityOptionWindow(int i) // ·¹º§¾÷´É·Â UI ±×¸®±â
+    void RewriteAbilityOptionWindow(int i) // ë ˆë²¨ì—…ëŠ¥ë ¥ UI ê·¸ë¦¬ê¸°
     {
         switch (OptionsPlayerCanChoose[i][0])
         {
             case (int)Ablilty.hpUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "Ã¼·Â\n<color=#92F4FF>20</color>»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "ì²´ë ¥\n<color=#92F4FF>20</color>ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.damageUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "°ø°İ·Â\n<color=#92F4FF>15</color>»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "ê³µê²©ë ¥\n<color=#92F4FF>15</color>ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.moveSpeedUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "ÀÌµ¿¼Óµµ\n<color=#92F4FF>0.5</color>»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "ì´ë™ì†ë„\n<color=#92F4FF>0.5</color>ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.defenseUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "¹æ¾î·Â\n<color=#92F4FF>5</color>»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "ë°©ì–´ë ¥\n<color=#92F4FF>5</color>ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.criDamageUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "Ä¡¸íÅ¸µ¥¹ÌÁö\n<color=#92F4FF>10</color>%»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "ì¹˜ëª…íƒ€ë°ë¯¸ì§€\n<color=#92F4FF>10</color>%ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.criProbabilityUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "Ä¡¸íÅ¸È®·ü\n<color=#92F4FF>5</color>%»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "ì¹˜ëª…íƒ€í™•ë¥ \n<color=#92F4FF>5</color>%ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.aovUp:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "ÈíÇ÷·Â\n<color=#92F4FF>5</color>%»ó½Â\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
+                Texts[i].text = "í¡í˜ˆë ¥\n<color=#92F4FF>5</color>%ìƒìŠ¹\n" + PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] + "/" + OptionsPlayerCanChoose[i][2];
                 break;
             case (int)Ablilty.gold:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "°ñµå\n<color=#92F4FF>"+ (PlayerStatus.Instance.PlayerLevel+1)*50 +"</color>È¹µæ";
+                Texts[i].text = "ê³¨ë“œ\n<color=#92F4FF>"+ (PlayerStatus.Instance.PlayerLevel+1)*50 +"</color>íšë“";
                 break;
             case (int)Ablilty.ricochetShot:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "¹Ù¿î½º¼¦\n<color=#92F4FF>±âº»°ø°İÀÌ Æ¨±é´Ï´Ù.</color>";
+                Texts[i].text = "ë°”ìš´ìŠ¤ìƒ·\n<color=#92F4FF>ê¸°ë³¸ê³µê²©ì´ íŠ•ê¹ë‹ˆë‹¤.</color>";
                 break;
             case (int)Ablilty.multiShot:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "¸ÖÆ¼¼¦\n<color=#92F4FF>±âº»°ø°İÀÌ µÎ°³·Î ´Ã¾î³³´Ï´Ù.</color>";
+                Texts[i].text = "ë©€í‹°ìƒ·\n<color=#92F4FF>ê¸°ë³¸ê³µê²©ì´ ë‘ê°œë¡œ ëŠ˜ì–´ë‚©ë‹ˆë‹¤.</color>";
                 break;
             case (int)Ablilty.chainShot:
                 images[i].sprite = sprites[OptionsPlayerCanChoose[i][0]];
-                Texts[i].text = "Ã¼ÀÎ¼¦\n<color=#92F4FF>±âº»°ø°İÀ» µÎ¹ø¾¿ ¹ßµ¿ÇÕ´Ï´Ù.</color>";
+                Texts[i].text = "ì²´ì¸ìƒ·\n<color=#92F4FF>ê¸°ë³¸ê³µê²©ì„ ë‘ë²ˆì”© ë°œë™í•©ë‹ˆë‹¤.</color>";
                 break;
         }
     }
@@ -175,7 +175,7 @@ public class LevelAbility : MonoBehaviour
         LevelUPUI.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void Select(int i)  // ·¹º§¾÷ °áÁ¤½Ã È¿°ú
+    public void Select(int i)  // ë ˆë²¨ì—… ê²°ì •ì‹œ íš¨ê³¼
     {
         if (Canchoose)
         {
@@ -220,7 +220,7 @@ public class LevelAbility : MonoBehaviour
             SoundManager.Instance.chooseAbilitySound.Play();
 
 
-            if (OptionsPlayerCanChoose[i][0] != (int)Ablilty.gold) // °ñµå´Â ¹«ÇÑ·çÇÁÀÌ±â ¶§¹®¿¡ °ñµåÁö±ŞÀº ·¹º§¾÷À» ÇÏÁö¾ÊÀ½
+            if (OptionsPlayerCanChoose[i][0] != (int)Ablilty.gold) // ê³¨ë“œëŠ” ë¬´í•œë£¨í”„ì´ê¸° ë•Œë¬¸ì— ê³¨ë“œì§€ê¸‰ì€ ë ˆë²¨ì—…ì„ í•˜ì§€ì•ŠìŒ
             {
                 PlayerStatus.Instance.Levelablilty[OptionsPlayerCanChoose[i][0]] += 1;
             }
@@ -228,7 +228,7 @@ public class LevelAbility : MonoBehaviour
             StartCoroutine(ShowSelcetedAbilityOptionWindow(i));
         }
     }
-    IEnumerator ShowSelcetedAbilityOptionWindow(int i)  // ½Ã°¢Àû È¿°ú
+    IEnumerator ShowSelcetedAbilityOptionWindow(int i)  // ì‹œê°ì  íš¨ê³¼
     {
         for(int j = 0; j < btns.Length; j++)
         {

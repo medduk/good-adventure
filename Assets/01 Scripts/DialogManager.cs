@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-/* ´ë»ç¸¦ ¹Ù²ã ÁÖ´Â(¸Å²ô·´°Ô ÀÌ¾î³ª°¡±â À§ÇÑ) ½ºÅ©¸³Æ®. */
+/* ëŒ€ì‚¬ë¥¼ ë°”ê¿” ì£¼ëŠ”(ë§¤ë„ëŸ½ê²Œ ì´ì–´ë‚˜ê°€ê¸° ìœ„í•œ) ìŠ¤í¬ë¦½íŠ¸. */
 public class DialogManager : MonoBehaviour
 {
     public TextBundle textBundle;
     public GameObject dialogPanel;
     //public GameObject scanObject;
-    public TextEffect talk; // TextEffect ½ºÅ©¸³Æ®¸¦ ³Ö´Â´Ù.
+    public TextEffect talk; // TextEffect ìŠ¤í¬ë¦½íŠ¸ë¥¼ ë„£ëŠ”ë‹¤.
     public Image portraitImg;
 
     public bool isAction;
     public int textIndex;
     public int tutoNumber = 0;
 
-    private string textData;    // TextEffect¿¡¼­ Ãâ·ÂÇÏ±â À§ÇÑ ¹®ÀÚ¿­.
+    private string textData;    // TextEffectì—ì„œ ì¶œë ¥í•˜ê¸° ìœ„í•œ ë¬¸ìì—´.
 
     private int id;
     private bool isNPC;
@@ -51,7 +51,7 @@ public class DialogManager : MonoBehaviour
 
     public void DialogNext()
     {
-        if (!talk.effectCheck)  // ÇÑ ±ÛÀÚ ¾¿ ³ª¿À°í ÀÖ´Â »óÅÂ°¡ ¾Æ´Ï¶ó¸é, Áï ÀÌ¹Ì ¸»À» ´Ù ³¡³Â´Ù¸é(´Ù Ãâ·ÂµÈ ÈÄ¶ó¸é)
+        if (!talk.effectCheck)  // í•œ ê¸€ì ì”© ë‚˜ì˜¤ê³  ìˆëŠ” ìƒíƒœê°€ ì•„ë‹ˆë¼ë©´, ì¦‰ ì´ë¯¸ ë§ì„ ë‹¤ ëëƒˆë‹¤ë©´(ë‹¤ ì¶œë ¥ëœ í›„ë¼ë©´)
         {
             if (id == 1)
             {
@@ -66,7 +66,7 @@ public class DialogManager : MonoBehaviour
             {
                 isAction = false;
                 dialogPanel.SetActive(isAction);
-                textIndex = 0;  // È¤½Ã¸ô¶ó ÇÑ¹ø ´õ ÃÊ±âÈ­.
+                textIndex = 0;  // í˜¹ì‹œëª°ë¼ í•œë²ˆ ë” ì´ˆê¸°í™”.
                 return;
             }
 
@@ -98,20 +98,20 @@ public class DialogManager : MonoBehaviour
             talk.EffectFastEnd();
     }
 
-    public void Action(GameObject scanObj, int plusID = 0)  // Äİ¶óÀÌ´õ°¡ ºÎµúÈú ¶§ ¹ßµ¿ µÇ¾î ´ë»ç°¡ ½ÃÀÛµÊ. Áï ´ëÈ­¸¦ ½ÃÀÛ½ÃÅ°´Â Ã¹ ÇÔ¼öÀÓ.
-        /*plusID´Â npc°¡ ¿©·¯ °³ÀÇ ´ëÈ­¸¦ ÇÒ ¼ö ÀÖÀ¸¹Ç·Î ¾î¶² ´ëÈ­¸¦ ÇÒÁö °áÁ¤.*/
+    public void Action(GameObject scanObj, int plusID = 0)  // ì½œë¼ì´ë”ê°€ ë¶€ë”ªí ë•Œ ë°œë™ ë˜ì–´ ëŒ€ì‚¬ê°€ ì‹œì‘ë¨. ì¦‰ ëŒ€í™”ë¥¼ ì‹œì‘ì‹œí‚¤ëŠ” ì²« í•¨ìˆ˜ì„.
+        /*plusIDëŠ” npcê°€ ì—¬ëŸ¬ ê°œì˜ ëŒ€í™”ë¥¼ í•  ìˆ˜ ìˆìœ¼ë¯€ë¡œ ì–´ë–¤ ëŒ€í™”ë¥¼ í• ì§€ ê²°ì •.*/
     {
-        textIndex = 0;  // DialogÇÔ¼ö¿¡¼­ °¡Á®¿Â ÅØ½ºÆ®°¡ ³¡³µ´ÂÁö È®ÀÎÇÔ.
+        textIndex = 0;  // Dialogí•¨ìˆ˜ì—ì„œ ê°€ì ¸ì˜¨ í…ìŠ¤íŠ¸ê°€ ëë‚¬ëŠ”ì§€ í™•ì¸í•¨.
         //scanObject = scanObj;
         ObjNumber objNumber = scanObj.GetComponent<ObjNumber>();
-        id = objNumber.id + plusID; // npcÀÇ id + ÇØ´ç npcÀÇ ¸» ¹øÈ£·Î ´ëÈ­ Ãâ·ÂÀ» °áÁ¤ÇÑ´Ù.
-        isNPC = objNumber.isNPC;    // ÃßÈÄ È®Àå¼ºÀ» À§ÇÑ ÄÚµå.
+        id = objNumber.id + plusID; // npcì˜ id + í•´ë‹¹ npcì˜ ë§ ë²ˆí˜¸ë¡œ ëŒ€í™” ì¶œë ¥ì„ ê²°ì •í•œë‹¤.
+        isNPC = objNumber.isNPC;    // ì¶”í›„ í™•ì¥ì„±ì„ ìœ„í•œ ì½”ë“œ.
         Dialog(id,isNPC);
     }
 
-    void Dialog(int id, bool isNpc) // TextBundle¿¡¼­ ´ë»ç¸¦ °¡Á®¿Â´Ù.
+    void Dialog(int id, bool isNpc) // TextBundleì—ì„œ ëŒ€ì‚¬ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
     {
-        if (id == 1)    // id 1Àº Æ©Åä¸®¾óÀÌ´Ù.
+        if (id == 1)    // id 1ì€ íŠœí† ë¦¬ì–¼ì´ë‹¤.
         {
             textData = textBundle.GetText(id + tutoNumber, textIndex);
             tutoNumber++;
@@ -121,11 +121,11 @@ public class DialogManager : MonoBehaviour
             textData = textBundle.GetText(id , textIndex);
         }
 
-        if(textData.Split(':')[1] == "n")   // ´ëÈ­ÇÏ´Â Áß¿¡ ÀÌ¹ÌÁö°¡ ¾ø´Â °ÅÀÓ.
+        if(textData.Split(':')[1] == "n")   // ëŒ€í™”í•˜ëŠ” ì¤‘ì— ì´ë¯¸ì§€ê°€ ì—†ëŠ” ê±°ì„.
         {
-            portraitImg.color = new Color(1, 1, 1, 0);  // Åõ¸íÇÏ°Ô ÇÔ.
+            portraitImg.color = new Color(1, 1, 1, 0);  // íˆ¬ëª…í•˜ê²Œ í•¨.
         }
-        else // Ç¥½ÃÇÒ ÀÌ¹ÌÁö°¡ ÀÖ´Ù¸é
+        else // í‘œì‹œí•  ì´ë¯¸ì§€ê°€ ìˆë‹¤ë©´
         {
             portraitImg.sprite = textBundle.GetPortrait(int.Parse(textData.Split(':')[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
@@ -141,7 +141,7 @@ public class DialogManager : MonoBehaviour
             talk.SetText(textData.Split(':')[0]);
             talk.namechange(textData.Split(':')[2]);
         }
-        isAction = true;    // ÇöÀç ´ëÈ­°¡ ÁøÇàÁß.
+        isAction = true;    // í˜„ì¬ ëŒ€í™”ê°€ ì§„í–‰ì¤‘.
         dialogPanel.SetActive(isAction);
         textIndex++;
     }

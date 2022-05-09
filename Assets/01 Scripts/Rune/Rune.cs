@@ -5,25 +5,24 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public enum Runes // ·éÀÇ Á¾·ù , Ãß°¡ °¡´É
-    {
-        hp,
-        damage,
-        attackDelay,
-        moveSpeed,
-        defense,
-        criDamage,
-        criProbability,
-        aov,
-        exp,
-        dropPer
-    }
+public enum Runes // ë£¬ì˜ ì¢…ë¥˜ , ì¶”ê°€ ê°€ëŠ¥
+{
+    hp,
+    damage,
+    attackDelay,
+    moveSpeed,
+    defense,
+    criDamage,
+    criProbability,
+    aov,
+    exp,
+    dropPer
+}
+
 public class Rune : MonoBehaviour
 {
-
-
     [SerializeField] Runes rune;
-    [SerializeField] int level; // runeÀÇ °¹¼ö
+    [SerializeField] int level; // runeì˜ ê°¯ìˆ˜
     public TextMeshProUGUI LVText;
     public GameObject Explanation;
 

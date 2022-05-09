@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/* ´ëÈ­ ¹®ÀÚ¸¦ ¶ç¿öÁÖ´Â ½ºÅ©¸³Æ®. */
+/* ëŒ€í™” ë¬¸ìë¥¼ ë„ì›Œì£¼ëŠ” ìŠ¤í¬ë¦½íŠ¸. */
 public class TextEffect : MonoBehaviour
 {
-    public GameObject EndCursor;    // ¿À¸¥ÂÊ ¹Ø È­»ìÇ¥°¡ ÀÖ´Ù.
+    public GameObject EndCursor;    // ì˜¤ë¥¸ìª½ ë°‘ í™”ì‚´í‘œê°€ ìˆë‹¤.
     string targetText;
-    public float CharPerSeconds;    // ÇÑ ±ÛÀÚ¾¿ Ãâ·Â ½ÃÅ°´Â ¼Óµµ.
+    public float CharPerSeconds;    // í•œ ê¸€ìì”© ì¶œë ¥ ì‹œí‚¤ëŠ” ì†ë„.
     Text msgText;
     [SerializeField] Text sayname;
-    int index;  // ¹®ÀåÀÌ ¸î ±ÛÀÚÀÎ°¡.
+    int index;  // ë¬¸ì¥ì´ ëª‡ ê¸€ìì¸ê°€.
     float interval;
 
-    public bool effectCheck;    // ÇöÀç ÀÌ ´ë»ç°¡ ÇÑ ±ÛÀÚ¾¿ Ãâ·ÂÁßÀÎ°¡ È®ÀÎ.
+    public bool effectCheck;    // í˜„ì¬ ì´ ëŒ€ì‚¬ê°€ í•œ ê¸€ìì”© ì¶œë ¥ì¤‘ì¸ê°€ í™•ì¸.
 
-    public void SetText(string text)    // DialogManager¿¡¼­ ¼¼ÆÃÇÑ´Ù.
+    public void SetText(string text)    // DialogManagerì—ì„œ ì„¸íŒ…í•œë‹¤.
     {
         targetText = text;
         EffectStart();

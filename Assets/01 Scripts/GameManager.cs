@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,22 +9,30 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject realstatus,bossHPbar,Runestart,SHOPstart;
+
+    [Header("Buttons")]
+    public EventTrigger minimapBtnTrigger;
     public Button pausebtn,statusbtn,Exitbtn,removebtn;
+
+    [Header("Images&Sprites")]
     public Sprite[] img;
     public Image bossIcon;
 
     public GameObject pauseImage,statusImage,ReinforceImage,ItemInformationImage;
     public GameObject gameOverImage;
+
+    [Header("etc.")]
     public DialogManager dialogManager;
 
     public bool isPaused = false;
 
     private bool isGameOver = false;    // Check GameOver
-    private int BossCount = 0;          // Boss stage can have many boss
+    private int BossCount = 0;          // Boss stage can have many bosses
 
     private static GameManager instance = null;
 
-    public GameObject Who;
+    public GameObject Who;  // 누구와 대화하고 있는지
+    public GameObject sayBox;   // 대화 중임을 감지하기 위한 오브젝트.
     public static GameManager Instance
     {
         get
@@ -56,6 +65,8 @@ public class GameManager : MonoBehaviour
         bossHPbar.SetActive(true);
         SHOPstart.SetActive(true);
         isPaused = false;
+
+        StartCoroutine(CheckIsTalking());
     }
 
     private void SwitchPause(bool check)
@@ -103,8 +114,8 @@ public class GameManager : MonoBehaviour
     }
     public void OpenReinForce()
     {
-        pausebtn.gameObject.SetActive(false);
-        statusbtn.gameObject.SetActive(false);
+        SetUiActivity(false);
+
         Exitbtn.gameObject.SetActive(true);
         ReinforceImage.SetActive(true);
         ReinForce.instance.ReinForceStart();
@@ -112,10 +123,10 @@ public class GameManager : MonoBehaviour
     public void closeReinForce()
     {
         Exitbtn.gameObject.SetActive(false);
-        pausebtn.gameObject.SetActive(true);
-        statusbtn.gameObject.SetActive(true);
         ReinForce.instance.ReinForceEnd();
         ReinforceImage.SetActive(false);
+
+        SetUiActivity(true);
         DialogON();
     }
 
@@ -135,7 +146,7 @@ public class GameManager : MonoBehaviour
         if (BossCount == 0)
         {
             bossHPbar.gameObject.SetActive(false);
-            /* bossŬ���� �� �ߵ� ���� ��*/
+            /* boss클리어 시 발동 사운드 등*/
             SoundManager.Instance.nowPlaying.Stop();
 
             SoundManager.Instance.nowPlaying = SoundManager.Instance.tutorialBgm;
@@ -152,10 +163,13 @@ public class GameManager : MonoBehaviour
     public void OpenRune()
     {
         Runestart.gameObject.SetActive(true);
+        SetUiActivity(false);
     }
     public void CloseRune()
     {
         Runestart.gameObject.SetActive(false);
+        SetUiActivity(true);
+
         DialogON();
     }
     public void OpenSHOP()
@@ -188,7 +202,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void InitGame()  // �׾��� �� ���.
+    public void InitGame()  // 죽었을 때 사용.
     {
         dialogManager.tutoNumber = 0;
         StageManager.Instance.RestartGame(true);
@@ -201,11 +215,13 @@ public class GameManager : MonoBehaviour
         ContinueDataManager.SetContinueGame(false);
 
         gameOverImage.SetActive(true);
+        SetUiEnable(false);
         isGameOver = true;
     }
     
     public void SetGameLiving()
     {
+        SetUiEnable(true);
         isGameOver = false;
     }
 
@@ -216,5 +232,32 @@ public class GameManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    IEnumerator CheckIsTalking()
+    {
+        while(true)
+        {
+            yield return new WaitUntil(() => sayBox.activeSelf);
+            SetUiEnable(false);
+
+            yield return new WaitUntil(() => !sayBox.activeSelf);
+            SetUiEnable(true);
+        }
+    }
+
+    public void SetUiEnable(bool _state)  // 죽었을 때나 npc와 대화 중일때 ui를 비활성화
+    {
+        pausebtn.enabled = _state;
+        statusbtn.enabled = _state;
+        minimapBtnTrigger.enabled = _state;
+    }
+
+    public void SetUiActivity(bool _state)
+    {
+        pausebtn.gameObject.SetActive(_state);
+        statusbtn.gameObject.SetActive(_state);
+        minimapBtnTrigger.gameObject.SetActive(_state);
+        Time.timeScale = _state ? 1 : 0;
     }
 }

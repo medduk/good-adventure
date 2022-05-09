@@ -6,16 +6,16 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     private GameObject enemyManager;
-    [SerializeField] GameObject[] enemyPrefabs;  // ¸Ê¿¡ µîÀå °¡´ÉÇÑ ¸ó½ºÅÍ Á¾·ù
-    [SerializeField] int[] monsterChance;  // ¸ó½ºÅÍ¿¡ µû¶ó µîÀåÈ®·ü
+    [SerializeField] GameObject[] enemyPrefabs;  // ë§µì— ë“±ì¥ ê°€ëŠ¥í•œ ëª¬ìŠ¤í„° ì¢…ë¥˜
+    [SerializeField] int[] monsterChance;  // ëª¬ìŠ¤í„°ì— ë”°ë¼ ë“±ì¥í™•ë¥ 
     private int sum = 0;
-    public Transform[] enemyTransforms; // ¸ó½ºÅÍ »ı¼ºÀ§Ä¡
+    public Transform[] enemyTransforms; // ëª¬ìŠ¤í„° ìƒì„±ìœ„ì¹˜
 
     private void Awake()
     {
         enemyManager = GameObject.Find("EnemyManager");
 
-        if(monsterChance.Length < enemyPrefabs.Length) // ¿¡³Ê¹Ì ÇÁ¸®ÆÕ ¹è¿­ °³¼ö¿¡ ºñÇØ È®·ü ¹è¿­ÀÇ °³¼ö°¡ ÀûÀ» °æ¿ì °°Àº Å©±â¸¸Å­ ¹è¿­À» ´Ã¸®°í ´Ã¸° ¹è¿­Àº 1·Î ÃÊ±âÈ­.
+        if(monsterChance.Length < enemyPrefabs.Length) // ì—ë„ˆë¯¸ í”„ë¦¬íŒ¹ ë°°ì—´ ê°œìˆ˜ì— ë¹„í•´ í™•ë¥  ë°°ì—´ì˜ ê°œìˆ˜ê°€ ì ì„ ê²½ìš° ê°™ì€ í¬ê¸°ë§Œí¼ ë°°ì—´ì„ ëŠ˜ë¦¬ê³  ëŠ˜ë¦° ë°°ì—´ì€ 1ë¡œ ì´ˆê¸°í™”.
         {
             int[] temp = new int[enemyPrefabs.Length];
             System.Array.Copy(monsterChance, temp, monsterChance.Length);
@@ -36,7 +36,7 @@ public class EnemyGenerator : MonoBehaviour
         enemyTransforms = new Transform[transform.childCount];
 
         int i = 0;
-        foreach (Transform et in transform.GetComponentsInChildren<Transform>())  // ¸ÊÀÇ Á¤º¸¸¦ ÀĞ¾î ¸ó½ºÅÍÀÇ »ı¼ºÀ§Ä¡¸¦ ÀúÀåÇÑ´Ù
+        foreach (Transform et in transform.GetComponentsInChildren<Transform>())  // ë§µì˜ ì •ë³´ë¥¼ ì½ì–´ ëª¬ìŠ¤í„°ì˜ ìƒì„±ìœ„ì¹˜ë¥¼ ì €ì¥í•œë‹¤
         {
             if (et.name.Contains("EnemyPosition"))
             {
@@ -62,7 +62,7 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
-    private int SelectRandomEnemyPrefab()  // ¸ó½ºÅÍ ·£´ı»Ì±â
+    private int SelectRandomEnemyPrefab()  // ëª¬ìŠ¤í„° ëœë¤ë½‘ê¸°
     {
         int randomIndex = Random.Range(1, sum+1);
 

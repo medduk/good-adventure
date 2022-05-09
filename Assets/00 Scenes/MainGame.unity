@@ -32457,6 +32457,7 @@ MonoBehaviour:
   bossHPbar: {fileID: 1553876951}
   Runestart: {fileID: 1727911218}
   SHOPstart: {fileID: 271480413}
+  minimapBtnTrigger: {fileID: 1795322359}
   pausebtn: {fileID: 475237461}
   statusbtn: {fileID: 537043489}
   Exitbtn: {fileID: 1316871814}
@@ -32473,6 +32474,7 @@ MonoBehaviour:
   dialogManager: {fileID: 1996352955}
   isPaused: 0
   Who: {fileID: 0}
+  sayBox: {fileID: 739279288}
 --- !u!1 &1622820115
 GameObject:
   m_ObjectHideFlags: 0
@@ -35185,7 +35187,7 @@ GameObject:
   - component: {fileID: 1795322358}
   - component: {fileID: 1795322359}
   m_Layer: 5
-  m_Name: SmallMapBox
+  m_Name: ButtonSmallMapBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36714,7 +36716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCC98\uC74C\uBD80\uD130 \uC7AC\uC2DC\uC791"
+  m_text: "\uC5EC\uAE30\uB97C \uB20C\uB7EC \uC7AC\uC2DC\uC791"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9de06a851d1ad0488ac9f805f471eca, type: 2}
   m_sharedMaterial: {fileID: 5659015140913135748, guid: a9de06a851d1ad0488ac9f805f471eca, type: 2}

@@ -50,13 +50,13 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 ContinueDataManager.Setskip();
                 if (ContinueDataManager.skip)
                 {
-                    skipbutton.text = "[Æ©Åä¸®¾ó]²ô±â";
-                    tutorialSkipStateImage.color = onStateColor;
+                    skipbutton.text = "[íŠœí† ë¦¬ì–¼]ì¼œê¸°";
+                    tutorialSkipStateImage.color = offStateColor;
                 }
                 else
                 {
-                    skipbutton.text = "[Æ©Åä¸®¾ó]ÄÑ±â";
-                    tutorialSkipStateImage.color = offStateColor;
+                    skipbutton.text = "[íŠœí† ë¦¬ì–¼]ë„ê¸°";
+                    tutorialSkipStateImage.color = onStateColor;
                 }
                 SoundManager.Instance.buttonsSound.Play();
                 break;
@@ -65,14 +65,14 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 {
                     sound = false;
                     SoundManager.Instance.SoundOFF();
-                    Soundbutton.text = "[¼Ò¸®]ÄÑ±â";
+                    Soundbutton.text = "[ì†Œë¦¬]ì¼œê¸°";
                     soundStateImage.color = offStateColor;
                 }
                 else
                 {
                     sound = true;
                     SoundManager.Instance.SoundON();
-                    Soundbutton.text = "[¼Ò¸®]²ô±â";
+                    Soundbutton.text = "[ì†Œë¦¬]ë„ê¸°";
                     soundStateImage.color = onStateColor;
                 }
                 SoundManager.Instance.buttonsSound.Play();
@@ -119,13 +119,13 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
         {
             if (ContinueDataManager.skip)
             {
-                skipbutton.text = "[Æ©Åä¸®¾ó]²ô±â";
-                tutorialSkipStateImage.color = onStateColor;
+                skipbutton.text = "[íŠœí† ë¦¬ì–¼]ì¼œê¸°";
+                tutorialSkipStateImage.color = offStateColor;
             }
             else
             {
-                skipbutton.text = "[Æ©Åä¸®¾ó]ÄÑ±â";
-                tutorialSkipStateImage.color = offStateColor;
+                skipbutton.text = "[íŠœí† ë¦¬ì–¼]ë„ê¸°";
+                tutorialSkipStateImage.color = onStateColor;
             }
         }
         catch (Exception ex)

@@ -18,19 +18,19 @@ public class inventory : MonoBehaviour
         instance = this;
     }
 
-    public List<Item> items = new List<Item>();  // °¡Áö°íÀÖ´Â ÀÎº¥Åä¸® ¸®½ºÆ®
-    public List<Item> equip = new List<Item>();  // ÇöÀç Âø¿ëÁßÀÎ ÀåºñÄ­ ¸®½ºÆ®
-    public int Coin;  // º¸À¯°ñµå
+    public List<Item> items = new List<Item>();  // ê°€ì§€ê³ ìˆëŠ” ì¸ë²¤í† ë¦¬ ë¦¬ìŠ¤íŠ¸
+    public List<Item> equip = new List<Item>();  // í˜„ì¬ ì°©ìš©ì¤‘ì¸ ì¥ë¹„ì¹¸ ë¦¬ìŠ¤íŠ¸
+    public int Coin;  // ë³´ìœ ê³¨ë“œ
     public TextMeshProUGUI CoinText;
 
-    public delegate void OnChangeItem();  // ÀÎº¥UI Á¤¸®¿ë
+    public delegate void OnChangeItem();  // ì¸ë²¤UI ì •ë¦¬ìš©
     public OnChangeItem onChangeItem;
 
-    public delegate void OnChangeEquip(); // ÀåºñÄ­UI Á¤¸®¿ë
+    public delegate void OnChangeEquip(); // ì¥ë¹„ì¹¸UI ì •ë¦¬ìš©
     public OnChangeEquip onChangeEquip;
 
 
-    public bool[] UseCheck = new bool[6];  // Áö¼ÓÈ¿°ú ¾ÆÀÌÅÛ ÄğÅ¸ÀÓ¿©ºÎ È®ÀÎ
+    public bool[] UseCheck = new bool[6];  // ì§€ì†íš¨ê³¼ ì•„ì´í…œ ì¿¨íƒ€ì„ì—¬ë¶€ í™•ì¸
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class inventory : MonoBehaviour
             UseCheck[i] = true;
         }
     }
-    private void Update()  // Áö¼ÓÈ¿°ú ¾ÆÀÌÅÛÀÇ °æ¿ì ÄğÅ¸ÀÓ¸¶´Ù »ç¿ëÀ» À§ÇÏ¿© 
+    private void Update()  // ì§€ì†íš¨ê³¼ ì•„ì´í…œì˜ ê²½ìš° ì¿¨íƒ€ì„ë§ˆë‹¤ ì‚¬ìš©ì„ ìœ„í•˜ì—¬ 
     {
         for (int i = 0; i < equip.Count; i++)
         {
@@ -50,13 +50,13 @@ public class inventory : MonoBehaviour
         }
     }
 
-    public bool AddItem(Item _item)  // ¾ÆÀÌÅÛ ½Àµæ
+    public bool AddItem(Item _item)  // ì•„ì´í…œ ìŠµë“
     {
         if (items.Count < 25)
         {
             items.Add(_item);
 
-            /* Àåºñ ¾ÆÀÌÅÛ Àü¿ë »ç¿îµå */
+            /* ì¥ë¹„ ì•„ì´í…œ ì „ìš© ì‚¬ìš´ë“œ */
             SoundManager.Instance.itemGetSound.Play();
 
             if(onChangeItem != null)
@@ -66,7 +66,7 @@ public class inventory : MonoBehaviour
 
         return false;
     }
-    public bool EquipItem(Item _item) // ¾ÆÀÌÅÛ ÀåÂø
+    public bool EquipItem(Item _item) // ì•„ì´í…œ ì¥ì°©
     {
         if (equip.Count < 6)
         {
@@ -78,14 +78,14 @@ public class inventory : MonoBehaviour
         }
         return false;
     }
-    public void RemoveItem(int _index) // ¾ÆÀÌÅÛ Á¦°Å
+    public void RemoveItem(int _index) // ì•„ì´í…œ ì œê±°
     {
         items.RemoveAt(_index);
 
         if (onChangeItem != null)
             onChangeItem.Invoke();  // ui drawing.
     }
-    public void Unequip(int _index)  // ¾ÆÀÌÅÛ ÀåÂøÇØÁ¦
+    public void Unequip(int _index)  // ì•„ì´í…œ ì¥ì°©í•´ì œ
     {
         equip.RemoveAt(_index);
 
@@ -99,7 +99,7 @@ public class inventory : MonoBehaviour
         {
 
             PickItems pickItems = collision.GetComponent<PickItems>();
-            if (pickItems.item.itemType == ItemType.Consumables)  // ¼Òºñ¾ÆÀÌÅÛÀÇ °æ¿ì Áï½Ã »ç¿ëÇÏµµ·Ï ¸¸µë, Á»´õ °£ÆíÇÑ ÄÁÆ®·Ñ ¹æ½ÄÀ» À§ÇÏ¿© ÀÌ·¸°Ô ±¸ÇöÇÔ
+            if (pickItems.item.itemType == ItemType.Consumables)  // ì†Œë¹„ì•„ì´í…œì˜ ê²½ìš° ì¦‰ì‹œ ì‚¬ìš©í•˜ë„ë¡ ë§Œë“¬, ì¢€ë” ê°„í¸í•œ ì»¨íŠ¸ë¡¤ ë°©ì‹ì„ ìœ„í•˜ì—¬ ì´ë ‡ê²Œ êµ¬í˜„í•¨
             {
                 SoundManager.Instance.itemGetSound.Play();
                 pickItems.item.Use();
@@ -122,7 +122,7 @@ public class inventory : MonoBehaviour
 
     }
 
-    public void GetOrGiveCoin(int coin)  // °ñµåÈ¹µæ
+    public void GetOrGiveCoin(int coin)  // ê³¨ë“œíšë“
     {
         Coin += coin;
         if (Coin < 0)

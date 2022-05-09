@@ -5,19 +5,18 @@ using TMPro;
 
 public class ContinueDataManager : MonoBehaviour
 {
-
     public static bool isContinuousGame = PlayerPrefs.GetInt("ContinueGame", 0) == 1 ? true : false;
-    // ¸¸¾à ÀÌ¾îÇÏ±â°¡ ÀÖ´Ù¸é 1, ¾ø´Ù¸é 0.
+    // ë§Œì•½ ì´ì–´í•˜ê¸°ê°€ ìˆë‹¤ë©´ 1, ì—†ë‹¤ë©´ 0.
     public static bool skip = PlayerPrefs.GetInt("Skip") == 1 ? true : false;
-    // ¸¸¾à Æ©Åä¸®¾ó ½ºÅµÀ» Çß´Ù¸é 1 , ¾ø´Ù¸é 0
+    // ë§Œì•½ íŠœí† ë¦¬ì–¼ ìŠ¤í‚µì„ í–ˆë‹¤ë©´ 1 , ì—†ë‹¤ë©´ 0
 
-    public static void SetContinueGame(bool _isContinuousGame) // ÀÌ¾îÇÏ±â ¿©ºÎ È®ÀÎ
+    public static void SetContinueGame(bool _isContinuousGame) // ì´ì–´í•˜ê¸° ì—¬ë¶€ í™•ì¸
     {
         isContinuousGame = _isContinuousGame;
         PlayerPrefs.SetInt("ContinueGame", _isContinuousGame ? 1 : 0);
     }
 
-    public static void Setskip() // Àü °ÔÀÓÀ¸·ÎºÎÅÍ ½ºÅµÀ» Çß´ÂÁö ¾ÈÇß´ÂÁö À¯ÁöÇÏ±â À§ÇÔ 
+    public static void Setskip() // ì „ ê²Œì„ìœ¼ë¡œë¶€í„° ìŠ¤í‚µì„ í–ˆëŠ”ì§€ ì•ˆí–ˆëŠ”ì§€ ìœ ì§€í•˜ê¸° ìœ„í•¨ 
     {
         if (skip)
         {
