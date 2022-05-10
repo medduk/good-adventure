@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused = false;
 
-    private bool isGameOver = false;    // Check GameOver
     private int BossCount = 0;          // Boss stage can have many bosses
 
     private static GameManager instance = null;
@@ -215,13 +214,11 @@ public class GameManager : MonoBehaviour
 
         gameOverImage.SetActive(true);
         SetUiEnable(false);
-        isGameOver = true;
     }
     
     public void SetGameLiving()
     {
         SetUiEnable(true);
-        isGameOver = false;
     }
 
     public void ExitGame()

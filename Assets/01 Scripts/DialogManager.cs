@@ -15,7 +15,7 @@ public class DialogManager : MonoBehaviour
 
     public bool isAction;
     public int textIndex;
-    public int tutoNumber = 0;
+    public int tutoNumber;
 
     private string textData;    // TextEffect에서 출력하기 위한 문자열.
 

@@ -23,6 +23,8 @@ public class TutorialStage : MonoBehaviour
         {
             StartCoroutine(ActiveEndOfTutorial());
         }
+
+        DialogManager.Instance.tutoNumber = 0;
     }
 
     IEnumerator ActiveEndOfTutorial()
