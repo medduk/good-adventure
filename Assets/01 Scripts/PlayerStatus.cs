@@ -314,7 +314,7 @@ public class PlayerStatus : MonoBehaviour
                 isGameOver = true;
                 GameManager.Instance.SetGameOver();
                 SoundManager.Instance.GameOverSound.Play();
-                gameObject.GetComponent<moving>().SetGameOver();
+                gameObject.GetComponent<moving>().SetGameOver(true);
                 gameObject.GetComponent<MainFmAttack>().SetGameOver();
             }
             StartCoroutine(StopDamage());
@@ -325,7 +325,7 @@ public class PlayerStatus : MonoBehaviour
     public void RevivalPlayer() // 게임 클리어 및 캐릭터가 죽어 재시작시 캐릭터 초기상태로 초기화용
     {
         isGameOver = false;
-        gameObject.GetComponent<moving>().SetGameLiving();
+        gameObject.GetComponent<moving>().SetGameOver(true);
         gameObject.GetComponent<MainFmAttack>().SetGameLiving();
         GameManager.Instance.SetGameLiving();
         Resetplay();

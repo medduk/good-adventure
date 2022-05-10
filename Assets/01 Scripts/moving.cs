@@ -10,8 +10,8 @@ public class moving : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     
-    private bool isMoving = false; // Å° ÀÔ·Â ¹ŞÀ»¶§ ¿òÁ÷ÀÓ Ã¼Å© ¿ëµµ
-    private float x, y;     // ÀÌµ¿°è»ê ÁÂÇ¥
+    private bool isMoving = false; // í‚¤ ì…ë ¥ ë°›ì„ë•Œ ì›€ì§ì„ ì²´í¬ ìš©ë„
+    private float x, y;     // ì´ë™ê³„ì‚° ì¢Œí‘œ
     #endregion
     //Github test
     #region Public
@@ -24,7 +24,7 @@ public class moving : MonoBehaviour
 
     private bool isGameOver = false;
 
-    public GameObject talking;  // ´ëÈ­ÁßÀ» ³ªÅ¸³»´Â º¯¼ö
+    public GameObject talking;  // ëŒ€í™”ì¤‘ì„ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜
     #endregion
     private void Awake()
     {
@@ -74,7 +74,7 @@ public class moving : MonoBehaviour
             isMoving = false;
             animator.SetBool("IsWalking", false);
         }
-        if (talking.activeSelf) // ´ëÈ­ÀÌº¥Æ®½Ã ¿òÁ÷ÀÓ Á¦ÇÑ
+        if (talking.activeSelf) // ëŒ€í™”ì´ë²¤íŠ¸ì‹œ ì›€ì§ì„ ì œí•œ
         {
             isMoving = false;
             animator.SetBool("IsWalking", false);
@@ -94,9 +94,9 @@ public class moving : MonoBehaviour
     private void Move(float xDirection)  
     {
         Vector2 inputPosition = new Vector2(x, y);
-        if (!talking.activeSelf) // ´ëÈ­ÀÌº¥Æ®½Ã ¿òÁ÷ÀÓ Á¦ÇÑ
+        if (!talking.activeSelf) // ëŒ€í™”ì´ë²¤íŠ¸ì‹œ ì›€ì§ì„ ì œí•œ
         {
-            if (xDirection < 0)  // ÀÌµ¿¹æÇâ¿¡ µû¶ó Ä³¸¯ÅÍ ÁÂ¿ì ¹İÀü ¤¤
+            if (xDirection < 0)  // ì´ë™ë°©í–¥ì— ë”°ë¼ ìºë¦­í„° ì¢Œìš° ë°˜ì „ ã„´
             {
                 spriteRenderer.flipX = false;
                 playerAfterimageParticle.GetComponent<ParticleSystemRenderer>().flip = Vector3.zero;
@@ -110,13 +110,9 @@ public class moving : MonoBehaviour
             rigibody2D.MovePosition(rigibody2D.position + inputPosition * PlayerStatus.Instance.PlayerMoveSpeed * Time.fixedDeltaTime);
         }
     }
-    public void SetGameOver()
+    public void SetGameOver(bool _state)    // ê²Œì„ ì˜¤ë²„ ì‹œ ture, ë¶€í™œ ê°™ì€ ê³„ì† ì§„í–‰ ì‹œ false
     {
-        isGameOver = true;
-    }
-    public void SetGameLiving()
-    {
-        isGameOver = false;
+        isGameOver = _state;
     }
 
     IEnumerator OnWalkingParticle()

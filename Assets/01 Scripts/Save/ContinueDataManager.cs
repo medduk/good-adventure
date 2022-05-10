@@ -16,7 +16,7 @@ public class ContinueDataManager : MonoBehaviour
         PlayerPrefs.SetInt("ContinueGame", _isContinuousGame ? 1 : 0);
     }
 
-    public static void Setskip() // 전 게임으로부터 스킵을 했는지 안했는지 유지하기 위함 
+    public static void SetSkip() // 전 게임으로부터 스킵을 했는지 안했는지 유지하기 위함 
     {
         if (skip)
         {

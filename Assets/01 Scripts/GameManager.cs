@@ -181,7 +181,6 @@ public class GameManager : MonoBehaviour
         SHOPstart.gameObject.SetActive(false);
         DialogON();
     }
-
     void DialogON()
     {
         if (Who != null)
@@ -258,6 +257,6 @@ public class GameManager : MonoBehaviour
         pausebtn.gameObject.SetActive(_state);
         statusbtn.gameObject.SetActive(_state);
         minimapBtnTrigger.gameObject.SetActive(_state);
-        Time.timeScale = _state ? 1 : 0;
+        PlayerStatus.Instance.gameObject.GetComponent<moving>().SetGameOver(!_state);
     }
 }

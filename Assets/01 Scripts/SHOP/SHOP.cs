@@ -44,7 +44,7 @@ public class SHOP : MonoBehaviour
         {
             sum += Chance[c];
         }
-        if (gameObject.activeSelf) gameObject.SetActive(false);
+
     }
 
     private void OnEnable()

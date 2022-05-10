@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource tutorialBgm;
     public AudioSource gameBgm;
 
-    /*bossBGMÀº ³ªÁß¿¡ clipÀ» ¹è¿­·Î ¸¸µé¾î¼­ È®Àå °¡´É*/
+    /*bossBGMì€ ë‚˜ì¤‘ì— clipì„ ë°°ì—´ë¡œ ë§Œë“¤ì–´ì„œ í™•ì¥ ê°€ëŠ¥*/
     public AudioSource boss1Bgm;
 
     [Header("Menu & UI Effect Sound List")]
@@ -46,6 +46,8 @@ public class SoundManager : MonoBehaviour
     public Transform bgm;
     public Transform effect;
 
+    private bool isMute;
+
     private void Awake()
     {
         if (instance == null)
@@ -58,6 +60,8 @@ public class SoundManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+        isMute = false;
     }
 
     private void Start()
@@ -66,7 +70,7 @@ public class SoundManager : MonoBehaviour
         effects = effect.GetComponentsInChildren<AudioSource>();
     }
 
-    /* ¾ÀÀÌ ·Îµå µÉ ¶§ È£Ãâ. */
+    /* ì”¬ì´ ë¡œë“œ ë  ë•Œ í˜¸ì¶œ. */
     private void OnEnable()
     {
         nowPlaying = menuBgm;
@@ -114,6 +118,7 @@ public class SoundManager : MonoBehaviour
         {
             effects[i].mute = false;
         }
+        isMute = false;
     }
     public void SoundOFF()
     {
@@ -125,5 +130,11 @@ public class SoundManager : MonoBehaviour
         {
             effects[i].mute = true;
         }
+        isMute = true;
+    }
+
+    public bool GetisMute()
+    {
+        return isMute;
     }
 }

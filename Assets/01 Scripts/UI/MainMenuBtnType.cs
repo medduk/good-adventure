@@ -13,8 +13,6 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     public Transform buttonScale;
     Vector3 defaultScale;
 
-    bool sound = true;
-
     public TextMeshProUGUI skipbutton, Soundbutton;
 
     [Header("CanvasGroup")]
@@ -30,7 +28,8 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
     private void Start()
     {
         defaultScale = buttonScale.localScale;
-        SkipButtonText();
+        InitSkipButtonText();
+        InitSoundButtonText();
     }
 
     public void OnBtnClick()
@@ -47,7 +46,7 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Skip:
-                ContinueDataManager.Setskip();
+                ContinueDataManager.SetSkip();
                 if (ContinueDataManager.skip)
                 {
                     skipbutton.text = "[튜토리얼]켜기";
@@ -61,16 +60,14 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 SoundManager.Instance.buttonsSound.Play();
                 break;
             case BTNType.Sound:
-                if (sound)
+                if (!SoundManager.Instance.GetisMute())
                 {
-                    sound = false;
                     SoundManager.Instance.SoundOFF();
                     Soundbutton.text = "[소리]켜기";
                     soundStateImage.color = offStateColor;
                 }
                 else
                 {
-                    sound = true;
                     SoundManager.Instance.SoundON();
                     Soundbutton.text = "[소리]끄기";
                     soundStateImage.color = onStateColor;
@@ -113,7 +110,7 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
         buttonScale.localScale = defaultScale;
     }
 
-    public void SkipButtonText()
+    public void InitSkipButtonText()
     {
         try
         {
@@ -128,8 +125,31 @@ public class MainMenuBtnType : MonoBehaviour , IPointerEnterHandler, IPointerExi
                 tutorialSkipStateImage.color = onStateColor;
             }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
+            Debug.Log(e);
+            return;
+        }
+    }
+
+    public void InitSoundButtonText()
+    {
+        try
+        {
+            if (SoundManager.Instance.GetisMute())
+            {
+                Soundbutton.text = "[소리]켜기";
+                soundStateImage.color = offStateColor;
+            }
+            else
+            {
+                Soundbutton.text = "[소리]끄기";
+                soundStateImage.color = onStateColor;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
             return;
         }
     }

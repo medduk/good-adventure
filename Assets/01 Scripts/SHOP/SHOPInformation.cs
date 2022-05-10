@@ -6,8 +6,8 @@ using TMPro;
 
 public class SHOPInformation : MonoBehaviour
 {
-    public TextMeshProUGUI name;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI infoItemName;
+    public TextMeshProUGUI itemInformation;
     public Text canbuytext;
     public Image icon;
     public int slotnum;
@@ -49,8 +49,8 @@ public class SHOPInformation : MonoBehaviour
     {
         showcolor = Changecolor();
         icon.sprite = item.itemImage;
-        text.text = "<color=white>" + item.itemDescription + "</color>";
-        name.text = "<color=" + showcolor + ">" + item.itemName + "</color>";
+        itemInformation.text = "<color=white>" + item.itemDescription + "</color>";
+        infoItemName.text = "<color=" + showcolor + ">" + item.itemName + "</color>";
 
         if (canbuy)
             canbuytext.text = "구매";
