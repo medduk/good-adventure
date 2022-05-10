@@ -32301,7 +32301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   equip: []
-  Coin: 0
+  playerCoin: 0
   CoinText: {fileID: 492505254}
   UseCheck: 000000000000
 --- !u!114 &1599125451
