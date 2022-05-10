@@ -281,7 +281,7 @@ public class PlayerStatus : MonoBehaviour
         }
         if (!Loadgame)  // 이어하기 인지 확인후, 이어하기가 맞다면 100% 체력셋팅과 골드지급을 하지 않음
         {
-            inventory.instance.Coin = 0;
+            inventory.instance.playerCoin = 0;
             inventory.instance.CoinText.text = "0";
             inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
             playerCurHp = playerMaxHp;
@@ -310,7 +310,7 @@ public class PlayerStatus : MonoBehaviour
             animator.SetTrigger("IsHit");
             if (playerCurHp <= 0 && !isGameOver)
             {
-                PlayerPrefs.SetInt("coin", inventory.instance.Coin/10);
+                PlayerPrefs.SetInt("coin", inventory.instance.playerCoin/10);
                 isGameOver = true;
                 GameManager.Instance.SetGameOver();
                 SoundManager.Instance.GameOverSound.Play();
@@ -331,7 +331,7 @@ public class PlayerStatus : MonoBehaviour
         Resetplay();
         playerCurHp = playerMaxHp;
         HPText();
-        inventory.instance.Coin = 0;
+        inventory.instance.playerCoin = 0;
         inventory.instance.CoinText.text = "0";
         inventory.instance.GetOrGiveCoin(PlayerPrefs.GetInt("coin"));
     }
@@ -428,7 +428,7 @@ public class PlayerStatus : MonoBehaviour
         save.playerCurExp = playerCurExp;
         save.playerLevel = playerLevel;
 
-        save.Coin = inventory.instance.Coin;
+        save.Coin = inventory.instance.playerCoin;
 
         for(int k = 0; k < Levelablilty.Length; k++)
         {
