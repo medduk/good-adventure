@@ -6,6 +6,7 @@
 
 원터치 조작 2D 탑다운 로그라이크 RPG 게임입니다.                                                                              
 
+플레이 영상 : https://youtu.be/ZVxVY7_E_yc
 ## 목차
 
 <li><a href="#게임설명">게임 설명</a>
