@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] string iDName;
 
     private int unitHp = 200;
+    private bool isAlive;
 
     public Animator animator;
     private new Rigidbody2D rigidbody2D;
@@ -131,6 +132,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        isAlive = true;
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -183,7 +185,6 @@ public class Enemy : MonoBehaviour
         {
             PlayerStatus.Instance.TakeDamage(enemyDamage);
         }
-
     }
     private void FixedUpdate()  // 움직임과 관련된 함수, 플레이어를 인지하였으면 공격하기위해 플레이어위치로 이동함, 플레이어의 이동함수와 유사
     {
@@ -203,8 +204,8 @@ public class Enemy : MonoBehaviour
             rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * (enemyMoveSpeed * 0.1f));
         }
-        
     }
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -261,6 +262,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator DieEnemy()  // 죽을 때 발동
     {
         animator.SetTrigger("IsDie");
+        isAlive = false;
 
         circleCollider2D.enabled = false;
         enemyHpSlider.gameObject.SetActive(false);
@@ -278,7 +280,6 @@ public class Enemy : MonoBehaviour
             ItemBundle.instance.Drop(transform.position, dropItemId[DropIndex]);
             inventory.instance.GetOrGiveCoin(enemyGiveCoin);
         }
-
 
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
         Destroy(gameObject);      
@@ -327,5 +328,10 @@ public class Enemy : MonoBehaviour
     {
         circleCollider2D.enabled = false;
         StartCoroutine(DieEnemy());
+    }
+
+    public bool GetIsAlive()
+    {
+        return isAlive;
     }
 }

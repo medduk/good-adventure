@@ -9,7 +9,7 @@ public class MainFmAttack : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
-    public GameObject arrowPrefab;  // È­»ì ÇÁ¸®ÆÕÀ» ³Ö¾îÁà¾ß ÇÔ.
+    public GameObject arrowPrefab;  // í™”ì‚´ í”„ë¦¬íŒ¹ì„ ë„£ì–´ì¤˜ì•¼ í•¨.
     public Transform quiverObject;
     Queue<GameObject> quiver;
 
@@ -114,21 +114,20 @@ public class MainFmAttack : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(isGameOver)
         {
             return;
         }
-        timer += Time.deltaTime;    // °ø°İ µô·¹ÀÌ¸¦ À§ÇÑ Å¸ÀÌ¸Ó
+        timer += Time.deltaTime;    // ê³µê²© ë”œë ˆì´ë¥¼ ìœ„í•œ íƒ€ì´ë¨¸
 
         if (animator.GetBool("IsWalking"))
         {
             isAttacking = false;
         }
     }
-    public void SetGameLiving() // ºÎÈ° ½Ã °ø°İÇÏµµ·Ï.
+    public void SetGameLiving() // ë¶€í™œ ì‹œ ê³µê²©í•˜ë„ë¡.
     {
         isGameOver = false;
     }
@@ -142,6 +141,7 @@ public class MainFmAttack : MonoBehaviour
             if (timer >= PlayerStatus.Instance.PlayerAttackDelay && enemys.Count != 0 && !isGameOver)
             {
                 GameObject enemyObj = FindNearestObject(enemys);
+                if (!enemyObj.GetComponent<IEnemy>().GetIsAlive()) continue;
                 enemyPosition = enemyObj.GetComponent<Rigidbody2D>().position;
 
                 float attackDistance = Vector2.Distance(transform.position, enemyPosition);
@@ -175,8 +175,10 @@ public class MainFmAttack : MonoBehaviour
 
     IEnumerator ShootArrow()
     {
-        WaitForSeconds sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay * 0.55f);
+        /*ì• ë‹ˆë©”ì´ì…˜ê³¼ í™”ì‚´ ë°œì‚¬ íƒ€ì´ë°ì„ ë§ì¶°ì£¼ê¸° ìœ„í•œ ì½”ë“œ*/
+        WaitForSeconds sec = new WaitForSeconds(PlayerStatus.Instance.PlayerAttackDelay * 0.55f);   
         animator.SetFloat("AttackSpeed", 1 + (1 - PlayerStatus.Instance.PlayerAttackDelay) + (1 - PlayerStatus.Instance.PlayerAttackDelay));
+
         int chainNum = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.chainShot];
         yield return sec;
         while (isAttacking && chainNum + 1 > 0)
@@ -187,6 +189,7 @@ public class MainFmAttack : MonoBehaviour
             {
                 SaveQueue(arrowPoolingCount/2);
             }
+
             int multi = 0;
             if ((multi = PlayerStatus.Instance.playerSkills[(int)PlayerStatus.ShotSkills.multiShot]) > 0)
             {

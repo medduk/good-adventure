@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş ¾ÆÀÌÅÛ °³¼ö¿Í, »ç¸Á½Ã ´ëÈ­ ÀÌº¥Æ®¸¦ °í·ÁÇÏ¿© Ãß°¡ÇÑ ½ºÅ©¸³Æ®
+
+// Enemy ìŠ¤í¬ë¦½íŠ¸ì™€ ê±°ì˜ ìœ ì‚¬ í•˜ì§€ë§Œ ì§€ê¸‰ ì•„ì´í…œ ê°œìˆ˜ì™€, ì‚¬ë§ì‹œ ëŒ€í™” ì´ë²¤íŠ¸ë¥¼ ê³ ë ¤í•˜ì—¬ ì¶”ê°€í•œ ìŠ¤í¬ë¦½íŠ¸
+public class BossEnemy : MonoBehaviour, IEnemy
 {
     [SerializeField] string iDName;
+    private bool isAlive;
 
     public Animator animator;
     private new Rigidbody2D rigidbody2D;
@@ -25,7 +28,7 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
     [SerializeField] int[] dropItemId;
     [SerializeField] int[] dropIChance;
     private int sum = 0;
-    List<Enemy> enemyFriends = new List<Enemy>(); // ÀÏÁ¡¹üÀ§³» ÆÀÀÌ ¸ÂÀ»¶§ °¨Áö
+    List<Enemy> enemyFriends = new List<Enemy>(); // ì¼ì ë²”ìœ„ë‚´ íŒ€ì´ ë§ì„ë•Œ ê°ì§€
     List<BossEnemy> enemyBosses = new List<BossEnemy>();
 
     private bool backHpswitch = false;
@@ -36,10 +39,10 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
 
     public Sprite Icon;
 
-    /* ÆĞÅÏÀÇ °æ¿ìÀÇ ¼ö´Â Ãß°¡ °¡´É , ÀÏ¹İ ¸ó½ºÅÍ¿¡°Ôµµ ÀÌ·¯ÇÑ ¾Ë°í¸®ÁòÀ» »ç¿ë°¡´É */
-    public delegate void HitPattern(); // ÇÇ°İ ½Ã ÆĞÅÏ
+    /* íŒ¨í„´ì˜ ê²½ìš°ì˜ ìˆ˜ëŠ” ì¶”ê°€ ê°€ëŠ¥ , ì¼ë°˜ ëª¬ìŠ¤í„°ì—ê²Œë„ ì´ëŸ¬í•œ ì•Œê³ ë¦¬ì¦˜ì„ ì‚¬ìš©ê°€ëŠ¥ */
+    public delegate void HitPattern(); // í”¼ê²© ì‹œ íŒ¨í„´
     public HitPattern hitPattern;
-    public delegate void DiePattern(); // »ç¸Á ½Ã ÆĞÅÏ
+    public delegate void DiePattern(); // ì‚¬ë§ ì‹œ íŒ¨í„´
     public DiePattern diePattern;
 
     public string IDName
@@ -118,6 +121,8 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
 
     private void Awake()
     {
+        isAlive = true;
+
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -137,7 +142,7 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            if (collision.transform.tag == "Boss") //º¸½º¶ó¸é
+            if (collision.transform.tag == "Boss") //ë³´ìŠ¤ë¼ë©´
                 enemyBosses.Add(collision.gameObject.GetComponent<BossEnemy>());
             else
                 enemyFriends.Add(collision.gameObject.GetComponent<Enemy>());
@@ -201,7 +206,7 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
         enemyHpSlider = GameObject.Find("BossEnemyHPCanvas").GetComponent<BossHPbar>().GetBossHP;
         BackenemyHpSlider = GameObject.Find("BossEnemyHPCanvas").GetComponent<BossHPbar>().GetBossHPEffect;
         enemyHp = enemyMaxHp;
-        enemyHpSlider.value = 1f; // Ç® HP
+        enemyHpSlider.value = 1f; // í’€ HP
         BackenemyHpSlider.value = 1f;
 
     }
@@ -227,8 +232,6 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
         Hpbar();
         playerCheck = true;
 
-
-
         PlayerStatus.Instance.AbsorbHp(_damage.damage);
 
         for (int i = 0; i < enemyFriends.Count; i++)
@@ -252,7 +255,7 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
         else
         {
             animator.SetTrigger("bosshit");
-            if (hitPattern != null) hitPattern.Invoke(); // ÇÇ°İ½Ã ÆĞÅÏ ¹ßµ¿
+            if (hitPattern != null) hitPattern.Invoke(); // í”¼ê²©ì‹œ íŒ¨í„´ ë°œë™
             StartCoroutine(StopMove());
         }
     }
@@ -266,10 +269,12 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
 
     private void DieEnemy()
     {
+        isAlive = false;
+
         GameManager.Instance.CloseBossHpbar();
         MainFmAttack.Instance.RemoveDeadEnemy(gameObject);
         inventory.instance.GetOrGiveCoin(enemyGiveCoin);
-        for (int i = 0; i<dropCount; i++)  // º¸½º¸ó½ºÅÍÀÇ °æ¿ì ¾ÆÀÌÅÛ Áö±Ş °³¼ö°¡ ¸¹´Ù.
+        for (int i = 0; i<dropCount; i++)  // ë³´ìŠ¤ëª¬ìŠ¤í„°ì˜ ê²½ìš° ì•„ì´í…œ ì§€ê¸‰ ê°œìˆ˜ê°€ ë§ë‹¤.
         {
             int id = dropItemId[DropItem()];
             Vector3 P = gameObject.transform.position;
@@ -307,5 +312,10 @@ public class BossEnemy : MonoBehaviour // Enemy ½ºÅ©¸³Æ®¿Í °ÅÀÇ À¯»ç ÇÏÁö¸¸ Áö±Ş
             i++;
         }
         return i;
+    }
+
+    public bool GetIsAlive()
+    {
+        return isAlive;
     }
 }
