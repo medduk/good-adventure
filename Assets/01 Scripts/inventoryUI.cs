@@ -32,7 +32,7 @@ public class inventoryUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void RedrawSlotUI()  // ¾ÆÀÌÅÛ¿¡ µû¶óUI ±×¸®±â , ¸®½ºÆ®¸¦ ÅëÇÏ¿© ¾ÆÀÌÅÛÀ» °ü¸®ÇÏ±â ¶§¹®¿¡ ÀüºÎ Áö¿ü´Ù°¡ ´Ù½Ã ±×¸®´Â ¹æ½ÄÀ¸·Î Ã¤ÅÃ
+    void RedrawSlotUI()  // ì•„ì´í…œì— ë”°ë¼UI ê·¸ë¦¬ê¸° , ë¦¬ìŠ¤íŠ¸ë¥¼ í†µí•˜ì—¬ ì•„ì´í…œì„ ê´€ë¦¬í•˜ê¸° ë•Œë¬¸ì— ì „ë¶€ ì§€ì› ë‹¤ê°€ ë‹¤ì‹œ ê·¸ë¦¬ëŠ” ë°©ì‹ìœ¼ë¡œ ì±„íƒ
     {
         for(int i=0; i<slots.Length; i++)
         {
@@ -45,7 +45,7 @@ public class inventoryUI : MonoBehaviour
             slots[i].UpdateSlotUI();
         }
     }
-    void RedrawEquipUI() // ¾ÆÀÌÅÛ¿¡ µû¶óUI ±×¸®±â
+    void RedrawEquipUI() // ì•„ì´í…œì— ë”°ë¼UI ê·¸ë¦¬ê¸°
     {
         for (int i = 0; i < equips.Length; i++)
         {
