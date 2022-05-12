@@ -102,7 +102,7 @@ public class StageManager : MonoBehaviour
         }
 
         if (_mapIndex < 0)
-        {   
+        {
             randomMapIndex = UnityEngine.Random.Range(0, chapters[chapterIndex].stagePrefabs[stageIndex].transform.childCount);
             mapIndex = randomMapIndex;
         }
@@ -115,8 +115,10 @@ public class StageManager : MonoBehaviour
         mapVal.SetParent(mapManager);
         mapVal.gameObject.SetActive(true);
 
-        ChangeStageSound(mapVal.name.ToLower());    //소리변경
-
+        if (SoundManager.Instance != null)
+        {
+            ChangeStageSound(mapVal.name.ToLower());    //소리변경
+        }
         StartCoroutine(CheckEnemyLoading());
     }
 

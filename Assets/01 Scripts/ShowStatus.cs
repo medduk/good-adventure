@@ -49,7 +49,7 @@ public class ShowStatus : MonoBehaviour
 
             ColorChange();
 
-            Text.text = "공격력 : <color="+C[0]+">" +status.PlayerDamage+ "</color>\n" + "공격속도 : <color=" + C[1] + ">" + string.Format("{0:F3}",status.PlayerAttackDelay) + "</color>/s\n" + "방어력 : <color=" + C[2] + ">" + status.PlayerDefense + "</color>\n" + "이동속도 : <color=" + C[3] + ">" + status.PlayerMoveSpeed + "</color>\n" + "크리티컬 확률\n<color=" + C[4] + ">" + status.CriticalProbability + "</color>%\n" + "크리티컬 데미지\n<color=" + C[5] + ">" + status.CriticalDamage + "</color>%\n";
+            Text.text = "공격력 : <color="+C[0]+">" +status.PlayerDamage+ "</color>\n" + "공격속도 : <color=" + C[1] + ">" + string.Format("{0:F2}",status.PlayerAttackDelay) + "</color>/s\n" + "방어력 : <color=" + C[2] + ">" + status.PlayerDefense + "</color>\n" + "이동속도 : <color=" + C[3] + ">" + status.PlayerMoveSpeed + "</color>\n" + "크리티컬 확률\n<color=" + C[4] + ">" + status.CriticalProbability + "</color>%\n" + "크리티컬 데미지\n<color=" + C[5] + ">" + status.CriticalDamage + "</color>%\n";
             if (status.AbsorptionOfVitality != 0)
                 Text.text += "흡혈력 : <color=" + C[6] + ">" + string.Format("{0:F2}", status.AbsorptionOfVitality * 100) + "</color>%"; 
         }        

@@ -56,6 +56,14 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 5effce9b6800dfb48bb22103f622c7b2, type: 3}
     - {fileID: 2800000, guid: 644b464031e8d9b4d8829452a3d021c6, type: 3}
     - {fileID: 2800000, guid: 2fab7a4301afd7a41a8fb88a73e15957, type: 3}
+    - {fileID: 2800000, guid: 6b9d034a47d5c5a4bb36d66a761252e9, type: 3}
+    - {fileID: 2800000, guid: 7d56be76dc3369a44a2f87492ee4e789, type: 3}
+    - {fileID: 2800000, guid: e694015e0d4acf04ea201fb8cec24765, type: 3}
+    - {fileID: 2800000, guid: 3691510575d52024780a0b0bf44a1e1b, type: 3}
+    - {fileID: 2800000, guid: 1d91186e772eade44ae9a54fa76eef03, type: 3}
+    - {fileID: 2800000, guid: 34c2e7fb35194de4fb998ed14b6266cb, type: 3}
+    - {fileID: 2800000, guid: 0f7809df1adf4064f894b2a84ee30155, type: 3}
+    - {fileID: 2800000, guid: 8f971b9b09c58a44e9a49cd460647001, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}

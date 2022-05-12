@@ -1,43 +1,64 @@
 fileFormatVersion: 2
-guid: 50cf2f199866a1645badb5f9e300ad42
+guid: 8f971b9b09c58a44e9a49cd460647001
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4590559774151084187
-    second: NPC_SHOP_standing_0
+      213: 3560216215835286690
+    second: WoodMonster_0
   - first:
-      213: 7312225724604871015
-    second: NPC_SHOP_standing_1
+      213: 3576511483612361582
+    second: WoodMonster_1
   - first:
-      213: 7257892885748672585
-    second: NPC_SHOP_standing_2
+      213: -4988040607081275259
+    second: WoodMonster_2
   - first:
-      213: 3724119217034822621
-    second: NPC_SHOP_standing_3
+      213: 6798164786714963938
+    second: WoodMonster_3
   - first:
-      213: -1765238045816029173
-    second: NPC_SHOP_standing_4
+      213: -6078529582501306073
+    second: WoodMonster_4
   - first:
-      213: -7655933653719049067
-    second: NPC_SHOP_standing_5
+      213: -1777202551522368305
+    second: WoodMonster_5
   - first:
-      213: 3006029918811652045
-    second: NPC_SHOP_standing_6
+      213: 5996726395775442651
+    second: WoodMonster_6
   - first:
-      213: 2996378205023850253
-    second: NPC_SHOP_standing_7
+      213: -3345955584576190678
+    second: WoodMonster_7
   - first:
-      213: -150452017399768788
-    second: NPC_SHOP_standing_8
+      213: -5208408755711384148
+    second: WoodMonster_8
   - first:
-      213: 5741525301569777741
-    second: NPC_SHOP_standing_9
+      213: 3938567163800374287
+    second: WoodMonster_9
   - first:
-      213: -8521247229841658307
-    second: NPC_SHOP_standing_10
+      213: -2739987849879870505
+    second: WoodMonster_10
   - first:
-      213: 694696018851344974
-    second: NPC_SHOP_standing_11
+      213: -853556460001997173
+    second: WoodMonster_11
+  - first:
+      213: 3054170016479097177
+    second: WoodMonster_12
+  - first:
+      213: 6927721914823117927
+    second: WoodMonster_13
+  - first:
+      213: 7174596370372805054
+    second: WoodMonster_14
+  - first:
+      213: -8462556472835643256
+    second: WoodMonster_15
+  - first:
+      213: -9047282572022365166
+    second: WoodMonster_16
+  - first:
+      213: -1825647219526224268
+    second: WoodMonster_17
+  - first:
+      213: 484216156168824280
+    second: WoodMonster_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +160,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC_SHOP_standing_0
+      name: WoodMonster_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac927419cd686130800000000000000
+      internalID: 3560216215835286690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63f1d3ce3252a130800000000000000
+      internalID: 3576511483612361582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58062b1ee7be6cab0800000000000000
+      internalID: -4988040607081275259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2efe6b4fadee75e50800000000000000
+      internalID: 6798164786714963938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_4
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 567f68d053e0b40c0800000000000000
-      internalID: -4590559774151084187
+      spriteID: 7216e46dc89b4aba0800000000000000
+      internalID: -6078529582501306073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_1
+      name: WoodMonster_5
       rect:
         serializedVersion: 2
         x: 32
@@ -174,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 761fb800e8e3a7560800000000000000
-      internalID: 7312225724604871015
+      spriteID: fc4679602bb1657e0800000000000000
+      internalID: -1777202551522368305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_2
+      name: WoodMonster_6
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +300,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94862e8202739b460800000000000000
-      internalID: 7257892885748672585
+      spriteID: bde576b82e6a83350800000000000000
+      internalID: 5996726395775442651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_3
+      name: WoodMonster_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a270a1b9f17c091d0800000000000000
+      internalID: -3345955584576190678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_8
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3019852babea330800000000000000
-      internalID: 3724119217034822621
+      spriteID: ca5e9cef4d308b7b0800000000000000
+      internalID: -5208408755711384148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_4
+      name: WoodMonster_9
       rect:
         serializedVersion: 2
         x: 32
@@ -237,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b008127995d9087e0800000000000000
-      internalID: -1765238045816029173
+      spriteID: f0cc652d7f998a630800000000000000
+      internalID: 3938567163800374287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_5
+      name: WoodMonster_10
       rect:
         serializedVersion: 2
         x: 64
@@ -258,14 +384,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c1e12a7e8a0c590800000000000000
-      internalID: -7655933653719049067
+      spriteID: 7d3260f419b99f9d0800000000000000
+      internalID: -2739987849879870505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_6
+      name: WoodMonster_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e47d50cee8724f0800000000000000
+      internalID: -853556460001997173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_12
       rect:
         serializedVersion: 2
         x: 0
@@ -279,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcff6f6d84097b920800000000000000
-      internalID: 3006029918811652045
+      spriteID: 951b2e3c277926a20800000000000000
+      internalID: 3054170016479097177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_7
+      name: WoodMonster_13
       rect:
         serializedVersion: 2
         x: 32
@@ -300,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0f4b2b1a16459920800000000000000
-      internalID: 2996378205023850253
+      spriteID: 76c88bb7066342060800000000000000
+      internalID: 6927721914823117927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_8
+      name: WoodMonster_14
       rect:
         serializedVersion: 2
         x: 64
@@ -321,14 +468,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c295523ffac79edf0800000000000000
-      internalID: -150452017399768788
+      spriteID: eb1c0eed269419360800000000000000
+      internalID: 7174596370372805054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_9
+      name: WoodMonster_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888e2f879b5fe8a80800000000000000
+      internalID: -8462556472835643256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodMonster_16
       rect:
         serializedVersion: 2
         x: 0
@@ -342,14 +510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d40fbf487defdaf40800000000000000
-      internalID: 5741525301569777741
+      spriteID: 21446007f68917280800000000000000
+      internalID: -9047282572022365166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_10
+      name: WoodMonster_17
       rect:
         serializedVersion: 2
         x: 32
@@ -363,14 +531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3ea10ebac27eb980800000000000000
-      internalID: -8521247229841658307
+      spriteID: 476b5fac68ff9a6e0800000000000000
+      internalID: -1825647219526224268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_11
+      name: WoodMonster_18
       rect:
         serializedVersion: 2
         x: 64
@@ -384,8 +552,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e423386395e04a900800000000000000
-      internalID: 694696018851344974
+      spriteID: 8d5a2fe470848b600800000000000000
+      internalID: 484216156168824280
       vertices: []
       indices: 
       edges: []

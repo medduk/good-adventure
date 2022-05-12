@@ -1,43 +1,58 @@
 fileFormatVersion: 2
-guid: 50cf2f199866a1645badb5f9e300ad42
+guid: 7d56be76dc3369a44a2f87492ee4e789
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4590559774151084187
-    second: NPC_SHOP_standing_0
+      213: 7532992584920527738
+    second: BigSlime_Part2_0
   - first:
-      213: 7312225724604871015
-    second: NPC_SHOP_standing_1
+      213: 1089687344074554774
+    second: BigSlime_Part2_1
   - first:
-      213: 7257892885748672585
-    second: NPC_SHOP_standing_2
+      213: -800533247292859494
+    second: BigSlime_Part2_2
   - first:
-      213: 3724119217034822621
-    second: NPC_SHOP_standing_3
+      213: -9000242849374170062
+    second: BigSlime_Part2_3
   - first:
-      213: -1765238045816029173
-    second: NPC_SHOP_standing_4
+      213: -713382029910616248
+    second: BigSlime_Part2_4
   - first:
-      213: -7655933653719049067
-    second: NPC_SHOP_standing_5
+      213: -8997468480953676019
+    second: BigSlime_Part2_5
   - first:
-      213: 3006029918811652045
-    second: NPC_SHOP_standing_6
+      213: -3707071201984086957
+    second: BigSlime_Part2_6
   - first:
-      213: 2996378205023850253
-    second: NPC_SHOP_standing_7
+      213: 5200367802868238520
+    second: BigSlime_Part2_7
   - first:
-      213: -150452017399768788
-    second: NPC_SHOP_standing_8
+      213: -6711952245467254382
+    second: BigSlime_Part2_8
   - first:
-      213: 5741525301569777741
-    second: NPC_SHOP_standing_9
+      213: -7375134573057336834
+    second: BigSlime_Part2_9
   - first:
-      213: -8521247229841658307
-    second: NPC_SHOP_standing_10
+      213: -4987300218582926222
+    second: BigSlime_Part2_10
   - first:
-      213: 694696018851344974
-    second: NPC_SHOP_standing_11
+      213: 6750449909051429370
+    second: BigSlime_Part2_11
+  - first:
+      213: 6915983685032356752
+    second: BigSlime_Part2_12
+  - first:
+      213: 528186168117378943
+    second: BigSlime_Part2_13
+  - first:
+      213: -6319645637830580608
+    second: BigSlime_Part2_14
+  - first:
+      213: 8433066023966356236
+    second: BigSlime_Part2_15
+  - first:
+      213: -5082904917569243393
+    second: BigSlime_Part2_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +154,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC_SHOP_standing_0
+      name: BigSlime_Part2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73f6df28d09a8860800000000000000
+      internalID: 7532992584920527738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d7dc3bdd85f1f00800000000000000
+      internalID: 1089687344074554774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b1834c04fe3e4f0800000000000000
+      internalID: -800533247292859494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2349dc650d6b81380800000000000000
+      internalID: -9000242849374170062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 567f68d053e0b40c0800000000000000
-      internalID: -4590559774151084187
+      spriteID: 847d70ec2de8916f0800000000000000
+      internalID: -713382029910616248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_1
+      name: BigSlime_Part2_5
       rect:
         serializedVersion: 2
         x: 32
@@ -174,14 +273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 761fb800e8e3a7560800000000000000
-      internalID: 7312225724604871015
+      spriteID: d0f8bf25612922380800000000000000
+      internalID: -8997468480953676019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_2
+      name: BigSlime_Part2_6
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +294,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94862e8202739b460800000000000000
-      internalID: 7257892885748672585
+      spriteID: 35c78a8f166dd8cc0800000000000000
+      internalID: -3707071201984086957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_3
+      name: BigSlime_Part2_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b80757c6fa6b2840800000000000000
+      internalID: 5200367802868238520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_8
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3019852babea330800000000000000
-      internalID: 3724119217034822621
+      spriteID: 291f9838efa5ad2a0800000000000000
+      internalID: -6711952245467254382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_4
+      name: BigSlime_Part2_9
       rect:
         serializedVersion: 2
         x: 32
@@ -237,14 +357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b008127995d9087e0800000000000000
-      internalID: -1765238045816029173
+      spriteID: ef917325e2246a990800000000000000
+      internalID: -7375134573057336834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_5
+      name: BigSlime_Part2_10
       rect:
         serializedVersion: 2
         x: 64
@@ -258,14 +378,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c1e12a7e8a0c590800000000000000
-      internalID: -7655933653719049067
+      spriteID: 27cf22300ec89cab0800000000000000
+      internalID: -4987300218582926222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_6
+      name: BigSlime_Part2_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af114174d6a6ead50800000000000000
+      internalID: 6750449909051429370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_12
       rect:
         serializedVersion: 2
         x: 0
@@ -279,14 +420,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcff6f6d84097b920800000000000000
-      internalID: 3006029918811652045
+      spriteID: 09b20c2e4828aff50800000000000000
+      internalID: 6915983685032356752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_7
+      name: BigSlime_Part2_13
       rect:
         serializedVersion: 2
         x: 32
@@ -300,14 +441,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0f4b2b1a16459920800000000000000
-      internalID: 2996378205023850253
+      spriteID: f7f39ed758e745700800000000000000
+      internalID: 528186168117378943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_8
+      name: BigSlime_Part2_14
       rect:
         serializedVersion: 2
         x: 64
@@ -321,14 +462,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c295523ffac79edf0800000000000000
-      internalID: -150452017399768788
+      spriteID: 086e2ca76cb1c48a0800000000000000
+      internalID: -6319645637830580608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_SHOP_standing_9
+      name: BigSlime_Part2_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c033ee55ed4480570800000000000000
+      internalID: 8433066023966356236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigSlime_Part2_16
       rect:
         serializedVersion: 2
         x: 0
@@ -342,50 +504,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d40fbf487defdaf40800000000000000
-      internalID: 5741525301569777741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_SHOP_standing_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3ea10ebac27eb980800000000000000
-      internalID: -8521247229841658307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_SHOP_standing_11
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e423386395e04a900800000000000000
-      internalID: 694696018851344974
+      spriteID: ff6f23968e4e579b0800000000000000
+      internalID: -5082904917569243393
       vertices: []
       indices: 
       edges: []

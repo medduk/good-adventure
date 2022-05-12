@@ -305,8 +305,10 @@ public class PlayerStatus : MonoBehaviour
             playerCurHp -= (int)(damage *(1- (float)playerDefense/(playerDefense+100)));
             // 100은 방어계수.
 
-            SoundManager.Instance.playerHitSound.Play();
-
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.playerHitSound.Play();
+            }
             animator.SetTrigger("IsHit");
             if (playerCurHp <= 0 && !isGameOver)
             {

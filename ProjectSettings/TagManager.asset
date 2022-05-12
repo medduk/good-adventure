@@ -28,7 +28,7 @@ TagManager:
   - Wall
   - NPC
   - MiniMap
-  - 
+  - OnlyPlayerWall
   - 
   - 
   - 

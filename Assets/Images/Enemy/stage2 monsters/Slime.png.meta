@@ -1,55 +1,85 @@
 fileFormatVersion: 2
-guid: 75db1dba8b765b04f8e82d386469858d
+guid: 3691510575d52024780a0b0bf44a1e1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6179494159559831270
-    second: Lobby_cute_0
+      213: -7282886668606283007
+    second: Slime_0
   - first:
-      213: 3313179154372198327
-    second: Lobby_cute_1
+      213: 4518187702968751635
+    second: Slime_1
   - first:
-      213: 2483699463136221643
-    second: Lobby_cute_2
+      213: 7526866347251117655
+    second: Slime_2
   - first:
-      213: -5877799970918606867
-    second: Lobby_cute_3
+      213: 169598284321861141
+    second: Slime_3
   - first:
-      213: -6545796701204999843
-    second: Lobby_cute_4
+      213: -518775653469539935
+    second: Slime_4
   - first:
-      213: -8639150004995423999
-    second: Lobby_cute_5
+      213: -1066590377825042928
+    second: Slime_5
   - first:
-      213: -1874307950403858010
-    second: Lobby_cute_6
+      213: 5262606648162847603
+    second: Slime_6
   - first:
-      213: -1047364027758781277
-    second: Lobby_cute_7
+      213: -3373964639730116074
+    second: Slime_7
   - first:
-      213: 4167871650546040277
-    second: Lobby_cute_8
+      213: -707163016819737269
+    second: Slime_8
   - first:
-      213: -644333793086411782
-    second: Lobby_cute_9
+      213: 2083464259699928970
+    second: Slime_9
   - first:
-      213: 1336321791172853014
-    second: Lobby_cute_10
+      213: 8838806020795055057
+    second: Slime_10
   - first:
-      213: -3589582515382241544
-    second: Lobby_cute_11
+      213: -3032925496964778609
+    second: Slime_11
   - first:
-      213: 336204589331872658
-    second: Lobby_cute_12
+      213: -1882073603415319637
+    second: Slime_12
   - first:
-      213: -7026713558111740518
-    second: Lobby_cute_13
+      213: 1599567777623568899
+    second: Slime_13
   - first:
-      213: -3289890355764385348
-    second: Lobby_cute_14
+      213: -773282774266647859
+    second: Slime_14
   - first:
-      213: 2166834737647525762
-    second: Lobby_cute_15
+      213: -7544336160599235023
+    second: Slime_15
+  - first:
+      213: -1913522799695686539
+    second: Slime_16
+  - first:
+      213: 5887108771726047448
+    second: Slime_17
+  - first:
+      213: 3323481216744261518
+    second: Slime_18
+  - first:
+      213: 8420075072688829407
+    second: Slime_19
+  - first:
+      213: 1852280354991095362
+    second: Slime_20
+  - first:
+      213: -33350355829746649
+    second: Slime_21
+  - first:
+      213: 2108785595669284804
+    second: Slime_22
+  - first:
+      213: -7984460838228542658
+    second: Slime_23
+  - first:
+      213: 3410716205270383756
+    second: Slime_24
+  - first:
+      213: -3101763973853425863
+    second: Slime_25
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -151,7 +181,217 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lobby_cute_0
+      name: Slime_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1036b4a492dfdea90800000000000000
+      internalID: -7282886668606283007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3169df707c3d3be30800000000000000
+      internalID: 4518187702968751635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75eaeb3501dc47860800000000000000
+      internalID: 7526866347251117655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e2583bdb88a5200800000000000000
+      internalID: 169598284321861141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1b3d0ba40fcc8f0800000000000000
+      internalID: -518775653469539935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e73e0d3b5b231f0800000000000000
+      internalID: -1066590377825042928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b0b503dd8880940800000000000000
+      internalID: 5262606648162847603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a582449054d21d0800000000000000
+      internalID: -3373964639730116074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d7a20abf6af26f0800000000000000
+      internalID: -707163016819737269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fe2ad94b3f9ec10800000000000000
+      internalID: 2083464259699928970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_10
       rect:
         serializedVersion: 2
         x: 0
@@ -165,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a11d5df5dc60e3aa0800000000000000
-      internalID: -6179494159559831270
+      spriteID: 1dbb214fe3fb9aa70800000000000000
+      internalID: 8838806020795055057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_1
+      name: Slime_11
       rect:
         serializedVersion: 2
         x: 32
@@ -186,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bf759d03e6cafd20800000000000000
-      internalID: 3313179154372198327
+      spriteID: f8570336452e8e5d0800000000000000
+      internalID: -3032925496964778609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_2
+      name: Slime_12
       rect:
         serializedVersion: 2
         x: 64
@@ -207,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc91015a08fd77220800000000000000
-      internalID: 2483699463136221643
+      spriteID: bab5a43870881e5e0800000000000000
+      internalID: -1882073603415319637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_3
+      name: Slime_13
       rect:
         serializedVersion: 2
         x: 96
@@ -228,14 +468,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de75890811cdd6ea0800000000000000
-      internalID: -5877799970918606867
+      spriteID: 302f96b3b6ec23610800000000000000
+      internalID: 1599567777623568899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_4
+      name: Slime_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca68e0f96fb445f0800000000000000
+      internalID: -773282774266647859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_15
       rect:
         serializedVersion: 2
         x: 0
@@ -249,14 +510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5190c4d498a825a0800000000000000
-      internalID: -6545796701204999843
+      spriteID: 1362959cb322d4790800000000000000
+      internalID: -7544336160599235023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_5
+      name: Slime_16
       rect:
         serializedVersion: 2
         x: 32
@@ -270,14 +531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1010fe6b7d29b1880800000000000000
-      internalID: -8639150004995423999
+      spriteID: 5741786e62dc175e0800000000000000
+      internalID: -1913522799695686539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_6
+      name: Slime_17
       rect:
         serializedVersion: 2
         x: 64
@@ -291,14 +552,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a1dc7089de1df5e0800000000000000
-      internalID: -1874307950403858010
+      spriteID: 8d831d49c3633b150800000000000000
+      internalID: 5887108771726047448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_7
+      name: Slime_18
       rect:
         serializedVersion: 2
         x: 96
@@ -312,14 +573,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ac5ae647f30771f0800000000000000
-      internalID: -1047364027758781277
+      spriteID: e8789bdde806f1e20800000000000000
+      internalID: 3323481216744261518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_8
+      name: Slime_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd33db9caad1ad470800000000000000
+      internalID: 8420075072688829407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_20
       rect:
         serializedVersion: 2
         x: 0
@@ -333,14 +615,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ddb7301f2147d930800000000000000
-      internalID: 4167871650546040277
+      spriteID: 24ebda74b2f94b910800000000000000
+      internalID: 1852280354991095362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_9
+      name: Slime_21
       rect:
         serializedVersion: 2
         x: 32
@@ -354,14 +636,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbed4a34ddde07f0800000000000000
-      internalID: -644333793086411782
+      spriteID: 72492af2704898ff0800000000000000
+      internalID: -33350355829746649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_10
+      name: Slime_22
       rect:
         serializedVersion: 2
         x: 64
@@ -375,14 +657,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61db874c6919b8210800000000000000
-      internalID: 1336321791172853014
+      spriteID: 4c704519359e34d10800000000000000
+      internalID: 2108785595669284804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_11
+      name: Slime_23
       rect:
         serializedVersion: 2
         x: 96
@@ -396,14 +678,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f630be78bd3f2ec0800000000000000
-      internalID: -3589582515382241544
+      spriteID: e3bbe5ecb2f713190800000000000000
+      internalID: -7984460838228542658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lobby_cute_12
+      name: Slime_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c3fc4615c455f20800000000000000
+      internalID: 3410716205270383756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_25
       rect:
         serializedVersion: 2
         x: 0
@@ -417,71 +720,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29b7bfeea407aa400800000000000000
-      internalID: 336204589331872658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lobby_cute_13
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9d145e7f391c7e90800000000000000
-      internalID: -7026713558111740518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lobby_cute_14
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb92eaae626f752d0800000000000000
-      internalID: -3289890355764385348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lobby_cute_15
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28f1578a6b4221e10800000000000000
-      internalID: 2166834737647525762
+      spriteID: 93fcc51891254f4d0800000000000000
+      internalID: -3101763973853425863
       vertices: []
       indices: 
       edges: []

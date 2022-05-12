@@ -184,7 +184,9 @@ public class MainFmAttack : MonoBehaviour
         while (isAttacking && chainNum + 1 > 0)
         {
             chainNum--;
+            
             SoundManager.Instance.arrowShootSound.Play();
+
             if (quiver.Count <= arrowPoolingCount / 2)
             {
                 SaveQueue(arrowPoolingCount/2);
