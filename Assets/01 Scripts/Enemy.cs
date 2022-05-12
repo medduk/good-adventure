@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] int enemyGiveExp = 30; // 처치시 지급경험치
     [SerializeField] int enemyGiveCoin = 30; // 처치시 지급골드
 
+    [SerializeField] float dietiming;
+
     [SerializeField] int[] dropItemId;  // 아이템 드랍테이블
     [SerializeField] int[] dropIChance; // 아이템 드랍확률
     private int sum = 0;  // 아이템 확률계산용
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour, IEnemy
     private bool playerCheck = false;  // 플레이어 확인여부
     private bool stopMove = false;
     public bool cangiveItem = true;
+    public bool pattening = false;
     private GameObject player;
     private Vector3 playerDir;
 
@@ -188,7 +191,7 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     private void FixedUpdate()  // 움직임과 관련된 함수, 플레이어를 인지하였으면 공격하기위해 플레이어위치로 이동함, 플레이어의 이동함수와 유사
     {
-        if (playerCheck && !stopMove)
+        if (playerCheck && !stopMove && !pattening)
         {
             animator.SetBool("IsWalking", true);
             playerDir = player.transform.position - transform.position;
@@ -254,7 +257,7 @@ public class Enemy : MonoBehaviour, IEnemy
         if (enemyHp <= 0) StartCoroutine(DieEnemy());
         else
         {
-            animator.SetTrigger("IsHit");
+            if (!pattening) animator.SetTrigger("IsHit");
             StartCoroutine(StopMove());
         }
     }
@@ -272,7 +275,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
         PlayerStatus.Instance.GainExp(enemyGiveExp);
  
-        sec = new WaitForSeconds(0.3f);
+        sec = new WaitForSeconds(dietiming);
         yield return sec;
         int DropIndex = DropItem();
         if (cangiveItem) // 만약 아이템을 주는 몬스터 라면

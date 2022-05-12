@@ -16,7 +16,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] int playerMaxHp = 100; //최대체력
     [SerializeField] int playerCurHp;       //현재체력
     [SerializeField] int playerDamage = 10;     // 공격력
-    [SerializeField] float playerMoveSpeed = 2f;    // 이속
+    [SerializeField] float playerMoveSpeed = 2f; // 이속
+    public float playerMoveSpeedPer = 1f; // 각 효과에 변화 될 이속배율
     [SerializeField] float playerAttackDelay = 1f;    // 실제공속
     [SerializeField] float playerChangeAttackDelay =1f; // 누적공속
 
@@ -96,7 +97,7 @@ public class PlayerStatus : MonoBehaviour
         }
         get
         {
-            return playerMoveSpeed;
+            return playerMoveSpeed * playerMoveSpeedPer;
         }
     }
 

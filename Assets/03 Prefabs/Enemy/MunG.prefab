@@ -928,6 +928,7 @@ MonoBehaviour:
   enemyDamage: 10
   enemyGiveExp: 50
   enemyGiveCoin: 3000
+  dietiming: 0.3
   dropItemId: 000000001227000013270000fa2a0000
   dropIChance: 46000000120000000900000003000000
   cangiveItem: 1

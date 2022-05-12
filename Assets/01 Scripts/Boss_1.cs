@@ -74,6 +74,7 @@ public class Boss_1 : MonoBehaviour
 
     IEnumerator Pattern1()
     {
+        bossEnemy.pattening = true;
         bossEnemy.animator.SetBool("pattern1", true);
         P1 = Instantiate(Patterns[0], transform.position, Quaternion.identity);
         yield return new WaitForSeconds(warningTime);
@@ -82,6 +83,7 @@ public class Boss_1 : MonoBehaviour
         Destroy(P1);
         playPattern1 = false;
         bossEnemy.animator.SetBool("pattern1", false);
+        bossEnemy.pattening = false;
         GameObject b = Instantiate(enemy[0], new Vector3(transform.position.x, transform.position.y + 1.75f), Quaternion.identity);
         b.GetComponent<Enemy>().EnemyGiveExp = 0;
         b.GetComponent<Enemy>().cangiveItem = false;

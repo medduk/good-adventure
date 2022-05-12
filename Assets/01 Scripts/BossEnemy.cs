@@ -31,6 +31,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     List<Enemy> enemyFriends = new List<Enemy>(); // 일점범위내 팀이 맞을때 감지
     List<BossEnemy> enemyBosses = new List<BossEnemy>();
 
+    public bool pattening = false;
     private bool backHpswitch = false;
     private bool playerCheck = false;
     private bool stopMove = false;
@@ -119,6 +120,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         }
     }
 
+
     private void Awake()
     {
         isAlive = true;
@@ -181,7 +183,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     }
     private void FixedUpdate()
     {
-        if (playerCheck && !stopMove)
+        if (playerCheck && !stopMove && !pattening)
         {
             playerDir = player.transform.position - transform.position;
             if (playerDir.x > 0)
@@ -254,7 +256,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         }
         else
         {
-            animator.SetTrigger("bosshit");
+            if (!pattening) animator.SetTrigger("bosshit");
             if (hitPattern != null) hitPattern.Invoke(); // 피격시 패턴 발동
             StartCoroutine(StopMove());
         }

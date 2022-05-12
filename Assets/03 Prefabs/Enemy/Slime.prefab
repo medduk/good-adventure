@@ -874,8 +874,9 @@ GameObject:
   - component: {fileID: 3269883360845180366}
   - component: {fileID: 3269883360845180367}
   - component: {fileID: 3269883360845180400}
+  - component: {fileID: 5717758308567396829}
   m_Layer: 8
-  m_Name: Dustuk
+  m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -939,7 +940,7 @@ SpriteRenderer:
   m_SortingLayerID: -702356139
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7064094684690586542, guid: bc5905f372c8f9a4e868e11563f2b8b1, type: 3}
+  m_Sprite: {fileID: -7282886668606283007, guid: 3691510575d52024780a0b0bf44a1e1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1023,16 +1024,29 @@ MonoBehaviour:
   enemyHpSlider: {fileID: 3269883361432978557}
   BackenemyHpSlider: {fileID: 4817877942221959301}
   UnitHpshow: {fileID: 604910213208478534}
-  enemyMaxHp: 40
+  enemyMaxHp: 100
   enemyHp: 0
   enemyMoveSpeed: 10
-  enemyDamage: 10
-  enemyGiveExp: 30
+  enemyDamage: 20
+  enemyGiveExp: 50
   enemyGiveCoin: 1000
-  dietiming: 0.3
+  dietiming: 0.5
   dropItemId: 00000000112700001227000013270000f92a0000
   dropIChance: 460000000c000000090000000600000003000000
   cangiveItem: 1
+  pattening: 0
+--- !u!114 &5717758308567396829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269883360845180404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61e0a23d1b82674f83538984e4b10b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3269883360871387010
 GameObject:
   m_ObjectHideFlags: 0
