@@ -960,7 +960,7 @@ Animator:
   m_GameObject: {fileID: 3269883360845180404}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 78ebf96c65a477b418e668adcd69a5d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 738c029d5de7cbf4b9d85b23c3eb799d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1033,6 +1033,7 @@ MonoBehaviour:
   dropItemId: 00000000112700001227000013270000f92a0000
   dropIChance: 460000000c000000090000000600000003000000
   cangiveItem: 1
+  pattening: 0
 --- !u!1 &3269883360871387010
 GameObject:
   m_ObjectHideFlags: 0
