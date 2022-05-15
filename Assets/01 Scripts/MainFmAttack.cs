@@ -127,9 +127,14 @@ public class MainFmAttack : MonoBehaviour
             isAttacking = false;
         }
     }
-    public void SetGameLiving() // 부활 시 공격하도록.
+    public void SetGameOver(bool _isGameOver) // 부활 시 공격하도록.
     {
-        isGameOver = false;
+        isGameOver = _isGameOver;
+
+        if (_isGameOver)
+        {
+            enemys.Clear();
+        }
     }
 
     IEnumerator OnAttack()

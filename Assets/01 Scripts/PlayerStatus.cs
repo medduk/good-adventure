@@ -315,7 +315,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 PlayerPrefs.SetInt("coin", inventory.instance.playerCoin/10);
                 isGameOver = true;
-                GameManager.Instance.SetGameOver();
+                GameManager.Instance.SetGameOver(true);
                 SoundManager.Instance.GameOverSound.Play();
                 gameObject.GetComponent<moving>().SetGameOver(true);
                 gameObject.GetComponent<MainFmAttack>().SetGameOver();
@@ -328,9 +328,9 @@ public class PlayerStatus : MonoBehaviour
     public void RevivalPlayer() // 게임 클리어 및 캐릭터가 죽어 재시작시 캐릭터 초기상태로 초기화용
     {
         isGameOver = false;
-        gameObject.GetComponent<moving>().SetGameOver(true);
-        gameObject.GetComponent<MainFmAttack>().SetGameLiving();
-        GameManager.Instance.SetGameLiving();
+        gameObject.GetComponent<moving>().SetGameOver(false);
+        gameObject.GetComponent<MainFmAttack>().SetGameOver(false);
+        GameManager.Instance.SetGameOver(false);
         Resetplay();
         playerCurHp = playerMaxHp;
         HPText();

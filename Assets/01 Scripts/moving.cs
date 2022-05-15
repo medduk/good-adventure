@@ -110,9 +110,9 @@ public class moving : MonoBehaviour
             rigibody2D.MovePosition(rigibody2D.position + inputPosition * PlayerStatus.Instance.PlayerMoveSpeed * Time.fixedDeltaTime);
         }
     }
-    public void SetGameOver(bool _state)    // 게임 오버 시 ture, 부활 같은 계속 진행 시 false
+    public void SetGameOver(bool _isGameOver)    // 게임 오버 시 ture, 부활 같은 계속 진행 시 false
     {
-        isGameOver = _state;
+        isGameOver = _isGameOver;
     }
 
     IEnumerator OnWalkingParticle()

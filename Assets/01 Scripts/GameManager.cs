@@ -208,18 +208,21 @@ public class GameManager : MonoBehaviour
         gameOverImage.SetActive(false);
     }
 
-    public void SetGameOver()
+    public void SetGameOver(bool _isGameOver)
     {
-        ContinueDataManager.SetContinueGame(false);
+        if (_isGameOver)
+        {  // if game is over.
+            ContinueDataManager.SetContinueGame(false);
 
-        gameOverImage.SetActive(true);
-        SetUiEnable(false);
+            gameOverImage.SetActive(true);
+            SetUiEnable(false);
+        }
+        else // revival or restart
+        {
+            SetUiEnable(true);
+        }
     }
     
-    public void SetGameLiving()
-    {
-        SetUiEnable(true);
-    }
 
     public void ExitGame()
     {
