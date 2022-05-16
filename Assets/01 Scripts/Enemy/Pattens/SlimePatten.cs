@@ -8,7 +8,6 @@ public class SlimePatten : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
     private GameObject player;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

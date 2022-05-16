@@ -11,7 +11,6 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] Slider playerEXPSlider;
     [SerializeField] Text HPshow;
     [SerializeField] Text LVshow;
-    [SerializeField] GameObject nowtalk;
 
     [SerializeField] int playerMaxHp = 100; //최대체력
     [SerializeField] int playerCurHp;       //현재체력
@@ -53,8 +52,6 @@ public class PlayerStatus : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
 
     private bool isGameOver = false;
-
-    public DialogManager dialogManager;
 
     public int PlayerMaxHp
     {
@@ -347,39 +344,7 @@ public class PlayerStatus : MonoBehaviour
         stopDamage = false;
         rigidbody2D.mass = rigidbody2D.mass * 0.1f;
     }
-    private void OnTriggerEnter2D(Collider2D collision)  // 각종 NPC 및 사물 상호작용, 본 게임에서는 원터치 진행을 선택하여 사용자의 편의성을 위해 접촉으로 모든 상호작용을 시도하게 하였음
-    {
-        if(collision.transform.name == "GameStartPortal")
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
 
-        if (collision.transform.tag == "Portal")
-        {
-            StageManager.Instance.MoveNextStage();
-        }
-
-        if (collision.transform.tag == "ReinForce")
-        {
-            Destroy(collision.gameObject);
-            GameManager.Instance.OpenReinForce();
-        }
-        if(collision.gameObject.layer == LayerMask.NameToLayer("NPC"))
-        {
-            if(collision.transform.tag == "Rune")
-            {
-                StartCoroutine(RuneNPCmeet(collision.gameObject));
-            }
-            if (collision.transform.tag == "BlackSmith")
-            {
-                StartCoroutine(BlackSmithNPCmeet(collision.gameObject));
-            }
-            if (collision.transform.tag == "SHOP")
-            {
-                StartCoroutine(SHOPNPCmeet(collision.gameObject));
-            }
-        }
-    }
 
     public void GetRune(int runeIndex)
     {
@@ -465,8 +430,6 @@ public class PlayerStatus : MonoBehaviour
         playerCurExp = save.playerCurExp;
         playerLevel = save.playerLevel;
 
-
-
         transform.position = new Vector3(save.x, save.y, save.z);
 
         LVshow.text = "LV. " + playerLevel;
@@ -485,7 +448,6 @@ public class PlayerStatus : MonoBehaviour
         playerSkills[0] = Levelablilty[8];
         playerSkills[1] = Levelablilty[9];
         playerSkills[2] = Levelablilty[10];
-
 
         for (int i = 0; i < save.equip.Count; i++)
         {
@@ -535,46 +497,25 @@ public class PlayerStatus : MonoBehaviour
         playerCurExp = 0;
     }
 
-    IEnumerator RuneNPCmeet(GameObject NPC)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        dialogManager.Action(NPC);
-        GameManager.Instance.Who = NPC;
-        Vector3 P = NPC.transform.position;
-        P.y = P.y + 1.5f;
-        gameObject.transform.position = P;
-        while (nowtalk.activeSelf)
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            yield return null;
+            SetPlayerMoveSpeedPer(-0.3f);
         }
-        GameManager.Instance.OpenRune();
-
     }
-    IEnumerator BlackSmithNPCmeet(GameObject NPC)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        dialogManager.Action(NPC);
-        GameManager.Instance.Who = NPC;
-        Vector3 P = NPC.transform.position;
-        P.x = P.x - 1.5f;
-        gameObject.transform.position = P;
-        while (nowtalk.activeSelf)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            yield return null;
+            SetPlayerMoveSpeedPer(0.3f);
         }
-        GameManager.Instance.OpenReinForce();
-
     }
-    IEnumerator SHOPNPCmeet(GameObject NPC)
+
+    public void SetPlayerMoveSpeedPer(float _playerMoveSpeedPer)
     {
-        dialogManager.Action(NPC);
-        GameManager.Instance.Who = NPC;
-        Vector3 P = NPC.transform.position;
-        P.x = P.x + 1.5f;
-        gameObject.transform.position = P;
-        while (nowtalk.activeSelf)
-        {
-            yield return null;
-        }
-        GameManager.Instance.OpenSHOP();
-
+        playerMoveSpeedPer = playerMoveSpeedPer + _playerMoveSpeedPer;
     }
+
 }
