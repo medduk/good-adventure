@@ -206,15 +206,25 @@ public class StageManager : MonoBehaviour
 
         if(chapterIndex == 0)
         {
-            SoundManager.Instance.nowPlaying = SoundManager.Instance.tutorialBgm;
+            SoundManager.Instance.nowPlaying = SoundManager.Instance.lobbyBgm;
         }
         else if (stageName.Contains("boss"))
         {
-            SoundManager.Instance.nowPlaying = SoundManager.Instance.boss1Bgm;
+            if (chapterIndex == 1)
+            {
+                SoundManager.Instance.nowPlaying = SoundManager.Instance.bossBgm[0];
+            }
         }
-        else if(stageName.Contains("stage") && chapterIndex == 1)
+        else if(stageName.Contains("stage") )
         {
-            SoundManager.Instance.nowPlaying = SoundManager.Instance.gameBgm;
+            if (chapterIndex == 1)
+            {
+                SoundManager.Instance.nowPlaying = SoundManager.Instance.gameBgm;
+            }
+            else if(chapterIndex == 2)
+            {
+
+            }
         }
         
 

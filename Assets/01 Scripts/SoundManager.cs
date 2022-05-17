@@ -24,9 +24,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource menuBgm;
     public AudioSource tutorialBgm;
     public AudioSource gameBgm;
+    public AudioSource lobbyBgm;
 
     /*bossBGM은 나중에 clip을 배열로 만들어서 확장 가능*/
-    public AudioSource boss1Bgm;
+    [Header("BossMap BGM")]
+    public AudioSource[] bossBgm;
 
     [Header("Menu & UI Effect Sound List")]
     public AudioSource buttonsSound;
