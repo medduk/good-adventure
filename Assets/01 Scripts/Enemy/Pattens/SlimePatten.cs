@@ -6,11 +6,9 @@ public class SlimePatten : MonoBehaviour
 {
     Enemy slime;
     private new Rigidbody2D rigidbody2D;
-    private GameObject player;
-
+    public GameObject Line;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         slime = gameObject.GetComponent<Enemy>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         StartCoroutine(RunPatten());
@@ -19,18 +17,29 @@ public class SlimePatten : MonoBehaviour
 
     IEnumerator RunPatten()
     {
-        while (!slime.PlayerCheck)
+        while (true)
         {
-            yield return null;
-        }
-        Vector3 T = player.transform.position;
-        slime.pattening = true;
-        slime.animator.SetTrigger("IsPatten");
-        yield return new WaitForSeconds(1.25f);
-        rigidbody2D.velocity = T * slime.EnemyMoveSpeed * 30f * Time.fixedDeltaTime;
-        yield return new WaitForSeconds(0.75f);
-        slime.animator.SetTrigger("IsPattenEnd");
-        slime.pattening = false;
+            while (!slime.PlayerCheck)
+            {
+                yield return null;
+            }
+            slime.pattening = true;
+            rigidbody2D.velocity = Vector2.zero;
+            Vector2 T = slime.Player.transform.position - transform.position;
+            Debug.Log(T);
+            GameObject L = Instantiate(Line, this.transform.position, Quaternion.identity);
+            L.GetComponent<PattenLine>().destroytime = 1.0f;
+            L.GetComponent<PattenLine>().startshow(T);
 
+            slime.animator.SetTrigger("IsPatten");
+            yield return new WaitForSeconds(1.25f);
+            rigidbody2D.velocity = T.normalized * slime.EnemyMoveSpeed * 50f * Time.fixedDeltaTime;
+            yield return new WaitForSeconds(0.75f);
+            slime.animator.SetTrigger("IsPattenEnd");
+            slime.pattening = false;
+
+            yield return new WaitForSeconds(10f);
+
+        }
     }
 }

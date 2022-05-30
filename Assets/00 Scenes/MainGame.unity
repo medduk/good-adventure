@@ -19562,7 +19562,8 @@ MonoBehaviour:
   menuBgm: {fileID: 1004096052}
   tutorialBgm: {fileID: 1551227122}
   gameBgm: {fileID: 2136518008}
-  boss1Bgm: {fileID: 1891684166}
+  lobbyBgm: {fileID: 0}
+  bossBgm: []
   buttonsSound: {fileID: 1330229740}
   LevelUpSound: {fileID: 460980279}
   chooseAbilitySound: {fileID: 579434603}

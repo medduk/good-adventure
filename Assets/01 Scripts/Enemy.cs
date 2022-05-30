@@ -48,6 +48,13 @@ public class Enemy : MonoBehaviour, IEnemy
     private GameObject player;
     private Vector3 playerDir;
 
+    public GameObject Player
+    {
+        get
+        {
+            return player;
+        }
+    }
     public string IDName
     {
         get
@@ -290,10 +297,13 @@ public class Enemy : MonoBehaviour, IEnemy
 
     IEnumerator StopMove() // 데미지 받고 경직효과
     {
-        stopMove = true;
-        rigidbody2D.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.5f);
-        stopMove = false;
+        if (!pattening)
+        {
+            stopMove = true;
+            rigidbody2D.velocity = Vector2.zero;
+            yield return new WaitForSeconds(0.5f);
+            stopMove = false;
+        }
     }
 
     IEnumerator BackHpRun()
